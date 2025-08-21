@@ -9,6 +9,15 @@ class Cue:
     lines: List[str]
 
 def to_timestamp(sec: float) -> str:
+    """
+    Convert seconds to SRT timestamp format (HH:MM:SS,mmm).
+    
+    Args:
+        sec: Time in seconds (float)
+        
+    Returns:
+        SRT-formatted timestamp string
+    """
     h = int(sec // 3600)
     m = int((sec % 3600) // 60)
     s = int(sec % 60)
@@ -16,6 +25,20 @@ def to_timestamp(sec: float) -> str:
     return f"{h:02d}:{m:02d}:{s:02d},{ms:03d}"
 
 def distribute_by_audio_length(n_items: int, audio_length_sec: float, min_sec: float = 1.5) -> List[Tuple[float, float]]:
+    """
+    Distribute subtitle timing evenly across audio duration.
+    
+    Each subtitle gets equal time allocation, with minimum display duration.
+    Ensures subtitles don't exceed audio length.
+    
+    Args:
+        n_items: Number of subtitle segments
+        audio_length_sec: Total audio duration in seconds
+        min_sec: Minimum display time per subtitle (default: 1.5s)
+        
+    Returns:
+        List of (start_time, end_time) tuples for each subtitle
+    """
     dur = max(audio_length_sec / max(n_items,1), min_sec)
     times, t = [], 0.0
     for _ in range(n_items):
@@ -25,6 +48,21 @@ def distribute_by_audio_length(n_items: int, audio_length_sec: float, min_sec: f
     return times
 
 def build_srt(cues: List[Cue]) -> str:
+    """
+    Build SRT subtitle file content from cue objects.
+    
+    Format:
+    1
+    00:00:00,000 --> 00:00:02,500
+    Subtitle line 1
+    Subtitle line 2
+    
+    Args:
+        cues: List of Cue objects with timing and text
+        
+    Returns:
+        Complete SRT file content as string
+    """
     out = []
     for c in cues:
         out.append(str(c.idx))
