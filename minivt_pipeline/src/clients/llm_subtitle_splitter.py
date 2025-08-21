@@ -20,13 +20,13 @@ class LLMSubtitleSplitter:
     
     def normalize_text_style(self, text: str) -> str:
         """
-        Normalize Japanese text style for subtitles.
+        Normalize Japanese text style for subtitles with punctuation conversion.
         
         Args:
             text: Input Japanese text
             
         Returns:
-            Style-normalized text
+            Style-normalized text with punctuation converted to half-width spaces
         """
         # Apply style normalization rules from reference
         normalized = text
@@ -43,6 +43,14 @@ class LLMSubtitleSplitter:
         # Question/exclamation mark normalization
         normalized = re.sub(r'\?{2,}', '？？', normalized)
         normalized = re.sub(r'!{2,}', '！！', normalized)
+        
+        # IMPORTANT: Convert punctuation to half-width spaces for readability
+        # 、→ space, 。→ space (as requested)
+        normalized = normalized.replace('、', ' ')
+        normalized = normalized.replace('。', ' ')
+        
+        # Clean up multiple spaces
+        normalized = re.sub(r'\s+', ' ', normalized.strip())
         
         return normalized
     
@@ -98,34 +106,61 @@ class LLMSubtitleSplitter:
     
     def _fallback_semantic_split(self, text: str, max_chars_per_line: int) -> List[List[str]]:
         """
-        Fallback semantic splitting when LLM is unavailable.
-        Focuses on sentence boundaries and natural Japanese breaks.
+        Fallback semantic splitting with telop-aware rules.
+        Focuses on meaning preservation and natural reading flow.
         """
-        # Split by sentence endings first
+        # Enhanced sentence splitting with context awareness
         sentences = []
         current_sentence = ""
         
-        for char in text:
-            current_sentence += char
-            # Japanese sentence endings
-            if char in ['。', '！', '？'] or (char == '」' and len(current_sentence) > 3):
+        # Split by natural sentence boundaries (space-separated after normalization)
+        words = text.split(' ')
+        for i, word in enumerate(words):
+            current_sentence += word + " "
+            
+            # Detect sentence endings or natural breaks
+            is_sentence_end = any(word.endswith(ending) for ending in ['です', 'ます', 'である', 'だった', 'でした'])
+            is_question_end = word.endswith(('？', 'でしょう？'))
+            is_natural_break = word.endswith(('から', 'けれど', 'ので'))
+            
+            # Force break at certain key transitions
+            next_word = words[i+1] if i+1 < len(words) else ""
+            is_major_transition = next_word.startswith(('一方', 'しかし', 'そして', 'また', 'でも'))
+            
+            if is_sentence_end or is_question_end or (is_natural_break and is_major_transition):
                 sentences.append(current_sentence.strip())
                 current_sentence = ""
         
-        # Add remaining text as sentence
+        # Add remaining text
         if current_sentence.strip():
             sentences.append(current_sentence.strip())
         
-        # Group sentences into cards
+        # Group sentences into cards with special patterns
         cards = []
         current_card_text = ""
         
-        for sentence in sentences:
-            # Test if adding this sentence would exceed card capacity
-            test_text = current_card_text + sentence if current_card_text else sentence
+        for i, sentence in enumerate(sentences):
+            # Special pattern: Number + explanation should be in same card
+            # e.g., "40年" + "それが彼らの放浪の時間でした"
+            if re.search(r'\d+年', sentence) and i + 1 < len(sentences):
+                next_sentence = sentences[i + 1]
+                if 'それが' in next_sentence or 'これが' in next_sentence:
+                    # Combine number with explanation
+                    combined = sentence + " " + next_sentence
+                    if len(combined) <= max_chars_per_line * 2:
+                        cards.append(self._split_card_into_lines(combined, max_chars_per_line))
+                        sentences[i + 1] = ""  # Mark as processed
+                        continue
             
-            if len(test_text) <= max_chars_per_line * 2:  # 2 lines per card
-                current_card_text = test_text
+            # Skip already processed sentences
+            if not sentence:
+                continue
+            
+            # Test if adding this sentence would exceed card capacity
+            test_text = current_card_text + " " + sentence if current_card_text else sentence
+            
+            if len(test_text.strip()) <= max_chars_per_line * 2:  # 2 lines per card
+                current_card_text = test_text.strip()
             else:
                 # Save current card and start new one
                 if current_card_text:
@@ -140,31 +175,88 @@ class LLMSubtitleSplitter:
     
     def _split_card_into_lines(self, card_text: str, max_chars_per_line: int) -> List[str]:
         """
-        Split a single card's text into 1-2 lines based on natural breaks.
+        Split a single card's text into 1-2 lines based on natural breaks and telop rules.
+        
+        Key telop line break rules:
+        1. Conjunctions (一方、しかし、そして) should start new lines for contrast/flow
+        2. Numbers with explanations should be combined (40年 それが...)
+        3. Meaning-based grouping over mechanical splitting
+        4. Natural reading rhythm preservation
         """
         if len(card_text) <= max_chars_per_line:
             return [card_text]
         
-        # Find natural break points
+        # Find natural break points with telop-aware scoring
         best_split = -1
+        best_score = -1
         
-        # Look for punctuation-based breaks
-        for i in range(max_chars_per_line, max(5, max_chars_per_line - 10), -1):
-            if i < len(card_text):
-                char = card_text[i]
-                if char in [' ', '、', '。', '！', '？', '」', '』']:
-                    # Check if second line would fit
-                    line2 = card_text[i+1:].strip()
-                    if len(line2) <= max_chars_per_line:
-                        best_split = i
-                        break
+        # Conjunctions that should start new lines (natural narrative flow)
+        conjunctions = ['一方', 'しかし', 'そして', 'また', 'さらに', 'ただし', 'なぜなら', 'つまり', 'では']
         
+        # Numbers that should stay with explanations
+        number_patterns = [r'\d+年', r'\d+回', r'\d+人', r'\d+個', r'\d+つ']
+        
+        for i in range(max(5, max_chars_per_line - 10), min(len(card_text) - 1, max_chars_per_line + 5)):
+            if i < len(card_text) and card_text[i] == ' ':
+                before = card_text[:i].strip()
+                after = card_text[i+1:].strip()
+                
+                # Skip if either part is empty or second line too long
+                if not before or not after or len(after) > max_chars_per_line:
+                    continue
+                
+                score = 0
+                
+                # HIGH PRIORITY: Conjunctions should start new lines
+                if any(after.startswith(conj) for conj in conjunctions):
+                    score += 100  # Very high priority for natural narrative flow
+                
+                # HIGH PRIORITY: Keep numbers with their explanations
+                has_number_explanation = False
+                for pattern in number_patterns:
+                    if re.search(pattern, before) and not re.search(pattern, after):
+                        # Number in first line, explanation in second - good
+                        score += 80
+                        has_number_explanation = True
+                    elif re.search(pattern, after) and '年' in after and 'それが' in after:
+                        # "40年 それが..." pattern - keep together
+                        score += 90
+                        has_number_explanation = True
+                
+                # MEDIUM PRIORITY: Meaning-based natural breaks
+                if before.endswith(('です', 'である', 'ます', 'だった', 'でした')):
+                    score += 50  # Complete thoughts
+                
+                # MEDIUM PRIORITY: Balanced line lengths
+                length_balance = abs(len(before) - len(after))
+                if length_balance < 5:
+                    score += 40
+                elif length_balance < 10:
+                    score += 20
+                
+                # LOW PRIORITY: Avoid awkward breaks
+                if before.endswith(('の', 'が', 'を', 'に', 'で', 'と')):
+                    score -= 30  # Particles should stay with following words
+                
+                if score > best_score:
+                    best_score = score
+                    best_split = i
+        
+        # Apply best split if found
         if best_split > 0:
-            line1 = card_text[:best_split+1].strip()
+            line1 = card_text[:best_split].strip()
             line2 = card_text[best_split+1:].strip()
             return [line1, line2] if line2 else [line1]
         
-        # Hard split as last resort
+        # Fallback: find any reasonable split point
+        for i in range(max_chars_per_line, max(5, max_chars_per_line - 10), -1):
+            if i < len(card_text) and card_text[i] == ' ':
+                line2 = card_text[i+1:].strip()
+                if len(line2) <= max_chars_per_line:
+                    line1 = card_text[:i].strip()
+                    return [line1, line2]
+        
+        # Hard split as absolute last resort
         line1 = card_text[:max_chars_per_line]
         line2 = card_text[max_chars_per_line:]
         return [line1, line2] if line2 else [line1]
