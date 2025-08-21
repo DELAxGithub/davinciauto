@@ -7,6 +7,7 @@ class Cue:
     start: float
     end: float
     lines: List[str]
+    role: str = ""  # Role identifier (NA, DL) for DaVinci Resolve styling
 
 def to_timestamp(sec: float) -> str:
     """
@@ -49,24 +50,30 @@ def distribute_by_audio_length(n_items: int, audio_length_sec: float, min_sec: f
 
 def build_srt(cues: List[Cue]) -> str:
     """
-    Build SRT subtitle file content from cue objects.
+    Build SRT subtitle file content from cue objects with role identification.
     
     Format:
     1
     00:00:00,000 --> 00:00:02,500
+    # ROLE:NA
     Subtitle line 1
     Subtitle line 2
     
     Args:
-        cues: List of Cue objects with timing and text
+        cues: List of Cue objects with timing, text, and role information
         
     Returns:
-        Complete SRT file content as string
+        Complete SRT file content as string with role metadata
     """
     out = []
     for c in cues:
         out.append(str(c.idx))
         out.append(f"{to_timestamp(c.start)} --> {to_timestamp(c.end)}")
+        
+        # Add role identification comment for DaVinci Resolve styling
+        if c.role:
+            out.append(f"# ROLE:{c.role}")
+        
         out.append("\n".join(c.lines))
         out.append("")
     return "\n".join(out)

@@ -1,6 +1,6 @@
 import argparse, json, os, pathlib, re
 from dotenv import load_dotenv
-from utils.wrap import split_two_lines
+from utils.wrap import split_two_lines, split_text_to_multiple_subtitles
 from utils.srt import Cue, distribute_by_audio_length, build_srt
 from pydub import AudioSegment
 from clients.tts_elevenlabs import tts_elevenlabs_per_line, TTSError
@@ -79,18 +79,29 @@ def main(args):
         AudioSegment.silent(duration=int(max(2.5*len(items),3.0)*1000), frame_rate=44100).export(audio_path, format="mp3")
         piece_files = []
 
-    # 2) 字幕（各行テキストを2行化）
-    subs = [{"text_2line": split_two_lines(it["text"])} for it in items]
+    # 2) 字幕（各行テキストを複数テロップに分割）
+    all_subtitle_cards = []
+    all_roles = []
+    
+    for item in items:
+        # 複数テロップに分割
+        cards = split_text_to_multiple_subtitles(item["text"])
+        
+        # 各カードに役割を紐付け
+        for card in cards:
+            all_subtitle_cards.append({"text_2line": card})
+            all_roles.append(item["role"])
 
     # 3) タイムコード（音声尺から均等割り）→SRT
     audio_len = AudioSegment.from_file(audio_path).duration_seconds
-    times = distribute_by_audio_length(len(subs), audio_len, 1.8)
-    cues=[Cue(idx=i,start=tt[0],end=tt[1],lines=sub["text_2line"]) for i,(sub,tt) in enumerate(zip(subs,times),1)]
+    times = distribute_by_audio_length(len(all_subtitle_cards), audio_len, 1.8)
+    cues=[Cue(idx=i,start=tt[0],end=tt[1],lines=sub["text_2line"],role=all_roles[i-1]) 
+          for i,(sub,tt) in enumerate(zip(all_subtitle_cards,times),1)]
     srt=build_srt(cues)
     _write("output/subtitles/script.srt", srt)
 
     # aeneas用プレーン
-    plain_lines = ["".join(x["text_2line"]) for x in subs]
+    plain_lines = ["".join(x["text_2line"]) for x in all_subtitle_cards]
     _write("output/subtitles_plain.txt", "\n".join(plain_lines))
 
     # JSON（検証用に簡易構造を保存）
@@ -98,7 +109,9 @@ def main(args):
         "items": items,
         "audio_path": audio_path,
         "pieces": piece_files,
-        "subtitles": subs
+        "subtitles": all_subtitle_cards,
+        "subtitle_count": len(all_subtitle_cards),
+        "original_item_count": len(items)
     }
     pathlib.Path("output/storyboard").mkdir(parents=True, exist_ok=True)
     with open("output/storyboard/pack.json","w",encoding="utf-8") as f:
