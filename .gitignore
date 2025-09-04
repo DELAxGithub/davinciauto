@@ -1,7 +1,38 @@
+# Environment and secrets
 .env
+*.env.local
+
+# Python
 *.pyc
 __pycache__/
-output/
-.DS_Store
 .venv/
+*.egg-info/
+
+# Generated outputs
+output/
+*.edl
+*.csv.bak
+
+# System files
+.DS_Store
 .claude/
+Thumbs.db
+
+# Test and debug files
+test_*.py
+debug_*.py
+*_test.py
+*_debug.py
+reproduce_*.py
+corrected_*.py
+complete_*.py
+working_*.py
+final_*.py
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# Archive (kept in git but ignored for new additions)
+# archive/
