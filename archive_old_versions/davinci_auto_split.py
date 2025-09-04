@@ -25,20 +25,24 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).parent / "davinci_autocut" / "lib"))
 from resolve_utils import validate_timecode_format
 
-# EDLジェネレーター
+# EDLジェネレーター（拡張版）
 from generate_edl import EDLGenerator
+from edl_validator import EDLValidator, ValidationLevel
 
 
 class DaVinciAutoSplit:
-    """DaVinci Resolve自動分割統合システム"""
+    """DaVinci Resolve自動分割統合システム（拡張版）"""
     
-    def __init__(self, frame_rate=25):
+    def __init__(self, frame_rate=25, enable_validation=True):
         """
         Args:
             frame_rate (int): プロジェクトフレームレート
+            enable_validation (bool): 検証機能有効化
         """
         self.frame_rate = frame_rate
-        self.edl_generator = EDLGenerator(frame_rate)
+        self.enable_validation = enable_validation
+        self.edl_generator = EDLGenerator(frame_rate, enable_validation)
+        self.validator = EDLValidator(default_fps=frame_rate) if enable_validation else None
         
     def analyze_csv(self, csv_path):
         """CSVファイルの分析と検証
@@ -147,18 +151,20 @@ class DaVinciAutoSplit:
             edl_content = self.edl_generator.generate_edl(edit_points, title=title)
             self.edl_generator.save_edl(edl_content, output_path)
             
-            # 結果
+            # 結果（検証情報含む）
             result = {
                 'success': True,
                 'mode': 'edl',
                 'output_file': output_path,
                 'edit_points': len(edit_points),
                 'analysis': analysis,
+                'validation_summary': analysis.get('validation_summary'),  # 検証結果を含める
                 'next_steps': [
                     "1. DaVinci Resolveを開く",
                     "2. Media Pool → 右クリック → Import Media", 
                     "3. 生成されたEDLファイルを選択",
-                    "4. 新しいタイムラインが編集点付きで作成されます"
+                    "4. 新しいタイムラインが編集点付きで作成されます",
+                    "5. Reel名とクリップ名が正しく設定されていることを確認"
                 ]
             }
             
@@ -282,6 +288,10 @@ def main():
                        help='EDLタイトル')
     parser.add_argument('--force-fallback', action='store_true',
                        help='強制的にフォールバックモードを使用')
+    parser.add_argument('--no-validation', action='store_true',
+                       help='データ検証を無効化（高速処理）')
+    parser.add_argument('--validation-report',
+                       help='検証レポート出力先（JSONファイル）')
     
     args = parser.parse_args()
     
@@ -300,8 +310,13 @@ def main():
         print(f"❌ CSVファイルが見つかりません: {args.csv_file}")
         sys.exit(1)
         
-    # 自動分割システム初期化
-    auto_split = DaVinciAutoSplit(frame_rate=args.fps)
+    # 自動分割システム初期化（検証機能付き）
+    auto_split = DaVinciAutoSplit(frame_rate=args.fps, enable_validation=not args.no_validation)
+    
+    if not args.no_validation:
+        print("🔍 業務レベル検証モード: 有効")
+    else:
+        print("⚡ 簡易モード: 検証無効")
     
     try:
         if args.mode == 'edl' and not args.force_fallback:
@@ -311,6 +326,13 @@ def main():
                 output_path=args.output,
                 title=args.title
             )
+            
+            # 検証レポート保存（必要に応じて）
+            if args.validation_report and result.get('validation_summary'):
+                import json
+                with open(args.validation_report, 'w', encoding='utf-8') as f:
+                    json.dump(result['validation_summary'], f, ensure_ascii=False, indent=2)
+                print(f"📊 検証レポート保存: {args.validation_report}")
             
             if not result['success'] and result.get('fallback_available'):
                 print()
@@ -344,6 +366,15 @@ def main():
         sys.exit(0)
     except Exception as e:
         print(f"\n❌ システムエラー: {e}")
+        
+        # 検証エラーの場合は詳細レポート表示
+        try:
+            if auto_split and auto_split.validator and auto_split.validator.issues:
+                print("\n📋 検証エラー詳細:")
+                print(auto_split.validator.generate_validation_report())
+        except NameError:
+            pass  # auto_splitが定義されていない場合
+            
         sys.exit(1)
 
 

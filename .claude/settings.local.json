@@ -6,7 +6,14 @@
       "Bash(git remote add:*)",
       "Bash(git push:*)",
       "Bash(git branch:*)",
-      "Bash(rm:*)"
+      "Bash(rm:*)",
+      "Bash(python:*)",
+      "Bash(pip install:*)",
+      "Bash(gh issue create:*)",
+      "WebSearch",
+      "mcp__ide__executeCode",
+      "Bash(git commit:*)",
+      "Read(/Library/Application Support/Blackmagic Design/DaVinci Resolve/Fusion/Scripts/Edit/**)"
     ],
     "deny": [],
     "ask": []

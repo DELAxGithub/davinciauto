@@ -1,0 +1,5 @@
+In,Out,Name,Reel,proj_fps,tc_format,marker_name,marker_color,uid
+01:01:10:00,01:01:05:15,重複エラー,TIMELINE_001,25,NDF,ERROR_01,Red,err_001
+01:01:30:10,01:01:25:20,時間逆転,TIMELINE_001,25,NDF,ERROR_02,Blue,err_002
+25:99:99:99,26:99:99:99,無効タイムコード,TIMELINE_001,25,NDF,ERROR_03,Green,err_003
+01:05:00:00,01:06:00:00,正常データ,TIMELINE_001,25,NDF,NORMAL_01,Yellow,normal_001
