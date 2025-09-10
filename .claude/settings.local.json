@@ -13,7 +13,8 @@
       "WebSearch",
       "mcp__ide__executeCode",
       "Bash(git commit:*)",
-      "Read(/Library/Application Support/Blackmagic Design/DaVinci Resolve/Fusion/Scripts/Edit/**)"
+      "Read(/Library/Application Support/Blackmagic Design/DaVinci Resolve/Fusion/Scripts/Edit/**)",
+      "Bash(git fetch:*)"
     ],
     "deny": [],
     "ask": []

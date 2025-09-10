@@ -48,6 +48,11 @@ def main(args):
         args: Command line arguments with script path, rate, and flags
     """
     load_dotenv()
+    
+    # Enable debug logging if requested
+    if args.debug_llm:
+        from utils.debug_logger import enable_debug_logging
+        enable_debug_logging(verbose=args.verbose_debug)
     script_text = open(args.script, "r", encoding="utf-8").read()
     items = parse_script(script_text)
     if not items:
@@ -143,6 +148,8 @@ if __name__=="__main__":
                     help="音声品質プリセット")
     ap.add_argument("--list-presets", action="store_true", help="利用可能なプリセット一覧を表示")
     ap.add_argument("--disable-voice-parsing", action="store_true", help="音声指示解析を無効化")
+    ap.add_argument("--debug-llm", action="store_true", help="LLM整形プロセスのデバッグ情報を表示")
+    ap.add_argument("--verbose-debug", action="store_true", help="詳細なデバッグ出力（--debug-llmと併用）")
     args=ap.parse_args()
     
     # プリセット一覧表示
@@ -157,4 +164,12 @@ if __name__=="__main__":
     if not args.script:
         ap.error("--script is required unless using --list-presets")
     
-    main(args)
+    try:
+        main(args)
+    finally:
+        # Print debug summary if debug logging was enabled
+        if args.debug_llm:
+            from utils.debug_logger import get_debug_logger
+            logger = get_debug_logger()
+            if logger.enabled:
+                logger.print_session_summary()

@@ -36,3 +36,22 @@ final_*.py
 
 # Archive (kept in git but ignored for new additions)
 # archive/
+# Output files (generated content)
+minivt_pipeline/output/
+*.mp3
+*.wav
+
+# Environment files  
+.env
+.env.save
+.env.local
+
+# Test data
+minivt_pipeline/data/voice_test_*
+minivt_pipeline/data/*テスト*
+
+# Temporary files
+*.tmp
+*.temp
+__pycache__/
+*.pyc

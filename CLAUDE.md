@@ -2,6 +2,10 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Active Specifications
+- **davinci-fusion-script-integration**: DaVinci Resolve Fusionスクリプト統合 - SRT自動インポート、レンダリング設定、Export Queue追加機能
+- Use `/kiro:spec-status [feature-name]` to check progress
+
 ## Project Overview
 
 This is a Mini VTR (Video) Automation Pipeline for creating 8-minute educational videos. The system automates the workflow from script input to DaVinci Resolve import, handling TTS generation, subtitle creation, and timeline integration.

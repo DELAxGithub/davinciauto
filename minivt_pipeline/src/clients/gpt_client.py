@@ -23,32 +23,37 @@ class GPTClient:
         if not self.api_key:
             return None
             
-        prompt = f"""以下の日本語テキストを{max_len}文字以内の最大2行に自然に分割してください。
-
-分割ルール:
-1. 各行は{max_len}文字以内
-2. 「」内は分割しない（引用符の途中で改行しない）
-3. 意味のある単語境界で分割
-4. 自然で読みやすい分割
-5. 句読点は半角スペースに変換済みです
+        prompt = f"""あなたは日本語字幕の専門家です。以下のテキストを自然で読みやすい字幕に分割してください。
 
 テキスト: {text}
 
-回答は以下のJSON形式で返してください:
-{{"lines": ["1行目のテキスト", "2行目のテキスト"]}}
+分割要件:
+• 各行: 最大{max_len}文字
+• 最大2行まで
+• 意味のまとまりを重視
+• 「」内や数値+単位は分割禁止
+• 自然な読みリズムを保持
+• 文脈を失わない分割
 
-1行に収まる場合は:
-{{"lines": ["1行目のテキストのみ"]}}"""
+出力形式（JSON）:
+{{"lines": ["1行目", "2行目"]}}
+
+単一行の場合:
+{{"lines": ["単一行"]}}
+
+例:
+- 入力: "人工知能の発展により私たちの生活は大きく変化しています"
+- 出力: {{"lines": ["人工知能の発展により", "私たちの生活は大きく変化しています"]}}"""
 
         try:
             response = openai.chat.completions.create(
                 model=self.model,
                 messages=[
-                    {"role": "system", "content": "あなたは日本語テロップの専門家です。自然で読みやすい分割を心がけてください。"},
+                    {"role": "system", "content": "日本語字幕の専門家として、読みやすさと意味の保持を両立した自然な分割を行ってください。"},
                     {"role": "user", "content": prompt}
                 ],
-                max_tokens=200,
-                temperature=0.3
+                max_tokens=300,
+                temperature=0.2
             )
             
             content = response.choices[0].message.content.strip()
@@ -60,6 +65,9 @@ class GPTClient:
                 if all(len(line) <= max_len for line in lines) and len(lines) <= 2:
                     return lines
                     
+        except json.JSONDecodeError as e:
+            print(f"[WARN] LLM response JSON parsing failed: {e}")
+            print(f"[DEBUG] Raw response: {content if 'content' in locals() else 'No response'}")
         except Exception as e:
             print(f"[WARN] LLM text splitting failed: {e}")
             
@@ -79,39 +87,39 @@ class GPTClient:
         if not self.api_key:
             return None
             
-        prompt = f"""以下の日本語テキストを、テロップ用に分割してください。
-
-分割ルール:
-1. 1枚のテロップ = 最大2行、各行{max_len}文字以内
-2. 長い文章は複数枚に自然に分割
-3. 「」内は分割しない（引用符の途中で改行しない）
-4. 意味のある区切りで分割
-5. 情報を省略しない（「…」禁止）
-6. 句読点は半角スペースに変換済みです
+        prompt = f"""日本語字幕の専門家として、長いテキストを複数の字幕カードに分割してください。
 
 テキスト: {text}
 
-回答は以下のJSON形式で返してください:
+分割要件:
+• 1カード = 最大2行、各行{max_len}文字以内
+• 意味の完結性を重視（文脈を保持）
+• 情報の省略・要約禁止（全内容を保持）
+• 「」内、数値+単位、固有名詞は分割禁止
+• 自然な読みリズムと理解しやすさ
+
+出力形式（JSON）:
 {{"cards": [
-  ["1枚目1行目", "1枚目2行目"],
-  ["2枚目1行目", "2枚目2行目"],
-  ["3枚目1行目"]
+  ["カード1行1", "カード1行2"],
+  ["カード2行1"],
+  ["カード3行1", "カード3行2"]
 ]}}
 
 例:
-- 短い場合: {{"cards": [["短いテキスト"]]}}
-- 2行の場合: {{"cards": [["1行目", "2行目"]]}}
-- 複数枚の場合: {{"cards": [["1枚目1行目", "1枚目2行目"], ["2枚目1行目", "2枚目2行目"]]}}"""
+- 短文: {{"cards": [["短いテキスト"]]}}
+- 長文: {{"cards": [["前半の意味", "まとまり"], ["後半の意味", "まとまり"]]}}
+
+重要: 全ての情報を保持し、読みやすく分割してください。"""
 
         try:
             response = openai.chat.completions.create(
                 model=self.model,
                 messages=[
-                    {"role": "system", "content": "あなたは日本語テロップの専門家です。情報を失わず、自然で読みやすい分割を心がけてください。"},
+                    {"role": "system", "content": "日本語字幕の専門家として、全ての情報を保持しながら自然で理解しやすい分割を行ってください。省略は一切しないでください。"},
                     {"role": "user", "content": prompt}
                 ],
-                max_tokens=500,
-                temperature=0.3
+                max_tokens=800,
+                temperature=0.2
             )
             
             content = response.choices[0].message.content.strip()
@@ -129,6 +137,9 @@ class GPTClient:
                 if valid_cards:
                     return valid_cards
                     
+        except json.JSONDecodeError as e:
+            print(f"[WARN] LLM multiple subtitle response JSON parsing failed: {e}")
+            print(f"[DEBUG] Raw response: {content if 'content' in locals() else 'No response'}")
         except Exception as e:
             print(f"[WARN] LLM multiple subtitle splitting failed: {e}")
             
