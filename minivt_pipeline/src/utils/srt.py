@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import List, Tuple
+from typing import List, Tuple, Optional
 
 @dataclass
 class Cue:
@@ -8,6 +8,7 @@ class Cue:
     end: float
     lines: List[str]
     role: str = ""  # Role identifier (NA, DL) for DaVinci Resolve styling
+    uid: Optional[str] = None  # Human-readable unique ID (e.g., <title>-S001C01)
 
 def to_timestamp(sec: float) -> str:
     """
@@ -70,9 +71,11 @@ def build_srt(cues: List[Cue]) -> str:
         out.append(str(c.idx))
         out.append(f"{to_timestamp(c.start)} --> {to_timestamp(c.end)}")
         
-        # Add role identification comment for DaVinci Resolve styling
+        # Add identification comments
         if c.role:
             out.append(f"# ROLE:{c.role}")
+        if c.uid:
+            out.append(f"# ID:{c.uid}")
         
         out.append("\n".join(c.lines))
         out.append("")
