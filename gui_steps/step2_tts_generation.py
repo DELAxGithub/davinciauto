@@ -13,6 +13,7 @@ from typing import List, Dict, Optional, Callable
 import os
 import asyncio
 from concurrent.futures import ThreadPoolExecutor
+import re
 
 # Try to import pygame, fallback if not available
 try:
@@ -416,7 +417,8 @@ class TTSGenerationWindow(BaseStepWindow):
             voice_settings = self._get_voice_settings_for_line(line)
             
             # ファイル名生成
-            filename = f"line_{line_index+1:03d}.mp3"
+            slug = self._get_title_slug()
+            filename = f"{slug}-S{line_index+1:03d}.mp3"
             file_path = output_path / filename
             
             # TTS生成実行
@@ -449,6 +451,22 @@ class TTSGenerationWindow(BaseStepWindow):
                 success=False,
                 error_message=str(e)
             )
+
+    def _get_title_slug(self) -> str:
+        """プロジェクト名から安全なスラッグを生成"""
+        title = None
+        try:
+            if hasattr(self, 'project_name_var') and self.project_name_var.get():
+                title = self.project_name_var.get()
+            elif self.current_project and getattr(self.current_project, 'name', None):
+                title = self.current_project.name
+        except Exception:
+            pass
+        if not title:
+            title = 'untitled'
+        s = ''.join(ch if ch.isalnum() else '-' for ch in title)
+        s = re.sub(r'-+', '-', s).strip('-')
+        return s or 'untitled'
     
     def _get_voice_id_for_line(self, line: ScriptLine) -> str:
         """行に適した音声IDを取得"""
