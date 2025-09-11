@@ -13,7 +13,14 @@ from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 from dataclasses import dataclass
 import threading
-from pydub import AudioSegment
+try:
+    from pydub import AudioSegment
+except ImportError as e:
+    # Python 3.13 removed audioop, pydub needs a modern version and ffmpeg
+    if 'audioop' in str(e):
+        raise ImportError("pydub failed to import. This is common on Python 3.13+. Please fix your environment:\n1. pip install --upgrade pydub\n2. brew install ffmpeg") from e
+    else:
+        raise
 
 # Import analysis modules
 from api_limiter import APILimiter, APIType, LimitMode, create_test_limiter

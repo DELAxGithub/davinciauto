@@ -1,0 +1,146 @@
+{
+  "ニーチェ": {
+    "word": "ニーチェ",
+    "reading": "にーちぇ",
+    "phoneme": "",
+    "category": "philosopher",
+    "confidence": 1.0,
+    "notes": "ドイツの哲学者 Friedrich Nietzsche"
+  },
+  "フリードリヒ・ニーチェ": {
+    "word": "フリードリヒ・ニーチェ",
+    "reading": "ふりーどりひ・にーちぇ",
+    "phoneme": "",
+    "category": "philosopher",
+    "confidence": 1.0,
+    "notes": ""
+  },
+  "モーセ": {
+    "word": "モーセ",
+    "reading": "もーせ",
+    "phoneme": "",
+    "category": "historical",
+    "confidence": 1.0,
+    "notes": "旧約聖書の預言者"
+  },
+  "カフカ": {
+    "word": "カフカ",
+    "reading": "かふか",
+    "phoneme": "",
+    "category": "writer",
+    "confidence": 1.0,
+    "notes": "フランツ・カフカ"
+  },
+  "エジプト": {
+    "word": "エジプト",
+    "reading": "えじぷと",
+    "phoneme": "",
+    "category": "place",
+    "confidence": 1.0,
+    "notes": ""
+  },
+  "イスラエル": {
+    "word": "イスラエル",
+    "reading": "いすらえる",
+    "phoneme": "",
+    "category": "place",
+    "confidence": 1.0,
+    "notes": ""
+  },
+  "fMRI": {
+    "word": "fMRI",
+    "reading": "えふえむあーるあい",
+    "phoneme": "ɛf ɛm ɑɹ aɪ",
+    "category": "scientific",
+    "confidence": 0.9,
+    "notes": "functional Magnetic Resonance Imaging"
+  },
+  "扁桃体": {
+    "word": "扁桃体",
+    "reading": "へんとうたい",
+    "phoneme": "",
+    "category": "scientific",
+    "confidence": 1.0,
+    "notes": "脳の一部"
+  },
+  "コルチゾール": {
+    "word": "コルチゾール",
+    "reading": "こるちぞーる",
+    "phoneme": "",
+    "category": "scientific",
+    "confidence": 1.0,
+    "notes": "ストレスホルモン"
+  },
+  "出エジプト記": {
+    "word": "出エジプト記",
+    "reading": "しゅつえじぷとき",
+    "phoneme": "",
+    "category": "book",
+    "confidence": 1.0,
+    "notes": ""
+  },
+  "民数記": {
+    "word": "民数記",
+    "reading": "みんすうき",
+    "phoneme": "",
+    "category": "book",
+    "confidence": 1.0,
+    "notes": ""
+  },
+  "悦ばしき知識": {
+    "word": "悦ばしき知識",
+    "reading": "よろこばしきちしき",
+    "phoneme": "",
+    "category": "book",
+    "confidence": 1.0,
+    "notes": ""
+  },
+  "道徳の系譜": {
+    "word": "道徳の系譜",
+    "reading": "どうとくのけいふ",
+    "phoneme": "",
+    "category": "book",
+    "confidence": 1.0,
+    "notes": ""
+  },
+  "デニス・ルソー": {
+    "word": "デニス・ルソー",
+    "reading": "でにす・るそー",
+    "phoneme": "",
+    "category": "academic",
+    "confidence": 0.9,
+    "notes": ""
+  },
+  "アルベール・O・ハーシュマン": {
+    "word": "アルベール・O・ハーシュマン",
+    "reading": "あるべーる・おー・はーしゅまん",
+    "phoneme": "",
+    "category": "academic",
+    "confidence": 0.8,
+    "notes": ""
+  },
+  "心理的契約": {
+    "word": "心理的契約",
+    "reading": "しんりてきけいやく",
+    "phoneme": "",
+    "category": "concept",
+    "confidence": 1.0,
+    "notes": ""
+  },
+  "奴隷道徳": {
+    "word": "奴隷道徳",
+    "reading": "どれいどうとく",
+    "phoneme": "",
+    "category": "concept",
+    "confidence": 1.0,
+    "notes": ""
+  },
+  "エクソダス": {
+    "word": "エクソダス",
+    "reading": "えくそだす",
+    "phoneme": "",
+    "category": "concept",
+    "confidence": 1.0,
+    "notes": "出エジプト、脱出"
+  }
+}

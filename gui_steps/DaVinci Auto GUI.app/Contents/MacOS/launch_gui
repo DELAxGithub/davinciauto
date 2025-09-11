@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# DaVinci Auto GUI Launcher Script
+# 🎬 DaVinci Autoの起動スクリプト
+
+# スクリプトのディレクトリを取得
+APP_PATH="$(dirname "$(dirname "$(dirname "$0")")")"
+SCRIPT_DIR="$(dirname "$(dirname "$(dirname "$0")")")"
+GUI_SCRIPT="$SCRIPT_DIR/enhanced_integrated_workspace.py"
+PYTHON_SCRIPT="$SCRIPT_DIR/launch_gui.py"
+
+echo "🎬 DaVinci Auto GUI 起動中..."
+echo "📂 アプリパス: $APP_PATH"
+echo "📂 スクリプトディレクトリ: $SCRIPT_DIR"
+
+# ディレクトリを変更
+cd "$SCRIPT_DIR"
+
+# Python環境を確認
+echo "🐍 Python環境確認..."
+if command -v python3 &> /dev/null; then
+    PYTHON_CMD="python3"
+elif command -v python &> /dev/null; then
+    PYTHON_CMD="python"
+else
+    echo "❌ Pythonが見つかりません"
+    exit 1
+fi
+
+echo "✅ Python発見: $PYTHON_CMD"
+echo "🔍 バージョン: $($PYTHON_CMD --version)"
+
+# Terminal.appで起動（デバッグ情報を見やすくするため）
+echo "🚀 Terminal.appでGUI起動..."
+
+osascript << EOF
+tell application "Terminal"
+    activate
+    do script "cd '$SCRIPT_DIR' && echo '🎬 DaVinci Auto GUI 起動...' && $PYTHON_CMD '$PYTHON_SCRIPT'"
+end tell
+EOF
