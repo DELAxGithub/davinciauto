@@ -99,13 +99,65 @@ class EnhancedTTSClient:
     
     def _prepare_text(self, text: str, apply_pronunciation: bool = True) -> str:
         """テキストの前処理（発音辞書適用）"""
-        if not apply_pronunciation:
+        # 1) 発音辞書（任意）
+        processed = text
+        if apply_pronunciation:
+            try:
+                processed = self.pronunciation_dict.apply_pronunciation_to_text(processed, "ssml")
+            except Exception:
+                pass
+
+        # 2) ElevenLabs v3 向けのオーディオタグ/不要表記のサニタイズ
+        processed = self._sanitize_audio_tags(processed)
+
+        return processed
+
+    def _sanitize_audio_tags(self, text: str) -> str:
+        """
+        ElevenLabs v3 で読んではいけない文字列や未知タグを除去/正規化する。
+        - 行頭の話者名や [S001] などの見出しを削除
+        - <narration>, <emotional ...> は包みを剥がし中身のみ残す
+        - <break time="0.5s"> → <break time="500ms"> に統一
+        - 許可タグ以外は除去（allow: break, sigh, laugh, whisper）
+        """
+        try:
+            import re
+            s = text
+            # Remove [S001] style headers at line starts
+            s = re.sub(r"^\s*\[S\d{3}\]\s*\n?", "", s, flags=re.MULTILINE)
+            # Remove leading speaker labels like "Narrator:" or "ナレーター:"
+            s = re.sub(r"^\s*(Narrator|ナレーター|Speaker|話者)\s*:\s*", "", s, flags=re.IGNORECASE)
+            # Strip wrapper tags but keep content
+            s = re.sub(r"<\s*/?\s*narration\s*>", "", s, flags=re.IGNORECASE)
+            s = re.sub(r"<\s*emotional\b[^>]*>", "", s, flags=re.IGNORECASE)
+            s = re.sub(r"<\s*/\s*emotional\s*>", "", s, flags=re.IGNORECASE)
+            # Normalize break times: 0.5s → 500ms
+            def _sec_to_ms(m):
+                val = m.group(1)
+                try:
+                    ms = int(round(float(val) * 1000))
+                except Exception:
+                    ms = 0
+                return f"<break time=\"{ms}ms\"/>"
+            s = re.sub(r"<\s*break\s+time=\"([0-9]*\.?[0-9]+)s\"\s*/?>", _sec_to_ms, s, flags=re.IGNORECASE)
+            # Ensure ms unit formatting is consistent and self-closing
+            s = re.sub(r"<\s*break\s+time=\"(\d+)\s*ms\"\s*>", r"<break time=\"\1ms\"/>", s, flags=re.IGNORECASE)
+            # Self-close sigh/laugh/whisper tags variants
+            s = re.sub(r"<\s*sigh\b[^>]*/?>", "<sigh/>", s, flags=re.IGNORECASE)
+            s = re.sub(r"<\s*laugh\b[^>]*/?>", "<laugh/>", s, flags=re.IGNORECASE)
+            # whisper can be wrapper; keep as is if paired, else normalize
+            s = re.sub(r"<\s*whisper\s*>\s*\</\s*whisper\s*>", "", s, flags=re.IGNORECASE)
+
+            # Remove unknown tags (allowlist)
+            allow = {"break", "sigh", "laugh", "whisper"}
+            def _strip_unknown_tags(m):
+                name = m.group(1).lower()
+                return m.group(0) if name in allow else ""
+            s = re.sub(r"</?([A-Za-z0-9:_-]+)(\s+[^>]*)?/?>", _strip_unknown_tags, s)
+
+            return s
+        except Exception:
             return text
-        
-        # 発音辞書適用（SSML形式）
-        processed_text = self.pronunciation_dict.apply_pronunciation_to_text(text, "ssml")
-        
-        return processed_text
     
     def _estimate_duration(self, text: str, rate: float = 1.0) -> float:
         """音声時間の推定（概算）"""

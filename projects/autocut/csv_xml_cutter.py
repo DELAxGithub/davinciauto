@@ -135,7 +135,17 @@ def extract_audio_files_from_xml(xml_file_path):
     return audio_files
 
 
-def create_cut_xml_from_template(csv_file_path, template_xml_path):
+def load_graphic_template(template_path):
+    try:
+        ttree = ET.parse(template_path)
+        troot = ttree.getroot()
+        clip = troot.find('.//video/track/clipitem')
+        return clip
+    except Exception:
+        return None
+
+
+def create_cut_xml_from_template(csv_file_path, template_xml_path, graphic_template_path=None):
     """Create cut XML using template XML structure and CSV timecodes"""
     
     # Extract audio files from template XML
@@ -201,8 +211,8 @@ def create_cut_xml_from_template(csv_file_path, template_xml_path):
         if child.tag != 'track':
             audio.append(child)
     
-    # Read CSV and group by color blocks
-    color_blocks = []
+    # Read CSV into segments: normal blocks grouped by color, and gaps with telop text
+    segments = []
     current_color = None
     current_block = None
     
@@ -215,8 +225,29 @@ def create_cut_xml_from_template(csv_file_path, template_xml_path):
             out_point = row.get('アウト点', '').strip()
             text = row.get('文字起こし', '').strip()
             color = row.get('色選択', '').strip()
-            
-            # 色が指定されていない行や、タイムコードがない行はスキップ
+            is_gap = color.startswith('GAP_') if color else False
+
+            # GAP 行
+            if is_gap:
+                if current_block:
+                    segments.append(current_block)
+                    current_block = None
+                    current_color = None
+                # Gap duration from in/out
+                if not out_point:
+                    continue
+                start_frames = timecode_to_frames(in_point)
+                end_frames = timecode_to_frames(out_point)
+                if end_frames <= start_frames:
+                    continue
+                segments.append({
+                    'type': 'gap',
+                    'duration_frames': end_frames - start_frames,
+                    'telop_text': text,
+                })
+                continue
+
+            # 非GAP: 色とタイムコード必須
             if not in_point or not out_point or not color:
                 continue
             
@@ -230,10 +261,11 @@ def create_cut_xml_from_template(csv_file_path, template_xml_path):
             # If color changed, start new block
             if color != current_color:
                 if current_block:
-                    color_blocks.append(current_block)
+                    segments.append(current_block)
                 
                 current_color = color
                 current_block = {
+                    'type': 'block',
                     'color': color,
                     'start_frames': in_frames,
                     'end_frames': out_frames,
@@ -246,15 +278,16 @@ def create_cut_xml_from_template(csv_file_path, template_xml_path):
         
         # Add last block
         if current_block:
-            color_blocks.append(current_block)
+            segments.append(current_block)
     
-    print(f"検出された色ブロック: {len(color_blocks)}個")
-    for i, block in enumerate(color_blocks):
-        print(f"ブロック{i+1}: {block['color']} ({block['start_frames']} - {block['end_frames']}) = {block['end_frames'] - block['start_frames']}フレーム")
+    # Diagnostics
+    blocks = [s for s in segments if s['type']=='block']
+    gaps = [s for s in segments if s['type']=='gap']
+    print(f"検出: ブロック {len(blocks)}個 / ギャップ {len(gaps)}個")
     
     # Create audio tracks based on template
     template_tracks = template_audio.findall('track')
-    gap_size = 149  # Like original
+    gap_size = 149  # Like original between non-gap blocks
     
     for track_idx, template_track in enumerate(template_tracks):
         if track_idx >= len(audio_files):
@@ -276,11 +309,16 @@ def create_cut_xml_from_template(csv_file_path, template_xml_path):
             track.set(attr_name, attr_value)
         
         # Create clipitems for this track
-        clip_counter = track_idx * len(color_blocks) + 1
+        clip_counter = track_idx * max(1, len(blocks)) + 1
         timeline_position = 0
         audio_file = audio_files[track_idx]
         
-        for block_idx, block in enumerate(color_blocks):
+        for seg in segments:
+            if seg['type'] == 'gap':
+                # Only advance timeline by gap; no audio clip
+                timeline_position += seg['duration_frames']
+                continue
+            block = seg
             start_frames = block['start_frames']
             end_frames = block['end_frames']
             duration_frames = end_frames - start_frames
@@ -354,7 +392,7 @@ def create_cut_xml_from_template(csv_file_path, template_xml_path):
             
             print(f"A{track_idx + 1}トラック: ブロック{clip_counter} ({timeline_position} - {timeline_position + duration_frames}) - {audio_file['name']} [ラベル: {premiere_label}]")
             
-            # Update timeline position with gap
+            # Update timeline position with gap spacing between audio blocks
             timeline_position += duration_frames + gap_size
             clip_counter += 1
         
@@ -364,9 +402,75 @@ def create_cut_xml_from_template(csv_file_path, template_xml_path):
                 track.append(child)
     
     # Update sequence duration
-    total_duration = timeline_position - gap_size if color_blocks else 0
+    total_duration = timeline_position - gap_size if blocks else 0
     duration.text = str(total_duration)
     
+    # Add telop clips on V1 from gaps, using a graphic template if available
+    if gaps:
+        graphic_clip_template = None
+        if graphic_template_path and os.path.exists(graphic_template_path):
+            graphic_clip_template = load_graphic_template(graphic_template_path)
+        # Ensure video track exists
+        seq_media = sequence.find('media')
+        vid = seq_media.find('video')
+        if vid is None:
+            vid = ET.SubElement(seq_media, 'video')
+        # Try to find first existing video track, else create
+        vtrack = vid.find('track')
+        if vtrack is None:
+            vtrack = ET.SubElement(vid, 'track')
+            ET.SubElement(vtrack, 'enabled').text = 'TRUE'
+            ET.SubElement(vtrack, 'locked').text = 'FALSE'
+
+        # Recompute telop timings by walking segments again
+        telop_start = 0
+        for seg in segments:
+            if seg['type'] == 'gap':
+                dur = seg['duration_frames']
+                # Create a clipitem for telop
+                if graphic_clip_template is not None:
+                    clipitem = ET.fromstring(ET.tostring(graphic_clip_template))
+                    clipitem.set('id', f'vclipitem-{uuid.uuid4()}')
+                    # Update clip timing
+                    clipitem.find('start').text = str(telop_start)
+                    clipitem.find('end').text = str(telop_start + dur)
+                    clipitem.find('in').text = '0'
+                    clipitem.find('out').text = str(dur)
+                    # pproTicks
+                    ppin = clipitem.find('pproTicksIn')
+                    if ppin is None:
+                        ppin = ET.SubElement(clipitem, 'pproTicksIn')
+                    ppin.text = str(frames_to_ppro_ticks(0))
+                    ppout = clipitem.find('pproTicksOut')
+                    if ppout is None:
+                        ppout = ET.SubElement(clipitem, 'pproTicksOut')
+                    ppout.text = str(frames_to_ppro_ticks(dur))
+                    # Set effect name to telop text (visual text may still rely on parameter)
+                    eff = clipitem.find('filter/effect')
+                    if eff is not None:
+                        name_elem = eff.find('name')
+                        if name_elem is not None:
+                            name_elem.text = seg.get('telop_text') or 'Graphic'
+                    # Append to video track
+                    vtrack.append(clipitem)
+                else:
+                    # Minimal placeholder clipitem if no template is available
+                    clipitem = ET.SubElement(vtrack, 'clipitem')
+                    clipitem.set('id', f'vclipitem-{uuid.uuid4()}')
+                    ET.SubElement(clipitem, 'name').text = seg.get('telop_text') or 'Telop'
+                    ET.SubElement(clipitem, 'enabled').text = 'TRUE'
+                    ET.SubElement(clipitem, 'duration').text = str(dur)
+                    rate = ET.SubElement(clipitem, 'rate')
+                    ET.SubElement(rate, 'timebase').text = '30'
+                    ET.SubElement(rate, 'ntsc').text = 'TRUE'
+                    ET.SubElement(clipitem, 'start').text = str(telop_start)
+                    ET.SubElement(clipitem, 'end').text = str(telop_start + dur)
+                    ET.SubElement(clipitem, 'in').text = '0'
+                    ET.SubElement(clipitem, 'out').text = str(dur)
+                telop_start += dur
+            else:
+                telop_start += (seg['end_frames'] - seg['start_frames'] + gap_size)
+
     return root
 
 
@@ -424,6 +528,9 @@ def main():
         # Command line mode
         csv_file = sys.argv[1]
         template_xml_file = sys.argv[2]
+        graphic_template = None
+        if len(sys.argv) >= 4:
+            graphic_template = sys.argv[3]
         
         if not os.path.exists(csv_file):
             print(f"Error: CSV file '{csv_file}' not found")
@@ -451,7 +558,7 @@ def main():
     
     try:
         # Generate XML
-        xml_root = create_cut_xml_from_template(csv_file, template_xml_file)
+        xml_root = create_cut_xml_from_template(csv_file, template_xml_file, graphic_template)
         
         if xml_root is None:
             return

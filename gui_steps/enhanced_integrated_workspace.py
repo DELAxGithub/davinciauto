@@ -155,6 +155,8 @@ class EnhancedIntegratedWorkspace:
         self.music_prompts_data = []
         # 字幕データ（SRT用）
         self.subtitle_cues_data = []  # [{index, start, end, duration, lines:[...]}]
+        # ナレーション（LLM演出付き）キャッシュ: {seg_index: tagged_text}
+        self.narration_tagged_data = {}
         
         # GUI状態管理
         self.current_step = 1
@@ -663,6 +665,8 @@ class EnhancedIntegratedWorkspace:
                   command=self.reload_storyboard_data).pack(side=tk.LEFT)
         ttk.Button(storyboard_control_frame, text="📤 L→R CSV書き出し", 
                   command=self.export_l2r_csv).pack(side=tk.LEFT, padx=(6, 0))
+        ttk.Button(storyboard_control_frame, text="👁 CSVビューア", 
+                  command=self.open_csv_viewer).pack(side=tk.LEFT, padx=(6, 0))
         
         # ステータス表示
         self.storyboard_status_var = tk.StringVar(value="未生成")
@@ -1006,6 +1010,23 @@ class EnhancedIntegratedWorkspace:
             pass
         self.tts_status_var.set("生成中...")
 
+        def _save_tagged_bundle():
+            try:
+                if not self.narration_tagged_data:
+                    return
+                outdir = Path("output/narration"); outdir.mkdir(parents=True, exist_ok=True)
+                # JSON
+                bundle = {f"S{idx:03d}": txt for idx, txt in sorted(self.narration_tagged_data.items())}
+                (outdir / f"{slug}_tagged_narration.json").write_text(json.dumps(bundle, ensure_ascii=False, indent=2), encoding="utf-8")
+                # TXT
+                parts = []
+                for idx in sorted(self.narration_tagged_data.keys()):
+                    parts.append(f"[S{idx:03d}]\n" + self.narration_tagged_data[idx])
+                (outdir / f"{slug}_tagged_narration.txt").write_text("\n\n".join(parts)+"\n", encoding="utf-8")
+                self.log_message("💾 演出ナレ原稿を保存: output/narration/", "SUCCESS")
+            except Exception as e:
+                self.log_message(f"⚠️ 原稿保存エラー: {e}", "WARNING")
+
         def worker():
             success = 0
             failed = 0
@@ -1030,6 +1051,8 @@ class EnhancedIntegratedWorkspace:
                         if enhanced:
                             text_to_use = enhanced
                             self.log_message(f"🎭 行{idx}: LLM演出付与を適用", "SUCCESS")
+                            self.narration_tagged_data[idx] = text_to_use
+                            self.log_message(f"📝 行{idx} 演出ナレ:\n{text_to_use}", "INFO")
                         else:
                             self.log_message(f"⚠️ 行{idx}: LLM演出付与に失敗。元テキスト使用", "WARNING")
                     except Exception as e:
@@ -1080,6 +1103,7 @@ class EnhancedIntegratedWorkspace:
             except Exception:
                 pass
             self.ui_call(self.tts_status_var.set, f"完了: 成功 {success} / 失敗 {failed}")
+            _save_tagged_bundle()
             # 字幕タブの音声フォルダに反映
             try:
                 self.ui_call(self.audio_folder_var.set, str(out_dir))
@@ -1830,6 +1854,13 @@ class EnhancedIntegratedWorkspace:
                 if enhanced:
                     text = enhanced
                     self.log_message("🎭 LLM演出付与を適用（Eleven v3タグ）", "SUCCESS")
+                    # ログに原稿全文を表示・保存
+                    self.log_message("📝 演出ナレ（タグ付き）:\n" + text, "INFO")
+                    try:
+                        outdir = Path("output/narration"); outdir.mkdir(parents=True, exist_ok=True)
+                        (outdir / "test_tagged_narration.txt").write_text(text + "\n\n", encoding="utf-8")
+                    except Exception:
+                        pass
                 else:
                     self.log_message("⚠️ LLM演出付与に失敗。元テキストを使用", "WARNING")
             except Exception as e:
@@ -2308,6 +2339,12 @@ class EnhancedIntegratedWorkspace:
         def _seg_narration(seg_idx: int) -> str:
             if not seg_idx or seg_idx - 1 >= len(self.parsed_segments):
                 return ''
+            # 演出ナレがあれば優先、なければ原文
+            try:
+                if seg_idx in self.narration_tagged_data:
+                    return self.narration_tagged_data[seg_idx]
+            except Exception:
+                pass
             return getattr(self.parsed_segments[seg_idx - 1], 'text', '')
 
         # 句読点→半角スペース
@@ -2369,6 +2406,131 @@ class EnhancedIntegratedWorkspace:
             self.export_storyboard_json(Path(file_path))
         else:
             self.export_music_prompts_json(Path(file_path))
+    
+    def open_csv_viewer(self):
+        """L→R CSVを読み込み、横方向にプレビュー（1セル=1テロップ）"""
+        from tkinter import filedialog
+        path = filedialog.askopenfilename(title="CSVを選択", filetypes=[("CSV","*.csv"), ("All","*.*")])
+        if not path:
+            return
+        try:
+            import csv as _csv
+            with open(path, 'r', encoding='utf-8-sig', newline='') as f:
+                reader = list(_csv.reader(f))
+        except Exception as e:
+            messagebox.showerror("読み込みエラー", f"CSVを読み込めません:\n{e}")
+            return
+
+        win = tk.Toplevel(self.root)
+        win.title(f"CSVビューア - {Path(path).name}")
+        win.geometry("1400x800")
+
+        container = ttk.PanedWindow(win, orient=tk.HORIZONTAL)
+        container.pack(fill=tk.BOTH, expand=True)
+
+        left = ttk.Frame(container)
+        container.add(left, weight=3)
+        right = ttk.Frame(container)
+        container.add(right, weight=2)
+
+        if not reader or len(reader) < 2:
+            ttk.Label(left, text="CSVの内容が空です").pack()
+            return
+
+        headers = ["ROW"] + reader[0][1:]
+        tree = ttk.Treeview(left, columns=headers, show='headings', height=25)
+        for h in headers:
+            tree.heading(h, text=h)
+            tree.column(h, width=160 if h != 'ROW' else 120, stretch=True)
+
+        xscroll = ttk.Scrollbar(left, orient=tk.HORIZONTAL, command=tree.xview)
+        yscroll = ttk.Scrollbar(left, orient=tk.VERTICAL, command=tree.yview)
+        tree.configure(xscrollcommand=xscroll.set, yscrollcommand=yscroll.set)
+        tree.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+        yscroll.pack(side=tk.RIGHT, fill=tk.Y)
+        xscroll.pack(fill=tk.X)
+
+        data_rows = reader[1:]
+        for row in data_rows:
+            label = row[0] if row else ""
+            values = [label] + (row[1:] if len(row) > 1 else [])
+            tree.insert('', tk.END, values=values)
+
+        ttk.Label(right, text="セル詳細", font=("", 12, "bold")).pack(anchor=tk.W, pady=(8,4), padx=8)
+        detail = tk.Text(right, height=18, wrap=tk.WORD, font=("Consolas", 12))
+        detail.pack(fill=tk.BOTH, expand=True, padx=8)
+
+        info_var = tk.StringVar(value="-")
+        ttk.Label(right, textvariable=info_var, foreground="gray").pack(anchor=tk.W, padx=8, pady=(4,8))
+
+        action_frame = ttk.Frame(right)
+        action_frame.pack(fill=tk.X, padx=8, pady=(0,8))
+        ttk.Button(action_frame, text="コピー", 
+                   command=lambda: win.clipboard_clear() or win.clipboard_append(detail.get('1.0', tk.END).strip())).pack(side=tk.LEFT)
+        ttk.Button(action_frame, text="セグメントカード提案(LLM)", 
+                   command=lambda: self._suggest_cards_from_segment(headers, tree, detail, info_var)).pack(side=tk.LEFT, padx=6)
+
+        def on_select(event=None):
+            sel = tree.selection()
+            if not sel:
+                return
+            item = sel[0]
+            values = tree.item(item, 'values')
+            # 仮に最初のデータ列を既定とする
+            col_idx = 1
+            col_name = headers[col_idx] if col_idx < len(headers) else ''
+            row_name = values[0] if values else ''
+            cell = values[col_idx] if col_idx < len(values) else ''
+            detail.delete('1.0', tk.END)
+            detail.insert('1.0', cell)
+            warn = ''
+            if row_name.startswith('V2'):
+                import re as _re
+                normalized = _re.sub(r"\s+"," ", cell.replace('、',' ').replace('。',' ')).strip()
+                if len(normalized) > 52:
+                    warn = f"⚠️ 52文字超過: {len(normalized)}"
+                else:
+                    warn = f"OK: {len(normalized)} 文字"
+            info_var.set(f"行: {row_name} | 列: {col_name} | {warn}")
+
+        tree.bind('<<TreeviewSelect>>', on_select)
+
+    def _suggest_cards_from_segment(self, headers, tree, detail_widget, info_var):
+        """選択列のSxxxCyyからセグメント番号を推定→原文をLLMでカード提案して表示"""
+        if not self.gpt_client:
+            messagebox.showwarning("LLM未設定", "LLMクライアントが初期化されていません")
+            return
+        sel = tree.selection()
+        if not sel:
+            messagebox.showwarning("選択なし", "CSVの行を選択してください")
+            return
+        # ヘッダの最初のデータ列を使用
+        col_name = headers[1] if len(headers) > 1 else ''
+        try:
+            import re as _re
+            m = _re.search(r"S(\d{3})C(\d{2})", col_name)
+            seg_idx = int(m.group(1)) if m else 1
+        except Exception:
+            seg_idx = 1
+        if seg_idx-1 >= len(self.parsed_segments):
+            messagebox.showwarning("範囲外", "セグメント番号が台本解析結果に見つかりません")
+            return
+        src = (self.parsed_segments[seg_idx-1].text or '').strip()
+        if not src:
+            messagebox.showwarning("空テキスト", "セグメント本文が空です")
+            return
+        cards = self.gpt_client.split_text_to_cards(src, max_len=26)
+        if not cards:
+            messagebox.showerror("LLMエラー", "字幕カードの提案生成に失敗しました")
+            return
+        lines = []
+        for c in cards:
+            if isinstance(c, list):
+                lines.append(' | '.join([ln.strip() for ln in c if ln and ln.strip()]))
+        text = "\n".join(lines)
+        detail_widget.delete('1.0', tk.END)
+        detail_widget.insert('1.0', f"[提案: S{seg_idx:03d}]\n" + text)
+        info_var.set(f"列: {col_name} | 提案カード: {len(cards)} 件")
     
     def update_storyboard_display(self):
         """文字コンテ表示更新"""
