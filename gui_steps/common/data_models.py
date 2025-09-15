@@ -16,6 +16,14 @@ class ScriptLine:
     voice_id: Optional[str] = None  # 設定された音声ID
     voice_settings: Dict[str, Any] = field(default_factory=dict)  # 音声設定
     line_number: int = 0  # 行番号
+    # --- GUI拡張フィールド（最小） ---
+    final_text: str = ""  # ナレーション原稿（LLM採用/調整後）
+    storyboard: str = ""  # 文字コンテ（テキスト絵コンテ）
+    telop: str = ""       # 注釈テロップ（オーバーレイ文字）
+    bgm_tag: str = ""     # BGMタグ（後工程で選曲）
+    tts_rate: float = 1.0  # 話速
+    locked: bool = False   # 行ロック
+    notes: str = ""        # メモ
     
     def to_dict(self) -> Dict[str, Any]:
         return {
@@ -25,7 +33,14 @@ class ScriptLine:
             "voice_instruction": self.voice_instruction,
             "voice_id": self.voice_id,
             "voice_settings": self.voice_settings,
-            "line_number": self.line_number
+            "line_number": self.line_number,
+            "final_text": self.final_text,
+            "storyboard": self.storyboard,
+            "telop": self.telop,
+            "bgm_tag": self.bgm_tag,
+            "tts_rate": self.tts_rate,
+            "locked": self.locked,
+            "notes": self.notes
         }
     
     @classmethod

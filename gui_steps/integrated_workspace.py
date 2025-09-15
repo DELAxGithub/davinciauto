@@ -10,6 +10,7 @@ from pathlib import Path
 import sys
 import json
 import os
+import csv
 from typing import List, Dict, Optional
 import threading
 import time
@@ -79,9 +80,14 @@ class IntegratedWorkspace:
         # 進捗表示
         progress_frame = ttk.LabelFrame(toolbar, text="進捗")
         progress_frame.pack(side=tk.RIGHT)
-        
+
         self.progress_var = tk.StringVar(value="0/4 完了")
         ttk.Label(progress_frame, textvariable=self.progress_var).pack(padx=10)
+
+        # エクスポート
+        export_frame = ttk.LabelFrame(toolbar, text="エクスポート")
+        export_frame.pack(side=tk.RIGHT, padx=(10, 0))
+        ttk.Button(export_frame, text="CSV（縦）エクスポート", command=self.export_csv_vertical).pack(padx=6)
     
     def setup_step_tabs(self):
         """ステップタブ設定"""
@@ -133,17 +139,21 @@ class IntegratedWorkspace:
         self.step2_frame = ttk.Frame(self.content_notebook)
         self.step3_frame = ttk.Frame(self.content_notebook)
         self.step4_frame = ttk.Frame(self.content_notebook)
+        # テキスト調整（追加タブ）
+        self.text_adjust_frame = ttk.Frame(self.content_notebook)
         
         self.content_notebook.add(self.step1_frame, text="📝 スクリプト編集")
         self.content_notebook.add(self.step2_frame, text="🎵 TTS音声生成")
         self.content_notebook.add(self.step3_frame, text="⏰ 字幕タイミング")
         self.content_notebook.add(self.step4_frame, text="🎬 DaVinci出力")
+        self.content_notebook.add(self.text_adjust_frame, text="🧠 テキスト調整")
         
         # 各ステップの内容設定
         self.setup_step1_content()
         self.setup_step2_content()
         self.setup_step3_content()
         self.setup_step4_content()
+        self.setup_text_adjustment_content()
         
         # タブ変更イベント
         self.content_notebook.bind("<<NotebookTabChanged>>", self.on_tab_changed)
@@ -608,13 +618,17 @@ NA: 自由の荒野で 民は奴隷時代を懐かしみ始めたのです"""
         """スクリプト解析"""
         if not self.current_project:
             return
-        
+
         script_text = self.script_editor.get("1.0", tk.END).strip()
         self.current_project.script_text = script_text
-        
+
         # スクリプト行解析
         lines = []
         characters = set()
+        # 既存行の保存（行番号ベース）
+        existing_by_ln = {}
+        for old in (self.current_project.script_lines or []):
+            existing_by_ln[(old.line_number, old.role, (old.character or ""))] = old
         
         for line_num, line in enumerate(script_text.splitlines(), 1):
             line = line.strip()
@@ -646,6 +660,21 @@ NA: 自由の荒野で 民は奴隷時代を懐かしみ始めたのです"""
                 # 不明な行形式はスキップ
                 continue
             
+            # 既存フィールドを引き継ぎ
+            key = (script_line.line_number, script_line.role, (script_line.character or ""))
+            old = existing_by_ln.get(key)
+            if old:
+                script_line.voice_instruction = old.voice_instruction
+                script_line.voice_id = old.voice_id or script_line.voice_id
+                script_line.voice_settings = old.voice_settings or script_line.voice_settings
+                script_line.final_text = old.final_text
+                script_line.storyboard = old.storyboard
+                script_line.telop = old.telop
+                script_line.bgm_tag = old.bgm_tag
+                script_line.tts_rate = old.tts_rate
+                script_line.locked = old.locked
+                script_line.notes = old.notes
+
             lines.append(script_line)
         
         self.current_project.script_lines = lines
@@ -655,8 +684,227 @@ NA: 自由の荒野で 民は奴隷時代を懐かしみ始めたのです"""
         
         # TTS画面更新
         self.update_tts_display()
+        # テキスト調整画面更新
+        self.update_text_adjustment_display()
         
         self.set_status(f"スクリプト解析完了: {len(lines)}行, {len(characters)}キャラクター")
+
+    # === テキスト調整タブ ===
+    def setup_text_adjustment_content(self):
+        """テキスト調整（LLM候補・最終文・文字コンテ・BGM・注釈）"""
+        paned = ttk.PanedWindow(self.text_adjust_frame, orient=tk.HORIZONTAL)
+        paned.pack(fill=tk.BOTH, expand=True, padx=10, pady=10)
+
+        # 左: 行リスト
+        list_frame = ttk.LabelFrame(paned, text="行リスト（縦）")
+        paned.add(list_frame, weight=2)
+
+        columns = ("line", "role", "character", "original", "final", "story", "telop", "bgm")
+        self.textadj_tree = ttk.Treeview(list_frame, columns=columns, show="headings")
+        for col, label in [
+            ("line", "#"), ("role", "種類"), ("character", "キャラ"), ("original", "オリジナル"),
+            ("final", "最終文"), ("story", "文字コンテ"), ("telop", "テロップ"), ("bgm", "BGM")
+        ]:
+            self.textadj_tree.heading(col, text=label)
+        self.textadj_tree.column("line", width=50, anchor=tk.CENTER)
+        self.textadj_tree.column("role", width=60, anchor=tk.CENTER)
+        self.textadj_tree.column("character", width=120)
+        self.textadj_tree.column("original", width=260)
+        self.textadj_tree.column("final", width=260)
+        self.textadj_tree.column("story", width=160)
+        self.textadj_tree.column("telop", width=160)
+        self.textadj_tree.column("bgm", width=100)
+
+        tree_scroll = ttk.Scrollbar(list_frame, orient=tk.VERTICAL, command=self.textadj_tree.yview)
+        self.textadj_tree.configure(yscrollcommand=tree_scroll.set)
+        self.textadj_tree.pack(side=tk.LEFT, fill=tk.BOTH, expand=True, padx=(10, 5), pady=10)
+        tree_scroll.pack(side=tk.RIGHT, fill=tk.Y, pady=10)
+
+        self.textadj_tree.bind("<<TreeviewSelect>>", self.on_text_adjust_select)
+
+        # 右: 詳細エディタ
+        detail_frame = ttk.LabelFrame(paned, text="詳細エディタ")
+        paned.add(detail_frame, weight=3)
+
+        # オリジナル（読み取り専用）
+        ttk.Label(detail_frame, text="オリジナル").pack(anchor=tk.W, padx=10)
+        self.ta_original = scrolledtext.ScrolledText(detail_frame, height=5, wrap=tk.WORD, state="disabled")
+        self.ta_original.pack(fill=tk.X, padx=10, pady=(0, 10))
+
+        # 編集タブ
+        editor_nb = ttk.Notebook(detail_frame)
+        editor_nb.pack(fill=tk.BOTH, expand=True, padx=10, pady=10)
+
+        # ナレーション原稿
+        narr_frame = ttk.Frame(editor_nb)
+        editor_nb.add(narr_frame, text="ナレーション原稿")
+        self.ta_final = scrolledtext.ScrolledText(narr_frame, height=8, wrap=tk.WORD)
+        self.ta_final.pack(fill=tk.BOTH, expand=True)
+
+        # 文字コンテ
+        story_frame = ttk.Frame(editor_nb)
+        editor_nb.add(story_frame, text="文字コンテ")
+        self.ta_story = scrolledtext.ScrolledText(story_frame, height=6, wrap=tk.WORD)
+        self.ta_story.pack(fill=tk.BOTH, expand=True)
+
+        # 注釈テロップ
+        telop_frame = ttk.Frame(editor_nb)
+        editor_nb.add(telop_frame, text="注釈テロップ")
+        self.ta_telop = scrolledtext.ScrolledText(telop_frame, height=4, wrap=tk.WORD)
+        self.ta_telop.pack(fill=tk.BOTH, expand=True)
+
+        # BGM／話速など
+        meta_frame = ttk.Frame(detail_frame)
+        meta_frame.pack(fill=tk.X, padx=10, pady=6)
+        ttk.Label(meta_frame, text="BGMタグ:").pack(side=tk.LEFT)
+        self.var_bgm = tk.StringVar()
+        ttk.Entry(meta_frame, textvariable=self.var_bgm).pack(side=tk.LEFT, padx=5, fill=tk.X, expand=True)
+        ttk.Label(meta_frame, text="話速:").pack(side=tk.LEFT, padx=(10, 0))
+        self.var_rate = tk.DoubleVar(value=1.0)
+        ttk.Spinbox(meta_frame, from_=0.5, to=2.0, increment=0.05, textvariable=self.var_rate, width=6).pack(side=tk.LEFT, padx=5)
+        self.var_locked = tk.BooleanVar(value=False)
+        ttk.Checkbutton(meta_frame, text="ロック", variable=self.var_locked).pack(side=tk.LEFT, padx=10)
+
+        # メモ
+        notes_frame = ttk.Frame(detail_frame)
+        notes_frame.pack(fill=tk.BOTH, padx=10, pady=(0, 10))
+        ttk.Label(notes_frame, text="メモ:").pack(anchor=tk.W)
+        self.ta_notes = scrolledtext.ScrolledText(notes_frame, height=3, wrap=tk.WORD)
+        self.ta_notes.pack(fill=tk.BOTH, expand=True)
+
+        # 操作ボタン
+        btns = ttk.Frame(detail_frame)
+        btns.pack(fill=tk.X, padx=10, pady=10)
+        ttk.Button(btns, text="保存", command=self.save_text_adjust_changes).pack(side=tk.LEFT)
+        ttk.Button(btns, text="CSV（縦）エクスポート", command=self.export_csv_vertical).pack(side=tk.RIGHT)
+
+        # 内部選択状態
+        self._textadj_selected_ln = None
+
+    def update_text_adjustment_display(self):
+        """テキスト調整の行リスト更新"""
+        if not hasattr(self, 'textadj_tree'):
+            return
+        for item in self.textadj_tree.get_children():
+            self.textadj_tree.delete(item)
+        if not self.current_project:
+            return
+        for sl in (self.current_project.script_lines or []):
+            orig = sl.text
+            fin = sl.final_text or ""
+            story = ("✓" if sl.storyboard.strip() else "")
+            tel = ("✓" if sl.telop.strip() else "")
+            bgm = sl.bgm_tag or ""
+            def trunc(s, n):
+                return (s[:n] + "...") if len(s) > n else s
+            self.textadj_tree.insert("", tk.END, values=(
+                sl.line_number,
+                sl.role,
+                sl.character or "-",
+                trunc(orig, 40),
+                trunc(fin, 40),
+                story,
+                tel,
+                bgm
+            ))
+
+    def on_text_adjust_select(self, event=None):
+        sel = self.textadj_tree.selection()
+        if not sel:
+            return
+        item = sel[0]
+        values = self.textadj_tree.item(item)["values"]
+        try:
+            ln = int(values[0])
+        except Exception:
+            return
+        # 保存しておく
+        self._textadj_selected_ln = ln
+        # 対象行検索
+        target = next((x for x in self.current_project.script_lines if x.line_number == ln), None)
+        if not target:
+            return
+        # original
+        self.ta_original.configure(state="normal")
+        self.ta_original.delete("1.0", tk.END)
+        self.ta_original.insert("1.0", target.text)
+        self.ta_original.configure(state="disabled")
+        # final/story/telop
+        self.ta_final.delete("1.0", tk.END)
+        self.ta_final.insert("1.0", target.final_text or "")
+        self.ta_story.delete("1.0", tk.END)
+        self.ta_story.insert("1.0", target.storyboard or "")
+        self.ta_telop.delete("1.0", tk.END)
+        self.ta_telop.insert("1.0", target.telop or "")
+        # meta
+        self.var_bgm.set(target.bgm_tag or "")
+        try:
+            self.var_rate.set(float(target.tts_rate or 1.0))
+        except Exception:
+            self.var_rate.set(1.0)
+        self.var_locked.set(bool(target.locked))
+        # notes
+        self.ta_notes.delete("1.0", tk.END)
+        self.ta_notes.insert("1.0", target.notes or "")
+
+    def save_text_adjust_changes(self):
+        if not self.current_project or self._textadj_selected_ln is None:
+            return
+        target = next((x for x in self.current_project.script_lines if x.line_number == self._textadj_selected_ln), None)
+        if not target:
+            return
+        target.final_text = self.ta_final.get("1.0", tk.END).strip()
+        target.storyboard = self.ta_story.get("1.0", tk.END).strip()
+        target.telop = self.ta_telop.get("1.0", tk.END).strip()
+        target.bgm_tag = self.var_bgm.get().strip()
+        try:
+            target.tts_rate = float(self.var_rate.get())
+        except Exception:
+            target.tts_rate = 1.0
+        target.locked = bool(self.var_locked.get())
+        target.notes = self.ta_notes.get("1.0", tk.END).strip()
+        self.update_text_adjustment_display()
+        self.set_status(f"行 {target.line_number} を保存しました")
+
+    def export_csv_vertical(self):
+        """CSV（縦）エクスポート"""
+        if not self.current_project or not self.current_project.script_lines:
+            messagebox.showwarning("警告", "エクスポートする行がありません")
+            return
+        file_path = filedialog.asksaveasfilename(
+            title="CSV（縦型）を保存",
+            defaultextension=".csv",
+            filetypes=[("CSV files", "*.csv")]
+        )
+        if not file_path:
+            return
+        headers = [
+            "line_no", "role", "character", "text_original", "text_final",
+            "storyboard", "telop", "bgm_tag", "voice_id", "rate", "locked", "notes"
+        ]
+        try:
+            with open(file_path, 'w', newline='', encoding='utf-8') as f:
+                writer = csv.writer(f)
+                writer.writerow(headers)
+                for sl in self.current_project.script_lines:
+                    writer.writerow([
+                        sl.line_number,
+                        sl.role,
+                        sl.character or "",
+                        sl.text,
+                        sl.final_text or "",
+                        sl.storyboard or "",
+                        sl.telop or "",
+                        sl.bgm_tag or "",
+                        sl.voice_id or "",
+                        sl.tts_rate if sl.tts_rate is not None else 1.0,
+                        1 if sl.locked else 0,
+                        sl.notes or ""
+                    ])
+            messagebox.showinfo("エクスポート完了", f"CSVを保存しました:\n{Path(file_path).name}")
+            self.set_status(f"CSVエクスポート完了: {Path(file_path).name}")
+        except Exception as e:
+            messagebox.showerror("エクスポート失敗", f"CSV保存中にエラー: {e}")
     
     def update_character_list(self, detected_characters):
         """キャラクター一覧更新"""

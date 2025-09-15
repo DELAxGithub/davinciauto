@@ -57,7 +57,7 @@ def _tts_once(text: str, voice_id: str, out_path: str, rate: float, cost_tracker
     
     payload = {
         "text": text,
-        "model_id": "eleven_v3",
+        "model_id": "eleven_v3_alpha",  # 最高品質モデル固定
         "voice_settings": default_voice_settings,
     }
     url = f"https://api.elevenlabs.io/v1/text-to-speech/{voice_id}"

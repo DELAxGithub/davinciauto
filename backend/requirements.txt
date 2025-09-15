@@ -1,0 +1,8 @@
+fastapi
+uvicorn[standard]
+python-multipart
+elevenlabs
+fastapi>=0.115.0
+uvicorn>=0.30.0
+elevenlabs==2.15.0
+mcp>=0.1.0

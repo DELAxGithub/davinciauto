@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>🧠 Text Adjust Wireframe (HTML)</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --fg: #111111;
+      --muted: #666;
+      --primary: #2563eb;
+      --border: #e5e7eb;
+      --accent: #eff6ff;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0; background: var(--bg); color: var(--fg);
+      font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, "Hiragino Kaku Gothic ProN", Meiryo, "Noto Sans JP", sans-serif;
+    }
+    .toolbar { display: flex; gap: 12px; padding: 12px; border-bottom: 1px solid var(--border); background: #fafafa; position: sticky; top: 0; z-index: 2; }
+    .group { border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; background: #fff; display: flex; align-items: center; gap: 8px; }
+    .group-title { font-weight: 600; margin-right: 6px; color: var(--muted); }
+    button, select, input[type="text"], input[type="number"], textarea { font: inherit; }
+    button { padding: 6px 12px; border-radius: 6px; border: 1px solid var(--border); background: #fff; cursor: pointer; }
+    button.primary { background: var(--primary); color: #fff; border-color: var(--primary); }
+    button:disabled { opacity: .6; cursor: not-allowed; }
+
+    .layout { display: grid; grid-template-columns: 1.2fr 1.8fr; gap: 12px; height: calc(100vh - 64px); padding: 12px; }
+    .panel { border: 1px solid var(--border); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; min-height: 0; }
+    .panel h3 { margin: 0; padding: 10px 12px; border-bottom: 1px solid var(--border); font-size: 14px; background: #fff; }
+    .panel-body { padding: 10px; overflow: auto; display: flex; flex-direction: column; gap: 10px; }
+
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th, td { border-bottom: 1px solid var(--border); padding: 8px; text-align: left; vertical-align: top; }
+    thead th { position: sticky; top: 0; background: #fff; z-index: 1; }
+    tr.selected { background: var(--accent); }
+    .muted { color: var(--muted); }
+    .grow { flex: 1 1 auto; }
+    .row { display: flex; gap: 8px; align-items: center; }
+    .col { display: flex; flex-direction: column; gap: 6px; }
+    textarea { width: 100%; min-height: 80px; padding: 8px; border: 1px solid var(--border); border-radius: 6px; resize: vertical; }
+    input[type="text"] { width: 100%; padding: 6px 8px; border: 1px solid var(--border); border-radius: 6px; }
+    .tabs { display: flex; gap: 6px; border-bottom: 1px solid var(--border); }
+    .tab { padding: 8px 10px; cursor: pointer; border-radius: 6px 6px 0 0; }
+    .tab.active { background: #fff; border: 1px solid var(--border); border-bottom-color: #fff; }
+    .tab-body { border: 1px solid var(--border); border-top: none; padding: 10px; border-radius: 0 6px 6px 6px; background: #fff; }
+    .listbox { border: 1px solid var(--border); border-radius: 8px; overflow: auto; }
+    .listbox-item { padding: 8px 10px; border-bottom: 1px solid var(--border); cursor: pointer; }
+    .listbox-item:hover { background: #f8fafc; }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <div class="group">
+      <div class="group-title">プロジェクト</div>
+      <button onclick="newProject()">新規</button>
+      <button onclick="openProject()">開く</button>
+      <button onclick="saveProject()">保存</button>
+      <input id="fileOpen" type="file" accept=".txt,.json,.csv" style="display:none"/>
+      <span class="muted" id="projectLabel"></span>
+    </div>
+    <div class="group">
+      <div class="group-title">LLM</div>
+      <label>モデル:<select id="model">
+        <option>gpt-4o</option>
+        <option>gpt-4o-mini</option>
+        <option>claude-3.7</option>
+      </select></label>
+      <label>温度:<input id="temp" type="number" step="0.1" min="0" max="2" value="0.7" style="width:84px"></label>
+      <button onclick="ni()">プリセット</button>
+    </div>
+    <div class="group" style="margin-left:auto">
+      <div class="group-title">エクスポート</div>
+      <button onclick="exportCsv()">CSV（縦）</button>
+    </div>
+  </div>
+
+  <div class="layout">
+    <div class="panel">
+      <h3>行リスト（縦）</h3>
+      <div class="panel-body grow">
+        <div class="grow">
+          <table id="rows">
+            <thead>
+              <tr>
+                <th style="width:48px">#</th>
+                <th style="width:54px">種類</th>
+                <th style="width:120px">キャラ</th>
+                <th>オリジナル</th>
+                <th style="width:90px" title="フォローテロップ">フォローT</th>
+                <th style="width:80px" title="ナレーション原稿">ナレ</th>
+                <th style="width:90px" title="文字コンテ（文章/検索）">文字C</th>
+                <th style="width:90px" title="注釈テロップ">注釈T</th>
+                <th style="width:80px">BGM</th>
+                <th style="width:60px">SE</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3>詳細エディタ</h3>
+      <div class="panel-body">
+        <div class="col" style="gap:4px">
+          <div class="muted">オリジナル（読取専用）</div>
+          <textarea id="orig" readonly></textarea>
+        </div>
+
+        <div>
+          <div class="tabs">
+            <div class="tab active" data-tab="follow">フォローテロップ</div>
+            <div class="tab" data-tab="narr">ナレーション原稿</div>
+            <div class="tab" data-tab="story">文字コンテ</div>
+            <div class="tab" data-tab="annot">注釈テロップ</div>
+          </div>
+          <div class="tab-body">
+            <div id="tab-follow">
+              <div class="row" style="justify-content:space-between; align-items:center; margin-bottom:6px">
+                <div class="muted">ダビンチ字幕用に改行/句読点削除など整形</div>
+                <div class="row" style="gap:8px">
+                  <label class="row" style="gap:4px">最大文字/行:<input id="followWidth" type="number" min="6" max="30" step="1" value="14" style="width:64px"></label>
+                  <button onclick="formatFollowFromOriginal()">オリジナルから整形</button>
+                </div>
+              </div>
+              <textarea id="follow" placeholder="改行済みフォローテロップ"></textarea>
+            </div>
+            <div id="tab-narr" style="display:none">
+              <div class="row" style="justify-content:space-between; align-items:center; margin-bottom:6px">
+                <div class="muted">ElevenLabs向け（メタ指示/SSMLなど）</div>
+                <div class="row" style="gap:8px">
+                  <select id="narrPreset">
+                    <option value="">プリセットなし</option>
+                    <option value="calm">calm: 穏やか・落ち着き</option>
+                    <option value="energetic">energetic: 力強く</option>
+                    <option value="whisper">whisper: ささやき</option>
+                  </select>
+                  <button onclick="applyNarrPreset()">適用</button>
+                </div>
+              </div>
+              <textarea id="narr" placeholder="ナレーション原稿（メタ指示含む）"></textarea>
+            </div>
+            <div id="tab-story" style="display:none">
+              <div class="col">
+                <textarea id="storyText" placeholder="画面の指示、動き、要素など（文章）"></textarea>
+                <div class="row" style="gap:8px; align-items:center">
+                  <input id="storyKeywords" type="text" placeholder="検索ワード（Getty等API想定）">
+                  <button onclick="extractKeywords()">抽出（簡易）</button>
+                </div>
+              </div>
+            </div>
+            <div id="tab-annot" style="display:none">
+              <textarea id="annot" placeholder="オーバーレイする注釈テキスト（注釈テロップ）"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <label class="row" style="gap:6px">BGMプロンプト:<input id="bgm" type="text" placeholder="suno向けプロンプト"></label>
+          <label class="row" style="gap:6px;margin-left:14px">SEプロンプト:<input id="se" type="text" placeholder="効果音生成や検索用"></label>
+          <label class="row" style="gap:6px;margin-left:14px">話速:<input id="rate" type="number" step="0.05" min="0.5" max="2.0" value="1.0" style="width:90px"></label>
+          <label class="row" style="gap:6px;margin-left:14px"><input id="locked" type="checkbox">ロック</label>
+        </div>
+
+        <div class="col">
+          <div class="muted">メモ</div>
+          <textarea id="notes" placeholder="備考やTODO"></textarea>
+        </div>
+
+        <div class="row" style="justify-content: space-between;">
+          <button onclick="saveCurrent()">保存（UIのみ）</button>
+          <div class="row" style="gap:8px">
+            <button onclick="regenerate()">再生成</button>
+            <button onclick="adopt()" class="primary">採用</button>
+            <button onclick="diffView()">差分</button>
+          </div>
+        </div>
+
+        <div class="panel" style="border:none; box-shadow:none;">
+          <h3>LLM候補（モック）</h3>
+          <div class="panel-body listbox" id="candidates"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const $ = sel => document.querySelector(sel);
+    const rowsBody = $('#rows tbody');
+    const tabs = document.querySelectorAll('.tab');
+    tabs.forEach(t => t.addEventListener('click', () => {
+      tabs.forEach(x => x.classList.remove('active'));
+      t.classList.add('active');
+      const name = t.dataset.tab;
+      ['follow','narr','story','annot'].forEach(n => {
+        $('#tab-' + n).style.display = (n === name) ? 'block' : 'none';
+      });
+    }));
+
+    // project state
+    let projectName = '';
+    let data = [
+      {line:1, role:'NA', character:'-', original:'転職した同期の投稿を見て 焦りを感じたことはありませんか', follow:'', narr:'', storyText:'', storyKeywords:'', annot:'', bgm:'calm_a', se:'', rate:1.0, locked:false, notes:''},
+      {line:2, role:'NA', character:'-', original:'転職は脱出なのか それとも逃避なのか', follow:'', narr:'', storyText:'', storyKeywords:'', annot:'', bgm:'calm_b', se:'', rate:1.0, locked:false, notes:''},
+      {line:3, role:'DL', character:'同僚A', original:'うちの会社 もう限界かもね', follow:'', narr:'', storyText:'', storyKeywords:'', annot:'', bgm:'minor', se:'', rate:1.0, locked:false, notes:''},
+      {line:4, role:'NA', character:'-', original:'金曜日の飲み会 愚痴と不満のオンパレード', follow:'', narr:'', storyText:'', storyKeywords:'', annot:'', bgm:'no_bgm', se:'', rate:1.0, locked:false, notes:''},
+    ];
+    let selected = null;
+
+    function trunc(s, n){ s = s || ''; return s.length>n? s.slice(0,n)+'…': s; }
+    function renderTable(){
+      rowsBody.innerHTML = '';
+      data.forEach((r, idx) => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${r.line}</td>
+          <td>${r.role}</td>
+          <td>${r.character || ''}</td>
+          <td>${trunc(r.original, 50)}</td>
+          <td>${r.follow ? '✓' : ''}</td>
+          <td>${r.narr ? '✓' : ''}</td>
+          <td>${(r.storyText||r.storyKeywords) ? '✓' : ''}</td>
+          <td>${r.annot ? '✓' : ''}</td>
+          <td>${r.bgm ? '✓' : ''}</td>
+          <td>${r.se ? '✓' : ''}</td>`;
+        tr.addEventListener('click', () => selectRow(idx, tr));
+        rowsBody.appendChild(tr);
+      });
+    }
+    function selectRow(idx, tr){
+      selected = idx;
+      document.querySelectorAll('#rows tbody tr').forEach(x => x.classList.remove('selected'));
+      tr.classList.add('selected');
+      const r = data[idx];
+      $('#orig').value = r.original || '';
+      $('#follow').value = r.follow || '';
+      $('#narr').value = r.narr || '';
+      $('#storyText').value = r.storyText || '';
+      $('#storyKeywords').value = r.storyKeywords || '';
+      $('#annot').value = r.annot || '';
+      $('#bgm').value = r.bgm || '';
+      $('#se').value = r.se || '';
+      $('#rate').value = r.rate != null ? r.rate : 1.0;
+      $('#locked').checked = !!r.locked;
+      $('#notes').value = r.notes || '';
+      renderCandidates();
+    }
+    function saveCurrent(){
+      if(selected == null){ alert('行を選択してください'); return; }
+      const r = data[selected];
+      r.follow = $('#follow').value.trim();
+      r.narr = $('#narr').value.trim();
+      r.storyText = $('#storyText').value.trim();
+      r.storyKeywords = $('#storyKeywords').value.trim();
+      r.annot = $('#annot').value.trim();
+      r.bgm = $('#bgm').value.trim();
+      r.se = $('#se').value.trim();
+      r.rate = parseFloat($('#rate').value || '1.0') || 1.0;
+      r.locked = $('#locked').checked;
+      r.notes = $('#notes').value.trim();
+      renderTable();
+      // keep selection highlight
+      const trs = document.querySelectorAll('#rows tbody tr');
+      if (trs[selected]) trs[selected].classList.add('selected');
+      alert(`行 ${r.line} をUI内で保存（モック）`);
+    }
+
+    // candidates (mock)
+    function mockCandidates(){
+      return Array.from({length: 5}).map((_,i)=> `候補${i+1}: 読みやすく整えた例文（モック）`);
+    }
+    function renderCandidates(){
+      const box = $('#candidates'); box.innerHTML='';
+      mockCandidates().forEach((t, i) => {
+        const d = document.createElement('div');
+        d.className = 'listbox-item'; d.textContent = t;
+        d.addEventListener('click', ()=>{ box.querySelectorAll('.listbox-item').forEach(x=>x.style.background=''); d.style.background='#eef2ff'; box.dataset.sel=i; });
+        box.appendChild(d);
+      });
+      box.dataset.sel = '';
+    }
+    function regenerate(){ alert('再生成（モック）'); }
+    function adopt(){
+      const box = $('#candidates');
+      const sel = box.dataset.sel;
+      if(sel === ''){ alert('候補を選択してください'); return; }
+      const t = mockCandidates()[parseInt(sel,10)];
+      $('#final').value = t; // adopt to final
+    }
+    function diffView(){ alert('差分ビュー（モック）'); }
+    function ni(){ alert('未実装（ワイヤーフレーム）'); }
+
+    function exportCsv(){
+      const headers = ['line_no','role','character','text_original','follow_telop','narration_script','story_text','search_keywords','annotation_telop','bgm_prompt','se_prompt','voice_id','rate','locked','notes'];
+      const lines = [headers.join(',')];
+      data.forEach(r=>{
+        const row = [r.line, r.role, r.character||'', esc(r.original), esc(r.follow||''), esc(r.narr||''), esc(r.storyText||''), esc(r.storyKeywords||''), esc(r.annot||''), esc(r.bgm||''), esc(r.se||''), '', (r.rate||1.0), (r.locked?1:0), esc(r.notes||'')];
+        lines.push(row.join(','));
+      });
+      const blob = new Blob([lines.join('\n')], {type:'text/csv;charset=utf-8;'});
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'export_vertical.csv';
+      a.click();
+      URL.revokeObjectURL(a.href);
+    }
+    function esc(s){
+      const needs = /[",\n]/.test(s);
+      return needs ? '"'+s.replace(/"/g,'""')+'"' : s;
+    }
+
+    // helpers
+    function formatFollowFromOriginal(){
+      if(selected == null){ alert('行を選択してください'); return; }
+      const width = Math.max(6, Math.min(30, parseInt($('#followWidth').value || '14', 10) || 14));
+      const src = (data[selected].original || '').replace(/[、。,，．!！?？]/g,'');
+      // naive chunking by characters
+      const chunks = [];
+      let cur = '';
+      for(const ch of src){
+        cur += ch;
+        if(cur.length >= width){ chunks.push(cur); cur=''; }
+      }
+      if(cur) chunks.push(cur);
+      $('#follow').value = chunks.join('\n');
+    }
+    function applyNarrPreset(){
+      const sel = $('#narrPreset').value;
+      if(!sel) return;
+      let prefix = '';
+      if(sel==='calm') prefix = '[voice:calm][pace:slow] ';
+      else if(sel==='energetic') prefix = '[voice:energetic][pace:medium] ';
+      else if(sel==='whisper') prefix = '[voice:whisper][pace:slow] ';
+      const cur = $('#narr').value.trim();
+      $('#narr').value = prefix + cur;
+    }
+    function extractKeywords(){
+      const text = $('#storyText').value.trim();
+      if(!text){ $('#storyKeywords').value=''; return; }
+      // very naive: split by separators and dedupe
+      const words = text.replace(/[、。\n,\t]/g,' ').split(/\s+/).filter(Boolean);
+      const uniq = Array.from(new Set(words)).slice(0, 12);
+      $('#storyKeywords').value = uniq.join(', ');
+    }
+
+    function newProject(){
+      if(!confirm('新規プロジェクトを作成しますか？')) return;
+      projectName = '';
+      data = [];
+      renderTable();
+      rowsBody.innerHTML = '';
+      $('#projectLabel').textContent = '';
+    }
+    function openProject(){
+      $('#fileOpen').click();
+    }
+    $('#fileOpen').addEventListener('change', ev => {
+      const file = ev.target.files[0];
+      if(!file) return;
+      projectName = file.name;
+      $('#projectLabel').textContent = projectName;
+      const ext = (file.name.split('.').pop()||'').toLowerCase();
+      const reader = new FileReader();
+      if(ext==='json'){
+        reader.onload = ()=>{
+          try{
+            const obj = JSON.parse(reader.result);
+            data = Array.isArray(obj.data) ? obj.data : (obj.data?.rows || []);
+            if(!Array.isArray(data)) throw new Error('invalid project');
+            // ensure fields exist
+            data = data.map((r,i)=>({
+              line: r.line||i+1, role:r.role||'NA', character:r.character||'', original:r.original||'',
+              follow:r.follow||'', narr:r.narr||'', storyText:r.storyText||'', storyKeywords:r.storyKeywords||'',
+              annot:r.annot||'', bgm:r.bgm||'', se:r.se||'', rate:r.rate||1.0, locked:!!r.locked, notes:r.notes||''
+            }));
+            renderTable();
+            setTimeout(()=>{ const first = document.querySelector('#rows tbody tr'); if(first) first.click(); }, 0);
+          }catch(e){ alert('JSON読込エラー: '+e.message); }
+        };
+        reader.readAsText(file, 'utf-8');
+      }else if(ext==='txt'){
+        reader.onload = ()=>{
+          const text = reader.result || '';
+          data = parseScriptText(text);
+          renderTable();
+          setTimeout(()=>{ const first = document.querySelector('#rows tbody tr'); if(first) first.click(); }, 0);
+        };
+        reader.readAsText(file, 'utf-8');
+      }else if(ext==='csv'){
+        reader.onload = ()=>{
+          data = importCsv(reader.result||'');
+          renderTable();
+          setTimeout(()=>{ const first = document.querySelector('#rows tbody tr'); if(first) first.click(); }, 0);
+        };
+        reader.readAsText(file, 'utf-8');
+      }else{
+        alert('未対応の拡張子です: '+ext);
+      }
+      ev.target.value = '';
+    });
+    function saveProject(){
+      const proj = { name: projectName||'project', data: data };
+      const blob = new Blob([JSON.stringify(proj, null, 2)], {type:'application/json'});
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = (projectName? projectName.replace(/\.[^.]+$/,'') : 'project') + '.json';
+      a.click(); URL.revokeObjectURL(a.href);
+    }
+    function parseScriptText(text){
+      const lines = [];
+      const src = (text||'').split(/\r?\n/);
+      let ln = 0;
+      for(const raw of src){
+        const line = raw.trim(); if(!line) continue; ln += 1;
+        if(line.startsWith('NA:')){
+          const body = line.slice(3).trim();
+          lines.push({line:ln, role:'NA', character:'-', original:body, follow:'', narr:'', storyText:'', storyKeywords:'', annot:'', bgm:'', se:'', rate:1.0, locked:false, notes:''});
+        }else if(line.startsWith('セリフ:')){
+          const body = line.slice(4).trim();
+          const m = body.match(/^([^（：:]+)[：:]?\s*(.*)$/);
+          const character = m? (m[1]||'').trim() : '';
+          const text = m? (m[2]||'').trim() : body;
+          lines.push({line:ln, role:'DL', character:character||'', original:text, follow:'', narr:'', storyText:'', storyKeywords:'', annot:'', bgm:'', se:'', rate:1.0, locked:false, notes:''});
+        }else{
+          // treat as NA
+          lines.push({line:ln, role:'NA', character:'-', original:line, follow:'', narr:'', storyText:'', storyKeywords:'', annot:'', bgm:'', se:'', rate:1.0, locked:false, notes:''});
+        }
+      }
+      return lines;
+    }
+    function importCsv(csv){
+      const rows = [];
+      const lines = (csv||'').split(/\r?\n/);
+      if(lines.length===0) return rows;
+      const headers = (lines[0]||'').split(',').map(h=>h.trim());
+      const idx = name => headers.indexOf(name);
+      for(let i=1;i<lines.length;i++){
+        const row = parseCsvLine(lines[i]); if(!row) continue;
+        rows.push({
+          line: parseInt(row[idx('line_no')]||i,10)||i,
+          role: row[idx('role')]||'NA',
+          character: row[idx('character')]||'',
+          original: unq(row[idx('text_original')])||'',
+          follow: unq(row[idx('follow_telop')])||'',
+          narr: unq(row[idx('narration_script')])||'',
+          storyText: unq(row[idx('story_text')])||'',
+          storyKeywords: unq(row[idx('search_keywords')])||'',
+          annot: unq(row[idx('annotation_telop')])||'',
+          bgm: unq(row[idx('bgm_prompt')])||'',
+          se: unq(row[idx('se_prompt')])||'',
+          rate: parseFloat(row[idx('rate')]||'1')||1.0,
+          locked: (row[idx('locked')]||'0')==='1',
+          notes: unq(row[idx('notes')])||''
+        });
+      }
+      return rows;
+    }
+    function parseCsvLine(line){
+      if(!line) return null;
+      const out = []; let cur=''; let inq=false;
+      for(let i=0;i<line.length;i++){
+        const ch=line[i];
+        if(ch==='"'){
+          if(inq && line[i+1]==='"'){ cur+='"'; i++; }
+          else inq=!inq;
+        }else if(ch===',' && !inq){ out.push(cur); cur=''; }
+        else cur+=ch;
+      }
+      out.push(cur); return out;
+    }
+    function unq(s){ if(!s) return s; if(s.startsWith('"')&&s.endsWith('"')) return s.slice(1,-1).replace(/""/g,'"'); return s; }
+
+    // init
+    renderTable();
+    renderCandidates();
+    setTimeout(()=>{ const first = document.querySelector('#rows tbody tr'); if(first) first.click(); }, 0);
+  </script>
+</body>
+</html>

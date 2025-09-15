@@ -1,0 +1,1637 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>🧠 LLM Integrated Workspace (HTML)</title>
+  <style>
+    :root { --bg:#fff; --fg:#111; --muted:#666; --border:#e5e7eb; --accent:#eff6ff; --primary:#2563eb; }
+    *{box-sizing:border-box} 
+    html,body{height:100%; overflow: hidden;}
+    body{margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,"Hiragino Kaku Gothic ProN",Meiryo,"Noto Sans JP",sans-serif}
+    
+    .app-container { display: flex; height: 100vh; }
+    .workflow-sidebar { display: flex; flex-direction: column; width: 260px; min-width: 260px; border-right: 1px solid var(--border); background: #f9fafb; }
+    .main-content { display: flex; flex-direction: column; flex-grow: 1; min-width: 0; }
+
+    .workflow-header { padding: 16px; border-bottom: 1px solid var(--border); }
+    .workflow-header h2 { margin: 0 0 4px 0; font-size: 18px; }
+    .workflow-steps { list-style: none; padding: 8px 0; margin: 0; flex-grow: 1; }
+    .step { display: flex; align-items: center; gap: 12px; padding: 12px 16px; cursor: pointer; border-left: 4px solid transparent; }
+    .step:hover { background: #f3f4f6; }
+    .step.active { background: var(--accent); border-left-color: var(--primary); font-weight: 600; }
+    .step .icon { font-size: 20px; }
+    .step .status { margin-left: auto; font-size: 16px; }
+    .workflow-footer { padding: 16px; border-top: 1px solid var(--border); }
+    .workflow-nav { display: flex; justify-content: space-between; }
+
+    .page { display: none; flex-direction: column; height: 100%; }
+    .page.active { display: flex; }
+    .page-header { display: flex; gap: 12px; align-items: center; padding: 12px; border-bottom: 1px solid var(--border); background: #fafafa; }
+    .page-body { flex-grow: 1; padding: 12px; overflow: auto; display: flex; flex-direction: column; gap: 12px; }
+
+    .group{display:flex;gap:8px;align-items:center;border:1px solid var(--border);border-radius:8px;padding:8px 10px;background:#fff}
+    .group-title{font-weight:600;color:var(--muted);margin-right:6px}
+    button,select,input,textarea{font:inherit}
+    button{padding:6px 12px;border:1px solid var(--border);border-radius:6px;background:#fff;cursor:pointer}
+    button.primary{background:var(--primary);border-color:var(--primary);color:#fff}
+    .panel{display:flex;flex-direction:column;min-height:0;min-width:0;border:1px solid var(--border);border-radius:8px;overflow:hidden;background:#fff}
+    .panel h3{margin:0;padding:10px 12px;border-bottom:1px solid var(--border);font-size:14px;background:#f9fafb}
+    .panel-body{padding:10px;overflow:auto;display:flex;flex-direction:column;gap:10px}
+    table{width:100%;border-collapse:collapse;font-size:13px;table-layout:fixed}
+    th,td{border-bottom:1px solid var(--border);padding:6px 8px;text-align:left;vertical-align:top}
+    thead th{position:sticky;top:0;background:#fff;z-index:1}
+    tr.selected{background:var(--accent)}
+    .status-dot{display:inline-block;width:10px;height:10px;border-radius:50%}
+    .ok{background:#10b981}.ng{background:#ef4444}.wait{background:#d1d5db}
+    .row{display:flex;gap:8px;align-items:center}
+    .col{display:flex;flex-direction:column;gap:6px}
+    textarea{width:100%;min-height:80px;border:1px solid var(--border);border-radius:6px;padding:8px;resize:vertical;white-space:pre-wrap;overflow-wrap:anywhere}
+    input[type="text"],input[type="number"],input[type="password"],select{border:1px solid var(--border);border-radius:6px;padding:6px 8px}
+    .tabs{display:flex;gap:6px;border-bottom:1px solid var(--border)}
+    .tab{padding:8px 10px;border-radius:6px 6px 0 0;cursor:pointer}
+    .tab.active{background:#fff;border:1px solid var(--border);border-bottom-color:#fff}
+    .tab-body{border:1px solid var(--border);border-top:none;border-radius:0 6px 6px 6px;padding:10px;background:#fff}
+    .listbox{border:1px solid var(--border);border-radius:8px;overflow:auto}
+    .listbox-item{padding:8px 10px;border-bottom:1px solid var(--border);cursor:pointer}
+    .listbox-item:hover{background:#f8fafc}
+    .muted{color:var(--muted)}
+    .grow{flex:1 1 auto}
+    .progress{height:8px;background:#e5e7eb;border-radius:9999px;overflow:hidden}
+    .bar{height:100%;background:var(--primary);width:0}
+    .diff { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; border:1px solid var(--border); border-radius:6px; padding:8px; background:#fff; overflow:auto; }
+    .add { background:#dcfce7 }
+    .del { background:#fee2e2 }
+    .cell-txt{ white-space:pre-wrap; overflow-wrap:anywhere }
+    textarea.ch-26{ box-sizing:content-box; width:26ch !important; max-width:26ch; min-width:26ch; font-family: ui-monospace, SFMono-Regular, Menlo, monospace }
+    th.col-follow, td.col-follow{ width:30ch; max-width:30ch }
+    th.col-original, td.col-original{ width:40ch; max-width:40ch }
+    #right-pane{ flex:0 0 420px; min-width:360px }
+    /* Prevent any accidental overlay by large preview textarea */
+    #filePreview{ position: relative; z-index: 0; }
+    #narrGenInline{ position: relative; z-index: 2; }
+    td.col-follow .cell-txt{ font-family: ui-monospace, SFMono-Regular, Menlo, monospace }
+    .chips{ display:flex; gap:4px; flex-wrap:wrap }
+    .chip{ display:inline-block; padding:2px 6px; border:1px solid var(--border); border-radius:9999px; font-size:11px; background:#fff }
+    .chip.warn{ border-color:#f59e0b; background:#fffbeb }
+    /* 強制ビュー制御（ナレーション台本では他列を隠す） */
+    body.ctx-narr th.col-follow, body.ctx-narr td.col-follow,
+    body.ctx-narr th.col-story,  body.ctx-narr td.col-story,
+    body.ctx-narr th.col-annot,  body.ctx-narr td.col-annot,
+    body.ctx-narr th.col-bgm,    body.ctx-narr td.col-bgm,
+    body.ctx-narr th.col-se,     body.ctx-narr td.col-se { display:none !important }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <aside class="workflow-sidebar">
+      <div class="workflow-header">
+        <h2>制作ワークフロー</h2>
+        <span class="muted" id="projectLabel">新規プロジェクト</span>
+      </div>
+      <ul class="workflow-steps">
+        <li class="step active" data-step="script">
+          <span class="icon">📝</span><span class="title">スクリプト編集</span><span class="status" id="status-script">⚪</span>
+        </li>
+        <li class="step" data-step="subtitle_make">
+          <span class="icon">📜</span><span class="title">字幕作成</span><span class="status">⚪</span>
+        </li>
+        <li class="step" data-step="narration">
+          <span class="icon">🎙️</span><span class="title">ナレーション台本</span><span class="status">⚪</span>
+        </li>
+        <li class="step" data-step="storyboard">
+          <span class="icon">🎬</span><span class="title">文字コンテ</span><span class="status" id="status-storyboard">⚪</span>
+        </li>
+        <li class="step" data-step="bgm">
+          <span class="icon">🎼</span><span class="title">BGM</span><span class="status">⚪</span>
+        </li>
+        <li class="step" data-step="se">
+          <span class="icon">🔊</span><span class="title">SE</span><span class="status">⚪</span>
+        </li>
+        <li class="step" data-step="annot">
+          <span class="icon">🧩</span><span class="title">注釈</span><span class="status">⚪</span>
+        </li>
+        
+        <li class="step" data-step="davinci">
+          <span class="icon">🚀</span><span class="title">DaVinci出力</span><span class="status"id="status-davinci">⚪</span>
+        </li>
+        <li class="step" data-step="confirm">
+          <span class="icon">✅</span><span class="title">最終確認</span><span class="status" id="status-confirm">⚪</span>
+        </li>
+      </ul>
+      <div class="workflow-footer">
+        <div class="progress" style="height:12px"><div class="bar" id="overallBar" style="width:10%"></div></div>
+        <div class="workflow-nav" style="margin-top:12px">
+          <button onclick="navigateStep(-1)">◀ 前へ</button>
+          <button onclick="navigateStep(1)" class="primary">次へ ▶</button>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <!-- Page 1: Script Editing -->
+      <div class="page active" id="page-script">
+        <div class="page-header">
+          <div class="group">
+            <div class="group-title">プロジェクト</div>
+            <button onclick="newProject()">新規</button>
+            <button onclick="openProject()">開く</button>
+            <button onclick="saveProject()">保存</button>
+            <input id="fileOpen" type="file" accept=".txt,.json,.csv" style="display:none"/>
+            <button onclick="chooseProjectFolder()">フォルダ</button>
+            <button onclick="importScriptFile()">脚本</button>
+            <button onclick="saveOutputsToFolder()">出力一式</button>
+            <input id="scriptOpen" type="file" accept=".txt,.md" style="display:none"/>
+            <span class="muted" id="folderNameLabel" style="font-size:12px"></span>
+          </div>
+    <div class="group">
+      <div class="group-title">LLM</div>
+      <label>プロバイダ:
+        <select id="prov">
+          <option value="mock">mock</option>
+        </select>
+      </label>
+      <label>モデル:<input id="model" type="text" value="gpt-4o-mini" style="width:140px"></label>
+      <label>温度:<input id="temp" type="number" step="0.1" min="0" max="2" value="0.7" style="width:84px"></label>
+      <label>並列:<input id="conc" type="number" min="1" max="8" value="3" style="width:64px"></label>
+      <label>API Key:<input id="apiKey" type="password" placeholder="（mockでは不要）" style="width:220px"></label>
+    </div>
+          <div class="group" style="margin-left:auto">
+            <div class="group-title">一括生成</div>
+            <label><input type="checkbox" class="spc" value="follow" checked>フォローT</label>
+            <label><input type="checkbox" class="spc" value="narr" checked>ナレ</label>
+            <label><input type="checkbox" class="spc" value="annot">注釈T</label>
+            <button class="primary" onclick="batchGenerate()">選択行を生成</button>
+            <button onclick="cancelJobs()">停止</button>
+          </div>
+          <!-- 同期UIはテスト時は非表示 -->
+          <div class="row" style="gap:8px;min-width:20%">
+            <div class="progress grow"><div class="bar" id="jobBar"></div></div>
+            <div class="muted" id="jobLabel">待機中</div>
+          </div>
+        </div>
+        <div class="page-body" style="flex-direction: row;">
+        <h3 style="display:none">行リスト（縦）</h3>
+        <div class="row" style="justify-content:flex-end; align-items:center; margin-bottom:6px">
+          <div class="muted" id="rowSummary"></div>
+        </div>
+          <div id="rowsPanelHost-script">
+          <div class="panel grow">
+            <div class="panel-body" style="overflow-y: auto;">
+              <table id="rows">
+                <thead>
+                  <tr>
+                    <th style="width:28px"><input id="selAll" type="checkbox" onclick="toggleSelectAll(this.checked)" title="全選択/全解除"></th>
+                    <th style="width:48px">#</th>
+                    <th style="width:82px">Start</th>
+                    <th style="width:82px">End</th>
+                    <th style="width:66px">Dur</th>
+                    <th class="col-original">オリジナル</th>
+                    <th style="width:54px">種</th>
+                    <th style="width:120px">キャラ</th>
+                    <th class="col-follow" style="width:30ch; max-width:30ch">フォローT</th>
+                    <th class="col-narr" style="width:120px">ナレ</th>
+                    <th class="col-story" style="width:60px">文字C</th>
+                    <th class="col-annot" style="width:60px">注釈T</th>
+                    <th class="col-bgm" style="width:50px">BGM</th>
+                    <th class="col-se" style="width:40px">SE</th>
+                </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+              <div id="stepEditorBox" class="col" style="gap:6px; margin-top:10px; display:none">
+                <div class="row" style="justify-content:space-between; align-items:center">
+                  <div class="muted" id="stepEditorLabel">このステップの出力</div>
+                  <div class="row" style="gap:8px">
+                    <button onclick="importSimpleFor(currentTargetField())">ファイル読込</button>
+                    <button onclick="saveStepField()" class="primary">保存</button>
+                  </div>
+                </div>
+                <textarea id="stepEditorText" placeholder="このステップの出力をここで編集"></textarea>
+              </div>
+            </div>
+          </div>
+          </div>
+          <div class="panel" id="right-pane">
+            <h3>ファイル読み込み</h3>
+            <div class="panel-body grow">
+              <div class="row" style="gap:8px; align-items:center; margin-bottom:6px">
+                <label>対象:
+                  <select id="rightTarget">
+                    <option value="follow">フォローT</option>
+                    <option value="narr">ナレ</option>
+                    <option value="storyText">文字C（文章）</option>
+                    <option value="storyKeywords">文字C（検索）</option>
+                    <option value="annot">注釈T</option>
+                    <option value="bgm">BGM</option>
+                    <option value="se">SE</option>
+                  </select>
+                </label>
+                <button onclick="importUnifiedFile()">ファイル読込</button>
+                <button onclick="alignToOriginalFromPreview()">原文に整列</button>
+                <input id="fileInputUnified" type="file" accept=".txt,.csv,.json,.jsonl" style="display:none" />
+              </div>
+              <div class="col" style="gap:6px">
+                <div class="muted">プレビュー（全文）</div>
+                <div class="muted" id="fileStatus" style="font-size:12px"></div>
+                <textarea id="filePreview" placeholder="ここに読み込んだファイル全文を表示" readonly style="min-height:60vh"></textarea>
+                <!-- Narration generation (local-only) -->
+                <div class="panel" id="narrGenInline" style="margin-top:8px; display:none">
+                  <h3>ナレーション生成</h3>
+                  <div class="panel-body">
+                    <div class="group">
+                      <div class="group-title">操作</div>
+                      <button onclick="createNarrFromOriginalVoiceTargets()" title="選択行のうち、音声対象の行（NA/セリフ/引用）だけ原文→ナレにコピー">ナレーション作成</button>
+                      <button onclick="extractDialogueFromOriginalSelected()" title="原文が『キャラ（補足）：「セリフ」』形式の行だけ、キャラ名/セリフを抽出してDLとして登録">セリフ抽出</button>
+                      <button class="primary" onclick="synthNarrSelected()" title="選択行のナレを音声生成し、長さを反映">生成</button>
+                    </div>
+                    <div class="panel">
+                      <h3>ジョブログ</h3>
+                      <div class="panel-body"><textarea id="narrLog2" style="min-height:140px"></textarea></div>
+                    </div>
+                  </div>
+                </div>
+          </div>
+        </div>
+      </div>
+        </div>
+      </div>
+
+      <!-- Page: Narration Synthesis (ElevenLabs) -->
+      <div class="page" id="page-narrgen">
+        <div class="page-header"><h3>🎙️ ナレーション生成</h3></div>
+        <div class="page-body" style="flex-direction:row; gap:12px">
+          <!-- Left: reuse rows panel + step editor (narr target) -->
+          <div class="panel grow">
+            <h3>台本 / 行と原稿（ナレ）</h3>
+            <div class="panel-body">
+              <div id="rowsPanelHost-narrgen"></div>
+            </div>
+          </div>
+          <!-- Right: generation settings -->
+          <div class="panel" style="flex:0 0 420px; min-width:360px">
+            <h3>生成設定</h3>
+            <div class="panel-body">
+              <div class="group">
+                <div class="group-title">サーバ</div>
+                <label>URL:<input id="elServerUrl" type="text" value="http://127.0.0.1:8787" style="width:220px"></label>
+                <label>モデル:<input id="elModel" type="text" value="eleven_v3_alpha" style="width:220px" title="最新・高品質モデル(Alpha)"></label>
+              </div>
+              <div class="group">
+                <div class="group-title">出力先</div>
+                <label>プロジェクト:<input id="narrProjectDir" type="text" placeholder="プロジェクトフォルダの絶対パス" style="width:420px"></label>
+                <button onclick="chooseProjectFolder()">フォルダ選択</button>
+              </div>
+              <div class="group">
+                <div class="group-title">生成</div>
+                <button class="primary" onclick="synthNarrSelected()">選択行を生成</button>
+                <button onclick="synthNarrAll()">全行(ナレ有)を生成</button>
+              </div>
+              <div class="panel">
+                <h3>ジョブログ</h3>
+                <div class="panel-body"><textarea id="narrLog" style="min-height:180px"></textarea></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Page 2: Storyboard -->
+      <div class="page" id="page-storyboard">
+        <div class="page-header"><h3>🎬 文字コンテ</h3></div>
+        <div class="page-body" style="flex-direction: row;">
+          <div id="tab-story" style="display:block; width:100%; display:flex; gap:12px;">
+            <div class="panel grow">
+              <h3>文字コンテ編集</h3>
+              <div class="panel-body">
+                <div id="rowsPanelHost-story"></div>
+              </div>
+            </div>
+            <div class="panel grow">
+              <h3>LLMプロンプト設計</h3>
+              <div class="panel-body">
+                <div id="pbox-storyText" class="col" style="display:block">
+                  <div class="row" style="gap:8px">
+                    <button onclick="resetPromptBox('storyText')">ベース</button>
+                    <button onclick="runPromptBox('storyText')" class="primary">このプロンプトで実行</button>
+                    <span class="muted">テンプレ:</span>
+                    <select id="tselect-storyText" style="min-width:200px"></select>
+                    <button onclick="insertTemplateTo('#ptext-storyText', $('#tselect-storyText').value)">挿入</button>
+                  </div>
+                  <textarea id="ptext-storyText" placeholder="文字コンテ（文章）プロンプト"></textarea>
+                </div>
+                <div id="pbox-storyKeywords" class="col" style="display:block">
+                  <div class="row" style="gap:8px">
+                    <button onclick="resetPromptBox('storyKeywords')">ベース</button>
+                    <button onclick="runPromptBox('storyKeywords')" class="primary">このプロンプトで実行</button>
+                    <span class="muted">テンプレ:</span>
+                    <select id="tselect-storyKeywords" style="min-width:200px"></select>
+                    <button onclick="insertTemplateTo('#ptext-storyKeywords', $('#tselect-storyKeywords').value)">挿入</button>
+                  </div>
+                  <textarea id="ptext-storyKeywords" placeholder="文字コンテ（検索）プロンプト"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+
+      <!-- Page 5: DaVinci Export -->
+      <div class="page" id="page-davinci">
+        <div class="page-header"><h3>🚀 DaVinci出力</h3></div>
+        <div class="page-body">
+          <p>ここにDaVinci Resolveへの出力設定や実行ボタンを配置します。</p>
+        </div>
+      </div>
+
+      <!-- Page: BGM / SE -->
+      <div class="page" id="page-bgmse">
+        <div class="page-header"><h3>🎼 BGM / 🎧 SE 生成</h3></div>
+        <div class="page-body" style="flex-direction: row; gap:12px">
+          <div class="panel grow">
+            <h3>BGM 指示書（貼り付け）</h3>
+            <div class="panel-body">
+              <textarea id="bgmSpec" placeholder="ここにBGMの指示書を貼り付け（[mm:ss-mm:ss] と BGM生成AIプロンプト を含む）" style="min-height:240px"></textarea>
+              <div class="row" style="gap:8px">
+                <button onclick="parseBgmSpec()">解析</button>
+                <button class="primary" onclick="generateAllBgm()">BGM一括生成</button>
+              </div>
+              <div class="panel">
+                <h3>解析結果</h3>
+                <div class="panel-body">
+                  <div id="bgmList"></div>
+                </div>
+              </div>
+              <div class="panel">
+                <h3>ログ</h3>
+                <div class="panel-body"><textarea id="bgmLog" style="min-height:140px"></textarea></div>
+              </div>
+            </div>
+          </div>
+          <div class="panel" style="flex:0 0 420px; min-width:360px">
+            <h3>SE 指示抽出（参考）</h3>
+            <div class="panel-body">
+              <div class="row" style="gap:8px">
+                <button onclick="parseSeFromSpec()">SE抽出</button>
+              </div>
+              <div class="panel">
+                <h3>SE リスト</h3>
+                <div class="panel-body">
+                  <div id="seList"></div>
+                  <div class="row" style="gap:8px; margin-top:6px">
+                    <label>既定秒数:<input id="seDefaultSec" type="number" value="2.0" step="0.1" style="width:80px"></label>
+                    <button class="primary" onclick="generateAllSe()">SE一括生成</button>
+                  </div>
+                </div>
+              </div>
+              <p class="muted">SEの生成/収集は次フェーズで実装（外部アセット/効果音API連携）。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Page 6: Final Confirmation -->
+      <div class="page" id="page-confirm">
+        <div class="page-header"><h3>✅ 最終確認</h3></div>
+        <div class="page-body">
+          <p>ここに最終成果物のプレビューや、プロジェクト全体の統計情報を表示します。</p>
+        </div>
+      </div>
+
+      <!-- A/B比較パネルは削除 -->
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const $ = s => document.querySelector(s);
+    const rowsBody = $('#rows tbody');
+
+    // project state
+    let projectName='';
+    let projectDir=null; // File System Access API directory handle
+    let lastImportedScriptText='';
+    let data=[
+      {sel:true,line:1,role:'NA',character:'-',original:'転職した同期の投稿を見て 焦りを感じたことはありませんか',follow:'',narr:'',storyText:'',storyKeywords:'',annot:'',bgm:'calm_a',se:'',rate:1.0,locked:false,notes:'',status:{},tDur:0,tStart:0,tEnd:0},
+      {sel:true,line:2,role:'NA',character:'-',original:'転職は脱出なのか それとも逃避なのか',follow:'',narr:'',storyText:'',storyKeywords:'',annot:'',bgm:'calm_b',se:'',rate:1.0,locked:false,notes:'',status:{},tDur:0,tStart:0,tEnd:0},
+      {sel:true,line:3,role:'DL',character:'同僚A',original:'うちの会社 もう限界かもね',follow:'',narr:'',storyText:'',storyKeywords:'',annot:'',bgm:'minor',se:'',rate:1.0,locked:false,notes:'',status:{},tDur:0,tStart:0,tEnd:0},
+      {sel:true,line:4,role:'NA',character:'-',original:'金曜日の飲み会 愚痴と不満のオンパレード',follow:'',narr:'',storyText:'',storyKeywords:'',annot:'',bgm:'no_bgm',se:'',rate:1.0,locked:false,notes:'',status:{},tDur:0,tStart:0,tEnd:0},
+    ];
+    let selected=null;
+    let currentStepIndex = 0;
+    const steps = ['script', 'narration', 'storyboard', 'davinci', 'confirm'];
+
+    function switchStep(stepName) {
+      const alias = {
+        'subtitle_make': { page:'script', tab:'follow' },
+        'narration':     { page:'script', tab:'narr' },
+        'annot':         { page:'script', tab:'annot' },
+        'bgm':           { page:'script', tab:'bgmse', focus:'#bgm' },
+        'se':            { page:'script', tab:'bgmse', focus:'#se' }
+      };
+      const conf = alias[stepName] || { page: stepName };
+      const stepIndex = steps.indexOf(conf.page);
+      if (stepIndex >= 0) currentStepIndex = stepIndex;
+
+      document.querySelectorAll('.step').forEach(el => el.classList.remove('active'));
+      const stepEl = document.querySelector(`.step[data-step="${stepName}"]`) || document.querySelector(`.step[data-step="${conf.page}"]`);
+      if (stepEl) stepEl.classList.add('active');
+
+      document.querySelectorAll('.page').forEach(el => el.classList.remove('active'));
+      const page = $(`#page-${conf.page}`);
+      if (page) page.classList.add('active');
+
+      if (conf.tab) activateTab(conf.tab);
+      applyColumnVisibility(stepName);
+      updateStepEditorUI(stepName);
+      toggleRightOriginalBlock(stepName);
+      setRightTargetToStep();
+      refreshInlineNarrGenVisibility();
+      // 強制ビュークラス（ナレーション台本）
+      if(stepName==='narration') document.body.classList.add('ctx-narr');
+      else document.body.classList.remove('ctx-narr');
+      // Move rows panel to narrgen page when active
+      if (conf.page === 'narrgen') {
+        moveRowsPanelTo('#rowsPanelHost-narrgen');
+        const ta=$('#rightTarget'); if(ta) ta.value='narr';
+        document.body.classList.add('ctx-narr');
+        renderTable(); const tb=document.querySelector('#rows tbody'); if(tb && tb.children.length){ if(selected==null) selected=0; selectRow(selected, tb.children[selected]); }
+      } else {
+        // return rows panel to main script host when leaving
+        moveRowsPanelTo('#rowsPanelHost-script');
+      }
+      if (conf.focus) setTimeout(()=>{ const el=$(conf.focus); if(el) el.focus(); },0);
+
+      // Move #tab-story and rows panel when storyboard becomes active
+      if (conf.page === 'storyboard') {
+        const storyTabContent = $('#tab-story');
+        if (storyTabContent) storyTabContent.style.display = 'flex';
+        $('#page-storyboard .page-body').appendChild(storyTabContent);
+        const panel = document.querySelector('#rows')?.closest('.panel');
+        const host = document.querySelector('#rowsPanelHost-story');
+        if(panel && host && panel.parentNode!==host){ host.appendChild(panel); }
+        updateStoryboardLeftPanel();
+      } else {
+        // ensure rows panel returns to the script page host
+        const panel = document.querySelector('#rows')?.closest('.panel');
+        const host = document.querySelector('#rowsPanelHost-script');
+        if(panel && host && panel.parentNode!==host){ host.appendChild(panel); }
+      }
+    }
+
+    const specialists={
+      follow:{name:'フォローテロップ', prompt:(r)=>`次の文を字幕用に改行・句読点削除して短い行に整えてください。\n${r.original}`},
+      narr:{name:'ナレーション', prompt:(r)=>`次の内容をTTS向けに読みやすく、簡潔に、[voice:calm] などのメタ指示を適宜入れて整えた原稿を出力してください。\n${r.original}`},
+      storyText:{name:'文字コンテ', prompt:(r)=>`映像の指示（ショット/カメラ/モーション/要素）を短文で出力してください。\n${r.original}`},
+      storyKeywords:{name:'検索ワード', prompt:(r)=>`Getty等で素材検索するためのキーワードを日本語/英語ミックスで10件以内、カンマ区切りで出力してください。\n${r.original}`},
+      annot:{name:'注釈テロップ', prompt:(r)=>`補足説明として短い注釈テロップ文を出力してください。\n${r.original}`},
+      bgm:{name:'BGMプロンプト', prompt:(r)=>`音楽生成プロンプト（ジャンル/テンポ/ムード/編成/長さ）を1行で出力してください。\n${r.original}`},
+      se:{name:'SEプロンプト', prompt:(r)=>`効果音の生成/検索プロンプト（種類/質感/尺/バリエーション）を1行で出力してください。\n${r.original}`},
+    };
+
+    // table render
+    function renderTable(){
+      const onlyUnfilled = ($('#filterUnfilled')? $('#filterUnfilled').checked : false);
+      rowsBody.innerHTML=''; let shown=0; let ok=0;
+      data.forEach((r,idx)=>{
+        
+        if(onlyUnfilled && r.follow && r.narr && (r.storyText||r.storyKeywords) && r.annot && r.bgm && r.se) return;
+        shown++;
+        const tr=document.createElement('tr'); tr.addEventListener('click',()=>selectRow(idx,tr));
+        const st=(k)=>{
+          const v=r[k]; if(v && ((typeof v==='string' && v.trim()) || (Array.isArray(v)&&v.length))) return '<span class="status-dot ok"></span>';
+          return r.status[k]==='run'? '<span class="status-dot wait"></span>':'<span class="status-dot ng"></span>';
+        };
+        const displayCell=(kind)=>{
+          let v = '';
+          if(kind==='story') v = r.storyText || r.storyKeywords || '';
+          else v = r[kind] || '';
+          const has = typeof v==='string' ? v.trim() : (Array.isArray(v) && v.length);
+          if(has){
+            if(kind==='narr'){
+              const chips = narrChipsFrom(String(v));
+              const html = chips.map(c=>`<span class=\"chip\">${escHtml(c)}</span>`).join('');
+              return `<div class=\"chips\"><span class=\"status-dot ok\" style=\"margin-right:6px\"></span>${html}</div>`;
+            }
+            const html = escHtml(String(v)).replace(/\r?\n/g,'<br>');
+            return `<div class="cell-txt">${html}</div>`;
+          }
+          const key = (kind==='story')? 'storyText' : kind;
+          return st(key);
+        };
+        tr.innerHTML=`
+          <td><input type="checkbox" ${r.sel?'checked':''} onclick="event.stopPropagation(); data[${idx}].sel=this.checked; updateSelAllState();"></td>
+          <td>${r.line}</td>
+          <td>${fmtClock(r.tStart)}</td>
+          <td>${fmtClock(r.tEnd)}</td>
+          <td>${r.tDur? r.tDur.toFixed(2): ''}</td>
+          <td class="col-original"><div class="cell-txt">${escHtml(r.original||'').replace(/\r?\n/g,'<br>')}</div></td>
+          <td>${r.role}</td>
+          <td>${r.character||''}</td>
+          <td class="col-follow">${displayCell('follow')}</td>
+          <td class="col-narr">${displayCell('narr')}</td>
+          <td class="col-story">${displayCell('story')}</td>
+          <td class="col-annot">${displayCell('annot')}</td>
+          <td class="col-bgm">${displayCell('bgm')}</td>
+          <td class="col-se">${displayCell('se')}</td>
+        `;
+        rowsBody.appendChild(tr);
+        if(r.follow && r.narr && (r.storyText||r.storyKeywords) && r.annot && r.bgm && r.se) ok++;
+      });
+      $('#rowSummary').textContent=`表示 ${shown} 行 / 完成済 ${ok}`;
+      updateSelAllState();
+    }
+
+    function selectRow(idx,tr){ selected=idx; document.querySelectorAll('#rows tbody tr').forEach(x=>x.classList.remove('selected')); tr.classList.add('selected'); const r=data[idx];
+      const setVal=(sel,val)=>{ const el=$(sel); if(el) el.value = val; };
+      setVal('#orig', r.original||''); setVal('#follow', r.follow||''); setVal('#narr', r.narr||''); setVal('#storyText', r.storyText||''); setVal('#storyKeywords', r.storyKeywords||''); setVal('#annot', r.annot||''); setVal('#bgm', r.bgm||''); setVal('#se', r.se||'');
+      ['#cand-follow','#cand-narr','#cand-storyText','#cand-storyKeywords','#cand-annot','#cand-bgm','#cand-se'].forEach(sel=>{ const el=$(sel); if(el) el.innerHTML=''; });
+      setVal('#tDur', r.tDur||0); setVal('#tStart', r.tStart||0); setVal('#tEnd', r.tEnd||0);
+      updatePromptFromTarget();
+      // reflect to left step editor
+      updateStepEditorUI(document.querySelector('.step.active')?.dataset.step || 'script');
+      // reflect storyboard left panel
+      updateStoryboardLeftPanel();
+    }
+
+    function toggleSelectAll(on){ data.forEach(r=>r.sel=on); renderTable(); updateSelAllState(); }
+    function updateSelAllState(){ const cb=$('#selAll'); if(!cb) return; const total=data.length; const sel=data.filter(r=>r.sel).length; if(sel===0){ cb.checked=false; cb.indeterminate=false; } else if(sel===total){ cb.checked=true; cb.indeterminate=false; } else { cb.checked=false; cb.indeterminate=true; } }
+
+    function saveCurrent(){ if(selected==null){alert('行を選択してください');return;} const r=data[selected]; r.follow=$('#follow')?.value.trim()||r.follow; r.narr=$('#narr')?.value.trim()||r.narr; r.storyText=$('#storyText')?.value.trim()||r.storyText; r.storyKeywords=$('#storyKeywords')?.value.trim()||r.storyKeywords; r.annot=$('#annot')?.value.trim()||r.annot; r.bgm=$('#bgm')?.value.trim()||r.bgm; r.rate=parseFloat($('#rate')?.value||r.rate||'1')||1.0; r.notes=$('#notes')?.value.trim()||r.notes; r.tDur=parseFloat($('#tDur')?.value||r.tDur||'0')||0; r.tStart=parseFloat($('#tStart')?.value||r.tStart||'0')||0; r.tEnd=r.tStart + r.tDur; const tEndEl=$('#tEnd'); if(tEndEl) tEndEl.value=r.tEnd.toFixed(2); renderTable(); alert('保存しました'); }
+    
+    // helpers
+    function trunc(s,n){ s=s||''; return s.length>n? s.slice(0,n)+'…': s; }
+    function escHtml(s){ return String(s).replace(/[&<>]/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[ch])); }
+    // candidate UI removed
+
+    function formatFollowFromOriginal(){ if(selected==null){alert('行を選択');return;} const w=Math.max(6,Math.min(30,parseInt($('#followWidth').value||'14',10)||14)); const src=(data[selected].original||'').replace(/[、。,，．!！?？]/g,''); const out=[]; let cur=''; for(const ch of src){ cur+=ch; if(cur.length>=w){ out.push(cur); cur=''; } } if(cur) out.push(cur); $('#follow').value=out.join('\n'); }
+    function applyNarrPreset(){ const sel=$('#narrPreset').value; if(!sel) return; let prefix=''; if(sel==='calm') prefix='[voice:calm][pace:slow] '; else if(sel==='energetic') prefix='[voice:energetic][pace:medium] '; else if(sel==='whisper') prefix='[voice:whisper][pace:slow] '; $('#narr').value=prefix+($('#narr').value.trim()); }
+    function synthesizeNarration(){ if(selected==null){ alert('行を選択してください'); return; } const r=data[selected]; const voice=$('#voiceId')?.value||''; const rate=$('#narrRate')?.value||''; const pitch=$('#narrPitch')?.value||''; const useSSML=$('#narrSSML')?.checked; alert(`音声合成（モック）:\nline=${r.line}\nvoice=${voice}\nrate=${rate}\npitch=${pitch}\nSSML=${useSSML?'on':'off'}`); }
+    function extractKeywords(){ const text=$('#storyText').value.trim(); if(!text){ $('#storyKeywords').value=''; return; } const words=text.replace(/[、。\n,\t]/g,' ').split(/\s+/).filter(Boolean); const uniq=Array.from(new Set(words)).slice(0,12); $('#storyKeywords').value=uniq.join(', '); }
+
+    // === Timing helpers ===
+    function estimateNarrSeconds(text, rate){ const t=(text||'').replace(/\s+/g,''); const chars=t.length; const sp=4.0; const sec=chars/sp; const r=rate||1.0; return Math.max(0.3, sec/Math.max(0.1,r)); }
+    function estimateDurationFromNarr(){ if(selected==null){ alert('行を選択してください'); return; } const r=data[selected]; const sec=estimateNarrSeconds(r.narr || r.follow || r.original, r.rate); r.tDur=sec; $('#tDur').value=sec.toFixed(2); recalcEnd(); }
+    function recalcEnd(){ if(selected==null){ return; } const r=data[selected]; const dur=parseFloat($('#tDur').value||r.tDur||'0')||0; const st=parseFloat($('#tStart').value||r.tStart||'0')||0; r.tDur=dur; r.tStart=st; r.tEnd=st+dur; $('#tEnd').value=r.tEnd.toFixed(2); renderTable(); }
+
+    function estimateAllDurations(){ const targets=data.filter(r=>r.sel); targets.forEach(r=>{ const sec=estimateNarrSeconds(r.narr || r.follow || r.original, r.rate); r.tDur=sec; }); renderTable(); }
+    function rebuildTimeline(){ const gapMs=parseInt($('#tcGap').value||'200',10)||200; const offsetMs=parseInt($('#tcOffset').value||'0',10)||0; let cursor=offsetMs/1000; const targets=data.filter(r=>r.sel); targets.sort((a,b)=>a.line-b.line).forEach(r=>{ const d=r.tDur||estimateNarrSeconds(r.narr || r.follow || r.original, r.rate); r.tStart=cursor; r.tEnd=cursor + d; cursor = r.tEnd + gapMs/1000; }); renderTable(); if(selected!=null){ $('#tDur').value=data[selected].tDur||0; $('#tStart').value=data[selected].tStart||0; $('#tEnd').value=data[selected].tEnd||0; } }
+
+    function fmtClock(sec){ if(!sec) return ''; const s=Math.max(0, Number(sec)||0); const h=Math.floor(s/3600); const m=Math.floor((s%3600)/60); const x=(s%60); const mm=String(m).padStart(2,'0'); const ss=String(Math.floor(x)).padStart(2,'0'); const ms=String(Math.round((x-Math.floor(x))*1000)).padStart(3,'0'); return `${h}:${mm}:${ss}.${ms}`; }
+    function srtTime(sec){ const s=Math.max(0, Number(sec)||0); const h=Math.floor(s/3600); const m=Math.floor((s%3600)/60); const x=(s%60); const hh=String(h).padStart(2,'0'); const mm=String(m).padStart(2,'0'); const ss=String(Math.floor(x)).padStart(2,'0'); const ms=String(Math.round((x-Math.floor(x))*1000)).padStart(3,'0'); return `${hh}:${mm}:${ss},${ms}`; }
+
+    function exportSRT(){ const src=$('#srtSource').value; const offsetMs=parseInt($('#tcOffset').value||'0',10)||0; const lines=[]; let idx=1; data.sort((a,b)=>a.line-b.line).forEach(r=>{ const text=(src==='follow'? r.follow : src==='narr'? r.narr : r.annot) || ''; const hasTC=(r.tEnd>r.tStart && r.tDur>0); if(!text.trim() || !hasTC) return; const st = r.tStart + offsetMs/1000; const en = r.tEnd + offsetMs/1000; lines.push(String(idx++)); lines.push(`${srtTime(st)} --> ${srtTime(en)}`); lines.push(text.replace(/\r?\n/g,'\n')); lines.push(''); }); if(!lines.length){ alert('SRTに出力できる行がありません'); return; } const blob=new Blob([lines.join('\n')],{type:'text/plain;charset=utf-8;'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='subtitles.srt'; a.click(); URL.revokeObjectURL(a.href); }
+
+    function triggerAudioImport(){ $('#audioFiles').click(); }
+    const _af=$('#audioFiles'); if(_af) _af.addEventListener('change', async ev=>{ const files=[...ev.target.files]; if(!files.length) return; const tasks = files.map(f=>readAudioDuration(f)); const results = await Promise.all(tasks); let applied=0; results.forEach(({name,duration})=>{ const ln = parseLineFromName(name); if(ln==null) return; const r = data.find(x=>x.line===ln); if(!r) return; r.tDur = duration; r.tEnd = r.tStart + r.tDur; applied++; }); renderTable(); alert(`音声からDur適用: ${applied}件`); ev.target.value=''; });
+    function readAudioDuration(file){ return new Promise(res=>{ const url=URL.createObjectURL(file); const a=new Audio(); a.preload='metadata'; a.src=url; a.onloadedmetadata=()=>{ const d=a.duration||0; URL.revokeObjectURL(url); res({name:file.name, duration: isFinite(d)? d:0}); }; a.onerror=()=>{ URL.revokeObjectURL(url); res({name:file.name, duration:0}); }; }); }
+    function parseLineFromName(name){ const m = name.match(/(\d{1,4})/); if(m) return parseInt(m[1],10); return null; }
+
+    // mock LLM adapter
+    async function callLLM(specKey, row){ const prov=$('#prov').value; const temp=parseFloat($('#temp').value||'0.7')||0.7; const delay=300+Math.random()*900; await new Promise(r=>setTimeout(r,delay)); const base=`[${specialists[specKey].name}]`; const o=row.original.replace(/\s+/g,' ').slice(0,40); if(specKey==='follow'){ return o.match(/.{1,14}/g).join('\n'); } if(specKey==='storyKeywords'){ return 'nature, city, office, conversation, night, rain, speed ramp, slow motion'; } return `${base} ${o} … v${(Math.random()*10).toFixed(1)} (temp=${temp})`; }
+
+    async function runLLMFor(id){
+      if(selected==null){alert('行を選択');return;}
+      const r=data[selected];
+      const t=await callLLM(id,r);
+      const field=(id==='storyKeywords')?'storyKeywords':(id==='storyText'?'storyText':id);
+      setField(field, r, t);
+      renderTable();
+      const tb=document.querySelector('#rows tbody'); if(tb && tb.children[selected]) selectRow(selected, tb.children[selected]);
+    }
+
+    // Batch generation queue
+    let jobQueue=[]; let running=0; let cancelled=false;
+    function enqueueJobs(){ jobQueue.length=0; const specs=[...document.querySelectorAll('.spc:checked')].map(x=>x.value); data.forEach((r,idx)=>{ if(!r.sel) return; specs.forEach(s=>{ jobQueue.push({idx,s}); r.status[s]='wait'; }); }); }
+    function updateJobUI(){ const total=jobQueue._total||0; const done=jobQueue._done||0; const pct= total? Math.round(100*done/total):0; $('#jobBar').style.width=pct+'%'; $('#jobLabel').textContent= total? `${done}/${total} 完了`:'待機中'; renderTable(); }
+    async function workerLoop(){ const conc=Math.max(1,Math.min(8,parseInt($('#conc').value||'3',10))); running=0; cancelled=false; const total=jobQueue.length; jobQueue._total=total; jobQueue._done=0; updateJobUI(); const runNext=()=>{ if(cancelled) return; if(running>=conc) return; const job=jobQueue.shift(); if(!job){ if(running===0) updateJobUI(); return; } running++; const r=data[job.idx]; r.status[job.s]='run'; updateJobUI(); (async()=>{ try{ let out=''; if(job.s==='follow'){ out=formatFollowPreview(r); } else { out=await callLLM(job.s,r); } applyResult(job.s, r, out); }catch(e){ console.warn(e); } finally { running--; jobQueue._done=(jobQueue._done||0)+1; updateJobUI(); runNext(); } })(); if(running<conc) runNext(); };
+      for(let i=0;i<Math.min(conc, jobQueue.length); i++) runNext(); }
+    function formatFollowPreview(r){ const w=Math.max(6,Math.min(30,parseInt($('#followWidth').value||'14',10)||14)); const src=(r.original||'').replace(/[、。,，．!！?？]/g,''); const out=[]; let cur=''; for(const ch of src){ cur+=ch; if(cur.length>=w){ out.push(cur); cur=''; } } if(cur) out.push(cur); return out.join('\n'); }
+    function applyResult(spec, r, text){ if(spec==='follow') r.follow=text; else if(spec==='narr') r.narr=text; else if(spec==='storyText') r.storyText=text; else if(spec==='storyKeywords') r.storyKeywords=text; else if(spec==='annot') r.annot=text; else if(spec==='bgm') r.bgm=text; else if(spec==='se') r.se=text; r.status[spec]='ok'; renderTable(); }
+    function batchGenerate(){ enqueueJobs(); if(jobQueue.length===0){ alert('対象がありません'); return; } workerLoop(); }
+    function cancelJobs(){ cancelled=true; jobQueue.length=0; running=0; updateJobUI(); }
+
+    // Project I/O and CSV
+    function newProject(){ if(!confirm('新規プロジェクトを作成しますか？')) return; projectName=''; data=[]; renderTable(); rowsBody.innerHTML=''; $('#projectLabel').textContent=''; const sa=$('#selAll'); if(sa) sa.checked=false; updateJobUI(); }
+    function openProject(){ $('#fileOpen').click(); }
+    $('#fileOpen').addEventListener('change', ev=>{ const f=ev.target.files[0]; if(!f) return; projectName=f.name; $('#projectLabel').textContent=projectName; const ext=(f.name.split('.').pop()||'').toLowerCase(); const fr=new FileReader(); if(ext==='json'){ fr.onload=()=>{ try{ const obj=JSON.parse(fr.result); data=Array.isArray(obj.data)?obj.data:(obj.data?.rows||[]); if(!Array.isArray(data)) throw new Error('invalid'); normalizeData(); }catch(e){ alert('JSON読込エラー: '+e.message);} }; fr.readAsText(f,'utf-8'); } else if(ext==='txt'){ fr.onload=()=>{ data=parseScriptText(fr.result||''); }; fr.readAsText(f,'utf-8'); } else if(ext==='csv'){ fr.onload=()=>{ data=importCsv(fr.result||''); }; fr.readAsText(f,'utf-8'); } else { alert('未対応の拡張子: '+ext); } ev.target.value=''; setTimeout(()=>{ renderTable(); const first=document.querySelector('#rows tbody tr'); if(first) first.click(); }, 0); });
+    function saveProject(){ const proj={name:projectName||'project', data}; const blob=new Blob([JSON.stringify(proj,null,2)],{type:'application/json'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=(projectName?projectName.replace(/\.[^.]+$/,''):'project')+'.json'; a.click(); URL.revokeObjectURL(a.href); }
+    function normalizeData(){ data=data.map((r,i)=>({ sel:true, line:r.line||i+1, role:r.role||'NA', character:r.character||'', original:r.original||'', follow:r.follow||'', narr:r.narr||'', storyText:r.storyText||'', storyKeywords:r.storyKeywords||'', annot:r.annot||'', bgm:r.bgm||'', se:r.se||'', rate:r.rate||1.0, locked:!!r.locked, notes:r.notes||'', status:r.status||{}, tDur:r.tDur||0, tStart:r.tStart||0, tEnd:r.tEnd||0 })); }
+    function defaultProjectName(){ const d=new Date(); const p=n=>String(n).padStart(2,'0'); return `project_${d.getFullYear()}${p(d.getMonth()+1)}${p(d.getDate())}_${p(d.getHours())}${p(d.getMinutes())}${p(d.getSeconds())}`; }
+
+    // === Project folder (FS API) ===
+    async function chooseProjectFolder(){
+      if(!('showDirectoryPicker' in window)){ alert('このブラウザはFile System Access APIに非対応です'); return; }
+      try{
+        const dir = await window.showDirectoryPicker();
+        // request write permission proactively
+        if(dir.requestPermission){ const perm = await dir.requestPermission({mode:'readwrite'}); if(perm!=='granted'){ alert('書込権限が付与されませんでした'); return; } }
+        projectDir = dir; $('#folderNameLabel').textContent = `📁 ${dir.name}`;
+        if(!projectName) projectName = dir.name || defaultProjectName();
+        $('#projectLabel').textContent = projectName;
+        // create default subdirs
+        await ensureDir(dir, 'inputs');
+        await ensureDir(dir, 'exports');
+        await ensureDir(dir, 'exports/audio');
+        await ensureDir(dir, 'exports/audio/narr');
+        const narrOut = $('#narrProjectDir'); if(narrOut && !narrOut.value){ narrOut.value = String(dir.name? dir.name: '')? (dir.name, (await dir.resolve) ? '' : '') : ''; }
+      }catch(e){ console.warn(e); }
+    }
+    async function ensureDir(root, name){ try{ return await root.getDirectoryHandle(name, {create:true}); }catch(e){ console.warn(e); return null; } }
+    async function writeFile(root, path, content){
+      try{
+        const parts = path.split('/').filter(Boolean);
+        let dir = root;
+        for(let i=0;i<parts.length-1;i++) dir = await dir.getDirectoryHandle(parts[i], {create:true});
+        const fh = await dir.getFileHandle(parts[parts.length-1], {create:true});
+        const w = await fh.createWritable();
+        await w.write(content);
+        await w.close();
+      }catch(e){ console.error('writeFile failed', path, e); throw e; }
+    }
+
+    // === Script import ===
+    function importScriptFile(){ $('#scriptOpen').click(); }
+    $('#scriptOpen').addEventListener('change', async ev=>{
+      const f=ev.target.files[0]; if(!f) return; const txt=await f.text(); lastImportedScriptText = txt;
+      data = parseScriptText(txt);
+      projectName = (f.name||'').replace(/\.[^.]+$/,''); $('#projectLabel').textContent=projectName;
+      renderTable(); setTimeout(()=>{ const first=document.querySelector('#rows tbody tr'); if(first) first.click(); }, 0);
+      // optionally persist immediately
+      try{ if(projectDir){ await writeFile(projectDir, 'inputs/script.txt', txt); await autoSaveProjectJson(); await saveCsvToFolder(); alert('脚本をプロジェクトフォルダへ保存しました'); } }catch(e){ console.warn(e); }
+      ev.target.value='';
+    });
+
+    async function autoSaveProjectJson(){ if(!projectDir) return; const proj={ name:projectName||defaultProjectName(), savedAt:new Date().toISOString(), data}; const json=JSON.stringify(proj,null,2); await writeFile(projectDir, 'project.json', json); }
+    function makeExportCsvText(){ const headers=['line_no','role','character','text_original','follow_telop','narration_script','story_text','search_keywords','annotation_telop','bgm_prompt','se_prompt','voice_id','rate','notes','start_sec','end_sec','duration_sec']; const lines=[headers.join(',')]; data.forEach(r=>{ const row=[r.line,r.role,r.character||'',csvq(r.original),csvq(r.follow||''),csvq(r.narr||''),csvq(r.storyText||''),csvq(r.storyKeywords||''),csvq(r.annot||''),csvq(r.bgm||''),csvq(r.se||''),'', (r.rate||1.0), csvq(r.notes||''), (r.tStart||0).toFixed(3), (r.tEnd||0).toFixed(3), (r.tDur||0).toFixed(3)]; lines.push(row.join(',')); }); return lines.join('\n'); }
+    async function saveCsvToFolder(){ if(!projectDir) return; const csv=makeExportCsvText(); await writeFile(projectDir, 'exports/export_vertical.csv', csv); }
+    function buildReadme(){ const total=data.length; const filled=data.filter(r=>r.follow && r.narr && (r.storyText||r.storyKeywords) && r.annot && r.bgm && r.se).length; return `Project: ${projectName}\nCreated: ${new Date().toISOString()}\n\nFiles:\n- project.json\n- inputs/script.txt\n- exports/export_vertical.csv\n\nStats:\n- Rows: ${total}\n- Completed: ${filled}\n`; }
+    async function saveOutputsToFolder(){
+      if(!('showDirectoryPicker' in window)){ alert('ブラウザがFS API非対応です。上部の保存/CSV書き出しをご利用ください。'); return; }
+      try{
+        if(!projectDir) await chooseProjectFolder();
+        if(!projectDir){ alert('プロジェクトフォルダを選択してください'); return; }
+        await ensureDir(projectDir,'inputs'); await ensureDir(projectDir,'exports');
+        if(lastImportedScriptText){ await writeFile(projectDir, 'inputs/script.txt', lastImportedScriptText); }
+        await autoSaveProjectJson();
+        await saveCsvToFolder();
+        await writeFile(projectDir, 'README.txt', buildReadme());
+        alert('出力一式を保存しました');
+      }catch(e){ console.error(e); alert('保存に失敗しました: '+e.message); }
+    }
+
+    // === Folder watch & sync ===
+    let autoSyncTimer=null; const watchMeta={};
+    function watchTargets(){
+      return [
+        {path:'inputs/follow.csv', mode:'csv', target:'follow'},
+        {path:'inputs/follow.txt', mode:'lines', target:'follow'},
+        // 次の段階で拡張: narr/annot/bgm/se/storyText/storyKeywords など
+      ];
+    }
+    async function getFileFromPath(root, path){ try{ const parts=String(path||'').split('/').filter(Boolean); let dir=root; for(let i=0;i<parts.length-1;i++){ dir = await dir.getDirectoryHandle(parts[i]); } return await dir.getFileHandle(parts[parts.length-1]); }catch(e){ return null; } }
+    async function syncNow(){
+      if(!projectDir){ alert('プロジェクトフォルダを選択してください'); return; }
+      let totalApplied=0; const targets=watchTargets();
+      for(const w of targets){
+        const fh = await getFileFromPath(projectDir, w.path);
+        if(!fh) continue;
+        const f = await fh.getFile(); const mtime=f.lastModified;
+        if(watchMeta[w.path] && watchMeta[w.path]===mtime) continue;
+        const text = await f.text(); let applied=0;
+        if(w.mode==='csv'){
+          const list = parseCsvImport(text);
+          list.forEach(item=>{ const r=data.find(x=>x.line===item.line); if(r && item.text!=null){ setField(w.target, r, item.text); applied++; } });
+        } else if(w.mode==='lines'){
+          const lines = text.split(/\r?\n/).map(s=>s.trim()).filter(Boolean);
+          const rows = data.slice().sort((a,b)=>a.line-b.line);
+          rows.forEach((r,i)=>{ if(i<lines.length){ setField(w.target, r, lines[i]); applied++; } });
+        }
+        if(applied){ watchMeta[w.path]=mtime; totalApplied+=applied; }
+      }
+      if(totalApplied){ renderTable(); updateStepEditorUI(document.querySelector('.step.active')?.dataset.step || 'script'); const s=$('#syncStatus'); if(s) s.textContent=`同期: ${totalApplied}件`; }
+    }
+    function startAutoSync(){ if(autoSyncTimer) return; syncNow(); autoSyncTimer = setInterval(syncNow, 3000); const s=$('#syncStatus'); if(s) s.textContent='監視中'; }
+    function stopAutoSync(){ if(autoSyncTimer){ clearInterval(autoSyncTimer); autoSyncTimer=null; } const s=$('#syncStatus'); if(s) s.textContent='停止'; }
+    window.addEventListener('beforeunload', stopAutoSync);
+
+    // === One-shot import from project folder ===
+    function importPathsForTarget(target){
+      const map={
+        follow:[{path:'inputs/follow.csv', mode:'csv'},{path:'inputs/follow.txt', mode:'lines'}],
+        narr:[{path:'inputs/narr.csv', mode:'csv'},{path:'inputs/narr.txt', mode:'lines'}],
+        annot:[{path:'inputs/annot.csv', mode:'csv'},{path:'inputs/annot.txt', mode:'lines'}],
+        bgm:[{path:'inputs/bgm.csv', mode:'csv'},{path:'inputs/bgm.txt', mode:'lines'}],
+        se:[{path:'inputs/se.csv', mode:'csv'},{path:'inputs/se.txt', mode:'lines'}],
+        storyText:[{path:'inputs/story_text.csv', mode:'csv'},{path:'inputs/story_text.txt', mode:'lines'}],
+        storyKeywords:[{path:'inputs/story_keywords.csv', mode:'csv'},{path:'inputs/story_keywords.txt', mode:'lines'}],
+      };
+      return map[target]||[];
+    }
+
+    // === Simple file import (right pane only) ===
+    let simpleImportTarget=null;
+    function setFileStatus(msg){ const s=$('#fileStatus'); if(s) s.textContent = msg||''; }
+    function importSimpleFor(target){ simpleImportTarget=target; const input=$('#fileInputUnified') || $('#simpleFileInput'); if(!input){ setFileStatus('ファイル入力が見つかりません'); return; } input.value=''; input.click(); }
+    (function initSimpleFileListener(){
+      const handler = async ev=>{ const f=ev.target.files[0]; if(!f) return; const text=await f.text(); const name=f.name||''; const tgt = simpleImportTarget || ($('#rightTarget')?.value) || 'follow'; const prev=$('#filePreview'); if(prev) prev.value = text; await applySimpleImportText(tgt, text, name); ev.target.value=''; simpleImportTarget=null; };
+      const u=document.getElementById('fileInputUnified'); if(u) u.addEventListener('change', handler);
+      const s=document.getElementById('simpleFileInput'); if(s) s.addEventListener('change', handler);
+    })();
+
+    function importUnifiedFile(){ const sel=$('#rightTarget'); importSimpleFor(sel? sel.value : 'follow'); }
+    function importUnifiedFolder(){ const sel=$('#rightTarget'); const tgt = sel? sel.value: 'follow'; importFromProject(tgt); }
+    function parseSrtToLines(s){
+      const blocks = String(s||'').split(/\r?\n\s*\r?\n/);
+      const out=[]; const tc=/-->/.test(s);
+      for(const b of blocks){
+        const lines=b.split(/\r?\n/).map(x=>x.trim()).filter(Boolean);
+        if(!lines.length) continue;
+        let i=0;
+        if(/^\d+$/.test(lines[i])) i++;
+        if(lines[i] && /-->/.test(lines[i])) i++;
+        const text=lines.slice(i).join('\n').trim();
+        if(text) out.push(text);
+      }
+      return out;
+    }
+    function normalizeJa(s){ return String(s||'').toLowerCase().replace(/[\s　、。,，．!！?？・…「」『』（）()［］\[\]\-—–_:\/]/g,''); }
+    function anchorsFrom(s){
+      // 3文字以上の連続した日本語トークンを抽出（先頭から数個）
+      const a=[]; const re=/[一-龯ぁ-んァ-ヶー]{3,}/g; let m; const seen=new Set();
+      while((m=re.exec(s)) && a.length<3){ const t=m[0]; if(!seen.has(t)){ a.push(t); seen.add(t);} }
+      return a;
+    }
+    function lcsLenChars(a,b){ const m=a.length, n=b.length; if(!m||!n) return 0; const dp=Array.from({length:m+1},()=>Array(n+1).fill(0)); for(let i=1;i<=m;i++){ const ca=a.charCodeAt(i-1); for(let j=1;j<=n;j++){ if(ca===b.charCodeAt(j-1)) dp[i][j]=dp[i-1][j-1]+1; else dp[i][j]= dp[i-1][j]>dp[i][j-1]? dp[i-1][j]: dp[i][j-1]; } } return dp[m][n]; }
+    function simText(a,b){ const aa=normalizeJa(a), bb=normalizeJa(b); if(!aa||!bb) return 0; const l=lcsLenChars(aa,bb); return l/Math.max(aa.length, bb.length); }
+    function narrChipsFrom(text){
+      const chips=[]; const t=String(text||''); if(!t.trim()) return chips;
+      const mVoice = t.match(/\[(?:voice|speaker)\s*:\s*([^\]]+)\]/i);
+      const mPace  = t.match(/\[(?:pace|speed)\s*:\s*([^\]]+)\]/i);
+      const mPitch = t.match(/\[(?:pitch)\s*:\s*([^\]]+)\]/i);
+      const mStyle = t.match(/\[(?:style|tone)\s*:\s*([^\]]+)\]/i);
+      const hasSSML = /<\/?\w+[^>]*>/.test(t);
+      const lines = t.split(/\r?\n/).filter(s=>s.trim()).length;
+      if(mVoice) chips.push('v:'+mVoice[1].trim());
+      if(mPace)  chips.push('pace:'+mPace[1].trim());
+      if(mPitch) chips.push('pitch:'+mPitch[1].trim());
+      if(mStyle) chips.push('style:'+mStyle[1].trim());
+      if(hasSSML) chips.push('SSML');
+      chips.push('L:'+lines);
+      return chips;
+    }
+    function extractCharacterFromNarr(text){
+      const t=String(text||'');
+      const lines = t.split(/\r?\n/).map(s=>s.trim()).filter(Boolean);
+      const head = lines[0] || '';
+      // Pattern 1: 名前（…）： or 名前： at line head
+      let m = head.match(/^([\w一-龯ぁ-んァ-ヶーA-Za-z0-9]{1,24})(?:[\s　]*[（\(].*?[）\)])?[\s　]*[：:]/);
+      if(m){ return m[1].trim(); }
+      // Pattern 2: テキスト内に 同僚A（…）： のような直後コロン
+      m = t.match(/([\w一-龯ぁ-んァ-ヶーA-Za-z0-9]{1,24})(?:[\s　]*[（\(].*?[）\)])?[\s　]*[：:]/);
+      if(m){ return m[1].trim(); }
+      // Pattern 3: [speaker:Name] style tag
+      m = t.match(/\[(?:speaker)\s*:\s*([^\]]+)\]/i);
+      if(m){ return m[1].trim(); }
+      // Pattern 4 (fallback): SSML voice name (avoid using as character unless nothing else)
+      m = t.match(/<voice\b[^>]*\bname\s*=\s*"([^"]+)"/i);
+      if(m){ return m[1].trim(); }
+      return '';
+    }
+    function syncCharacterFromNarr(){
+      let updated=0;
+      data.forEach(r=>{
+        const cur=(r.character||'').trim();
+        const ch = extractCharacterFromNarr(r.narr||'');
+        if(ch && (!cur || cur==='-' || cur==='NA')){ r.character = ch; updated++; }
+      });
+      return updated;
+    }
+    function alignBlocksToField(blocks, field){
+      data.forEach(r=>{ r[field]=''; });
+      let lastJ=0; const n=data.length; let applied=0;
+      const origNorm = data.map(r=> normalizeJa(r.original||''));
+      for(const blk of blocks){
+        let bestJ=lastJ, best=0;
+        const end=Math.min(n-1, lastJ+40);
+        const nb = normalizeJa(blk);
+        const ank = anchorsFrom(nb);
+        for(let j=lastJ;j<=end;j++){
+          let score = simText(blk, data[j].original||'');
+          if(ank.length){ const on = origNorm[j]; ank.forEach(t=>{ if(on.includes(t)) score += 0.3; }); }
+          if(score>best){ best=score; bestJ=j; }
+        }
+        if(best < 0.18) bestJ = lastJ;
+        if(bestJ<lastJ) bestJ=lastJ;
+        data[bestJ][field] = (data[bestJ][field]? (data[bestJ][field]+'\n\n') : '') + blk;
+        data[bestJ].status = data[bestJ].status || {};
+        data[bestJ].status[field] = 'ok';
+        if(field==='narr'){
+          const ch = extractCharacterFromNarr(blk);
+          const cur = (data[bestJ].character||'').trim();
+          if(ch && (!cur || cur==='-' || cur==='NA')){ data[bestJ].character = ch; }
+        }
+        lastJ = bestJ;
+        applied++;
+      }
+      return applied;
+    }
+    function alignToOriginalFromPreview(){
+      const tgt = ($('#rightTarget')?.value)||'follow';
+      if(!['follow','narr'].includes(tgt)){ setFileStatus('整列はフォローT/ナレのみ対応'); return; }
+      const raw = $('#filePreview')?.value || '';
+      if(!raw.trim()){ setFileStatus('プレビューにテキストがありません'); return; }
+      const blocks = /-->/.test(raw)? parseSrtToLines(raw): raw.split(/\r?\n\s*\r?\n/).map(s=>s.trim()).filter(Boolean);
+      if(!blocks.length){ setFileStatus('有効なテキストが見つかりません'); return; }
+      const cnt = alignBlocksToField(blocks, tgt);
+      if(tgt==='narr'){ syncCharacterFromNarr(); }
+      renderTable();
+      const tb=document.querySelector('#rows tbody'); if(tb && tb.children.length){ if(selected==null) selected=0; selectRow(selected, tb.children[selected]); }
+      setFileStatus(`整列: ${cnt} ブロック → ${tgt}`);
+    }
+    async function applySimpleImportText(target, text, filename){
+      try{
+        const ext=(filename||'').split('.').pop().toLowerCase();
+        let applied=0;
+        if(ext==='csv'){
+          const list = parseCsvImport(text);
+          list.forEach(item=>{ const r=data.find(x=>x.line===item.line && !x.locked); if(r && item.text!=null){ setField(target, r, item.text); applied++; } });
+        } else if(ext==='json' || ext==='jsonl'){
+          const list = parseJsonImport(text);
+          list.forEach(item=>{ const r=data.find(x=>x.line===item.line && !x.locked); if(r && item.text!=null){ setField(target, r, item.text); applied++; } });
+        } else {
+          const looksSrt = /-->/.test(text);
+          const lines = looksSrt? parseSrtToLines(text) : text.split(/\r?\n/).map(s=>s.trim()).filter(Boolean);
+      const rows = data.slice().sort((a,b)=>a.line-b.line);
+          rows.forEach((r,i)=>{ if(i<lines.length){ setField(target, r, lines[i]); applied++; } });
+        }
+        if(applied){
+          renderTable();
+          const tb=document.querySelector('#rows tbody');
+          if(tb && tb.children.length){
+            if(selected==null || !tb.children[selected]){ selected = 0; }
+            selectRow(selected, tb.children[selected]);
+          }
+          updateStepEditorUI(document.querySelector('.step.active')?.dataset.step || 'script');
+          setFileStatus(`読込: ${applied}件`);
+        } else {
+          setFileStatus('内容は空でした');
+        }
+      }catch(e){ console.error(e); setFileStatus('読込に失敗しました: '+e.message); }
+    }
+    async function importFromProject(target){
+      try{
+        if(!('showDirectoryPicker' in window)){ setFileStatus('ブラウザがFS API非対応です'); return; }
+        if(!projectDir){ await chooseProjectFolder(); if(!projectDir) return; }
+        const candidates = importPathsForTarget(target);
+        if(!candidates.length){ setFileStatus('未対応の対象です: '+target); return; }
+        let appliedTotal=0; let found=false;
+        for(const cand of candidates){
+          const fh = await getFileFromPath(projectDir, cand.path);
+          if(!fh) continue; found=true; const f = await fh.getFile(); const text = await f.text();
+          const prev=$('#filePreview'); if(prev) prev.value = text;
+          let applied=0;
+          if(cand.mode==='csv'){
+            const list = parseCsvImport(text);
+            list.forEach(item=>{ const r=data.find(x=>x.line===item.line); if(r && item.text!=null){ setField(target, r, item.text); applied++; } });
+          } else if(cand.mode==='lines'){
+            const lines = text.split(/\r?\n/).map(s=>s.trim()).filter(Boolean);
+            const rows = data.slice().sort((a,b)=>a.line-b.line);
+            rows.forEach((r,i)=>{ if(i<lines.length){ setField(target, r, lines[i]); applied++; } });
+          }
+          if(applied){ appliedTotal+=applied; }
+          // first matching file is used; break to avoid double-apply
+          break;
+        }
+        if(!found){ setFileStatus('プロジェクトフォルダにファイルが見つかりませんでした'); return; }
+        if(appliedTotal){
+          renderTable();
+          const tb=document.querySelector('#rows tbody');
+          if(tb && tb.children.length){
+            if(selected==null || !tb.children[selected]){ selected = 0; }
+            selectRow(selected, tb.children[selected]);
+          }
+          updateStepEditorUI(document.querySelector('.step.active')?.dataset.step || 'script');
+          setFileStatus(`読込: ${appliedTotal}件`);
+        } else {
+          setFileStatus('内容は空でした');
+        }
+      }catch(e){ console.error(e); setFileStatus('読込に失敗しました: '+e.message); }
+    }
+    function parseScriptText(text){ const out=[]; const src=(text||'').split(/\r?\n/); let ln=0; for(const raw of src){ const line=raw.trim(); if(!line) continue; ln++; if(line.startsWith('NA:')){ out.push({sel:true,line:ln,role:'NA',character:'-',original:line.slice(3).trim(),follow:'',narr:'',storyText:'',storyKeywords:'',annot:'',bgm:'',se:'',rate:1.0,locked:false,notes:'',status:{},tDur:0,tStart:0,tEnd:0}); } else if(line.startsWith('セリフ:')){ const body=line.slice(4).trim(); const m=body.match(/^([^（：:]+)[：:]?\s*(.*)$/); const character=m?(m[1]||'').trim():''; const text=m?(m[2]||'').trim():body; out.push({sel:true,line:ln,role:'DL',character,original:text,follow:'',narr:'',storyText:'',storyKeywords:'',annot:'',bgm:'',se:'',rate:1.0,locked:false,notes:'',status:{},tDur:0,tStart:0,tEnd:0}); } else { out.push({sel:true,line:ln,role:'NA',character:'-',original:line,follow:'',narr:'',storyText:'',storyKeywords:'',annot:'',bgm:'',se:'',rate:1.0,locked:false,notes:'',status:{},tDur:0,tStart:0,tEnd:0}); } } return out; }
+    function importCsv(csv){ const rows=[]; const lines=(csv||'').split(/\r?\n/); if(lines.length===0) return rows; const headers=(lines[0]||'').split(',').map(h=>h.trim()); const idx=n=>headers.indexOf(n); for(let i=1;i<lines.length;i++){ const row=parseCsvLine(lines[i]); if(!row) continue; rows.push({ sel:true, line:parseInt(row[idx('line_no')]||i,10)||i, role:row[idx('role')]||'NA', character:row[idx('character')]||'', original:unq(row[idx('text_original')])||'', follow:unq(row[idx('follow_telop')])||'', narr:unq(row[idx('narration_script')])||'', storyText:unq(row[idx('story_text')])||'', storyKeywords:unq(row[idx('search_keywords')])||'', annot:unq(row[idx('annotation_telop')])||'', bgm:unq(row[idx('bgm_prompt')])||'', se:unq(row[idx('se_prompt')])||'', rate:parseFloat(row[idx('rate')]||'1')||1.0, locked:(row[idx('locked')]||'0')==='1', notes:unq(row[idx('notes')])||'', status:{}, tDur:parseFloat(row[idx('duration_sec')]||row[idx('dur')]||'0')||0, tStart:parseFloat(row[idx('start_sec')]||'0')||0, tEnd:parseFloat(row[idx('end_sec')]||'0')||0 }); } return rows; }
+    function exportCsv(){ const headers=['line_no','role','character','text_original','follow_telop','narration_script','story_text','search_keywords','annotation_telop','bgm_prompt','se_prompt','voice_id','rate','notes','start_sec','end_sec','duration_sec']; const lines=[headers.join(',')]; data.forEach(r=>{ const row=[r.line,r.role,r.character||'',csvq(r.original),csvq(r.follow||''),csvq(r.narr||''),csvq(r.storyText||''),csvq(r.storyKeywords||''),csvq(r.annot||''),csvq(r.bgm||''),csvq(r.se||''),'', (r.rate||1.0), csvq(r.notes||''), (r.tStart||0).toFixed(3), (r.tEnd||0).toFixed(3), (r.tDur||0).toFixed(3)]; lines.push(row.join(',')); }); const blob=new Blob([lines.join('\n')],{type:'text/csv;charset=utf-8;'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='export_vertical.csv'; a.click(); URL.revokeObjectURL(a.href); }
+    function parseCsvLine(line){ if(!line) return null; const out=[]; let cur=''; let inq=false; for(let i=0;i<line.length;i++){ const ch=line[i]; if(ch==='"'){ if(inq && line[i+1]==='"'){ cur+='"'; i++; } else inq=!inq; } else if(ch===',' && !inq){ out.push(cur); cur=''; } else cur+=ch; } out.push(cur); return out; }
+    function csvq(s){ s=s||''; if(/[",\n]/.test(s)) return '"'+s.replace(/"/g,'""')+'"'; return s; } function unq(s){ if(!s) return s; if(s.startsWith('"')&&s.endsWith('"')) return s.slice(1,-1).replace(/""/g,'"'); return s; }
+
+    // === Prompt A/B ===
+    { const el=$('#promptTarget'); if(el){ el.addEventListener('change', ()=>{ updatePromptFromTarget(); refreshTemplateSelects(); }); } }
+    function promptFor(target, row){
+      if(!row) return '';
+      if(specialists[target]) return specialists[target].prompt(row);
+      return row.original || '';
+    }
+    function getPerTargetPrompt(target){
+      const map={follow:'#ptext-follow', narr:'#ptext-narr', storyText:'#ptext-storyText', storyKeywords:'#ptext-storyKeywords', annot:'#ptext-annot', bgm:'#ptext-bgm', se:'#ptext-se'};
+      const id = map[target]; if(!id) return '';
+      const el = $(id); return el ? (el.value || '').trim() : '';
+    }
+    function updatePromptFromTarget(){
+      if(selected==null) return;
+      const sel = $('#promptTarget');
+      const area = $('#promptArea');
+      if(!sel || !area) return; // A/B UI が無い場合はスキップ
+      const target = sel.value;
+      const impl = promptFor(target, data[selected]);
+      area.value = impl;
+      const diff = $('#diffBox'); if(diff) diff.innerHTML='';
+    }
+    function resetPromptFromBase(){ updatePromptFromTarget(); }
+    async function runPrompt(which){ const prompt=$('#promptArea').value.trim(); if(!prompt){ alert('プロンプトが空です'); return; } const prov = which==='A'? $('#provA').value: $('#provB').value; const model = which==='A'? $('#modelA').value: $('#modelB').value; const out = await callLLMWithPrompt(prov, model, prompt); (which==='A'? $('#resultA'): $('#resultB')).value = out; }
+    function adoptAB(which){ const txt = (which==='A'? $('#resultA'): $('#resultB')).value.trim(); if(!txt){ alert(which+'の結果が空です'); return; } const tgt=$('#promptTarget').value; const map={follow:'#follow',narr:'#narr',storyText:'#storyText',storyKeywords:'#storyKeywords',annot:'#annot',bgm:'#bgm',se:'#se'}; if(map[tgt]) $(map[tgt]).value=txt; }
+    function showDiff(){ const a=$('#resultA').value||''; const b=$('#resultB').value||''; $('#diffBox').innerHTML = renderDiff(a,b); }
+    async function callLLMWithPrompt(prov, model, prompt){
+      // mock: produce a small variation
+      await new Promise(r=>setTimeout(r, 300 + Math.random()*700));
+      const tag = prov+':'+model;
+      return `[${tag}] ` + prompt.replace(/\s+/g,' ').slice(0,200) + ' … v' + (Math.random()*10).toFixed(1);
+    }
+    function renderDiff(a,b){ const ta=tokenize(a), tb=tokenize(b); const lcs=lcsTable(ta,tb); const diff=backtrack(ta,tb,lcs); return diff.map(seg=>{
+        if(seg.type==='same') return escHtml(seg.text);
+        if(seg.type==='add') return `<span class="add">${escHtml(seg.text)}</span>`;
+        if(seg.type==='del') return `<span class="del">${escHtml(seg.text)}</span>`;
+        return '';
+      }).join(''); }
+    function tokenize(s){ return s.split(/(\s+)/); }
+    function lcsTable(a,b){ const m=a.length, n=b.length; const dp=Array.from({length:m+1},()=>Array(n+1).fill(0)); for(let i=1;i<=m;i++){ for(let j=1;j<=n;j++){ if(a[i-1]===b[j-1]) dp[i][j]=dp[i-1][j-1]+1; else dp[i][j]=Math.max(dp[i-1][j], dp[i][j-1]); } } return dp; }
+    function backtrack(a,b,dp){ let i=a.length, j=b.length; const res=[]; while(i>0 && j>0){ if(a[i-1]===b[j-1]){ res.unshift({type:'same', text:a[i-1]}); i--; j--; } else if(dp[i-1][j]>=dp[i][j-1]){ res.unshift({type:'del', text:a[i-1]}); i--; } else { res.unshift({type:'add', text:b[j-1]}); j--; } } while(i>0){ res.unshift({type:'del', text:a[i-1]}); i--; } while(j>0){ res.unshift({type:'add', text:b[j-1]}); j--; } return res; }
+
+    // init
+    // Per-target prompt helpers
+    function togglePromptBox(target){ const box=$('#pbox-'+target); if(!box) return; const show = box.style.display==='none' || box.style.display===''; if(show){ resetPromptBox(target); box.style.display='block'; } else { box.style.display='none'; } }
+    function resetPromptBox(target){ if(selected==null) return; const ta=$('#ptext-'+target); if(!ta) return; ta.value = promptFor(target, data[selected]) || ''; }
+    async function runPromptBox(target){ if(selected==null){ alert('行を選択してください'); return; } const ta=$('#ptext-'+target); if(!ta){ alert('プロンプトエリアが見つかりません'); return; } const prompt=ta.value.trim(); if(!prompt){ alert('プロンプトが空です'); return; } const prov=$('#prov').value; const model=$('#model').value; const out=await callLLMWithPrompt(prov, model, prompt); // set target text
+      if(selected!=null){ const r=data[selected]; const field=(target==='storyKeywords')?'storyKeywords':(target==='storyText'?'storyText':target); setField(field, r, out); renderTable(); const tb=document.querySelector('#rows tbody'); if(tb && tb.children[selected]) selectRow(selected, tb.children[selected]); }
+    }
+
+    // === Prompt templates from local folder ===
+    let promptTemplates = [];
+    function pickPromptFolder(){ $('#promptFolder').click(); }
+    async function pickPromptFolderFS(){
+      if(!('showDirectoryPicker' in window)){ alert('このブラウザはFile System Access API非対応です。通常の読込を使ってください。'); return; }
+      try{
+        const dir = await window.showDirectoryPicker();
+        promptTemplates = [];
+        for await (const [name, handle] of dir.entries()){
+          if(handle.kind === 'file'){
+            const ext = name.split('.').pop().toLowerCase();
+            if(!['txt','md','prompt','json'].includes(ext)) continue;
+            const file = await handle.getFile();
+            const text = await file.text();
+            const path = (dir.name ? dir.name + '/' : '') + name;
+            promptTemplates.push({ name, path, content:text, tags: deriveTags(name, text) });
+          }
+        }
+        refreshTemplateSelects();
+      }catch(e){ console.warn(e); }
+    }
+    const _pf=$('#promptFolder'); if(_pf) _pf.addEventListener('change', async ev=>{
+      const files=[...ev.target.files]; if(!files.length) return;
+      promptTemplates = [];
+      for(const f of files){
+        if(!/\.(txt|md|prompt|json)$/i.test(f.name)) continue;
+        const text = await f.text();
+        promptTemplates.push({ name:f.name, path:f.webkitRelativePath||f.name, content:text, tags: deriveTags(f.name, text) });
+      }
+      refreshTemplateSelects();
+      ev.target.value='';
+    });
+    function deriveTags(name, content){ const s=(name+' '+(content||'')).toLowerCase(); const tags=new Set();
+      const pairs=[['narr',['narr','narration','tts','ナレ']], ['follow',['follow','telop','字幕','フォロー']], ['storyText',['story','storytext','絵コンテ','文字コンテ']], ['storyKeywords',['keyword','keywords','search','getty','検索']], ['annot',['annot','annotation','注釈']], ['bgm',['bgm','music','suno']], ['se',['se','sfx','effect','効果音']]];
+      for(const [t,keys] of pairs){ if(keys.some(k=>s.includes(k))) tags.add(t); }
+      return [...tags];
+    }
+    function templatesFor(target){ if(!promptTemplates.length) return []; return promptTemplates.filter(t=>!t.tags.length || t.tags.includes(target)); }
+    function navigateStep(direction) {
+      let newIndex = currentStepIndex + direction;
+      if (newIndex < 0) newIndex = 0;
+      if (newIndex >= steps.length) newIndex = steps.length - 1;
+      if (newIndex !== currentStepIndex) {
+        switchStep(steps[newIndex]);
+      }
+    }
+    function refreshTemplateSelects(){ const fill=(selId,target)=>{ const sel=$(selId); if(!sel) return; sel.innerHTML=''; const list=templatesFor(target); list.forEach(t=>{ const o=document.createElement('option'); o.value=t.path; o.textContent=t.name; sel.appendChild(o); }); };
+      if($('#templateSelect')) fill('#templateSelect',$('#promptTarget').value||'narr');
+      fill('#tselect-follow','follow'); fill('#tselect-narr','narr');
+      fill('#tselect-storyText','storyText'); fill('#tselect-storyKeywords','storyKeywords');
+      fill('#tselect-annot','annot'); fill('#tselect-bgm','bgm'); fill('#tselect-se','se');
+    }
+    function getTemplateContentByPath(path){ const t=promptTemplates.find(x=>x.path===path); return t? t.content: ''; }
+    function insertTemplateTo(destSelector, path){ const ta=$(destSelector); if(!ta){ alert('テキストエリアが見つかりません'); return; } if(!path){ alert('テンプレートを選択してください'); return; } let txt = getTemplateContentByPath(path) || ''; if(!txt){ alert('空のテンプレート'); return; } txt = applyTemplateMacros(txt); const cur = ta.value; ta.value = cur? (cur + '\n' + txt) : txt; }
+    function applyTemplateMacros(t){ if(selected==null) return t; const r=data[selected]||{}; const map={ ORIGINAL:(r.original||''), FOLLOW:(r.follow||''), NARR:(r.narr||''), CHAR:(r.character||''), LINE:String(r.line||''), KEYWORDS:(r.storyKeywords||'')}; return t.replace(/\{\{\s*(ORIGINAL|FOLLOW|NARR|CHAR|LINE|KEYWORDS)\s*\}\}/g,(_,k)=> map[k]||''); }
+
+    // === Rows panel move helper (between pages)
+    function moveRowsPanelTo(hostSelector){
+      const host = document.querySelector(hostSelector);
+      if(!host) return false;
+      // try primary: panel that contains #rows
+      let panel = document.querySelector('#rows')?.closest('.panel');
+      // fallback: the immediate .panel under script host
+      if(!panel) panel = document.querySelector('#rowsPanelHost-script > .panel');
+      if(!panel) return false;
+      if(panel.parentNode!==host){ host.appendChild(panel); }
+      return true;
+    }
+
+    // === ElevenLabs synthesis helpers ===
+    function explicitVoiceFromText(narr){
+      const t=String(narr||'');
+      let m = t.match(/\[(?:voice|speaker)\s*:\s*([^\]]+)\]/i); if(m) return m[1].trim();
+      m = t.match(/<voice\b[^>]*\bname\s*=\s*"([^"]+)"/i); if(m) return m[1].trim();
+      return '';
+    }
+    function logNarr(s){ const ta=$('#narrLog2')||$('#narrLog'); if(ta){ ta.value += (s+'\n'); ta.scrollTop = ta.scrollHeight; } }
+    function genderHintFromText(s){
+      const t=String(s||'').toLowerCase();
+      if(/[男]\s*声|男性|male|man\b/.test(t)) return 'male';
+      if(/[女]\s*声|女性|female|woman\b/.test(t)) return 'female';
+      return '';
+    }
+
+    function selectedNarrOrOriginalItems(useOriginalFallback){
+      const items=[];
+      for(const r of data){
+        if(!r.sel) continue;
+        const narr=(r.narr||'').trim();
+        if(narr){
+          const v = explicitVoiceFromText(narr);
+          const it = { line:r.line, text:narr, role:r.role||'', character:r.character||'' };
+          const gh = genderHintFromText(r.original||'') || genderHintFromText(narr);
+          if(gh) it.gender = gh;
+          if(v) it.voice = v;
+          items.push(it);
+          continue;
+        }
+        if(useOriginalFallback){
+          const orig=(r.original||'').trim();
+          if(orig){
+            const v2 = explicitVoiceFromText(orig);
+            const it2 = { line:r.line, text:orig, role:r.role||'', character:r.character||'' };
+            const gh2 = genderHintFromText(orig);
+            if(gh2) it2.gender = gh2;
+            if(v2) it2.voice = v2;
+            items.push(it2);
+          }
+        }
+      }
+      return items;
+    }
+    function selectedNarrItems(){ return selectedNarrOrOriginalItems(false); }
+    async function postEleven(items){
+      const server = FIXED_EL_SERVER;
+      const proj = FIXED_PROJECT_DIR;
+      const model = FIXED_EL_MODEL;
+      try{
+        const res = await fetch(server.replace(/\/$/,'') + '/api/eleven/synthesize', { method:'POST', headers:{'content-type':'application/json'}, body: JSON.stringify({ project_dir: proj, model_id:model, items }) });
+        const json = await res.json(); return json;
+      }catch(e){ logNarr('HTTPエラー: '+e); return {ok:false, error:String(e)}; }
+    }
+    async function synthNarrSelected(){
+      const items = selectedNarrItems();
+      if(!items.length){ logNarr('選択行にナレがありません'); return; }
+      logNarr(`送信: ${items.length}件`);
+      const r=await postEleven(items);
+      if(!r || r.ok===false){
+        const errs = (r && r.errors)||[];
+        if(errs.length){
+          logNarr(`生成エラー (${errs.length}件). 例: `+ (typeof errs[0]==='string'? errs[0]: JSON.stringify(errs[0])));
+        } else {
+          logNarr('生成エラー: '+(r && r.error || 'unknown'));
+        }
+        return;
+      }
+      if(Array.isArray(r.saved)){
+        r.saved.forEach(s=>{ const row=data.find(x=>x.line===s.line); if(row && s.duration!=null){ row.tDur = s.duration; }});
+        renderTable();
+      }
+      logNarr('保存: '+ (r.saved?.length||0) + '件');
+    }
+    function createNarrFromOriginalVoiceTargets(){
+      const roleIsVoiceTarget=(role)=>{
+        const t=String(role||'').toUpperCase();
+        return t==='NA' || t==='DL' || /^(?:引用|Q)$/.test(String(role||''));
+      };
+      let applied=0; const targets = data.filter(r=>r.sel && roleIsVoiceTarget(r.role));
+      targets.forEach(r=>{ const src=(r.original||'').trim(); if(src){ r.narr = src; r.status['narr']='ok'; applied++; }});
+      renderTable();
+      logNarr(`ナレーション作成: ${applied}件  (NA/セリフ/引用 原文→ナレ)`);
+    }
+
+    // Extract dialogue from patterns like:
+    //  ニーチェ（男声・静かに力強く）： 「神は死んだ…」
+    //  イスラエルの民：「…」 / 同僚A:「…」 などのバリエーション
+    function tryExtractDialogueText(s){
+      const txt = String(s||'').trim();
+      if(!txt) return null;
+      const patterns = [
+        /^\s*([^（(：:「]+?)\s*(?:[（(][^）)]*[）)])?\s*[：:]\s*[「『]([^」』]+)[」』]\s*$/,
+        /^\s*([^（(：:「]+?)\s*[：:]\s*[「『]([^」』]+)[」』]\s*$/,
+      ];
+      for(const re of patterns){
+        const m = txt.match(re);
+        if(m){
+          const character = (m[1]||'').trim();
+          const quote = (m[2]||'').trim();
+          if(character && quote){ return { character, quote }; }
+        }
+      }
+      return null;
+    }
+
+    function isNonSpeechDirective(s){
+      const t=String(s||'').trim();
+      if(!t) return true;
+      // [mm:ss-mm:ss] セクション、または [mm:ss]
+      if(/^\s*\[\d{1,2}:\d{2}(?:\s*-\s*\d{1,2}:\d{2})?\]\s*/.test(t)) return true;
+      // 先頭が【...】や「画面:」「映像:」「BGM:」などの指示
+      if(/^\s*[【].*[】]\s*$/.test(t)) return true;
+      if(/^\s*(画面|映像|BGM|SE|カット|場面|モンタージュ|タイトル|テロップ|字幕)\s*[:：]/.test(t)) return true;
+      return false;
+    }
+
+    function extractDialogueFromOriginalSelected(){
+      let applied=0, skipped=0, unchecked=0;
+      (data||[]).forEach(r=>{
+        if(!r.sel) return;
+        const orig = r.original||'';
+        // 非セリフ的な指示行はチェックを外す
+        if(isNonSpeechDirective(orig)){
+          r.sel = false; unchecked++; return;
+        }
+        const m = tryExtractDialogueText(orig);
+        if(m){
+          r.role = 'DL';
+          r.character = m.character;
+          r.narr = m.quote;
+          r.status['narr']='ok';
+          applied++;
+        } else {
+          skipped++;
+        }
+      });
+      renderTable();
+      logNarr(`セリフ抽出: ${applied}件（見つからず:${skipped}件 / チェック外し:${unchecked}件）`);
+    }
+    async function synthNarrFromOriginalSelected(){
+      const items = selectedNarrOrOriginalItems(true);
+      if(!items.length){ logNarr('選択行（原文/ナレ）の対象がありません'); return; }
+      logNarr(`送信(原文含む): ${items.length}件`);
+      const r=await postEleven(items);
+      if(!r || r.ok===false){
+        const errs = (r && r.errors)||[];
+        if(errs.length){
+          logNarr(`生成エラー (${errs.length}件). 例: `+ (typeof errs[0]==='string'? errs[0]: JSON.stringify(errs[0])));
+        } else {
+          logNarr('生成エラー: '+(r && r.error || 'unknown'));
+        }
+        return;
+      }
+      if(Array.isArray(r.saved)){
+        r.saved.forEach(s=>{ const row=data.find(x=>x.line===s.line); if(row && s.duration!=null){ row.tDur = s.duration; }});
+        renderTable();
+      }
+      logNarr('保存: '+ (r.saved?.length||0) + '件');
+    }
+    async function synthNarrAll(){
+      const items = data.filter(r=>(r.narr||'').trim()).map(r=>({ line:r.line, text:r.narr, voice: voiceFromNarr(r.narr)}));
+      if(!items.length){ logNarr('ナレがある行がありません'); return; }
+      logNarr(`送信(全行): ${items.length}件`);
+      const r=await postEleven(items);
+      if(!r || r.ok===false){
+        const errs = (r && r.errors)||[];
+        if(errs.length){
+          logNarr(`生成エラー (${errs.length}件). 例: `+ (typeof errs[0]==='string'? errs[0]: JSON.stringify(errs[0])));
+        } else {
+          logNarr('生成エラー: '+(r && r.error || 'unknown'));
+        }
+        return;
+      }
+      if(Array.isArray(r.saved)){
+        r.saved.forEach(s=>{ const row=data.find(x=>x.line===s.line); if(row && s.duration!=null){ row.tDur = s.duration; }});
+        renderTable();
+      }
+      logNarr('保存: '+ (r.saved?.length||0) + '件');
+    }
+
+    // Built-in prompt files mapping.
+    // 可変ベース: ?promptBase=<absolute-or-http(s)-base>
+    // 例)
+    //   file:///Users/you/repos/tools/davinciauto/prompts
+    //   http://localhost:8000/prompts
+    let PROMPT_BASE = null; // normalized without trailing slash
+    (function initPromptBase(){ try { const q=new URLSearchParams(location.search); const b=q.get('promptBase'); if(b){ PROMPT_BASE=String(b).replace(/\/$/,''); } } catch(e){} })();
+    const namesByTarget = {
+      narr: 'narration_eleven_v3.md',
+      follow: 'subtitles_cards.md',
+      storyText: 'storyboard.md',
+      storyKeywords: 'storyboard.md',
+      annot: 'telops_annotations.md',
+      bgm: 'bgm_prompts.md'
+      // se: 必要なら追加
+    };
+    function builtinUrlsFor(target){
+      const name = namesByTarget[target]; if(!name) return [];
+      const urls = [];
+      if(PROMPT_BASE){ urls.push(`${PROMPT_BASE}/${name}`); }
+      urls.push(`../prompts/${name}`, `prompts/${name}`);
+      return urls;
+    }
+    const builtinPromptCache = {};
+    function applyMdToTarget(target, txt){
+      const applied = applyTemplateMacros(txt || '');
+      // タブ側プロンプト欄にも強制上書き
+      const map={follow:'#ptext-follow', narr:'#ptext-narr', storyText:'#ptext-storyText', storyKeywords:'#ptext-storyKeywords', annot:'#ptext-annot', bgm:'#ptext-bgm', se:'#ptext-se'};
+      const id = map[target]; if(id && $(id)) $(id).value = applied;
+      // A/Bエリアも上書き
+      const area = $('#promptArea'); if(area) area.value = applied;
+    }
+    async function forceLoadBuiltinPromptForTarget(target){
+      if(builtinPromptCache[target]){ applyMdToTarget(target, builtinPromptCache[target]); return; }
+      const paths = builtinUrlsFor(target);
+      for(const url of paths){
+        try{
+          const res = await fetch(url, {cache:'no-cache'});
+          if(res.ok){
+            const txt = await res.text();
+            builtinPromptCache[target] = txt;
+            applyMdToTarget(target, txt);
+            return;
+          }
+        }catch(e){ /* ignore */ }
+      }
+      // 取得できなければ何もしない（フォールバックのまま）
+    }
+
+    // try preload from prompts/index.json if served via http(s)
+    async function tryLoadIndexJson(){
+      if(!location.protocol.startsWith('http')) return;
+      try{
+        const res = await fetch('../prompts/index.json', {cache:'no-cache'});
+        if(res.ok){ const json = await res.json(); if(Array.isArray(json.templates)){ promptTemplates = json.templates; refreshTemplateSelects(); } }
+      }catch(e){ /* ignore */ }
+    }
+
+    document.querySelectorAll('.step').forEach(el => {
+      el.addEventListener('click', () => switchStep(el.dataset.step));
+    });
+    const tabs = document.querySelectorAll('.tab');
+    function activateTab(name){
+      tabs.forEach(x=>x.classList.toggle('active', x.dataset.tab===name));
+      ['follow','narr','annot','bgmse'].forEach(n=>{ const el=$('#tab-'+n); if(el) el.style.display=(n===name)?'block':'none'; });
+    }
+    tabs.forEach(t=>t.addEventListener('click',()=> { activateTab(t.dataset.tab); refreshInlineNarrGenVisibility(); }));
+
+    // Add BGM/SE step in sidebar if missing
+    (function ensureBgmSeStep(){
+      const stepsEl = document.querySelector('.workflow-steps');
+      if(!stepsEl) return;
+      if(!stepsEl.querySelector('[data-step="bgmse"]')){
+        const li = document.createElement('li');
+        li.className='step'; li.dataset.step='bgmse';
+        li.innerHTML = '<span class="icon">🎼</span><span>BGM/SE</span><span class="status">→</span>';
+        li.addEventListener('click',()=>switchStep('bgmse'));
+        stepsEl.appendChild(li);
+      }
+    })();
+
+    // === Step-aware column visibility and left editor ===
+    function updateStoryboardLeftPanel(){
+      const count = data.length||0;
+      const idx = (selected==null? -1 : selected);
+      const r = (idx>=0 && idx<count)? data[idx] : null;
+      const set = (sel, val)=>{ const el=$(sel); if(el) el.textContent = val; };
+      const setVal = (sel, val)=>{ const el=$(sel); if(el) el.value = val; };
+      set('#sbLineLabel', r? String(r.line): '-');
+      set('#sbCountLabel', String(count));
+      $('#sbCharRole') && ($('#sbCharRole').textContent = r? `${r.role || ''} ${r.character || ''}` : '');
+      setVal('#sbOriginal', r? (r.original||'') : '');
+    }
+    function navRow(d){ const n=data.length; if(!n) return; let idx = (selected==null?0:selected) + (d||0); if(idx<0) idx=0; if(idx>=n) idx=n-1; const tb=document.querySelector('#rows tbody'); if(tb && tb.children[idx]){ selectRow(idx, tb.children[idx]); } else { selected=idx; updateStoryboardLeftPanel(); } }
+    function stepToTarget(step){
+      if(step==='subtitle_make') return 'follow';
+      if(step==='narration') return 'narr';
+      if(step==='storyboard') return 'story';
+      if(step==='bgmse') return 'all';
+      if(step==='annot') return 'annot';
+      if(step==='bgm') return 'bgm';
+      if(step==='se') return 'se';
+      return 'all';
+    }
+    function applyColumnVisibility(step){
+      const mode = stepToTarget(step);
+      const setDisp = (cls, on)=>{
+        document.querySelectorAll('th.'+cls+', td.'+cls).forEach(el=>{ el.style.display = on? '' : 'none'; });
+      };
+      const all = ['col-follow','col-narr','col-story','col-annot','col-bgm','col-se'];
+      if(mode==='all'){
+        all.forEach(c=>setDisp(c,true));
+        $('#stepEditorBox').style.display='none';
+      }else{
+        all.forEach(c=>setDisp(c,false));
+        const map={follow:'col-follow', narr:'col-narr', story:'col-story', annot:'col-annot', bgm:'col-bgm', se:'col-se'};
+        const cls = map[mode]; if(cls) setDisp(cls,true);
+        $('#stepEditorBox').style.display='block';
+      }
+    }
+    function currentTargetField(){
+      const active = document.querySelector('.step.active')?.dataset.step || 'script';
+      const mode = stepToTarget(active);
+      if(mode==='story') return 'storyText';
+      return mode; // follow/narr/annot/bgm/se or 'all'
+    }
+    function updateStepEditorUI(step){
+      const target = stepToTarget(step);
+      const label = {
+        follow:'字幕（フォローT）', narr:'ナレーション原稿', story:'文字コンテ（文章）', annot:'注釈テロップ', bgm:'BGMプロンプト', se:'SEプロンプト'
+      }[target] || '';
+      $('#stepEditorLabel').textContent = label? `このステップの出力: ${label}` : 'このステップの出力';
+      if(selected!=null){
+        const r=data[selected];
+        const field = currentTargetField();
+        const val = field && r[field] || '';
+        $('#stepEditorText').value = (target==='all')? '' : (val||'');
+      } else {
+        $('#stepEditorText').value='';
+      }
+      // フォローTのときだけ26ch固定幅を適用
+      const ta=$('#stepEditorText');
+      if(ta){ if(target==='follow') ta.classList.add('ch-26'); else ta.classList.remove('ch-26'); }
+    }
+    function saveStepField(){
+      if(selected==null){ alert('行を選択してください'); return; }
+      const field = currentTargetField();
+      if(!field || field==='all'){ alert('このステップでは保存対象がありません'); return; }
+      const r=data[selected];
+      r[field] = $('#stepEditorText').value.trim();
+      renderTable();
+    }
+    function toggleRightOriginalBlock(step){
+      const show = (step==='script');
+      const blk = $('#right-original-block'); if(blk) blk.style.display= show? 'flex':'none';
+    }
+    function setRightTargetToStep(){ const sel=$('#rightTarget'); if(!sel) return; const active = document.querySelector('.step.active')?.dataset.step || 'script'; const mode = stepToTarget(active); sel.value = (mode==='story')? 'storyText': (mode==='all'? 'follow': mode); }
+    // narr tab/page: show inline generator only for narr target or narration contexts
+    function refreshInlineNarrGenVisibility(){ const box=$('#narrGenInline'); if(!box) return; const ctx = document.body.classList.contains('ctx-narr'); const tgt = ($('#rightTarget')?.value||''); box.style.display = (ctx || tgt==='narr')? 'block':'none'; }
+
+    renderTable(); setTimeout(()=>{ const first=document.querySelector('#rows tbody tr'); if(first) first.click(); updatePromptFromTarget(); refreshTemplateSelects(); tryLoadIndexJson(); applyColumnVisibility('script'); toggleRightOriginalBlock('script'); setRightTargetToStep(); tryAutoLoadDebug(); }, 0);
+
+    // === Debug autoload ===
+    const DEBUG_AUTOLOAD = true; // デバッグ用: 起動時に指定ファイル/埋め込みテキストの読込を試行
+    const DEBUG_FILE_PATH = '/Users/hiroshikodera/Documents/orionEp1/inputs/orionEp1.txt';
+    const DEBUG_SEED_TEXT = `オリオンの会議室 第1話「転職の約束」0909
+転職した同期の投稿を見て、焦りを感じたことはありませんか？
+転職は『脱出』なのか、それとも『逃避』なのか？
+古代の民の40年の放浪と、現代の哲学者の洞察から、本当の『約束の地』を見つける8分間の旅。
+[00:00-00:30] アバン
+深夜0時。オフィスビルの窓に、まだポツポツと明かりが灯っています。
+その一室で、あなたはビジネス系SNSの画面を見つめている。元同期の転職報告。「新しいチャレンジ」「素晴らしい環境」—— そんな言葉が並ぶ投稿に、「いいね！」を押しながら、胸の奥がざわつく。
+また一人、脱出に成功した。
+ようこそ、オリオンの会議室へ。ここは、時代を超えた知恵が交差する場所。今夜は「転職の約束」について、3000年の時を超えた対話を始めましょう。
+[00:30-01:00] 星座の提示
+【画面：夜空に星が現れ、線で結ばれていくアニメーション】
+今夜結ぶのは、こんな星座。
+エジプトから脱出した古代イスラエルの民、「神は死んだ」と宣言したニーチェ、組織論を研究する現代の学者たち、そして迷宮に閉じ込められたカフカの主人公——
+時代も場所も違う星々が、「脱出」と「約束」という糸で結ばれて、ひとつの物語を紡ぎ始めます。
+[01:00-02:00] 現代の悩み導入
+スマホの通知音。また転職エージェントからのスカウトメール。
+「年収30%アップ」「リモートワーク完全対応」「成長できる環境」—— 甘い言葉が並んでいます。
+同僚A（女声・つぶやくように）： 「うちの会社、もう限界かもね...」
+金曜日の飲み会。愚痴と不満のオンパレード。みんな口々に「転職」を口にする。でも月曜日になれば、また同じデスクに座っている。
+転職サイトのブックマークフォルダが、いつの間にか「転職検討中」から「転職情報」に名前が変わっている。でも、本当に飛び出す勇気はない。
+この「もっといい場所があるはず」という思い。それは現代特有の病なのでしょうか？
+いいえ、違います。
+[02:00-03:30] 古代・歴史パート
+『旧約聖書・出エジプト記』は伝えています。 【※校正注：出エジプト記の成立年代と歴史的事実の関係について要確認】
+そこにモーセが現れ、約束の地への脱出——出エジプト（エクソダス）が始まります。紅海が割れ、民は歓喜の中、自由への第一歩を踏み出しました。
+しかし——
+イスラエルの民（男声・疲れ切った声で）： 「エジプトにいた方がよかった。あそこには肉鍋があり、パンを腹いっぱい食べられた」
+自由の荒野で、民は奴隷時代を懐かしみ始めたのです。この嘆きは『出エジプト記』16章3節に記録されています。 【※校正注：聖書の具体的な章節の確認必要】
+なぜでしょう？ それは奴隷の生活が、苦しくても「予測可能」だったから。明日も明後日も、同じ苦役が続く。それは辛い。でも、少なくとも何が起きるかは分かっていた。
+一方、自由の荒野は不確実性に満ちています。約束の地は「いつか」「どこかに」ある。でもそれまでの道のりは、誰にも分からない。
+40年。それが彼らの放浪の時間だったと『民数記』は記録しています。 【※校正注：民数記14章33-34節の確認必要】
+
+
+[03:30-04:30] 哲学的深化
+19世紀のドイツ。哲学者フリードリヒ・ニーチェは、現代人の精神状態を鋭く分析しました。
+ニーチェ（男声・静かに力強く）： 「神は死んだ。そして我々が神を殺したのだ」
+この言葉は『悦ばしき知識』（1882年）第125節「狂人」に登場します。ニーチェが指摘したのは、絶対的な価値や保証の崩壊でした。 【※校正注：ニーチェ『悦ばしき知識』Walter Kaufmann訳等の参照推奨】
+興味深いのは、ニーチェが『道徳の系譜』（1887年）で展開した「奴隷道徳」の概念です。 【※校正注：『道徳の系譜』第一論文の詳細確認必要】
+それは、支配される側が自らの境遇を正当化するために作り出す価値観。「忍耐は美徳」「現状維持は安全」—— そんな価値観の鎖に、私たちは気づかぬうちに縛られているのかもしれません。
+終身雇用という「神」は、すでに揺らいでいるのかもしれません。でも、その亡霊はまだ私たちの心に宿っているようです。
+
+[04:30-05:30] 現代科学との接続
+21世紀の組織心理学は、「心理的契約」という概念を提唱しています。この概念は、デニス・ルソーらによって1990年代に体系化されました。 【※校正注：Rousseau, D.M. (1995) "Psychological Contracts in Organizations"等の確認必要】
+それは雇用契約書には書かれていない、組織と個人の間の暗黙の相互期待。「会社は私を大切にしてくれる」「私は会社に尽くす」—— この見えない契約。
+fMRI（機能的磁気共鳴画像法）による脳科学研究が示唆するのは、不確実性に直面した時の私たちの反応パターンです。 【※校正注：具体的な神経科学研究論文の特定が必要。例：Hsu et al. (2005) Science誌等】
+転職を考える時、扁桃体が活性化し、コルチゾールなどのストレスホルモンが分泌されるという報告があります。これは古代の人類が捕食者から逃げる時と似た反応。つまり、「知っている苦しみ」の方が「知らない可能性」より、生物学的に安全と感じるようプログラムされている可能性があるのです。
+経済学者アルベール・O・ハーシュマンは『離脱・発言・忠誠』（1970年）で、組織への不満に対する3つの選択肢を示しました。 【※校正注：Hirschman "Exit, Voice, and Loyalty"の邦訳版確認】
+
+[05:30-06:30] 実践への架橋
+では、どう考えればいいのでしょうか。
+出エジプトの物語が教えてくれるのは、「脱出」自体が目的ではないということ。重要なのは、何から逃げるかではなく、何に向かって進むか。
+40年の放浪は、単なる迷走ではありませんでした。それは奴隷マインドから自由な精神への、内的な変容の時間だったのかもしれません。外的な状況を変える前に、内的な準備が必要だったのです。
+転職サイトを見る前に、問うべきことがあります。
+「私は何から脱出したいのか？」そして「私は何を約束の地だと思っているのか？」
+もしかしたら、約束の地は「どこか別の場所」ではなく、今いる場所を新しい目で見ることから始まるのかもしれません。
+
+[06:30-07:30] 現代への帰還
+月曜日の朝。いつものオフィスに向かう足取りが、少し違って感じられます。
+同じ景色、同じデスク、同じ仕事。でも、見方を変えれば——
+ここは奴隷の地ではなく、可能性の実験場かもしれない。上司との関係性を変える「発言」の機会があるかもしれない。仕事の意味を再定義する自由があるかもしれない。
+転職という「離脱」も、もちろん選択肢の一つ。でもそれは、内なる約束の地が明確になってからでも遅くはない。
+大切なのは、「ここではない、どこか」という幻想に振り回されないこと。そして、今いる場所で育てられる自由を、見逃さないこと。
+
+[07:30-08:00] エンディング
+ビジネス系SNSの画面を閉じて、夜空を見上げると、オリオン座が輝いています。
+3000年前の脱出劇、150年前の哲学者の洞察、そして現代の科学。それらの星を結んで浮かび上がったのは、「本当の自由は内側から始まる」という、シンプルで深い真実でした。
+転職は悪ではない。でも、それが単なる逃避なら、新しい職場もいずれ新しいエジプトになる。
+約束の地は、履歴書を更新することからではなく、自分自身との約束を更新することから始まるのかもしれません。
+知識の星座は、見る人によって違う物語を紡ぎます。
+あなたは今夜、どんな星座を見つけましたか？
+明日の朝、いつものデスクに座る時、きっと違う景色が見えてくるはず。そして夜空には、まだ無数の星が、新しい物語を待っています。`;
+    function qp(name){ try{ return new URLSearchParams(location.search).get(name); }catch(e){ return null; } }
+    async function tryFetchAny(urls){
+      for(const u of urls){
+        try{ const res = await fetch(u, {cache:'no-cache'}); if(res.ok){ return await res.text(); } }catch(e){ /* ignore */ }
+      }
+      return null;
+    }
+    async function tryAutoLoadDebug(){
+      if(!DEBUG_AUTOLOAD) return;
+      const param = qp('debugFile') || DEBUG_FILE_PATH;
+      if(!param) return;
+      const candidates = [];
+      if(/^file:\/\//.test(param)) candidates.push(param);
+      else if(/^https?:/.test(param)) candidates.push(param);
+      else {
+        // absolute path → file://, and raw path (if hosted server exposes it)
+        candidates.push('file://'+param);
+        candidates.push(param);
+      }
+      let text = await tryFetchAny(candidates);
+      if(!text){
+        // fallback to embedded seed text
+        if(DEBUG_SEED_TEXT && DEBUG_SEED_TEXT.trim()){
+          text = DEBUG_SEED_TEXT;
+        } else {
+          console.warn('Debug autoload failed for', param);
+          return;
+        }
+      }
+      try{
+        lastImportedScriptText = text;
+        data = parseScriptText(text);
+        projectName = (param.split('/').pop()||'project').replace(/\.[^.]+$/,'');
+        $('#projectLabel').textContent = projectName + ' (debug)';
+        renderTable();
+        const tb=document.querySelector('#rows tbody'); if(tb && tb.children.length){ selected=0; selectRow(0, tb.children[0]); }
+        const prev=$('#filePreview'); if(prev) prev.value = text;
+        // デフォルト出力先（debugFile が /path/to/project/inputs/file.txt 形式のとき）
+        const m = String(param).match(/^(.*)\/inputs\/[\w\.-]+$/);
+        if(m){ const out = (m[1]||'') ; const narrOut=$('#narrProjectDir'); if(narrOut && !narrOut.value) narrOut.value = out; }
+      }catch(e){ console.error('Debug autoload parse error', e); }
+    }
+
+    // === MCP Tools: helpers ===
+    function mcpBaseUrl(){
+      const el=$('#mcpBackendUrl');
+      const v=el? String(el.value||'').trim() : '';
+      if(v) return v.replace(/\/$/,'');
+      if(location.origin && /^https?:/.test(location.origin)) return location.origin;
+      return 'http://127.0.0.1:8000';
+    }
+    function mcpLogClear(){ const pre=$('#mcpLog'); if(pre) pre.textContent=''; }
+    function mcpLogAppend(obj){ const pre=$('#mcpLog'); if(!pre) return; let s='';
+      try{ s = (typeof obj==='string')? obj : JSON.stringify(obj,null,2); }
+      catch(e){ s = String(obj); }
+      pre.textContent = (pre.textContent? pre.textContent+'\n' : '') + s;
+      pre.scrollTop = pre.scrollHeight;
+    }
+    async function mcpListTools(serverId){
+      try{
+        mcpLogClear();
+        const res = await fetch(mcpBaseUrl()+"/api/mcp/tools", {
+          method:'POST', headers:{'content-type':'application/json'},
+          body: JSON.stringify({ server_id: serverId })
+        });
+        const json = await res.json();
+        mcpLogAppend(json);
+      }catch(e){ mcpLogAppend({ error: String(e) }); }
+    }
+    async function mcpCall(serverId, toolName, args){
+      try{
+        const res = await fetch(mcpBaseUrl()+"/api/mcp/call", {
+          method:'POST', headers:{'content-type':'application/json'},
+          body: JSON.stringify({ server_id: serverId, tool_name: toolName, arguments: args||{} })
+        });
+        return await res.json();
+      }catch(e){ return { error: String(e) }; }
+    }
+    async function mcpRunElevenlabsTTS(){
+      const text = ($('#mcpElText')?.value||'').trim();
+      if(!text){
+        // フォールバック: 選択行ナレーションで実行
+        return await mcpRunElevenlabsTTSSelected();
+      }
+      const voice = $('#mcpElVoice')?.value || 'Rachel';
+      const model = $('#mcpElModel')?.value || 'eleven_multilingual_v2';
+      const fmt = $('#mcpElFmt')?.value || 'mp3_44100_128';
+      const outdir = $('#mcpElOutDir')?.value || 'output';
+      mcpLogClear(); mcpLogAppend('ElevenLabs text_to_speech 実行中...');
+      const resp = await mcpCall('elevenlabs', 'text_to_speech', {
+        text, voice_name: voice, model_id: model, output_format: fmt, output_directory: outdir
+      });
+      mcpLogAppend(resp);
+    }
+    async function mcpRunElevenlabsTTSSelected(){
+      // 選択行のナレーション列から合成
+      const model = $('#mcpElModel')?.value || 'eleven_multilingual_v2';
+      const fmt = $('#mcpElFmt')?.value || 'mp3_44100_128';
+      const outdir = $('#mcpElOutDir')?.value || 'output';
+      const defaultVoice = $('#mcpElVoice')?.value || 'Rachel';
+      const items = (data||[]).filter(r=>r.sel && (r.narr||'').trim());
+      if(!items.length){ alert('ナレーションが入力された選択行がありません'); return; }
+      mcpLogClear();
+      mcpLogAppend(`選択行 ${items.length} 件のナレーションを合成します...`);
+      let idx=0;
+      for(const r of items){
+        idx++;
+        const text = String(r.narr||'').trim();
+        const voice = voiceFromNarr(text) || defaultVoice;
+        mcpLogAppend(`[${idx}/${items.length}] line ${r.line}: 合成中 (voice=${voice}) ...`);
+        try{
+          const resp = await mcpCall('elevenlabs', 'text_to_speech', {
+            text, voice_name: voice, model_id: model, output_format: fmt, output_directory: outdir
+          });
+          mcpLogAppend(resp);
+        }catch(e){ mcpLogAppend({ line:r.line, error:String(e) }); }
+      }
+      mcpLogAppend('完了');
+    }
+    // Fixed config for local EL
+    const FIXED_EL_SERVER = 'http://127.0.0.1:8787';
+    const FIXED_EL_MODEL  = 'eleven_v3';
+    const FIXED_PROJECT_DIR = '/Users/hiroshikodera/Documents/orionEp1';
+
+    // 外部インポートUIは削除（右ペイン内のファイル読込/フォルダ読込で統一）
+    function setField(tgt, r, val){ val = String(val||''); if(tgt==='narr') r.narr=val; else if(tgt==='follow') r.follow=val; else if(tgt==='storyText') r.storyText=val; else if(tgt==='storyKeywords') r.storyKeywords=val; else if(tgt==='annot') r.annot=val; else if(tgt==='bgm') r.bgm=val; else if(tgt==='se') r.se=val; }
+    function parseCsvImport(csv){ const out=[]; const lines=(csv||'').split(/\r?\n/).filter(Boolean); if(lines.length===0) return out; const headers=(lines[0]||'').split(',').map(h=>h.trim()); const idx=n=>headers.indexOf(n); const li = idx('line_no')>=0? idx('line_no'): (idx('line')>=0? idx('line'):0); const ti = idx('text')>=0? idx('text'): (idx('value')>=0? idx('value'):-1); for(let i=1;i<lines.length;i++){ const row=parseCsvLine(lines[i]); if(!row) continue; const line = parseInt(row[li]||i,10); const text = ti>=0? row[ti]: row[row.length-1]; if(isFinite(line)) out.push({line, text: unq(text)}); } return out; }
+    function parseJsonImport(s){ const out=[]; try{ const obj=JSON.parse(s); if(Array.isArray(obj)){ obj.forEach(o=>{ const line=parseInt(o.line||o.line_no,10); const text=o.text||o.value; if(isFinite(line)&&text!=null) out.push({line, text}); }); return out; } }catch(e){}
+      // JSONL fallback
+      s.split(/\r?\n/).forEach(line=>{ try{ const o=JSON.parse(line); const ln=parseInt(o.line||o.line_no,10); const tx=o.text||o.value; if(isFinite(ln)&&tx!=null) out.push({line:ln, text:tx}); }catch(e){} });
+      return out; }
+  </script>
+  <script>
+    function pad2(n){ return String(n).padStart(2,'0'); }
+    function parseTimecodeToMs(s){ const m=String(s||'').match(/(\d{1,2}):(\d{2})/); if(!m) return 0; return (parseInt(m[1],10)*60 + parseInt(m[2],10))*1000; }
+    function logBgm(s){ const ta=document.querySelector('#bgmLog'); if(ta){ ta.value += (s+'\n'); ta.scrollTop=ta.scrollHeight; } }
+    function parseBgmSpec(){ const spec=document.querySelector('#bgmSpec')?.value||''; const lines=spec.split(/\r?\n/); const items=[]; let cur=null; for(let i=0;i<lines.length;i++){ const ln=lines[i]; const head=ln.match(/^\s*\[(\d{1,2}:\d{2})\s*-\s*(\d{1,2}:\d{2})\]\s*(.*)$/); if(head){ if(cur){ items.push(cur); cur=null; } const startMs=parseTimecodeToMs(head[1]); const endMs=parseTimecodeToMs(head[2]); cur={ label: head[3]||`${head[1]}-${head[2]}`, startMs, endMs, prompt:'' }; continue; } if(/BGM生成AIプロンプト/i.test(ln)){ let q=''; i++; while(i<lines.length){ const t=lines[i]; if(/^\s*SE\b|^\s*\[\d{1,2}:\d{2}/.test(t)) { i--; break; } q += (q? '\n':'') + t.replace(/^\s*"|"\s*$/g,''); i++; } if(cur) cur.prompt=q.trim(); continue; } } if(cur) items.push(cur); const host=document.querySelector('#bgmList'); if(host){ host.innerHTML=''; items.forEach((it,idx)=>{ const lenMs=Math.max(0,(it.endMs||0)-(it.startMs||0)); const div=document.createElement('div'); div.className='group'; div.innerHTML=`<b>${idx+1}.</b> <span>${it.label||''}</span> <span class="muted">(${pad2(Math.floor((it.startMs||0)/60000))}:${pad2(Math.floor(((it.startMs||0)%60000)/1000))} - ${pad2(Math.floor((it.endMs||0)/60000))}:${pad2(Math.floor(((it.endMs||0)%60000)/1000))}, ${Math.round(lenMs/1000)}s)</span><br><code style="white-space:pre-wrap">${(it.prompt||'').replace(/&/g,'&amp;').replace(/</g,'&lt;')}</code>`; host.appendChild(div); }); } window.__bgmItems=items; logBgm(`解析: ${items.length} 件`); }
+    async function generateAllBgm(){ const items=(window.__bgmItems||[]).filter(it=>it&&it.prompt); if(!items.length){ logBgm('生成対象がありません'); return; } const payload={ project_dir:'/Users/hiroshikodera/Documents/orionEp1', items: items.map(it=>({ label: it.label, prompt: it.prompt, length_ms: Math.max(1000,(it.endMs||0)-(it.startMs||0)) })) }; try{ const res=await fetch('http://127.0.0.1:8787/api/music/compose',{ method:'POST', headers:{'content-type':'application/json'}, body: JSON.stringify(payload)}); const json=await res.json(); if(json&&Array.isArray(json.saved)){ json.saved.forEach(s=>logBgm(`保存: ${s.path} (${s.duration}s)`)); } if(json&&Array.isArray(json.errors)&&json.errors.length){ logBgm('エラー: '+JSON.stringify(json.errors[0])); } }catch(e){ logBgm('HTTPエラー: '+e); } }
+    function parseSeFromSpec(){ const spec=document.querySelector('#bgmSpec')?.value||''; const lines=spec.split(/\r?\n/); const out=[]; let curSection=''; for(let i=0;i<lines.length;i++){ const ln=lines[i]; const head=ln.match(/^\s*\[(\d{1,2}:\d{2})\s*-\s*(\d{1,2}:\d{2})\]\s*(.*)$/); if(head){ curSection=head[3]||''; continue; } if(/^\s*SE\b/.test(ln)){ i++; while(i<lines.length){ const t=lines[i]; if(!t.trim()) break; const m=t.match(/(\d{1,2}:\d{2})\s*-\s*(.+)/); if(m){ out.push({ at:m[1], text:m[2].trim(), section:curSection }); } i++; } } } const host=document.querySelector('#seList'); if(host){ host.innerHTML=''; out.forEach((e,idx)=>{ const d=document.createElement('div'); d.className='group'; d.innerHTML=`<b>${idx+1}.</b> [${e.at}] ${(e.text||'').replace(/&/g,'&amp;').replace(/</g,'&lt;')} <span class="muted">(${(e.section||'').replace(/&/g,'&amp;').replace(/</g,'&lt;')})</span>`; host.appendChild(d); }); } logBgm(`SE抽出: ${out.length} 件`); }
+  </script>
+  <script>
+    // SE 一括生成（補助関数）: 指示書から再解析して /api/sfx/convert へ
+    async function generateAllSe(){
+      const spec = document.querySelector('#bgmSpec')?.value||'';
+      const lines = spec.split(/\r?\n/);
+      const out=[]; let curSection='';
+      for(let i=0;i<lines.length;i++){
+        const ln = lines[i];
+        const head = ln.match(/^\s*\[(\d{1,2}:\d{2})\s*-\s*(\d{1,2}:\d{2})\]\s*(.*)$/);
+        if(head){ curSection=head[3]||''; continue; }
+        if(/^\s*SE\b/.test(ln)){
+          i++;
+          while(i<lines.length){
+            const t=lines[i]; if(!t.trim()) break;
+            const m=t.match(/(\d{1,2}:\d{2})\s*-\s*(.+)/);
+            if(m){ out.push({ at:m[1], text:m[2].trim(), section:curSection }); }
+            i++;
+          }
+        }
+      }
+      if(!out.length){ logBgm && logBgm('SEがありません'); return; }
+      const secEl=document.querySelector('#seDefaultSec');
+      const defSec=parseFloat(secEl && secEl.value || '2')||2;
+      const payload={ project_dir:'/Users/hiroshikodera/Documents/orionEp1', items: out.map((e,idx)=>({ label:`SE${String(idx+1).padStart(2,'0')}`, prompt:e.text, duration_sec:defSec })) };
+      try{
+        const res = await fetch('http://127.0.0.1:8787/api/sfx/convert',{ method:'POST', headers:{'content-type':'application/json'}, body: JSON.stringify(payload)});
+        const json = await res.json();
+        if(json&&Array.isArray(json.saved)) json.saved.forEach(s=> logBgm && logBgm(`SE保存: ${s.path} (${s.duration||''}s)`));
+        if(json&&Array.isArray(json.errors)&&json.errors.length) logBgm && logBgm('SEエラー: '+JSON.stringify(json.errors[0]));
+      }catch(e){ logBgm && logBgm('HTTPエラー(SE): '+e); }
+    }
+  </script>
+</body>
+</html>
