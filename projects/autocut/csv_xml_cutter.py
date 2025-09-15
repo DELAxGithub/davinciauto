@@ -11,12 +11,19 @@ import uuid
 import os
 import sys
 
-# Try to import tkinter, fall back to command line if not available
+# Try to import tkinter, but also verify it can initialize (fallback to CLI on TclError)
 try:
     import tkinter as tk
     from tkinter import filedialog, messagebox
-    HAS_GUI = True
-except ImportError:
+    try:
+        _root_test = tk.Tk()
+        _root_test.withdraw()
+        _root_test.destroy()
+        HAS_GUI = True
+    except Exception:
+        # Tkinter is present but cannot open a display or initialize properly
+        HAS_GUI = False
+except Exception:
     HAS_GUI = False
 
 
@@ -97,41 +104,74 @@ def csv_color_to_premiere_label(csv_color):
 
 
 def extract_audio_files_from_xml(xml_file_path):
-    """Extract audio file information from existing XML"""
+    """Extract audio file information from existing XML.
+    Returns a list of dicts with keys: name, pathurl, element, source_duration, file_id, masterclipid.
+    """
     tree = ET.parse(xml_file_path)
     root = tree.getroot()
-    
+
     audio_files = []
-    
+    seen_names = set()
+
     # Find all clipitems with file references
     for clipitem in root.findall('.//clipitem'):
         file_elem = clipitem.find('file')
         if file_elem is not None:
             name_elem = file_elem.find('name')
             pathurl_elem = file_elem.find('pathurl')
-            
-            if name_elem is not None and pathurl_elem is not None:
-                file_info = {
-                    'name': name_elem.text,
-                    'pathurl': pathurl_elem.text
-                }
-                # Find the full file definition in the media section
-                file_id = file_elem.get('id')
+
+            # Some clipitems may only have <file id="..."/> referencing a previous full definition
+            file_id = file_elem.get('id')
+            full_file_elem = None
+            if file_id:
+                # Try to get the full file definition (may point to another clipitem's file)
                 full_file_elem = root.find(f".//media/file[@id='{file_id}']")
-                if full_file_elem is not None:
-                    file_info['element'] = full_file_elem
-                else:
-                    # Fallback for inline file definitions
-                    file_info['element'] = file_elem
-                
-                # Avoid duplicates
-                if not any(f['name'] == file_info['name'] for f in audio_files):
-                    audio_files.append(file_info)
-    
+                if full_file_elem is None:
+                    # Fallback: use this file element itself
+                    full_file_elem = file_elem
+            else:
+                full_file_elem = file_elem
+
+            # Prefer values from the full file element if present
+            if full_file_elem is not None:
+                if name_elem is None:
+                    name_elem = full_file_elem.find('name')
+                if pathurl_elem is None:
+                    pathurl_elem = full_file_elem.find('pathurl')
+
+            if name_elem is not None and pathurl_elem is not None:
+                name = name_elem.text
+                if name in seen_names:
+                    continue
+
+                file_info = {
+                    'name': name,
+                    'pathurl': pathurl_elem.text,
+                    'element': full_file_elem,
+                }
+
+                # Source duration
+                duration_elem = full_file_elem.find('duration') if full_file_elem is not None else None
+                if duration_elem is not None and (duration_elem.text or '').isdigit():
+                    file_info['source_duration'] = int(duration_elem.text)
+
+                # IDs
+                if file_id is None and full_file_elem is not None:
+                    file_id = full_file_elem.get('id')
+                if file_id:
+                    file_info['file_id'] = file_id
+
+                masterclipid_elem = clipitem.find('masterclipid')
+                if masterclipid_elem is not None and masterclipid_elem.text:
+                    file_info['masterclipid'] = masterclipid_elem.text
+
+                seen_names.add(name)
+                audio_files.append(file_info)
+
     print(f"XMLから抽出したファイル: {len(audio_files)}個")
     for i, file_info in enumerate(audio_files):
         print(f"  {i+1}: {file_info['name']}")
-    
+
     return audio_files
 
 
@@ -198,9 +238,9 @@ def create_cut_xml_from_template(csv_file_path, template_xml_path, graphic_templ
     template_video = template_media.find('video')
     if template_video is not None:
         video = ET.SubElement(media, 'video')
-        # Copy all video content
+        # Copy all video content (deep copy semantics via serialization)
         for child in template_video:
-            video.append(child)
+            video.append(ET.fromstring(ET.tostring(child)))
     
     # Copy audio structure but replace clipitems
     template_audio = template_media.find('audio')
@@ -285,33 +325,90 @@ def create_cut_xml_from_template(csv_file_path, template_xml_path, graphic_templ
     gaps = [s for s in segments if s['type']=='gap']
     print(f"検出: ブロック {len(blocks)}個 / ギャップ {len(gaps)}個")
     
+    # Helper: find max clipitem numeric suffix to avoid duplicate IDs
+    import re
+    id_re = re.compile(r"clipitem-(\d+)")
+    max_clip_num = 0
+    for ci in template_root.findall('.//clipitem'):
+        cid = ci.get('id') or ''
+        m = id_re.match(cid)
+        if m:
+            try:
+                max_clip_num = max(max_clip_num, int(m.group(1)))
+            except Exception:
+                pass
+
+    next_clip_num = max_clip_num + 1
+
+    # Build per-track source mapping from template (file id/name + source channel)
+    track_sources = []
+    for t_idx, t_track in enumerate(template_root.findall('.//sequence/media/audio/track')):
+        # Find first clipitem with a file reference in this template track
+        src = {
+            'file_id': None,
+            'name': None,
+            'pathurl': None,
+            'element': None,
+            'source_channel': None,
+        }
+        ci = t_track.find('clipitem')
+        if ci is not None:
+            file_elem = ci.find('file')
+            if file_elem is not None:
+                fid = file_elem.get('id')
+                if fid:
+                    src['file_id'] = fid
+                    full = template_root.find(f".//media/file[@id='{fid}']")
+                    if full is None:
+                        full = file_elem
+                    src['element'] = full
+                    n = full.find('name')
+                    p = full.find('pathurl')
+                    if n is not None:
+                        src['name'] = n.text
+                    if p is not None:
+                        src['pathurl'] = p.text
+            st = ci.find('sourcetrack/trackindex')
+            if st is not None and (st.text or '').strip().isdigit():
+                src['source_channel'] = int(st.text)
+        # Heuristic fallback for missing mapping
+        if src['source_channel'] is None:
+            src['source_channel'] = 1 if (t_idx % 2 == 0) else 2
+        # If file info is missing, try to map from extracted audio_files by index roll-over
+        if src['file_id'] is None and audio_files:
+            af = audio_files[min(t_idx, len(audio_files)-1)]
+            src['file_id'] = af.get('file_id')
+            src['element'] = af.get('element')
+            src['name'] = af.get('name')
+            src['pathurl'] = af.get('pathurl')
+        track_sources.append(src)
+
     # Create audio tracks based on template
     template_tracks = template_audio.findall('track')
     gap_size = 149  # Like original between non-gap blocks
+    used_file_ids = set()
     
     for track_idx, template_track in enumerate(template_tracks):
-        if track_idx >= len(audio_files):
-            # Empty track
-            track = ET.SubElement(audio, 'track')
-            # Copy all attributes
-            for attr_name, attr_value in template_track.attrib.items():
-                track.set(attr_name, attr_value)
-            # Copy non-clipitem children
-            for child in template_track:
-                if child.tag != 'clipitem':
-                    track.append(child)
-            continue
-        
-        # Create track with clipitems
+        # Track container
         track = ET.SubElement(audio, 'track')
-        # Copy all attributes
         for attr_name, attr_value in template_track.attrib.items():
             track.set(attr_name, attr_value)
         
         # Create clipitems for this track
-        clip_counter = track_idx * max(1, len(blocks)) + 1
         timeline_position = 0
-        audio_file = audio_files[track_idx]
+        # Use per-track source mapping to match template channel layout
+        srcmap = track_sources[track_idx] if track_idx < len(track_sources) else {}
+        audio_file = {
+            'name': srcmap.get('name'),
+            'pathurl': srcmap.get('pathurl'),
+            'element': srcmap.get('element'),
+            'file_id': srcmap.get('file_id')
+        }
+        # IDs to reuse from template (avoid collisions with video section)
+        template_file_id = audio_file.get('file_id')
+        template_masterclip_id = audio_file.get('masterclipid', f'masterclip-{track_idx + 2}')
+        # For logging: per-track block counter
+        block_index = 1
         
         for seg in segments:
             if seg['type'] == 'gap':
@@ -323,14 +420,17 @@ def create_cut_xml_from_template(csv_file_path, template_xml_path, graphic_templ
             end_frames = block['end_frames']
             duration_frames = end_frames - start_frames
             
+            # Add pre-gap before placing the block
+            timeline_position += gap_size
+
             # Create clipitem
             clipitem = ET.SubElement(track, 'clipitem')
-            clipitem.set('id', f'clipitem-{clip_counter}')
+            clipitem.set('id', f'clipitem-{next_clip_num}')
             clipitem.set('premiereChannelType', 'mono')
             
             # Master clip ID
             masterclipid = ET.SubElement(clipitem, 'masterclipid')
-            masterclipid.text = f'masterclip-{track_idx + 1}'
+            masterclipid.text = template_masterclip_id
             
             # Name
             clip_name = ET.SubElement(clipitem, 'name')
@@ -340,9 +440,12 @@ def create_cut_xml_from_template(csv_file_path, template_xml_path, graphic_templ
             enabled = ET.SubElement(clipitem, 'enabled')
             enabled.text = 'TRUE'
             
-            # Duration (total file duration - estimated)
+            # Duration (total source file duration)
             clip_duration = ET.SubElement(clipitem, 'duration')
-            clip_duration.text = str(end_frames)
+            if 'source_duration' in audio_file:
+                clip_duration.text = str(audio_file['source_duration'])
+            else:
+                clip_duration.text = str(end_frames) # Fallback
             
             # Rate
             clip_rate = ET.SubElement(clipitem, 'rate')
@@ -374,15 +477,29 @@ def create_cut_xml_from_template(csv_file_path, template_xml_path, graphic_templ
             
             # File reference
             file_elem = ET.SubElement(clipitem, 'file')
-            file_elem.set('id', f'file-{track_idx + 1}')
+            if template_file_id:
+                file_elem.set('id', template_file_id)
+            else:
+                # Fallback unique id if template id is missing
+                file_elem.set('id', f'file-{track_idx + 100}')
 
-            # Copy file metadata from template for accuracy
-            if 'element' in audio_file and audio_file['element'] is not None:
+            # Only expand full file metadata the first time we reference a file id
+            if template_file_id and template_file_id not in used_file_ids and audio_file.get('element') is not None:
                 for child in audio_file['element']:
-                    file_elem.append(child)
-            else: # Fallback to basic info
-                ET.SubElement(file_elem, 'name').text = audio_file['name']
-                ET.SubElement(file_elem, 'pathurl').text = audio_file['pathurl']
+                    file_elem.append(ET.fromstring(ET.tostring(child)))
+                used_file_ids.add(template_file_id)
+            else:
+                # Minimal fallback if we don't have a canonical element
+                if not template_file_id:
+                    if audio_file.get('name'):
+                        ET.SubElement(file_elem, 'name').text = audio_file['name']
+                    if audio_file.get('pathurl'):
+                        ET.SubElement(file_elem, 'pathurl').text = audio_file['pathurl']
+
+            # Source track channel mapping (L/R)
+            st = ET.SubElement(clipitem, 'sourcetrack')
+            ET.SubElement(st, 'mediatype').text = 'audio'
+            ET.SubElement(st, 'trackindex').text = str(srcmap.get('source_channel', 1))
             
             # Labels - CSVの色選択を反映
             labels = ET.SubElement(clipitem, 'labels')
@@ -390,16 +507,17 @@ def create_cut_xml_from_template(csv_file_path, template_xml_path, graphic_templ
             premiere_label = csv_color_to_premiere_label(block['color'])
             label2.text = premiere_label
             
-            print(f"A{track_idx + 1}トラック: ブロック{clip_counter} ({timeline_position} - {timeline_position + duration_frames}) - {audio_file['name']} [ラベル: {premiere_label}]")
+            print(f"A{track_idx + 1}トラック: ブロック{block_index} ({timeline_position} - {timeline_position + duration_frames}) - {audio_file['name']} [ラベル: {premiere_label}]")
             
-            # Update timeline position with gap spacing between audio blocks
+            # Update timeline position with block duration and post-gap
             timeline_position += duration_frames + gap_size
-            clip_counter += 1
+            next_clip_num += 1
+            block_index += 1
         
-        # Copy non-clipitem children from template
+        # Copy non-clipitem children from template (pan, outputchannelindex etc.)
         for child in template_track:
             if child.tag != 'clipitem':
-                track.append(child)
+                track.append(ET.fromstring(ET.tostring(child)))
     
     # Update sequence duration
     total_duration = timeline_position - gap_size if blocks else 0
@@ -469,7 +587,8 @@ def create_cut_xml_from_template(csv_file_path, template_xml_path, graphic_templ
                     ET.SubElement(clipitem, 'out').text = str(dur)
                 telop_start += dur
             else:
-                telop_start += (seg['end_frames'] - seg['start_frames'] + gap_size)
+                # Mirror audio timeline: pre-gap + block + post-gap
+                telop_start += gap_size + (seg['end_frames'] - seg['start_frames']) + gap_size
 
     return root
 
@@ -488,11 +607,16 @@ def prettify_xml(elem):
 
 
 def select_files_gui():
-    """GUI file selection interface"""
+    """GUI file selection interface (returns csv, template_xml, optional_graphic_xml)."""
     if not HAS_GUI:
-        return None, None
+        return None, None, None
     
-    root = tk.Tk()
+    try:
+        root = tk.Tk()
+    except Exception:
+        # Safety: if Tk cannot initialize here, fall back to CLI
+        return None, None, None
+    
     root.withdraw()  # Hide the main window
     
     try:
@@ -503,8 +627,11 @@ def select_files_gui():
         )
         
         if not template_xml_file:
-            messagebox.showinfo("キャンセル", "テンプレートXMLファイルが選択されませんでした")
-            return None, None
+            try:
+                messagebox.showinfo("キャンセル", "テンプレートXMLファイルが選択されませんでした")
+            except Exception:
+                pass
+            return None, None, None
         
         # Select CSV file
         csv_file = filedialog.askopenfilename(
@@ -513,16 +640,53 @@ def select_files_gui():
         )
         
         if not csv_file:
-            messagebox.showinfo("キャンセル", "CSVファイルが選択されませんでした")
-            return None, None
+            try:
+                messagebox.showinfo("キャンセル", "CSVファイルが選択されませんでした")
+            except Exception:
+                pass
+            return None, None, None
         
-        return csv_file, template_xml_file
-    
+        # Optional: graphic template for telop clips
+        graphic_template = filedialog.askopenfilename(
+            title="(任意) グラフィックテンプレートXMLがあれば選択してください（キャンセルでスキップ）",
+            filetypes=[("XML files", "*.xml"), ("All files", "*.*")]
+        ) or None
+        
+        return csv_file, template_xml_file, graphic_template
     finally:
-        root.destroy()
+        try:
+            root.destroy()
+        except Exception:
+            pass
+
+
+def prompt_for_files():
+    """Prompt user for file paths interactively in the console."""
+    print("\n対話モードでファイルパスを入力してください。")
+    print("（ファイルをターミナルにドラッグ＆ドロップしても入力できます）")
+
+    # strip("'\"") はシングルクォートとダブルクォートの両方を除去する
+    csv_file = input("1. CSVファイルのパスを入力してください: ").strip().strip("'\"")
+    if not os.path.exists(csv_file):
+        print(f"エラー: CSVファイル '{csv_file}' が見つかりません。")
+        return None, None, None
+
+    template_xml_file = input("2. テンプレートXMLファイルのパスを入力してください: ").strip().strip("'\"")
+    if not os.path.exists(template_xml_file):
+        print(f"エラー: テンプレートXMLファイル '{template_xml_file}' が見つかりません。")
+        return None, None, None
+
+    # オプションのグラフィックテンプレートも聞く
+    graphic_template_path = input("3. (オプション) グラフィックテンプレートXMLのパスを入力してください（不要な場合はEnter）: ").strip().strip("'\"")
+    if graphic_template_path and not os.path.exists(graphic_template_path):
+        print(f"警告: グラフィックテンプレート '{graphic_template_path}' が見つかりません。無視します。")
+        graphic_template_path = None
+
+    return csv_file, template_xml_file, graphic_template_path
 
 
 def main():
+    graphic_template = None
     # Check if command line arguments are provided
     if len(sys.argv) >= 3:
         # Command line mode
@@ -534,34 +698,38 @@ def main():
         
         if not os.path.exists(csv_file):
             print(f"Error: CSV file '{csv_file}' not found")
-            return
+            sys.exit(1)
         
         if not os.path.exists(template_xml_file):
             print(f"Error: Template XML file '{template_xml_file}' not found")
-            return
+            sys.exit(1)
     else:
         # GUI mode
         if HAS_GUI:
             print("ファイル選択ダイアログを開きます...")
-            csv_file, template_xml_file = select_files_gui()
+            csv_file, template_xml_file, graphic_template = select_files_gui()
             
             if not csv_file or not template_xml_file:
-                return
+                sys.exit(0)  # User cancelled the dialog, which is not an error
             
             print(f"テンプレートXML: {template_xml_file}")
             print(f"CSVファイル: {csv_file}")
+            if graphic_template:
+                print(f"グラフィックテンプレート: {graphic_template}")
         else:
-            print("Usage: python csv_xml_cutter.py <csv_file> <template_xml_file>")
-            print("Example: python csv_xml_cutter.py 'script.csv' '021-1.xml'")
-            print("Note: GUI mode not available (tkinter not installed)")
-            return
+            print("Note: GUI mode not available (tkinter not installed).")
+            print("Usage: python csv_xml_cutter.py <csv_file> <template_xml_file> [graphic_template.xml]")
+            print("\nEntering interactive mode...")
+            csv_file, template_xml_file, graphic_template = prompt_for_files()
+            if not csv_file or not template_xml_file:
+                sys.exit(1)
     
     try:
         # Generate XML
         xml_root = create_cut_xml_from_template(csv_file, template_xml_file, graphic_template)
         
         if xml_root is None:
-            return
+            sys.exit(1)
         
         # Output file
         output_file = f"{os.path.splitext(csv_file)[0]}_cut_from_{os.path.splitext(os.path.basename(template_xml_file))[0]}.xml"
