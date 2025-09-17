@@ -8,7 +8,7 @@
 
 ## 🎯 概要
 
-Mini VTR Automation Pipeline は、テキストスクリプトから高品質な教育動画素材を自動生成するPythonパイプラインです。ElevenLabs TTSを使用した多声優音声生成、日本語対応字幕システム、DaVinci Resolve連携により、効率的な動画制作ワークフローを実現します。
+Mini VTR Automation Pipeline は、テキストスクリプトから高品質な教育動画素材を自動生成するPythonパイプラインです。Azure Speech Service (Azure TTS) を使用した多声優音声生成、日本語対応字幕システム、DaVinci Resolve連携により、効率的な動画制作ワークフローを実現します。
 
 **主要機能:**
 - 📝 役割別音声合成 (ナレーター・対話キャラクター)
@@ -32,10 +32,11 @@ pip install -r requirements.txt
 `.env` ファイルを作成:
 
 ```bash
-# ElevenLabs TTS（必須）
-ELEVENLABS_API_KEY=your_elevenlabs_api_key
-ELEVENLABS_VOICE_ID_NARRATION=voice_id_for_narration
-ELEVENLABS_VOICE_ID_DIALOGUE=voice_id_for_dialogue
+# Azure Speech Service（必須）
+AZURE_SPEECH_KEY=your_azure_speech_key
+AZURE_SPEECH_REGION=your_region
+AZURE_SPEECH_VOICE_NARRATION=voice_name_for_narration
+AZURE_SPEECH_VOICE_DIALOGUE=voice_name_for_dialogue
 
 # パフォーマンス調整（オプション）
 HTTP_TIMEOUT=30
@@ -80,7 +81,7 @@ minivt_pipeline/
 │   ├── pipeline.py           # メインパイプライン
 │   ├── resolve_import.py     # DaVinci Resolve連携
 │   ├── clients/
-│   │   ├── tts_elevenlabs.py # ElevenLabs TTS
+│   │   ├── tts_azure.py        # Azure TTS
 │   │   └── gpt_client.py     # GPT連携（今後）
 │   └── utils/
 │       ├── srt.py            # 字幕生成
@@ -106,7 +107,7 @@ minivt_pipeline/
 - DaVinci Resolve標準SRT形式
 
 ### プロ制作ワークフロー
-- ElevenLabs高品質TTS
+- Azure高品質TTS
 - レート制限・エラー回復
 - バッチ処理対応
 
@@ -120,7 +121,7 @@ minivt_pipeline/
 
 - **Python**: 3.11以上
 - **DaVinci Resolve**: 18以上（Scripts API有効）
-- **ElevenLabs API**: 有効なAPIキー
+- **Azure Speech Service**: APIキー・リージョン設定
 - **OS**: Windows, macOS, Linux
 
 ## 🔧 開発・カスタマイズ
@@ -137,7 +138,7 @@ python debug_split.py
 ### 主要設定ファイル
 - `requirements.txt` - Python依存関係
 - `.env` - 環境変数設定
-- `src/clients/tts_elevenlabs.py` - TTS設定
+- `src/clients/tts_azure.py` - TTS設定
 - `src/utils/wrap.py` - 日本語改行ルール
 
 ## 🧪 実験・持ち込み素材
@@ -155,7 +156,7 @@ experiments/
 ## 🚨 トラブルシューティング
 
 ### よくある問題
-1. **ElevenLabs API制限** → レート制限設定確認
+1. **Azure TTS制限** → レート制限設定確認
 2. **DaVinci Resolve接続失敗** → Developer設定有効化
 3. **日本語字幕文字化け** → UTF-8エンコーディング確認
 4. **音声生成失敗** → APIキー・音声ID確認
@@ -183,7 +184,7 @@ experiments/
 
 ## 🙏 謝辞
 
-- [ElevenLabs](https://elevenlabs.io/) - 高品質TTS API
+- [Azure Speech Service](https://azure.microsoft.com/products/cognitive-services/text-to-speech/) - 高品質TTS API
 - [DaVinci Resolve](https://www.blackmagicdesign.com/products/davinciresolve) - プロフェッショナル動画編集
 - Python コミュニティ - 優秀なライブラリ群
 
@@ -193,7 +194,7 @@ experiments/
 
 以下は本リポ内のプロジェクト型ワークフロー（OrionEp2 の実装例）です。コマンドはプロジェクト名を入れ替えれば流用できます。
 
-1) 音声生成（ElevenLabs / v3）
+1) 音声生成（Azure TTS / Neural voices）
 
 ```bash
 # 1–27行 / 28–63行（プロジェクト固有の台本を内包）
@@ -222,7 +223,7 @@ python scripts/csv_to_fcpx7_from_timeline.py \
 # セクション設計
 projects/OrionEp2/inputs/bgm_se_plan.json
 
-# BGM + SFX 生成（ElevenLabs）
+# BGM + SFX 生成（自動ツール）
 python scripts/generate_bgm_se_from_plan.py projects/OrionEp2/inputs/bgm_se_plan.json           # 両方
 python scripts/generate_bgm_se_from_plan.py projects/OrionEp2/inputs/bgm_se_plan.json --only sfx # SFXのみ再実行
 ```

@@ -4,7 +4,72 @@
 
 **Mini VTR Automation Pipeline** - 8分間教育動画自動生成システム
 
-テキストスクリプトからDaVinci Resolve用素材まで一貫制作する日本語対応動画制作パイプライン。ElevenLabs TTS、自動字幕生成、プロフェッショナル制作ワークフローを統合。
+テキストスクリプトからDaVinci Resolve用素材まで一貫制作する日本語対応動画制作パイプライン。Azure TTS、自動字幕生成、プロフェッショナル制作ワークフローを統合。
+
+---
+
+## 🧭 PlantUML サマリービュー
+
+```plantuml
+@startuml
+skinparam componentStyle rectangle
+skinparam wrapWidth 220
+skinparam maxMessageSize 120
+
+actor "Editor" as Editor
+actor "DaVinci Resolve" as Resolve
+actor "Azure TTS API" as AzureTTS
+actor "Claude API" as Claude
+
+package "Mini VTR Pipeline" {
+  component "pipeline.py" as Pipeline
+  component "resolve_import.py" as ResolveImport
+  component "clients/tts_azure.py" as TtsClient
+  component "clients/claude_client.py" as ClaudeClient
+  component "utils/srt.py" as SrtEngine
+  component "utils/wrap.py" as WrapEngine
+  component "utils/voice_parser.py" as VoiceParser
+  database "data/" as DataStore
+  folder "output/" as OutputStore
+}
+
+package "GUI Steps" {
+  component "step1_script_editor.py" as Step1
+  component "step2_minimal_test.py" as Step2
+  component "step3_subtitle_timing.py" as Step3
+  component "step4_davinci_export.py" as Step4
+  component "run_all_steps.py" as RunAll
+}
+
+Editor --> Step1
+Step1 --> Step2
+Step2 --> Step3
+Step3 --> Step4
+RunAll ..> Step1
+RunAll ..> Step2
+RunAll ..> Step3
+RunAll ..> Step4
+
+Pipeline --> TtsClient
+Pipeline --> ClaudeClient
+Pipeline --> SrtEngine
+Pipeline --> WrapEngine
+Pipeline --> VoiceParser
+Pipeline --> ResolveImport
+Pipeline --> DataStore
+Pipeline --> OutputStore
+
+Step4 --> Resolve
+ResolveImport --> Resolve
+TtsClient --> AzureTTS
+ClaudeClient --> Claude
+
+OutputStore --> Resolve
+
+Editor --> Pipeline : CLI 実行
+
+@enduml
+```
 
 ---
 
@@ -17,7 +82,7 @@ minivt_pipeline/
 │   ├── pipeline.py              # メインパイプライン実行
 │   ├── resolve_import.py        # DaVinci Resolve連携スクリプト
 │   ├── clients/                 # 外部サービス連携
-│   │   ├── tts_elevenlabs.py   # ElevenLabs TTS クライアント
+│   │   ├── tts_azure.py        # Azure TTS クライアント
 │   │   ├── claude_client.py     # Claude AI連携
 │   │   └── llm_subtitle_splitter.py # AI字幕分割
 │   ├── utils/                   # ユーティリティモジュール
@@ -76,7 +141,7 @@ experiments/
 ## 🎯 主要コンポーネント
 
 ### 🎵 音声生成システム
-- **TTS Engine**: ElevenLabs API統合
+- **TTS Engine**: Azure Speech Service統合
 - **Voice Switching**: NA（ナレーション）/セリフ（対話）自動切り替え
 - **Quality Control**: レート制限・エラーハンドリング
 - **Cost Management**: 使用量追跡・最適化
@@ -106,7 +171,7 @@ experiments/
 ### 📋 必須要件
 - **Python**: 3.11以上
 - **DaVinci Resolve**: 18以上（Scripts API有効）
-- **ElevenLabs API**: 有効なAPIキー・音声ID
+- **Azure Speech Service**: APIキー・リージョン設定
 - **OS**: Windows・macOS・Linux対応
 
 ### 🔌 主要依存関係
@@ -135,9 +200,10 @@ cd minivt_pipeline
 pip install -r requirements.txt
 
 # 2. 環境設定 (.envファイル)
-ELEVENLABS_API_KEY=your_api_key
-ELEVENLABS_VOICE_ID_NARRATION=narration_voice
-ELEVENLABS_VOICE_ID_DIALOGUE=dialogue_voice
+AZURE_SPEECH_KEY=your_api_key
+AZURE_SPEECH_REGION=your_region
+AZURE_SPEECH_VOICE_NARRATION=narration_voice
+AZURE_SPEECH_VOICE_DIALOGUE=dialogue_voice
 
 # 3. パイプライン実行
 python src/pipeline.py --script data/your_script.txt
@@ -174,6 +240,7 @@ python debug_split.py
 - **[README.md](README.md)** - プロジェクト概要・クイックスタート
 - **[docs/USER_GUIDE.md](docs/USER_GUIDE.md)** - 完全な使用方法・トラブルシューティング
 - **[gui_steps/README.md](gui_steps/README.md)** - GUI使用方法
+- **[progress.md](progress.md)** - 現行作業の進捗メモ
  - **[docs/EDITOR_ONE_PAGER.md](docs/EDITOR_ONE_PAGER.md)** - 編集者向け1枚もの（どこを自動化しているか）
 
 ### 🔧 開発者向け
@@ -184,7 +251,7 @@ python debug_split.py
  - **[docs/MAPPING.md](docs/MAPPING.md)** - RowData ↔ LineItem 変換方針
 
 ### 🚨 トラブルシューティング
-- **よくある問題**: ElevenLabs API制限・DaVinci接続・文字エンコーディング
+- **よくある問題**: Azure TTS制限・DaVinci接続・文字エンコーディング
 - **解決方法**: 詳細は各ドキュメントの該当セクションを参照
 
 ---
