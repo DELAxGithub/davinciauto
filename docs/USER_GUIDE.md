@@ -238,6 +238,40 @@ Currently supports NA/DL roles. For multiple characters:
 #### Mixed Language Content
 - ElevenLabs multilingual_v2 model supports mixed content
 - English phrases in Japanese context work well
+
+---
+
+## OrionEp2: ElevenLabs → Timeline → Resolve → SRT
+
+This is the streamlined pipeline we used for OrionEp2 (MP3-only, 30fps, FCP7 XML).
+
+- Prerequisites
+  - `.env` has `ELEVENLABS_API_KEY`
+  - `projects/OrionEp2/project.json` defines voice casting and `output_format: mp3_44100_128`
+- Optional voice preview
+  - `python scripts/generate_previews_orionep2.py`
+- Generate narration (1–27 / 28–63)
+  - `python scripts/generate_orionep2_lines_1_27.py`
+  - `python scripts/generate_orionep2_lines_28_63.py`
+- Build gap-aware timeline CSV (30fps pacing)
+  - `python scripts/build_timeline_orionep2.py`
+  - Output: `projects/OrionEp2/exports/timelines/OrionEp2_timeline_v1.csv`
+- Create FCP7 XML for Resolve
+  - `python scripts/csv_to_fcpx7_from_timeline.py projects/OrionEp2/exports/timelines/OrionEp2_timeline_v1.csv`
+  - Output: `projects/OrionEp2/exports/timelines/OrionEp2_timeline_v1.xml`
+- Generate SRT from XML + CSV
+  - `python scripts/make_srt_from_xml_and_csv.py projects/OrionEp2/exports/timelines/OrionEp2_timeline_v1.xml projects/OrionEp2/exports/timelines/OrionEp2_timeline_v1.csv`
+  - Output: `projects/OrionEp2/テロップ類/SRT/OrionEp2_Sub_follow.srt`
+
+Pacing rules (defaults)
+- Base gap: NA=0.35s, DL/Quotes=0.60s
+- Scene break: 1.80s (chapter ends)
+- Emphasis: +0.30s for questions, +min(0.40s, 0.004s×chars) for long text
+- Pre-roll: 0.50s
+
+Notes
+- Model: `eleven_v3` (stable)
+- Output: MP3-only (`mp3_44100_128`)
 - Technical terms maintain pronunciation accuracy
 
 ---

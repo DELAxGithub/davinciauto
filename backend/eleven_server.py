@@ -51,7 +51,9 @@ class Job(BaseModel):
     project_dir: str
     items: List[Item]
     model_id: Optional[str] = None
-    output_subdir: str = "exports/audio/narr"
+    # Default to category-based path that maps to Resolve bins
+    # Default to category-based path that maps to Resolve bins. Can be overridden.
+    output_subdir: str = "サウンド類/Narration"
 
 
 # === Music composition ===
@@ -65,7 +67,8 @@ class MusicItem(BaseModel):
 class MusicJob(BaseModel):
     project_dir: str
     items: List[MusicItem]
-    output_subdir: str = "exports/audio/bgm"
+    output_subdir: str = "サウンド類/BGM"
+    output_subdir: Optional[str] = "サウンド類/BGM"
 
 
 # === Sound Effects (SFX) ===
@@ -81,7 +84,8 @@ class SfxItem(BaseModel):
 class SfxJob(BaseModel):
     project_dir: str
     items: List[SfxItem]
-    output_subdir: str = "exports/audio/se"
+    output_subdir: str = "サウンド類/SE"
+    output_subdir: Optional[str] = "サウンド類/SE"
 
 
 app = FastAPI(title="ElevenLabs Worker", version="0.1.0")
@@ -246,6 +250,7 @@ def synthesize(job: Job):  # type: ignore
     base = pathlib.Path(job.project_dir).expanduser().resolve()
     project_name = base.name
     out_dir = base / job.output_subdir
+    out_dir = base / (job.output_subdir or "サウンド類/BGM")
     ensure_dir(out_dir)
 
     saved = []
@@ -340,6 +345,7 @@ def compose_music(job: MusicJob):  # type: ignore
     base = pathlib.Path(job.project_dir).expanduser().resolve()
     project_name = base.name
     out_dir = base / job.output_subdir
+    out_dir = base / (job.output_subdir or "サウンド類/SE")
     ensure_dir(out_dir)
 
     saved = []

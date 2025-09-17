@@ -1,5 +1,5 @@
 from pydantic import BaseModel, Field
-from typing import List, Optional, Dict, Any
+from typing import List, Optional, Dict, Any, Literal
 
 class RowData(BaseModel):
     """
@@ -53,7 +53,11 @@ class SrtExportRequest(BaseModel):
 class TTSRequest(BaseModel):
     """音声合成リクエスト"""
     text: str
+    provider: Literal["elevenlabs", "azure"] = "elevenlabs"
     voice_id: str = "21m00Tcm4TlvDq8ikWAM"  # Default: Rachel
     model_id: str = "eleven_multilingual_v2"
     stability: float = 0.5
     similarity_boost: float = 0.75
+    azure_style: Optional[str] = None
+    azure_role: Optional[str] = None
+    speaking_rate: Optional[float] = None

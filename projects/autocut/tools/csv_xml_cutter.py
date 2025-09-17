@@ -27,7 +27,10 @@ except Exception:
     HAS_GUI = False
 
 
-def timecode_to_frames(timecode, fps=30):
+TIMELINE_FPS = 30000 / 1001  # Premiere NTSC timeline fps (~29.97)
+
+
+def timecode_to_frames(timecode, fps=TIMELINE_FPS):
     """Convert timecode string to frame number"""
     if not timecode or timecode.strip() == '':
         return 0
@@ -47,10 +50,10 @@ def timecode_to_frames(timecode, fps=30):
         return 0
     
     total_frames = (hours * 3600 + minutes * 60 + seconds) * fps + frames
-    return total_frames
+    return int(round(total_frames))
 
 
-def frames_to_ppro_ticks(frames, fps=30):
+def frames_to_ppro_ticks(frames, fps=TIMELINE_FPS):
     """Convert frames to Premiere Pro ticks (254016000000 per second)"""
     seconds = frames / fps
     return int(seconds * 254016000000)
@@ -175,14 +178,19 @@ def extract_audio_files_from_xml(xml_file_path):
     return audio_files
 
 
-def load_graphic_template(template_path):
+def load_graphic_templates(template_path):
+    templates = {}
     try:
         ttree = ET.parse(template_path)
         troot = ttree.getroot()
-        clip = troot.find('.//video/track/clipitem')
-        return clip
+        for clip in troot.findall('.//sequence/media/video/track/clipitem'):
+            key = clip.findtext('filter/effect/name') or clip.findtext('name') or ''
+            key = key.strip()
+            if key:
+                templates[key] = clip
     except Exception:
-        return None
+        return {}
+    return templates
 
 
 def create_cut_xml_from_template(csv_file_path, template_xml_path, graphic_template_path=None):
@@ -284,6 +292,7 @@ def create_cut_xml_from_template(csv_file_path, template_xml_path, graphic_templ
                     'type': 'gap',
                     'duration_frames': end_frames - start_frames,
                     'telop_text': text,
+                    'telop_label': color.split('_', 1)[1] if '_' in color else color,
                 })
                 continue
 
@@ -324,7 +333,7 @@ def create_cut_xml_from_template(csv_file_path, template_xml_path, graphic_templ
     blocks = [s for s in segments if s['type']=='block']
     gaps = [s for s in segments if s['type']=='gap']
     print(f"検出: ブロック {len(blocks)}個 / ギャップ {len(gaps)}個")
-    
+
     # Helper: find max clipitem numeric suffix to avoid duplicate IDs
     import re
     id_re = re.compile(r"clipitem-(\d+)")
@@ -337,8 +346,19 @@ def create_cut_xml_from_template(csv_file_path, template_xml_path, graphic_templ
                 max_clip_num = max(max_clip_num, int(m.group(1)))
             except Exception:
                 pass
-
     next_clip_num = max_clip_num + 1
+
+    template_has_links = bool(template_root.findall('.//sequence/media/audio/track/clipitem/link'))
+
+    audio_file_map = {}
+    audio_file_name_map = {}
+    for af in audio_files:
+        fid = af.get('file_id')
+        if fid and fid not in audio_file_map:
+            audio_file_map[fid] = af
+        name = af.get('name')
+        if name and name not in audio_file_name_map:
+            audio_file_name_map[name] = af
 
     # Build per-track source mapping from template (file id/name + source channel)
     track_sources = []
@@ -353,6 +373,13 @@ def create_cut_xml_from_template(csv_file_path, template_xml_path, graphic_templ
         }
         ci = t_track.find('clipitem')
         if ci is not None:
+            clipitem_name = None
+            name_elem = ci.find('name')
+            if name_elem is not None and name_elem.text:
+                clipitem_name = name_elem.text.strip()
+            masterclipid_elem = ci.find('masterclipid')
+            if masterclipid_elem is not None and masterclipid_elem.text:
+                src['masterclipid'] = masterclipid_elem.text.strip()
             file_elem = ci.find('file')
             if file_elem is not None:
                 fid = file_elem.get('id')
@@ -364,13 +391,18 @@ def create_cut_xml_from_template(csv_file_path, template_xml_path, graphic_templ
                     src['element'] = full
                     n = full.find('name')
                     p = full.find('pathurl')
-                    if n is not None:
+                    if n is not None and n.text:
                         src['name'] = n.text
-                    if p is not None:
+                    if p is not None and p.text:
                         src['pathurl'] = p.text
+                    dur_elem = full.find('duration')
+                    if dur_elem is not None and (dur_elem.text or '').isdigit():
+                        src['source_duration'] = int(dur_elem.text)
             st = ci.find('sourcetrack/trackindex')
             if st is not None and (st.text or '').strip().isdigit():
                 src['source_channel'] = int(st.text)
+            if src['name'] is None and clipitem_name:
+                src['name'] = clipitem_name
         # Heuristic fallback for missing mapping
         if src['source_channel'] is None:
             src['source_channel'] = 1 if (t_idx % 2 == 0) else 2
@@ -381,19 +413,52 @@ def create_cut_xml_from_template(csv_file_path, template_xml_path, graphic_templ
             src['element'] = af.get('element')
             src['name'] = af.get('name')
             src['pathurl'] = af.get('pathurl')
+            if af.get('source_duration'):
+                src['source_duration'] = af['source_duration']
+            if af.get('masterclipid'):
+                src['masterclipid'] = af['masterclipid']
+
+        lookup = None
+        if src.get('file_id') and src['file_id'] in audio_file_map:
+            lookup = audio_file_map[src['file_id']]
+        elif src.get('name') and src['name'] in audio_file_name_map:
+            lookup = audio_file_name_map[src['name']]
+        if lookup:
+            if not src.get('name') and lookup.get('name'):
+                src['name'] = lookup['name']
+            if not src.get('pathurl') and lookup.get('pathurl'):
+                src['pathurl'] = lookup['pathurl']
+            element = lookup.get('element')
+            if element is not None:
+                existing = src.get('element')
+                if existing is None or len(list(existing)) == 0:
+                    src['element'] = element
+            if not src.get('source_duration') and lookup.get('source_duration'):
+                src['source_duration'] = lookup['source_duration']
+            if not src.get('masterclipid') and lookup.get('masterclipid'):
+                src['masterclipid'] = lookup['masterclipid']
         track_sources.append(src)
 
     # Create audio tracks based on template
     template_tracks = template_audio.findall('track')
     gap_size = 149  # Like original between non-gap blocks
     used_file_ids = set()
+    block_clipitems = [[] for _ in range(len(blocks))]
     
+    max_timeline_end = 0
+
     for track_idx, template_track in enumerate(template_tracks):
+        template_has_clip = template_track.find('clipitem') is not None
+        if not template_has_clip:
+            # Copy the track structure as-is (keeps empty tracks untouched)
+            audio.append(ET.fromstring(ET.tostring(template_track)))
+            continue
+
         # Track container
         track = ET.SubElement(audio, 'track')
         for attr_name, attr_value in template_track.attrib.items():
             track.set(attr_name, attr_value)
-        
+
         # Create clipitems for this track
         timeline_position = 0
         # Use per-track source mapping to match template channel layout
@@ -402,14 +467,24 @@ def create_cut_xml_from_template(csv_file_path, template_xml_path, graphic_templ
             'name': srcmap.get('name'),
             'pathurl': srcmap.get('pathurl'),
             'element': srcmap.get('element'),
-            'file_id': srcmap.get('file_id')
+            'file_id': srcmap.get('file_id'),
+            'source_duration': srcmap.get('source_duration'),
+            'masterclipid': srcmap.get('masterclipid'),
         }
+        if not audio_file.get('name'):
+            if audio_file.get('pathurl'):
+                audio_file['name'] = os.path.splitext(os.path.basename(audio_file['pathurl']))[0]
+            else:
+                audio_file['name'] = f'Audio Track {track_idx + 1}'
         # IDs to reuse from template (avoid collisions with video section)
         template_file_id = audio_file.get('file_id')
-        template_masterclip_id = audio_file.get('masterclipid', f'masterclip-{track_idx + 2}')
+        template_masterclip_id = audio_file.get('masterclipid') or f'masterclip-{track_idx + 2}'
+        template_clipitem = template_track.find('clipitem')
+        template_file_element = audio_file.get('element')
         # For logging: per-track block counter
         block_index = 1
-        
+        block_counter = -1
+
         for seg in segments:
             if seg['type'] == 'gap':
                 # Only advance timeline by gap; no audio clip
@@ -419,82 +494,101 @@ def create_cut_xml_from_template(csv_file_path, template_xml_path, graphic_templ
             start_frames = block['start_frames']
             end_frames = block['end_frames']
             duration_frames = end_frames - start_frames
-            
+            block_counter += 1
+
             # Add pre-gap before placing the block
             timeline_position += gap_size
 
             # Create clipitem
-            clipitem = ET.SubElement(track, 'clipitem')
-            clipitem.set('id', f'clipitem-{next_clip_num}')
-            clipitem.set('premiereChannelType', 'mono')
-            
-            # Master clip ID
-            masterclipid = ET.SubElement(clipitem, 'masterclipid')
-            masterclipid.text = template_masterclip_id
-            
-            # Name
-            clip_name = ET.SubElement(clipitem, 'name')
-            clip_name.text = audio_file['name']
-            
-            # Enabled
-            enabled = ET.SubElement(clipitem, 'enabled')
-            enabled.text = 'TRUE'
-            
-            # Duration (total source file duration)
-            clip_duration = ET.SubElement(clipitem, 'duration')
-            if 'source_duration' in audio_file:
-                clip_duration.text = str(audio_file['source_duration'])
+            if template_clipitem is not None:
+                clipitem = ET.fromstring(ET.tostring(template_clipitem))
             else:
-                clip_duration.text = str(end_frames) # Fallback
-            
+                clipitem = ET.Element('clipitem', premiereChannelType='mono')
+            clipitem.set('id', f'clipitem-{next_clip_num}')
+            track.append(clipitem)
+
+            # Remove existing link nodes; new ones get added later
+            for existing_link in list(clipitem.findall('link')):
+                clipitem.remove(existing_link)
+
+            # Master clip ID
+            def ensure(parent, tag):
+                child = parent.find(tag)
+                if child is None:
+                    child = ET.SubElement(parent, tag)
+                return child
+
+            masterclipid = ensure(clipitem, 'masterclipid')
+            masterclipid.text = template_masterclip_id
+
+            # Name
+            clip_name = ensure(clipitem, 'name')
+            clip_name.text = audio_file.get('name') or f'Audio Track {track_idx + 1}'
+
+            # Enabled
+            ensure(clipitem, 'enabled').text = 'TRUE'
+
+            # Duration (total source file duration)
+            if template_clipitem is None:
+                clip_duration = ensure(clipitem, 'duration')
+                if audio_file.get('source_duration'):
+                    clip_duration.text = str(audio_file['source_duration'])
+                else:
+                    clip_duration.text = str(duration_frames)
+
             # Rate
-            clip_rate = ET.SubElement(clipitem, 'rate')
-            clip_timebase = ET.SubElement(clip_rate, 'timebase')
+            clip_rate = ensure(clipitem, 'rate')
+            clip_timebase = ensure(clip_rate, 'timebase')
             clip_timebase.text = '30'
-            clip_ntsc = ET.SubElement(clip_rate, 'ntsc')
+            clip_ntsc = ensure(clip_rate, 'ntsc')
             clip_ntsc.text = 'TRUE'
-            
+
             # Start and end in timeline
-            start = ET.SubElement(clipitem, 'start')
-            start.text = str(timeline_position)
-            
-            end = ET.SubElement(clipitem, 'end')
-            end.text = str(timeline_position + duration_frames)
-            
+            ensure(clipitem, 'start').text = str(timeline_position)
+            end_frame_on_timeline = timeline_position + duration_frames
+            ensure(clipitem, 'end').text = str(end_frame_on_timeline)
+
             # In and out of source media
-            clip_in = ET.SubElement(clipitem, 'in')
-            clip_in.text = str(start_frames)
-            
-            clip_out = ET.SubElement(clipitem, 'out')
-            clip_out.text = str(end_frames)
-            
+            ensure(clipitem, 'in').text = str(start_frames)
+            ensure(clipitem, 'out').text = str(end_frames)
+
             # Premiere Pro ticks
-            ppro_ticks_in = ET.SubElement(clipitem, 'pproTicksIn')
-            ppro_ticks_in.text = str(frames_to_ppro_ticks(start_frames))
-            
-            ppro_ticks_out = ET.SubElement(clipitem, 'pproTicksOut')
-            ppro_ticks_out.text = str(frames_to_ppro_ticks(end_frames))
+            ensure(clipitem, 'pproTicksIn').text = str(frames_to_ppro_ticks(start_frames))
+            ensure(clipitem, 'pproTicksOut').text = str(frames_to_ppro_ticks(end_frames))
             
             # File reference
-            file_elem = ET.SubElement(clipitem, 'file')
+            existing_files = clipitem.findall('file')
+            if existing_files:
+                # Keep only the first file element from the template copy
+                file_elem = existing_files[0]
+                for extra in existing_files[1:]:
+                    clipitem.remove(extra)
+            else:
+                file_elem = ET.SubElement(clipitem, 'file')
+
             if template_file_id:
                 file_elem.set('id', template_file_id)
             else:
-                # Fallback unique id if template id is missing
                 file_elem.set('id', f'file-{track_idx + 100}')
 
-            # Only expand full file metadata the first time we reference a file id
-            if template_file_id and template_file_id not in used_file_ids and audio_file.get('element') is not None:
-                for child in audio_file['element']:
-                    file_elem.append(ET.fromstring(ET.tostring(child)))
-                used_file_ids.add(template_file_id)
+            if template_file_id:
+                if template_file_id not in used_file_ids and template_file_element is not None:
+                    # Fresh definition: replace with template metadata
+                    file_elem.clear()
+                    file_elem.set('id', template_file_id)
+                    for child in template_file_element:
+                        file_elem.append(ET.fromstring(ET.tostring(child)))
+                    used_file_ids.add(template_file_id)
+                else:
+                    # Subsequent references should not carry embedded metadata
+                    to_remove = list(file_elem)
+                    for child in to_remove:
+                        file_elem.remove(child)
             else:
-                # Minimal fallback if we don't have a canonical element
-                if not template_file_id:
-                    if audio_file.get('name'):
-                        ET.SubElement(file_elem, 'name').text = audio_file['name']
-                    if audio_file.get('pathurl'):
-                        ET.SubElement(file_elem, 'pathurl').text = audio_file['pathurl']
+                if audio_file.get('name'):
+                    ET.SubElement(file_elem, 'name').text = audio_file['name']
+                if audio_file.get('pathurl'):
+                    ET.SubElement(file_elem, 'pathurl').text = audio_file['pathurl']
 
             # Source track channel mapping (L/R)
             st = ET.SubElement(clipitem, 'sourcetrack')
@@ -502,15 +596,24 @@ def create_cut_xml_from_template(csv_file_path, template_xml_path, graphic_templ
             ET.SubElement(st, 'trackindex').text = str(srcmap.get('source_channel', 1))
             
             # Labels - CSVの色選択を反映
-            labels = ET.SubElement(clipitem, 'labels')
-            label2 = ET.SubElement(labels, 'label2')
+            labels = ensure(clipitem, 'labels')
+            label2 = ensure(labels, 'label2')
             premiere_label = csv_color_to_premiere_label(block['color'])
             label2.text = premiere_label
-            
+
             print(f"A{track_idx + 1}トラック: ブロック{block_index} ({timeline_position} - {timeline_position + duration_frames}) - {audio_file['name']} [ラベル: {premiere_label}]")
-            
+
+            if 0 <= block_counter < len(block_clipitems):
+                block_clipitems[block_counter].append({
+                    'clipitem': clipitem,
+                    'clip_id': clipitem.get('id'),
+                    'track_index': track_idx + 1
+                })
+
             # Update timeline position with block duration and post-gap
             timeline_position += duration_frames + gap_size
+            if end_frame_on_timeline > max_timeline_end:
+                max_timeline_end = end_frame_on_timeline
             next_clip_num += 1
             block_index += 1
         
@@ -518,43 +621,63 @@ def create_cut_xml_from_template(csv_file_path, template_xml_path, graphic_templ
         for child in template_track:
             if child.tag != 'clipitem':
                 track.append(ET.fromstring(ET.tostring(child)))
-    
+
+    # Add linking information so paired clips stay associated in Premiere
+    if template_has_links:
+        for block_idx, items in enumerate(block_clipitems):
+            if len(items) <= 1:
+                continue
+            for entry in items:
+                clipitem = entry['clipitem']
+                for link_elem in list(clipitem.findall('link')):
+                    clipitem.remove(link_elem)
+                for target in items:
+                    link = ET.SubElement(clipitem, 'link')
+                    ET.SubElement(link, 'linkclipref').text = target['clip_id']
+                    ET.SubElement(link, 'mediatype').text = 'audio'
+                    ET.SubElement(link, 'trackindex').text = str(target['track_index'])
+                    ET.SubElement(link, 'clipindex').text = str(block_idx + 1)
+
     # Update sequence duration
-    total_duration = timeline_position - gap_size if blocks else 0
+    total_duration = max_timeline_end
     duration.text = str(total_duration)
     
     # Add telop clips on V1 from gaps, using a graphic template if available
-    if gaps:
-        graphic_clip_template = None
-        if graphic_template_path and os.path.exists(graphic_template_path):
-            graphic_clip_template = load_graphic_template(graphic_template_path)
-        # Ensure video track exists
-        seq_media = sequence.find('media')
-        vid = seq_media.find('video')
-        if vid is None:
-            vid = ET.SubElement(seq_media, 'video')
-        # Try to find first existing video track, else create
-        vtrack = vid.find('track')
-        if vtrack is None:
-            vtrack = ET.SubElement(vid, 'track')
-            ET.SubElement(vtrack, 'enabled').text = 'TRUE'
-            ET.SubElement(vtrack, 'locked').text = 'FALSE'
+    if gaps and graphic_template_path and os.path.exists(graphic_template_path):
+        graphic_templates = load_graphic_templates(graphic_template_path)
+        if graphic_templates:
+            seq_media = sequence.find('media')
+            vid = seq_media.find('video')
+            if vid is None:
+                vid = ET.SubElement(seq_media, 'video')
+            vtrack = vid.find('track')
+            if vtrack is None:
+                vtrack = ET.SubElement(vid, 'track')
+                ET.SubElement(vtrack, 'enabled').text = 'TRUE'
+                ET.SubElement(vtrack, 'locked').text = 'FALSE'
 
-        # Recompute telop timings by walking segments again
-        telop_start = 0
-        for seg in segments:
-            if seg['type'] == 'gap':
-                dur = seg['duration_frames']
-                # Create a clipitem for telop
-                if graphic_clip_template is not None:
-                    clipitem = ET.fromstring(ET.tostring(graphic_clip_template))
+            telop_start = 0
+            for seg in segments:
+                if seg['type'] == 'gap':
+                    dur = seg['duration_frames']
+                    raw_label = seg.get('telop_label', '').strip()
+                    lookup_label = raw_label
+                    if raw_label:
+                        upper = raw_label.upper()
+                        if upper.startswith('NA'):
+                            lookup_label = upper
+                        elif raw_label.isdigit():
+                            lookup_label = f"NA{raw_label}"
+                    template_clip = graphic_templates.get(lookup_label) or next(iter(graphic_templates.values()), None)
+                    if template_clip is None:
+                        telop_start += dur
+                        continue
+                    clipitem = ET.fromstring(ET.tostring(template_clip))
                     clipitem.set('id', f'vclipitem-{uuid.uuid4()}')
-                    # Update clip timing
                     clipitem.find('start').text = str(telop_start)
                     clipitem.find('end').text = str(telop_start + dur)
                     clipitem.find('in').text = '0'
                     clipitem.find('out').text = str(dur)
-                    # pproTicks
                     ppin = clipitem.find('pproTicksIn')
                     if ppin is None:
                         ppin = ET.SubElement(clipitem, 'pproTicksIn')
@@ -563,32 +686,15 @@ def create_cut_xml_from_template(csv_file_path, template_xml_path, graphic_templ
                     if ppout is None:
                         ppout = ET.SubElement(clipitem, 'pproTicksOut')
                     ppout.text = str(frames_to_ppro_ticks(dur))
-                    # Set effect name to telop text (visual text may still rely on parameter)
                     eff = clipitem.find('filter/effect')
                     if eff is not None:
                         name_elem = eff.find('name')
                         if name_elem is not None:
-                            name_elem.text = seg.get('telop_text') or 'Graphic'
-                    # Append to video track
+                            name_elem.text = lookup_label or seg.get('telop_text') or name_elem.text
                     vtrack.append(clipitem)
+                    telop_start += dur
                 else:
-                    # Minimal placeholder clipitem if no template is available
-                    clipitem = ET.SubElement(vtrack, 'clipitem')
-                    clipitem.set('id', f'vclipitem-{uuid.uuid4()}')
-                    ET.SubElement(clipitem, 'name').text = seg.get('telop_text') or 'Telop'
-                    ET.SubElement(clipitem, 'enabled').text = 'TRUE'
-                    ET.SubElement(clipitem, 'duration').text = str(dur)
-                    rate = ET.SubElement(clipitem, 'rate')
-                    ET.SubElement(rate, 'timebase').text = '30'
-                    ET.SubElement(rate, 'ntsc').text = 'TRUE'
-                    ET.SubElement(clipitem, 'start').text = str(telop_start)
-                    ET.SubElement(clipitem, 'end').text = str(telop_start + dur)
-                    ET.SubElement(clipitem, 'in').text = '0'
-                    ET.SubElement(clipitem, 'out').text = str(dur)
-                telop_start += dur
-            else:
-                # Mirror audio timeline: pre-gap + block + post-gap
-                telop_start += gap_size + (seg['end_frames'] - seg['start_frames']) + gap_size
+                    telop_start += gap_size + (seg['end_frames'] - seg['start_frames']) + gap_size
 
     return root
 
@@ -718,7 +824,7 @@ def main():
                 print(f"グラフィックテンプレート: {graphic_template}")
         else:
             print("Note: GUI mode not available (tkinter not installed).")
-            print("Usage: python csv_xml_cutter.py <csv_file> <template_xml_file> [graphic_template.xml]")
+            print("Usage: python projects/autocut/tools/csv_xml_cutter.py <csv_file> <template_xml_file> [graphic_template.xml]")
             print("\nEntering interactive mode...")
             csv_file, template_xml_file, graphic_template = prompt_for_files()
             if not csv_file or not template_xml_file:

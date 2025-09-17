@@ -135,7 +135,7 @@ def write_csv(path: str, rows: List[List[str]]):
 
 def main():
     if len(sys.argv) < 3:
-        print('Usage: python projects/autocut/merge_two_csvs.py <speakerA.csv> <speakerB.csv> [output.csv] [--by file|freq]')
+        print('Usage: python projects/autocut/tools/merge_two_csvs.py <speakerA.csv> <speakerB.csv> [output.csv] [--by file|freq]')
         sys.exit(1)
 
     csv1 = sys.argv[1]

@@ -144,6 +144,15 @@
             <input id="scriptOpen" type="file" accept=".txt,.md" style="display:none"/>
             <span class="muted" id="folderNameLabel" style="font-size:12px"></span>
           </div>
+          <div class="group">
+            <div class="group-title">サーバ</div>
+            <label>プロジェクトパス:
+              <input id="serverProjectDir" type="text" placeholder="/abs/path/to/project" style="width:320px">
+            </label>
+            <button onclick="saveProjectToServer()">保存API</button>
+            <button onclick="loadProjectFromServer()">読込API</button>
+            <button onclick="saveSrtToServer()">SRT保存</button>
+          </div>
     <div class="group">
       <div class="group-title">LLM</div>
       <label>プロバイダ:
@@ -615,9 +624,56 @@
 
     // Project I/O and CSV
     function newProject(){ if(!confirm('新規プロジェクトを作成しますか？')) return; projectName=''; data=[]; renderTable(); rowsBody.innerHTML=''; $('#projectLabel').textContent=''; const sa=$('#selAll'); if(sa) sa.checked=false; updateJobUI(); }
-    function openProject(){ $('#fileOpen').click(); }
+    async function openProject(){
+      // Prefer opening from a project folder (project.json) if FS API is available
+      try{
+        if('showDirectoryPicker' in window){
+          const useFolder = confirm('プロジェクトフォルダから開きますか？(project.json を読み込みます)');
+          if(useFolder){
+            const dir = await window.showDirectoryPicker();
+            projectDir = dir; $('#folderNameLabel').textContent = `📁 ${dir.name}`;
+            const fh = await getFileFromPath(projectDir, 'project.json');
+            if(fh){
+              const f = await fh.getFile();
+              const txt = await f.text();
+              try{
+                const obj = JSON.parse(txt);
+                // Accept legacy {name, savedAt, data} or richer manifests
+                const rows = Array.isArray(obj?.data) ? obj.data : (obj?.data?.rows || obj?.rows || []);
+                if(Array.isArray(rows) && rows.length){
+                  data = rows; normalizeData(); renderTable();
+                  setTimeout(()=>{ const first=document.querySelector('#rows tbody tr'); if(first) first.click(); }, 0);
+                  return;
+                }
+              }catch(e){ console.warn('project.json parse error', e); }
+              alert('project.json は読み込めましたが行データが見つかりませんでした');
+              return;
+            }
+            alert('選択したフォルダに project.json が見つかりません');
+            return;
+          }
+        }
+      }catch(e){ console.warn('openProject(folder) failed', e); }
+      // Fallback: open a file
+      $('#fileOpen').click();
+    }
     $('#fileOpen').addEventListener('change', ev=>{ const f=ev.target.files[0]; if(!f) return; projectName=f.name; $('#projectLabel').textContent=projectName; const ext=(f.name.split('.').pop()||'').toLowerCase(); const fr=new FileReader(); if(ext==='json'){ fr.onload=()=>{ try{ const obj=JSON.parse(fr.result); data=Array.isArray(obj.data)?obj.data:(obj.data?.rows||[]); if(!Array.isArray(data)) throw new Error('invalid'); normalizeData(); }catch(e){ alert('JSON読込エラー: '+e.message);} }; fr.readAsText(f,'utf-8'); } else if(ext==='txt'){ fr.onload=()=>{ data=parseScriptText(fr.result||''); }; fr.readAsText(f,'utf-8'); } else if(ext==='csv'){ fr.onload=()=>{ data=importCsv(fr.result||''); }; fr.readAsText(f,'utf-8'); } else { alert('未対応の拡張子: '+ext); } ev.target.value=''; setTimeout(()=>{ renderTable(); const first=document.querySelector('#rows tbody tr'); if(first) first.click(); }, 0); });
-    function saveProject(){ const proj={name:projectName||'project', data}; const blob=new Blob([JSON.stringify(proj,null,2)],{type:'application/json'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=(projectName?projectName.replace(/\.[^.]+$/,''):'project')+'.json'; a.click(); URL.revokeObjectURL(a.href); }
+    async function saveProject(){
+      // If a project folder is selected (File System Access API), save to project.json there.
+      try{
+        if(projectDir){
+          await autoSaveProjectJson();
+          alert('project.json をプロジェクトフォルダに保存しました');
+          return;
+        }
+      }catch(e){ console.warn('project.json 保存に失敗（フォルダ未選択/権限など）: ', e); }
+      // Fallback: download as JSON file
+      const proj={name:projectName||'project', data};
+      const blob=new Blob([JSON.stringify(proj,null,2)],{type:'application/json'});
+      const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+      a.download=(projectName?projectName.replace(/\.[^.]+$/,''):'project')+'.json';
+      a.click(); URL.revokeObjectURL(a.href);
+    }
     function normalizeData(){ data=data.map((r,i)=>({ sel:true, line:r.line||i+1, role:r.role||'NA', character:r.character||'', original:r.original||'', follow:r.follow||'', narr:r.narr||'', storyText:r.storyText||'', storyKeywords:r.storyKeywords||'', annot:r.annot||'', bgm:r.bgm||'', se:r.se||'', rate:r.rate||1.0, locked:!!r.locked, notes:r.notes||'', status:r.status||{}, tDur:r.tDur||0, tStart:r.tStart||0, tEnd:r.tEnd||0 })); }
     function defaultProjectName(){ const d=new Date(); const p=n=>String(n).padStart(2,'0'); return `project_${d.getFullYear()}${p(d.getMonth()+1)}${p(d.getDate())}_${p(d.getHours())}${p(d.getMinutes())}${p(d.getSeconds())}`; }
 
@@ -633,10 +689,9 @@
         $('#projectLabel').textContent = projectName;
         // create default subdirs
         await ensureDir(dir, 'inputs');
-        await ensureDir(dir, 'exports');
-        await ensureDir(dir, 'exports/audio');
-        await ensureDir(dir, 'exports/audio/narr');
-        const narrOut = $('#narrProjectDir'); if(narrOut && !narrOut.value){ narrOut.value = String(dir.name? dir.name: '')? (dir.name, (await dir.resolve) ? '' : '') : ''; }
+        await ensureDir(dir, 'サウンド類');
+        await ensureDir(dir, 'サウンド類/Narration');
+        const narrOut = $('#narrProjectDir'); if(narrOut && !narrOut.value){ narrOut.value = dir.name || ''; }
       }catch(e){ console.warn(e); }
     }
     async function ensureDir(root, name){ try{ return await root.getDirectoryHandle(name, {create:true}); }catch(e){ console.warn(e); return null; } }
@@ -666,20 +721,69 @@
 
     async function autoSaveProjectJson(){ if(!projectDir) return; const proj={ name:projectName||defaultProjectName(), savedAt:new Date().toISOString(), data}; const json=JSON.stringify(proj,null,2); await writeFile(projectDir, 'project.json', json); }
     function makeExportCsvText(){ const headers=['line_no','role','character','text_original','follow_telop','narration_script','story_text','search_keywords','annotation_telop','bgm_prompt','se_prompt','voice_id','rate','notes','start_sec','end_sec','duration_sec']; const lines=[headers.join(',')]; data.forEach(r=>{ const row=[r.line,r.role,r.character||'',csvq(r.original),csvq(r.follow||''),csvq(r.narr||''),csvq(r.storyText||''),csvq(r.storyKeywords||''),csvq(r.annot||''),csvq(r.bgm||''),csvq(r.se||''),'', (r.rate||1.0), csvq(r.notes||''), (r.tStart||0).toFixed(3), (r.tEnd||0).toFixed(3), (r.tDur||0).toFixed(3)]; lines.push(row.join(',')); }); return lines.join('\n'); }
-    async function saveCsvToFolder(){ if(!projectDir) return; const csv=makeExportCsvText(); await writeFile(projectDir, 'exports/export_vertical.csv', csv); }
-    function buildReadme(){ const total=data.length; const filled=data.filter(r=>r.follow && r.narr && (r.storyText||r.storyKeywords) && r.annot && r.bgm && r.se).length; return `Project: ${projectName}\nCreated: ${new Date().toISOString()}\n\nFiles:\n- project.json\n- inputs/script.txt\n- exports/export_vertical.csv\n\nStats:\n- Rows: ${total}\n- Completed: ${filled}\n`; }
+    async function saveCsvToFolder(){
+      if(!projectDir) return;
+      const csv=makeExportCsvText();
+      const name=(projectName||defaultProjectName());
+      await writeFile(projectDir, `テロップ類/CSV/${name}_TEL_vertical.csv`, csv);
+    }
+    function buildReadme(){
+      const total=data.length;
+      const filled=data.filter(r=>r.follow && r.narr && (r.storyText||r.storyKeywords) && r.annot && r.bgm && r.se).length;
+      const name=(projectName||defaultProjectName());
+      return `Project: ${name}\nCreated: ${new Date().toISOString()}\n\nFolders:\n- テロップ類/CSV\n- テロップ類/SRT\n- サウンド類/Narration\n- サウンド類/BGM\n- サウンド類/SE\n\nKey Files:\n- project.json\n- inputs/script.txt\n- テロップ類/CSV/${name}_TEL_vertical.csv\n- テロップ類/SRT/${name}_Sub_follow.srt\n`;
+    }
     async function saveOutputsToFolder(){
       if(!('showDirectoryPicker' in window)){ alert('ブラウザがFS API非対応です。上部の保存/CSV書き出しをご利用ください。'); return; }
       try{
         if(!projectDir) await chooseProjectFolder();
         if(!projectDir){ alert('プロジェクトフォルダを選択してください'); return; }
-        await ensureDir(projectDir,'inputs'); await ensureDir(projectDir,'exports');
+        await ensureDir(projectDir,'inputs');
+        await ensureDir(projectDir,'テロップ類');
+        await ensureDir(projectDir,'テロップ類/CSV');
+        await ensureDir(projectDir,'テロップ類/SRT');
+        await ensureDir(projectDir,'サウンド類');
+        await ensureDir(projectDir,'サウンド類/Narration');
+        await ensureDir(projectDir,'サウンド類/BGM');
+        await ensureDir(projectDir,'サウンド類/SE');
         if(lastImportedScriptText){ await writeFile(projectDir, 'inputs/script.txt', lastImportedScriptText); }
         await autoSaveProjectJson();
         await saveCsvToFolder();
         await writeFile(projectDir, 'README.txt', buildReadme());
         alert('出力一式を保存しました');
       }catch(e){ console.error(e); alert('保存に失敗しました: '+e.message); }
+    }
+
+    // === Server-side project save/load ===
+    function serverProjectDirValue(){ const v=(document.querySelector('#serverProjectDir')?.value||'').trim(); if(v) { FIXED_PROJECT_DIR = v; } return FIXED_PROJECT_DIR; }
+    async function saveProjectToServer(){
+      const dir = serverProjectDirValue(); if(!dir){ alert('サーバ保存先のプロジェクトパスを入力してください'); return; }
+      const proj = { name: projectName||defaultProjectName(), savedAt: new Date().toISOString(), data };
+      try{
+        const res = await fetch('/api/projects/save',{ method:'POST', headers:{'content-type':'application/json'}, body: JSON.stringify({ project_dir: dir, project: proj, filename: 'project.json' })});
+        const json = await res.json(); if(json&&json.ok){ alert('サーバに保存しました: '+json.path); } else { alert('保存エラー: '+(json&&json.detail||JSON.stringify(json))); }
+      }catch(e){ alert('HTTPエラー: '+e); }
+    }
+    async function loadProjectFromServer(){
+      const dir = serverProjectDirValue(); if(!dir){ alert('サーバ読込元のプロジェクトパスを入力してください'); return; }
+      try{
+        const res = await fetch('/api/projects/load?project_dir='+encodeURIComponent(dir)+'&filename=project.json');
+        const json = await res.json();
+        if(json&&json.ok){
+          const obj = json.project||{}; const rows = Array.isArray(obj?.data) ? obj.data : (obj?.data?.rows || obj?.rows || []);
+          if(Array.isArray(rows)) { data = rows; normalizeData(); renderTable(); setTimeout(()=>{ const first=document.querySelector('#rows tbody tr'); if(first) first.click(); }, 0); }
+          else { alert('project.jsonに行データが見つかりません'); }
+        } else { alert('読込エラー: '+(json&&json.detail||JSON.stringify(json))); }
+      }catch(e){ alert('HTTPエラー: '+e); }
+    }
+    async function saveSrtToServer(){
+      const dir = serverProjectDirValue(); if(!dir){ alert('サーバSRT保存先のプロジェクトパスを入力してください'); return; }
+      try{
+        const name=(projectName||defaultProjectName());
+        const filename=`テロップ類/SRT/${name}_Sub_follow.srt`;
+        const res = await fetch('/api/srt/export_to_file',{ method:'POST', headers:{'content-type':'application/json'}, body: JSON.stringify({ rows: data, source: 'follow', offset_ms: 0, project_dir: dir, filename }) });
+        const json = await res.json(); if(json&&json.ok){ alert(`SRT保存: ${json.path} (cues=${json.lines})`); } else { alert('SRT保存エラー: '+(json&&json.detail||JSON.stringify(json))); }
+      }catch(e){ alert('HTTPエラー: '+e); }
     }
 
     // === Folder watch & sync ===
@@ -1091,7 +1195,7 @@
     function selectedNarrItems(){ return selectedNarrOrOriginalItems(false); }
     async function postEleven(items){
       const server = FIXED_EL_SERVER;
-      const proj = FIXED_PROJECT_DIR;
+      const proj = serverProjectDirValue();
       const model = FIXED_EL_MODEL;
       try{
         const res = await fetch(server.replace(/\/$/,'') + '/api/eleven/synthesize', { method:'POST', headers:{'content-type':'application/json'}, body: JSON.stringify({ project_dir: proj, model_id:model, items }) });
@@ -1583,7 +1687,9 @@ fMRI（機能的磁気共鳴画像法）による脳科学研究が示唆する�
     // Fixed config for local EL
     const FIXED_EL_SERVER = 'http://127.0.0.1:8787';
     const FIXED_EL_MODEL  = 'eleven_v3';
-    const FIXED_PROJECT_DIR = '/Users/hiroshikodera/Documents/orionEp1';
+    let FIXED_PROJECT_DIR = '/Users/hiroshikodera/Documents/orionEp1';
+    // Reflect current FIXED_PROJECT_DIR to input if present
+    setTimeout(()=>{ const el=document.querySelector('#serverProjectDir'); if(el && !el.value) el.value = FIXED_PROJECT_DIR; }, 0);
 
     // 外部インポートUIは削除（右ペイン内のファイル読込/フォルダ読込で統一）
     function setField(tgt, r, val){ val = String(val||''); if(tgt==='narr') r.narr=val; else if(tgt==='follow') r.follow=val; else if(tgt==='storyText') r.storyText=val; else if(tgt==='storyKeywords') r.storyKeywords=val; else if(tgt==='annot') r.annot=val; else if(tgt==='bgm') r.bgm=val; else if(tgt==='se') r.se=val; }
@@ -1598,7 +1704,7 @@ fMRI（機能的磁気共鳴画像法）による脳科学研究が示唆する�
     function parseTimecodeToMs(s){ const m=String(s||'').match(/(\d{1,2}):(\d{2})/); if(!m) return 0; return (parseInt(m[1],10)*60 + parseInt(m[2],10))*1000; }
     function logBgm(s){ const ta=document.querySelector('#bgmLog'); if(ta){ ta.value += (s+'\n'); ta.scrollTop=ta.scrollHeight; } }
     function parseBgmSpec(){ const spec=document.querySelector('#bgmSpec')?.value||''; const lines=spec.split(/\r?\n/); const items=[]; let cur=null; for(let i=0;i<lines.length;i++){ const ln=lines[i]; const head=ln.match(/^\s*\[(\d{1,2}:\d{2})\s*-\s*(\d{1,2}:\d{2})\]\s*(.*)$/); if(head){ if(cur){ items.push(cur); cur=null; } const startMs=parseTimecodeToMs(head[1]); const endMs=parseTimecodeToMs(head[2]); cur={ label: head[3]||`${head[1]}-${head[2]}`, startMs, endMs, prompt:'' }; continue; } if(/BGM生成AIプロンプト/i.test(ln)){ let q=''; i++; while(i<lines.length){ const t=lines[i]; if(/^\s*SE\b|^\s*\[\d{1,2}:\d{2}/.test(t)) { i--; break; } q += (q? '\n':'') + t.replace(/^\s*"|"\s*$/g,''); i++; } if(cur) cur.prompt=q.trim(); continue; } } if(cur) items.push(cur); const host=document.querySelector('#bgmList'); if(host){ host.innerHTML=''; items.forEach((it,idx)=>{ const lenMs=Math.max(0,(it.endMs||0)-(it.startMs||0)); const div=document.createElement('div'); div.className='group'; div.innerHTML=`<b>${idx+1}.</b> <span>${it.label||''}</span> <span class="muted">(${pad2(Math.floor((it.startMs||0)/60000))}:${pad2(Math.floor(((it.startMs||0)%60000)/1000))} - ${pad2(Math.floor((it.endMs||0)/60000))}:${pad2(Math.floor(((it.endMs||0)%60000)/1000))}, ${Math.round(lenMs/1000)}s)</span><br><code style="white-space:pre-wrap">${(it.prompt||'').replace(/&/g,'&amp;').replace(/</g,'&lt;')}</code>`; host.appendChild(div); }); } window.__bgmItems=items; logBgm(`解析: ${items.length} 件`); }
-    async function generateAllBgm(){ const items=(window.__bgmItems||[]).filter(it=>it&&it.prompt); if(!items.length){ logBgm('生成対象がありません'); return; } const payload={ project_dir:'/Users/hiroshikodera/Documents/orionEp1', items: items.map(it=>({ label: it.label, prompt: it.prompt, length_ms: Math.max(1000,(it.endMs||0)-(it.startMs||0)) })) }; try{ const res=await fetch('http://127.0.0.1:8787/api/music/compose',{ method:'POST', headers:{'content-type':'application/json'}, body: JSON.stringify(payload)}); const json=await res.json(); if(json&&Array.isArray(json.saved)){ json.saved.forEach(s=>logBgm(`保存: ${s.path} (${s.duration}s)`)); } if(json&&Array.isArray(json.errors)&&json.errors.length){ logBgm('エラー: '+JSON.stringify(json.errors[0])); } }catch(e){ logBgm('HTTPエラー: '+e); } }
+    async function generateAllBgm(){ const items=(window.__bgmItems||[]).filter(it=>it&&it.prompt); if(!items.length){ logBgm('生成対象がありません'); return; } const payload={ project_dir: serverProjectDirValue(), items: items.map(it=>({ label: it.label, prompt: it.prompt, length_ms: Math.max(1000,(it.endMs||0)-(it.startMs||0)) })) }; try{ const res=await fetch('http://127.0.0.1:8787/api/music/compose',{ method:'POST', headers:{'content-type':'application/json'}, body: JSON.stringify(payload)}); const json=await res.json(); if(json&&Array.isArray(json.saved)){ json.saved.forEach(s=>logBgm(`保存: ${s.path} (${s.duration}s)`)); } if(json&&Array.isArray(json.errors)&&json.errors.length){ logBgm('エラー: '+JSON.stringify(json.errors[0])); } }catch(e){ logBgm('HTTPエラー: '+e); } }
     function parseSeFromSpec(){ const spec=document.querySelector('#bgmSpec')?.value||''; const lines=spec.split(/\r?\n/); const out=[]; let curSection=''; for(let i=0;i<lines.length;i++){ const ln=lines[i]; const head=ln.match(/^\s*\[(\d{1,2}:\d{2})\s*-\s*(\d{1,2}:\d{2})\]\s*(.*)$/); if(head){ curSection=head[3]||''; continue; } if(/^\s*SE\b/.test(ln)){ i++; while(i<lines.length){ const t=lines[i]; if(!t.trim()) break; const m=t.match(/(\d{1,2}:\d{2})\s*-\s*(.+)/); if(m){ out.push({ at:m[1], text:m[2].trim(), section:curSection }); } i++; } } } const host=document.querySelector('#seList'); if(host){ host.innerHTML=''; out.forEach((e,idx)=>{ const d=document.createElement('div'); d.className='group'; d.innerHTML=`<b>${idx+1}.</b> [${e.at}] ${(e.text||'').replace(/&/g,'&amp;').replace(/</g,'&lt;')} <span class="muted">(${(e.section||'').replace(/&/g,'&amp;').replace(/</g,'&lt;')})</span>`; host.appendChild(d); }); } logBgm(`SE抽出: ${out.length} 件`); }
   </script>
   <script>
@@ -1624,7 +1730,7 @@ fMRI（機能的磁気共鳴画像法）による脳科学研究が示唆する�
       if(!out.length){ logBgm && logBgm('SEがありません'); return; }
       const secEl=document.querySelector('#seDefaultSec');
       const defSec=parseFloat(secEl && secEl.value || '2')||2;
-      const payload={ project_dir:'/Users/hiroshikodera/Documents/orionEp1', items: out.map((e,idx)=>({ label:`SE${String(idx+1).padStart(2,'0')}`, prompt:e.text, duration_sec:defSec })) };
+      const payload={ project_dir: serverProjectDirValue(), items: out.map((e,idx)=>({ label:`SE${String(idx+1).padStart(2,'0')}`, prompt:e.text, duration_sec:defSec })) };
       try{
         const res = await fetch('http://127.0.0.1:8787/api/sfx/convert',{ method:'POST', headers:{'content-type':'application/json'}, body: JSON.stringify(payload)});
         const json = await res.json();

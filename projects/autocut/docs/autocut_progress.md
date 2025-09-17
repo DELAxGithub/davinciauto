@@ -42,7 +42,7 @@ Premiere Proの文字起こし機能で生成されたCSVを元に、編集者�
 
 ### Step 4: XML生成 (Python)
 
-1.  Pythonスクリプト `csv_xml_cutter.py` を実行する。
+1.  Pythonスクリプト `tools/csv_xml_cutter.py` を実行する。
 2.  ファイル選択ダイアログが表示されるので、まず**テンプレートXML**を、次にダウンロードした**指示CSV**を選択する。
 3.  すべての指示が反映された、Premiere Proで読み込み可能な新しいXMLファイル (`..._cut_from_....xml`) が生成される。
 
@@ -50,7 +50,7 @@ Premiere Proの文字起こし機能で生成されたCSVを元に、編集者�
 
 ## 3. 実装済みの主要機能
 
-### Google Apps Script (`csv_premiere.js`)
+### Google Apps Script (`tools/csv_premiere.js`)
 
 - **3ステップのUI**: カスタムメニューから各ステップを簡単に実行可能。
 - **データ整形**: Premiereの生CSVを自動で整形。
@@ -58,7 +58,7 @@ Premiere Proの文字起こし機能で生成されたCSVを元に、編集者�
 - **ギャップ生成**: 挿入された空行を「20秒の隙間」として解釈するダミークリップ情報に変換してCSVに出力。
 - **ワークフロー簡略化**: `Reel Name` の手動入力を不要にし、`色選択` だけで完結するように改善済み。
 
-### Pythonスクリプト (`csv_xml_cutter.py`)
+### Pythonスクリプト (`tools/csv_xml_cutter.py`)
 
 - **テンプレート解析**: テンプレートXMLからオーディオトラック構成（ファイルパス等）を自動で読み取り、新しいXMLの土台として利用する。
 - **CSV解析**:

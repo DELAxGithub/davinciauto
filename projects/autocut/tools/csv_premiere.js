@@ -74,6 +74,8 @@ function onOpen() {
     .addItem('Step 1: 生の文字起こしをフォーマット', 'step1_formatTranscript')
     .addItem('Step 2: 色付けした行を抽出', 'step2_extractColoredRows')
     .addItem('Step 3: 最終CSVを生成・ダウンロード', 'step3_generateAndDownloadCsv')
+    .addSeparator()
+    .addItem('カウント: 選択区間の尺を集計', 'countSelectedDurations')
     .addToUi();
 }
 
@@ -446,7 +448,6 @@ function step2_processSelectedSheet(formattedSheetName) {
       const selColorCol = headers.indexOf('色選択');
       const eIdx = headers.indexOf('スピーカーAの文字起こし');
       const fIdx = headers.indexOf('スピーカーBの文字起こし');
-      const gIdx = headers.indexOf('AやB以外');
       // Step1で付与したメイン話者メモ（A/B）から名前を取得（なければ頻度で推定）
       let mainA = '';
       let mainB = '';
@@ -479,31 +480,34 @@ function step2_processSelectedSheet(formattedSheetName) {
         if (!mainB && arr[1]) mainB = arr[1][0];
       }
 
-      if (selColorCol !== -1) {
+      const fillColumnIndex = (() => {
+        const textIdx = headers.indexOf('文字起こし');
+        if (textIdx !== -1) return textIdx;
+        if (speakerNameIndex !== -1) return speakerNameIndex;
+        const enNameIdx = headers.indexOf('Speaker Name');
+        if (enNameIdx !== -1) return enNameIdx;
+        return -1;
+      })();
+
+      if (selColorCol !== -1 && fillColumnIndex !== -1) {
         const colorVals = selectedSheet
           .getRange(2, selColorCol + 1, numRows - 1, 1)
           .getValues()
           .map(r => (r[0] || '').toString().trim());
 
         const colorFor = (label) => (label && COLOR_MAP[label]) ? COLOR_MAP[label] : null;
-
-        if (eIdx !== -1) {
-          const eColors = colorVals.map(v => [colorFor(v)]);
-          selectedSheet.getRange(2, eIdx + 1, numRows - 1, 1).setBackgrounds(eColors);
-        }
-        if (fIdx !== -1) {
-          const fColors = colorVals.map(v => [colorFor(v)]);
-          selectedSheet.getRange(2, fIdx + 1, numRows - 1, 1).setBackgrounds(fColors);
-        }
-        if (gIdx !== -1) {
-          const gColors = colorVals.map(v => [colorFor(v)]);
-          selectedSheet.getRange(2, gIdx + 1, numRows - 1, 1).setBackgrounds(gColors);
-        }
+        const fillColors = colorVals.map(v => [colorFor(v)]);
+        selectedSheet.getRange(2, fillColumnIndex + 1, numRows - 1, 1).setBackgrounds(fillColors);
       }
 
       // 折り返し（E/F列）
       if (eIdx !== -1) selectedSheet.getRange(2, eIdx + 1, numRows - 1, 1).setWrap(true);
       if (fIdx !== -1) selectedSheet.getRange(2, fIdx + 1, numRows - 1, 1).setWrap(true);
+      const oldTextIdx = headers.indexOf('文字起こし');
+      if (oldTextIdx !== -1) {
+        selectedSheet.setColumnWidth(oldTextIdx + 1, Math.round(50 * 7));
+        selectedSheet.getRange(1, oldTextIdx + 1, numRows, 1).setWrap(true);
+      }
 
       // 全セル上寄せ
       selectedSheet.getRange(1, 1, numRows, headers.length).setVerticalAlignment('top');
@@ -732,6 +736,112 @@ function step3_processSelectedSheet(selectedSheetName) {
   const fileName = `${shortName}.csv`;
   const html = `<html><body><p>CSVの生成が完了しました。下のリンクをクリックしてダウンロードしてください。</p><a href="data:text/csv;charset=utf-8,${encodeURIComponent(csvContent)}" download="${fileName}">Download ${fileName}</a></body></html>`;
   SpreadsheetApp.getUi().showModalDialog(HtmlService.createHtmlOutput(html).setWidth(400).setHeight(150), 'CSVをダウンロード');
+}
+
+/**
+ * 色選択列をフラグとして区間ごとの尺と総尺を集計します。
+ */
+function countSelectedDurations() {
+  const ui = SpreadsheetApp.getUi();
+  const sheet = SpreadsheetApp.getActiveSheet();
+  const data = sheet.getDataRange().getValues();
+
+  if (data.length <= 1) {
+    ui.alert('データ行が存在しません。');
+    return;
+  }
+
+  const headers = data[0];
+  const colorCol = headers.indexOf('色選択');
+  const inCol = headers.indexOf('イン点');
+  const outCol = headers.indexOf('アウト点');
+
+  if (colorCol === -1 || inCol === -1 || outCol === -1) {
+    ui.alert('色選択/イン点/アウト点の列が見つかりません。対象シートを確認してください。');
+    return;
+  }
+
+  const durationCol = colorCol + 1; // F列想定
+  const summaryCol = durationCol + 1; // G列想定
+  const durationValues = Array.from({ length: data.length - 1 }, () => ['']);
+
+  let totalFrames = 0;
+  let segmentCount = 0;
+  let currentStartRow = null;
+  let currentColor = null;
+  let firstInFrames = null;
+  let lastOutFrames = null;
+
+  const flushSegment = () => {
+    if (currentStartRow == null || firstInFrames == null || lastOutFrames == null) {
+      currentStartRow = null;
+      firstInFrames = null;
+      lastOutFrames = null;
+      currentColor = null;
+      return;
+    }
+    const durationFrames = Math.max(0, lastOutFrames - firstInFrames);
+    const durationTc = framesToTimecode(durationFrames, FPS);
+    durationValues[currentStartRow - 1][0] = durationTc;
+    totalFrames += durationFrames;
+    segmentCount += 1;
+    currentStartRow = null;
+    currentColor = null;
+    firstInFrames = null;
+    lastOutFrames = null;
+  };
+
+  for (let i = 1; i < data.length; i++) {
+    const row = data[i];
+    const colorVal = (row[colorCol] || '').toString().trim();
+    const flagged = colorVal !== '' && !/^GAP_/i.test(colorVal);
+
+    if (!flagged) {
+      flushSegment();
+      continue;
+    }
+
+    const inTc = (row[inCol] || '').toString();
+    const outTc = (row[outCol] || '').toString();
+    if (!inTc || !outTc) {
+      flushSegment();
+      continue;
+    }
+
+    const inFrames = timecodeToFrames(inTc, FPS);
+    const outFrames = timecodeToFrames(outTc, FPS);
+
+    if (currentStartRow == null) {
+      currentStartRow = i;
+      currentColor = colorVal;
+      firstInFrames = inFrames;
+      lastOutFrames = outFrames;
+      continue;
+    }
+
+    if (currentColor !== colorVal) {
+      flushSegment();
+      currentStartRow = i;
+      currentColor = colorVal;
+      firstInFrames = inFrames;
+      lastOutFrames = outFrames;
+      continue;
+    }
+
+    lastOutFrames = outFrames;
+  }
+
+  flushSegment();
+
+  if (data.length - 1 > 0) {
+    sheet.getRange(2, durationCol + 1, data.length - 1, 1).setValues(durationValues);
+  }
+  sheet.getRange(1, durationCol + 1).setValue('区間デュレーション');
+
+  const totalTc = framesToTimecode(totalFrames, FPS);
+  sheet.getRange(1, summaryCol + 1).setValue(`総尺: ${totalTc}`);
+
+  ui.alert(`カウント完了: 区間 ${segmentCount} 件、総尺 ${totalTc}`);
 }
 
 /**

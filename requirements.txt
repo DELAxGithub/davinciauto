@@ -7,3 +7,4 @@ python-dotenv>=1.0.1
 PyYAML>=6.0.1
 google-generativeai>=0.8.3
 pillow>=10.4.0
+azure-cognitiveservices-speech>=1.35.0

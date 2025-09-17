@@ -60,6 +60,15 @@ docs/
 projects/
 └── autocut/
     └── autocut_progress.md     # 自動カット機能開発進捗
+    
+### 📁 実験・持ち込み素材 (`/experiments/`)
+```
+experiments/
+├── inbox/                # 外部から持ち込むファイル置き場
+│   ├── davinci/          # DaVinci 由来（XML, DRP など）
+│   └── llm/              # LLM 由来（json, md, txt）
+└── scratch/              # 試行コードや一時出力
+```
 ```
 
 ---
@@ -165,11 +174,14 @@ python debug_split.py
 - **[README.md](README.md)** - プロジェクト概要・クイックスタート
 - **[docs/USER_GUIDE.md](docs/USER_GUIDE.md)** - 完全な使用方法・トラブルシューティング
 - **[gui_steps/README.md](gui_steps/README.md)** - GUI使用方法
+ - **[docs/EDITOR_ONE_PAGER.md](docs/EDITOR_ONE_PAGER.md)** - 編集者向け1枚もの（どこを自動化しているか）
 
 ### 🔧 開発者向け
 - **[docs/API.md](docs/API.md)** - API仕様・関数リファレンス
 - **[CLAUDE.md](CLAUDE.md)** - Claude Code開発ガイド
 - **[projects/autocut/autocut_progress.md](projects/autocut/autocut_progress.md)** - 開発進捗
+ - **[docs/NAMING.md](docs/NAMING.md)** - Resolve連携のフォルダ命名
+ - **[docs/MAPPING.md](docs/MAPPING.md)** - RowData ↔ LineItem 変換方針
 
 ### 🚨 トラブルシューティング
 - **よくある問題**: ElevenLabs API制限・DaVinci接続・文字エンコーディング
@@ -186,6 +198,44 @@ python debug_split.py
 - [x] GUI ワークフロー（4ステップ）
 - [x] 音声プリセット管理
 - [x] コスト追跡システム
+
+---
+
+## 🔊 OrionEp2 ランブック（音声ワークフロー要約）
+
+プロジェクト固有スクリプトを使った Resolve 直結フロー。以下は OrionEp2 の例です。
+
+- ナレーション生成（v3 / MP3, 30fps）
+  - `python scripts/generate_orionep2_lines_1_27.py`
+  - `python scripts/generate_orionep2_lines_28_63.py`
+
+- タイムラインCSV生成（間ルール適用）
+  - `python scripts/build_timeline_orionep2.py`
+  - out: `projects/OrionEp2/exports/timelines/OrionEp2_timeline_v1.csv`
+
+- FCPXML（ナレーションのみ）
+  - `python scripts/csv_to_fcpx7_from_timeline.py projects/OrionEp2/exports/timelines/OrionEp2_timeline_v1.csv`
+  - out: `projects/OrionEp2/exports/timelines/OrionEp2_timeline_v1.xml`
+
+- BGM/SE セクション設計と生成
+  - 設計: `projects/OrionEp2/inputs/bgm_se_plan.json`
+  - 生成: `python scripts/generate_bgm_se_from_plan.py projects/OrionEp2/inputs/bgm_se_plan.json`
+  - 再実行（SFXのみ）: `--only sfx`
+
+- BGM 自動整音（-15 LUFS / -1 dBTP / LRA 11, Fade 1.0/1.5s）
+  - `python scripts/master_bgm_from_plan.py projects/OrionEp2/inputs/bgm_se_plan.json`
+  - out: `projects/OrionEp2/サウンド類/BGM_mastered/*.wav`
+
+- 統合FCPXML（A1=VO, A2=BGM, A3=SE）
+  - `python scripts/build_fcpx_with_bgm_se.py \
+     projects/OrionEp2/exports/timelines/OrionEp2_timeline_v1.csv \
+     projects/OrionEp2/inputs/bgm_se_plan.json \
+     projects/OrionEp2/exports/timelines/OrionEp2_timeline_with_bgm_se_mastered.xml`
+
+- Resolve ダッキング（テンプレート方式）
+  - テンプレDRP: A1=VO, A2=MUSIC, A3=SE。MUSIC にコンプ、SC入力=VO。
+  - 目安: Ratio 4:1 / Attack 120ms / Release 250ms / GR ≈ -7dB。
+
 
 ### 🔄 進行中
 - [ ] 自動カット機能 (autocut)

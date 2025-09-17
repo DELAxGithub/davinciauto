@@ -113,8 +113,8 @@ minivt_pipeline/
 ## 📚 詳細ドキュメント
 
 - **[ユーザーガイド](docs/USER_GUIDE.md)** - 完全な使用方法、トラブルシューティング
-- **[API仕様](docs/API.md)** - 関数リファレンス、パラメータ詳細  
-- **[DaVinci導入チェック表](DaVinci_導入チェック表.md)** - Resolve連携トラブル解決
+- **[API仕様](docs/API.md)** - 関数リファレンス、パラメータ詳細
+- **[編集者向け1枚もの](docs/EDITOR_ONE_PAGER.md)** - どこを自動化し、何を用意すれば良いか
 
 ## 🛠️ システム要件
 
@@ -139,6 +139,18 @@ python debug_split.py
 - `.env` - 環境変数設定
 - `src/clients/tts_elevenlabs.py` - TTS設定
 - `src/utils/wrap.py` - 日本語改行ルール
+
+## 🧪 実験・持ち込み素材
+
+外部から持ち込むファイルや試行コードは `experiments/` に集約します。
+
+```
+experiments/
+├── inbox/
+│   ├── davinci/   # XML, DRP など
+│   └── llm/       # LLM出力（json, md, txt）
+└── scratch/       # 試行コード/一時出力
+```
 
 ## 🚨 トラブルシューティング
 
@@ -177,6 +189,100 @@ python debug_split.py
 
 ---
 
+## 🎧 Project Audio Workflow (Resolve-ready)
+
+以下は本リポ内のプロジェクト型ワークフロー（OrionEp2 の実装例）です。コマンドはプロジェクト名を入れ替えれば流用できます。
+
+1) 音声生成（ElevenLabs / v3）
+
+```bash
+# 1–27行 / 28–63行（プロジェクト固有の台本を内包）
+python scripts/generate_orionep2_lines_1_27.py
+python scripts/generate_orionep2_lines_28_63.py
+```
+
+2) タイムラインCSV（秒ベース + 30fps）
+
+```bash
+python scripts/build_timeline_orionep2.py
+# out: projects/OrionEp2/exports/timelines/OrionEp2_timeline_v1.csv
+```
+
+3) Resolveインポート用XML（FCP7互換）
+
+```bash
+python scripts/csv_to_fcpx7_from_timeline.py \
+  projects/OrionEp2/exports/timelines/OrionEp2_timeline_v1.csv
+# out: projects/OrionEp2/exports/timelines/OrionEp2_timeline_v1.xml
+```
+
+4) BGM/SE 生成（セクション設計 → 自動作曲/効果音）
+
+```bash
+# セクション設計
+projects/OrionEp2/inputs/bgm_se_plan.json
+
+# BGM + SFX 生成（ElevenLabs）
+python scripts/generate_bgm_se_from_plan.py projects/OrionEp2/inputs/bgm_se_plan.json           # 両方
+python scripts/generate_bgm_se_from_plan.py projects/OrionEp2/inputs/bgm_se_plan.json --only sfx # SFXのみ再実行
+```
+
+5) BGM 自動整音（LUFS/TP/LRA + フェード）
+
+```bash
+# -15 LUFS / -1 dBTP / LRA 11, FadeIn 1.0s / FadeOut 1.5s
+python scripts/master_bgm_from_plan.py projects/OrionEp2/inputs/bgm_se_plan.json
+```
+
+6) ナレーション + BGM + SE を1本のXMLへ統合
+
+```bash
+python scripts/build_fcpx_with_bgm_se.py \
+  projects/OrionEp2/exports/timelines/OrionEp2_timeline_v1.csv \
+  projects/OrionEp2/inputs/bgm_se_plan.json \
+  projects/OrionEp2/exports/timelines/OrionEp2_timeline_with_bgm_se_mastered.xml
+```
+
+7) Resolve でダッキング（テンプレート方式）
+- テンプレートDRP内で A1=VO, A2=MUSIC, A3=SE を定義し、Fairlight のコンプレッサを MUSIC に挿入、サイドチェイン入力=VO。
+- 推奨値: Ratio 4:1 / Attack 120ms / Release 250ms / 目標GR ≈ -7dB（スピーカ/楽曲に応じ調整）。
+
+
 **作成者**: [Your Name](https://github.com/yourusername)  
 **プロジェクト**: Mini VTR Automation Pipeline  
 **更新日**: 2025年1月
+
+## Codex hooks: 承認時にmacOS通知
+
+- 追加スクリプト: `scripts/notify_mac.sh`, `scripts/codex_hook_approval_required.sh`
+- 目的: Codex の承認/確認が必要になったタイミングで macOS のシステム通知を出す
+- 仕組み: AppleScript (`osascript`) で通知を送信。追加の依存関係は不要。
+
+使い方（Codex の hooks 機構に合わせて設定してください）:
+
+- 承認・確認イベント（例: `approval_required`）で以下を実行するようにフック設定:
+
+  `bash scripts/codex_hook_approval_required.sh "<理由や状況>" "<詳細(任意)>"`
+
+例（擬似的な hooks 設定イメージ）:
+
+```yaml
+# codex.yaml 等に hooks がある場合のイメージ
+hooks:
+  approval_required:
+    - ["bash", "scripts/codex_hook_approval_required.sh", "ファイル書き込みが必要", "対象: 作業ディレクトリ"]
+  confirmation_required:
+    - ["bash", "scripts/codex_hook_approval_required.sh", "確認が必要", "ネットワークアクセス"]
+```
+
+直接呼び出しテスト:
+
+```bash
+bash scripts/codex_hook_approval_required.sh "承認が必要です" "ネットワークアクセス"
+```
+
+補足:
+
+- 通知音は `Submarine` を使用。`scripts/notify_mac.sh` 第4引数で変更可。
+- Terminal や iTerm2 で通知が表示されない場合は、システム設定 > 通知 で許可を確認。
+- Codex 側の hooks の具体的な設定ファイルやキー名はバージョン/ディストリによって異なるため、ご利用環境のドキュメントに従って上記コマンドを紐付けてください。
