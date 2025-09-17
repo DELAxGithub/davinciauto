@@ -1,0 +1,24 @@
+{
+  "title": "OrionEp2",
+  "model_id": "eleven_v3",
+  "output_format": "mp3_44100_128",
+  "tech_flags": {
+    "elevenlabs_v3": true,
+    "elevenlabs_sdk": true,
+    "role_voice_mapping": true,
+    "mp3_only": true
+  },
+  "voice_cast": {
+    "default_role": {
+      "NA": "flHkNRp1BlvT73UL6gyz"
+    },
+    "characters": {
+      "オデュッセウス": "sRYzP8TwEiiqAWebdYPJ",
+      "釈迦": "8FuuqoKHuM48hIEwni5e",
+      "ヘラクレイトス": "Mv8AjrYZCBkdsmDHNwcB",
+      "同僚A": "PmgfHCGeS5b7sH90BOOJ",
+      "母親": "WQz3clzUdMqvBf0jswZQ",
+      "内なる声": "YFkT3BsfOFWBx3jfroxH"
+    }
+  }
+}
