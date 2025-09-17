@@ -2,7 +2,7 @@
 <!DOCTYPE xmeml>
 <xmeml version="4">
 	<sequence id="sequence-4" TL.SQAudioVisibleBase="0" TL.SQVideoVisibleBase="0" TL.SQVisibleBaseTime="0" TL.SQAVDividerPosition="0.11604937911" TL.SQHideShyTracks="0" TL.SQHeaderWidth="204" TL.SQDataTrackViewControlState="0" Monitor.ProgramZoomOut="1765295013081600" Monitor.ProgramZoomIn="0" TL.SQTimePerPixel="2.2778311111111109" MZ.EditLine="133364623392000" MZ.Sequence.PreviewFrameSizeHeight="1080" MZ.Sequence.PreviewFrameSizeWidth="1920" MZ.Sequence.AudioTimeDisplayFormat="200" MZ.Sequence.PreviewRenderingClassID="1061109567" MZ.Sequence.PreviewRenderingPresetCodec="1634755443" MZ.Sequence.PreviewRenderingPresetPath="EncoderPresets/SequencePreview/795454d9-d3c2-429d-9474-923ab13b7018/QuickTime.epr" MZ.Sequence.PreviewUseMaxRenderQuality="false" MZ.Sequence.PreviewUseMaxBitDepth="false" MZ.Sequence.EditingModeGUID="795454d9-d3c2-429d-9474-923ab13b7018" MZ.Sequence.VideoTimeDisplayFormat="102" MZ.WorkOutPoint="15239249625600" MZ.WorkInPoint="0" explodedTracks="true">
-		<uuid>1093e9c6-05af-4c2e-a4bd-19ba8e6a73ea</uuid>
+		<uuid>26518e85-7785-44c0-b177-eb21a67c6db4</uuid>
 		<duration>113949</duration>
 		<rate>
 			<timebase>30</timebase>
@@ -120,13 +120,13 @@
 					<locked>FALSE</locked>
 					
 				
-					<clipitem id="vclipitem-6253fcc6-bdf2-4726-b108-77acd9dbccc6">
+					<clipitem id="vclipitem-0ef088ab-06ab-4674-8b42-77e6b2d66e5d">
 						
 						
 						<masterclipid>masterclip-10</masterclipid>
 						
 						
-						<name>Graphic</name>
+						<name>--- 20s GAP ---</name>
 						
 						
 						<enabled>TRUE</enabled>
@@ -276,7 +276,7 @@
 							<effect>
 								
 								
-								<name>NA1</name>
+								<name>--- 20s GAP ---</name>
 								
 								
 								<effectid>GraphicAndType</effectid>
@@ -920,13 +920,13 @@
 						
 					
 					</clipitem>
-					<clipitem id="vclipitem-7975385e-ae2b-44d0-8912-8556d523c927">
+					<clipitem id="vclipitem-929ec465-68d4-44c1-813b-4b92b5f082e6">
 						
 						
 						<masterclipid>masterclip-10</masterclipid>
 						
 						
-						<name>Graphic</name>
+						<name>--- 20s GAP ---</name>
 						
 						
 						<enabled>TRUE</enabled>
@@ -977,7 +977,7 @@
 							<effect>
 								
 								
-								<name>NA2</name>
+								<name>--- 20s GAP ---</name>
 								
 								
 								<effectid>GraphicAndType</effectid>
@@ -1621,13 +1621,13 @@
 						
 					
 					</clipitem>
-					<clipitem id="vclipitem-083b5790-6656-402b-bdbe-b03dc5679041">
+					<clipitem id="vclipitem-f958f795-d9ed-44b2-b1a6-d7b64f598f90">
 						
 						
 						<masterclipid>masterclip-10</masterclipid>
 						
 						
-						<name>Graphic</name>
+						<name>--- 20s GAP ---</name>
 						
 						
 						<enabled>TRUE</enabled>
@@ -1777,7 +1777,7 @@
 							<effect>
 								
 								
-								<name>NA3</name>
+								<name>--- 20s GAP ---</name>
 								
 								
 								<effectid>GraphicAndType</effectid>
@@ -2421,13 +2421,13 @@
 						
 					
 					</clipitem>
-					<clipitem id="vclipitem-1f6d1a06-26e2-4e9e-b732-ea9df4a00bd9">
+					<clipitem id="vclipitem-d01cf85b-0cf5-47c0-82f9-3818fce31ddd">
 						
 						
 						<masterclipid>masterclip-10</masterclipid>
 						
 						
-						<name>Graphic</name>
+						<name>--- 20s GAP ---</name>
 						
 						
 						<enabled>TRUE</enabled>
@@ -2577,7 +2577,7 @@
 							<effect>
 								
 								
-								<name>NA4</name>
+								<name>--- 20s GAP ---</name>
 								
 								
 								<effectid>GraphicAndType</effectid>
@@ -3221,13 +3221,13 @@
 						
 					
 					</clipitem>
-					<clipitem id="vclipitem-1607feab-acda-4640-98ab-0a7c83b92410">
+					<clipitem id="vclipitem-2f351a3a-379d-4e90-b565-87b5e34e6fa6">
 						
 						
 						<masterclipid>masterclip-10</masterclipid>
 						
 						
-						<name>Graphic</name>
+						<name>--- 20s GAP ---</name>
 						
 						
 						<enabled>TRUE</enabled>
@@ -3377,7 +3377,7 @@
 							<effect>
 								
 								
-								<name>NA5</name>
+								<name>--- 20s GAP ---</name>
 								
 								
 								<effectid>GraphicAndType</effectid>
@@ -4021,13 +4021,13 @@
 						
 					
 					</clipitem>
-					<clipitem id="vclipitem-10c929cb-371b-4f92-af11-31a32dadfe35">
+					<clipitem id="vclipitem-3c387dd2-3756-4a0e-93b0-fbaf5beb9a4d">
 						
 						
 						<masterclipid>masterclip-10</masterclipid>
 						
 						
-						<name>Graphic</name>
+						<name>--- 20s GAP ---</name>
 						
 						
 						<enabled>TRUE</enabled>
@@ -4177,7 +4177,7 @@
 							<effect>
 								
 								
-								<name>NA6</name>
+								<name>--- 20s GAP ---</name>
 								
 								
 								<effectid>GraphicAndType</effectid>
@@ -4821,13 +4821,13 @@
 						
 					
 					</clipitem>
-					<clipitem id="vclipitem-451eafc8-34ab-43d3-9935-c66a0ea7af1b">
+					<clipitem id="vclipitem-ad8e176c-ba3c-416c-be2a-3a96544fc61c">
 						
 						
 						<masterclipid>masterclip-10</masterclipid>
 						
 						
-						<name>Graphic</name>
+						<name>--- 20s GAP ---</name>
 						
 						
 						<enabled>TRUE</enabled>
@@ -4977,7 +4977,7 @@
 							<effect>
 								
 								
-								<name>NA7</name>
+								<name>--- 20s GAP ---</name>
 								
 								
 								<effectid>GraphicAndType</effectid>
@@ -5621,13 +5621,13 @@
 						
 					
 					</clipitem>
-					<clipitem id="vclipitem-9a63f91b-2d82-468e-a457-4370d87f9ab8">
+					<clipitem id="vclipitem-cc8236f3-716f-4db4-afee-0a8974e4a478">
 						
 						
 						<masterclipid>masterclip-10</masterclipid>
 						
 						
-						<name>Graphic</name>
+						<name>--- 20s GAP ---</name>
 						
 						
 						<enabled>TRUE</enabled>
@@ -5777,7 +5777,7 @@
 							<effect>
 								
 								
-								<name>NA8</name>
+								<name>--- 20s GAP ---</name>
 								
 								
 								<effectid>GraphicAndType</effectid>
@@ -6421,13 +6421,13 @@
 						
 					
 					</clipitem>
-					<clipitem id="vclipitem-f522a7e1-4519-475e-b267-29df813e6eb7">
+					<clipitem id="vclipitem-8179bc55-a3fc-4fbf-804a-15f7dbf3b5db">
 						
 						
 						<masterclipid>masterclip-10</masterclipid>
 						
 						
-						<name>Graphic</name>
+						<name>--- 20s GAP ---</name>
 						
 						
 						<enabled>TRUE</enabled>
@@ -6577,7 +6577,7 @@
 							<effect>
 								
 								
-								<name>NA9</name>
+								<name>--- 20s GAP ---</name>
 								
 								
 								<effectid>GraphicAndType</effectid>
@@ -7221,13 +7221,13 @@
 						
 					
 					</clipitem>
-					<clipitem id="vclipitem-d5295708-58ce-44e1-8b12-df7dc44a91b1">
+					<clipitem id="vclipitem-c2766bbf-df1f-4b40-92aa-1fea79fee68c">
 						
 						
 						<masterclipid>masterclip-10</masterclipid>
 						
 						
-						<name>Graphic</name>
+						<name>--- 20s GAP ---</name>
 						
 						
 						<enabled>TRUE</enabled>
@@ -7377,7 +7377,7 @@
 							<effect>
 								
 								
-								<name>NA10</name>
+								<name>--- 20s GAP ---</name>
 								
 								
 								<effectid>GraphicAndType</effectid>
@@ -8021,13 +8021,13 @@
 						
 					
 					</clipitem>
-					<clipitem id="vclipitem-97ccd891-db5c-4018-94c0-3f4fcc829c76">
+					<clipitem id="vclipitem-8d09155d-233e-4da7-bf78-ad2e9f9ba31c">
 						
 						
 						<masterclipid>masterclip-10</masterclipid>
 						
 						
-						<name>Graphic</name>
+						<name>--- 20s GAP ---</name>
 						
 						
 						<enabled>TRUE</enabled>
@@ -8177,7 +8177,7 @@
 							<effect>
 								
 								
-								<name>NA11</name>
+								<name>--- 20s GAP ---</name>
 								
 								
 								<effectid>GraphicAndType</effectid>
@@ -8821,13 +8821,13 @@
 						
 					
 					</clipitem>
-					<clipitem id="vclipitem-41c8d3fa-3241-420f-a2ea-5e80b359d706">
+					<clipitem id="vclipitem-1036fc7f-bb58-4ab9-b809-a1ef227b9a6e">
 						
 						
 						<masterclipid>masterclip-10</masterclipid>
 						
 						
-						<name>Graphic</name>
+						<name>--- 20s GAP ---</name>
 						
 						
 						<enabled>TRUE</enabled>
@@ -8977,7 +8977,7 @@
 							<effect>
 								
 								
-								<name>NA12</name>
+								<name>--- 20s GAP ---</name>
 								
 								
 								<effectid>GraphicAndType</effectid>
@@ -9621,13 +9621,13 @@
 						
 					
 					</clipitem>
-					<clipitem id="vclipitem-2678ea5f-ddf3-4a2b-8097-3131ba609e50">
+					<clipitem id="vclipitem-ef12597b-7191-4dc6-8fab-01d4f4daae93">
 						
 						
 						<masterclipid>masterclip-10</masterclipid>
 						
 						
-						<name>Graphic</name>
+						<name>--- 20s GAP ---</name>
 						
 						
 						<enabled>TRUE</enabled>
@@ -9777,7 +9777,7 @@
 							<effect>
 								
 								
-								<name>NA13</name>
+								<name>--- 20s GAP ---</name>
 								
 								
 								<effectid>GraphicAndType</effectid>

@@ -660,6 +660,7 @@ def create_cut_xml_from_template(csv_file_path, template_xml_path, graphic_templ
             for seg in segments:
                 if seg['type'] == 'gap':
                     dur = seg['duration_frames']
+                    telop_text = (seg.get('telop_text') or '').strip()
                     raw_label = seg.get('telop_label', '').strip()
                     lookup_label = raw_label
                     if raw_label:
@@ -690,7 +691,10 @@ def create_cut_xml_from_template(csv_file_path, template_xml_path, graphic_templ
                     if eff is not None:
                         name_elem = eff.find('name')
                         if name_elem is not None:
-                            name_elem.text = lookup_label or seg.get('telop_text') or name_elem.text
+                            name_elem.text = telop_text or lookup_label or name_elem.text
+                    clip_name_elem = clipitem.find('name')
+                    if clip_name_elem is not None:
+                        clip_name_elem.text = telop_text or lookup_label or clip_name_elem.text
                     vtrack.append(clipitem)
                     telop_start += dur
                 else:
