@@ -1,0 +1,16 @@
+{
+  "project_dir": "/Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp2",
+  "output_subdir": "サウンド類/Narration/AzureSamples",
+  "items": [
+    {
+      "line": 6,
+      "text": "リモートワークの実家も、久々のオフィスも、どこか居心地が悪いと感じたことはありませんか？",
+      "voice": "ja-JP-DaichiNeural"
+    },
+    {
+      "line": 7,
+      "text": "リモートワークの実家も、久々のオフィスも、どこか居心地が悪いと感じたことはありませんか？",
+      "voice": "ja-JP-ShioriNeural"
+    }
+  ]
+}

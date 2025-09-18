@@ -1,0 +1,31 @@
+{
+  "search.exclude": {
+    "output": true,
+    "thumbnails": true,
+    "**/__pycache__": true,
+    ".venv": true,
+    "**/*.mp3": true,
+    "**/*.wav": true,
+    "**/*.m4a": true,
+    "**/*.flac": true,
+    "**/*.zip": true,
+    "**/*.tar": true,
+    "**/*.tgz": true,
+    "**/*.gz": true,
+    "**/*.pdf": true,
+    "**/*.bin": true,
+    "**/*.xml": true,
+    "gui_steps/DaVinci Auto GUI.app": true
+  },
+  "files.watcherExclude": {
+    "**/output/**": true,
+    "**/thumbnails/**": true,
+    "**/.venv/**": true,
+    "**/__pycache__/**": true,
+    "**/node_modules/**": true
+  },
+  "files.exclude": {
+    "**/.DS_Store": true
+  }
+}
+

@@ -1,131 +1,93 @@
 {
-  "project": "OrionEp2",
+  "project": "OrionEp2_Short",
   "sections": [
     {
-      "label": "S01_Intro",
+      "label": "S01_Intro_Constellation",
       "start_tc": "00:00:00",
-      "bgm_prompt": "Ambient electronic night music, sparse piano notes, subtle synthesizer pads, urban atmosphere, 60 BPM, minor key, contemplative and slightly melancholic, soft reverb, minimal beats, late night office mood",
-      "notes": "冒頭5秒は環境音のみ、BGMは00:05からフェードイン(10秒)",
+      "bgm_prompt": "Contemplative ambient music, sparse piano melody, subtle synthesizer pads, urban loneliness feel, 60 BPM, C minor. After 00:25, transitions to a more mysterious and wondrous tone with shimmering effects and crystalline bells.",
+      "notes": "冒頭のナレーションに合わせ、静かで内省的な導入。00:25から星座の提示パートに合わせて神秘的な展開に。",
       "sfx": [
-        {"time_tc": "00:00:00", "label": "elevator_chime_far", "prompt": "distant elevator chime, subtle, urban night ambiance", "duration_sec": 1.2},
-        {"time_tc": "00:00:10", "label": "typing_sparse", "prompt": "keyboard typing, intermittent, soft office ambiance", "duration_sec": 1.5},
-        {"time_tc": "00:00:15", "label": "phone_notification", "prompt": "smartphone notification chirp, brief, realistic", "duration_sec": 0.8},
-        {"time_tc": "00:00:25", "label": "cafe_bg", "prompt": "coffee shop ambience: cups clink, low chatter, subtle", "duration_sec": 2.0}
+        {"time_tc": "00:00:10", "label": "keyboard_typing_subtle", "prompt": "Subtle, intermittent keyboard typing, reflecting a remote work environment.", "duration_sec": 2.5},
+        {"time_tc": "00:00:26", "label": "magic_chime_stars", "prompt": "A magical, shimmering chime effect that evokes stars appearing in the night sky.", "duration_sec": 2.0},
+        {"time_tc": "00:00:35", "label": "ancient_parchment_rustle", "prompt": "The soft rustle of an old parchment or map being unrolled, representing historical wisdom.", "duration_sec": 1.8}
       ]
     },
     {
-      "label": "S02_Constellation",
-      "start_tc": "00:00:58",
-      "bgm_prompt": "Ethereal space ambient, crystalline bells, cosmic synthesizer sweeps, 55 BPM, floating atmosphere, mysterious and expansive, shimmer effects, constellation sounds",
-      "notes": "BGMクロスフェード、前セクションから5秒で切替",
+      "label": "S02_Modern_Troubles",
+      "start_tc": "00:00:55",
+      "bgm_prompt": "Slightly awkward and dissonant ambient music, pizzicato strings, occasional detuned piano chords, light but uncertain rhythm, 65 BPM, representing the feeling of being out of place.",
+      "notes": "日常の中の違和感や戸惑いを表現。コミカルになりすぎず、少し不安定なトーンで。",
       "sfx": [
-        {"time_tc": "00:00:59", "label": "metallic_bell_stars", "prompt": "soft metallic chime like wind chime to represent stars", "duration_sec": 1.2},
-        {"time_tc": "00:01:08", "label": "cosmic_drone", "prompt": "deep cosmic drone, subtly evolving", "duration_sec": 2.0},
-        {"time_tc": "00:01:20", "label": "page_turn_old_book", "prompt": "page turning, old book, gentle rustle", "duration_sec": 1.6}
+        {"time_tc": "00:01:00", "label": "elevator_door_open_chime", "prompt": "The sound of an office elevator door opening with a soft chime.", "duration_sec": 2.0},
+        {"time_tc": "00:01:14", "label": "office_copier_distant", "prompt": "A distant, working office copier machine, adding to the background ambiance.", "duration_sec": 3.0},
+        {"time_tc": "00:01:30", "label": "zoom_call_connect_blip", "prompt": "A subtle computer blip sound, indicating a Zoom call starting.", "duration_sec": 1.0}
       ]
     },
     {
-      "label": "S03_DailyStrange",
-      "start_tc": "00:01:28",
-      "bgm_prompt": "Ambient electronica with uncertain harmony, detuned piano, subtle glitch elements, 65 BPM, floating disconnected feeling, minor seventh chords, office and home blend",
-      "notes": "BGM音量70%に、環境音を強調",
+      "label": "S03_Odysseus_Journey",
+      "start_tc": "00:01:45",
+      "bgm_prompt": "Epic and slightly melancholic orchestral piece, prominent string section, ancient lyre melody, subtle ethnic percussion, 70 BPM, evokes an ancient Greek saga, adventure, and longing.",
+      "notes": "オデュッセウスの壮大な旅と郷愁を表現。オーケストラでスケール感を出す。",
       "sfx": [
-        {"time_tc": "00:01:30", "label": "office_copier", "prompt": "office copier working sound, soft and distant", "duration_sec": 1.8},
-        {"time_tc": "00:01:40", "label": "door_open_close_far", "prompt": "door opening then softly closing, distant", "duration_sec": 1.6},
-        {"time_tc": "00:01:55", "label": "home_clock_tick", "prompt": "ticking analog clock, steady, subtle", "duration_sec": 2.0}
+        {"time_tc": "00:01:50", "label": "sea_waves_on_ship", "prompt": "The sound of sea waves against the hull of a wooden ship, with wind in the sails.", "duration_sec": 4.0},
+        {"time_tc": "00:02:10", "label": "ancient_map_unroll", "prompt": "Unrolling an old, heavy parchment map.", "duration_sec": 2.0},
+        {"time_tc": "00:02:45", "label": "heroic_sigh_reverb", "prompt": "A weary, heroic sigh with a slight reverb, reflecting a long journey.", "duration_sec": 2.2}
       ]
     },
     {
-      "label": "S04_Greece",
-      "start_tc": "00:02:14",
-      "bgm_prompt": "Epic orchestral ambient, ancient Greek lyre, harp glissandos, string ensemble, 70 BPM, mythological atmosphere, reverberant space, heroic yet melancholic",
-      "notes": "徐々に壮大に、リバーブ深く",
+      "label": "S04_East_West_Philosophy",
+      "start_tc": "00:03:05",
+      "bgm_prompt": "Meditative and tranquil ambient track, featuring sounds of a Japanese shakuhachi flute, koto-like plucks, and a continuous low drone. Water flowing sound as a base element. 55 BPM, evokes Zen-like contemplation.",
+      "notes": "川の流れの音が基調。BGMはそれに寄り添うように静かで瞑想的に。",
       "sfx": [
-        {"time_tc": "00:02:15", "label": "sea_waves_far", "prompt": "distant rough sea waves, continuous, low", "duration_sec": 2.0},
-        {"time_tc": "00:02:28", "label": "sail_flap", "prompt": "sail flapping in wind, ship ambience", "duration_sec": 1.5},
-        {"time_tc": "00:02:45", "label": "parchment_turn", "prompt": "turning parchment page, old material, soft", "duration_sec": 1.5}
+        {"time_tc": "00:03:08", "label": "gentle_river_flow", "prompt": "A calm and continuous river flowing sound, natural and peaceful.", "duration_sec": 5.0},
+        {"time_tc": "00:03:25", "label": "temple_bell_distant", "prompt": "A single, distant toll of a Buddhist temple bell with a long decay.", "duration_sec": 3.0},
+        {"time_tc": "00:03:45", "label": "stone_skipping_water", "prompt": "The sound of a single stone skipping across a calm water surface.", "duration_sec": 1.5}
       ]
     },
     {
-      "label": "S05_CelloConflict",
-      "start_tc": "00:03:01",
-      "bgm_prompt": "Solo cello with ambient orchestra, emotional and conflicted, 60 BPM, D minor, introspective hero's journey, deep reverb cathedral space",
-      "notes": "チェロ前面、オケ背景",
+      "label": "S05_Nostalgia_Sickness",
+      "start_tc": "00:04:00",
+      "bgm_prompt": "Melancholic and classical chamber music, featuring a solo piano melody, supported by a string quartet. A faint, slightly detuned music box melody weaves in and out. 60 BPM, waltz time, bittersweet and nostalgic.",
+      "notes": "歴史を感じさせるクラシカルな雰囲気。オルゴールの音色で幻想的なノスタルジーを強調。",
       "sfx": [
-        {"time_tc": "00:03:10", "label": "distant_thunder", "prompt": "distant thunder rumble, soft", "duration_sec": 1.8},
-        {"time_tc": "00:03:25", "label": "footsteps_stone", "prompt": "footsteps on stone floor, moderate pace, subtle reverb", "duration_sec": 2.0},
-        {"time_tc": "00:03:40", "label": "male_sigh_far", "prompt": "male sigh, distant, airy", "duration_sec": 1.2}
+        {"time_tc": "00:04:10", "label": "quill_pen_writing", "prompt": "The sound of a quill pen writing on old paper, evoking a 17th-century doctor's study.", "duration_sec": 3.5},
+        {"time_tc": "00:04:35", "label": "church_bell_distant", "prompt": "A faint, distant church bell, as if heard in a memory or hallucination.", "duration_sec": 2.8},
+        {"time_tc": "00:05:05", "label": "teacup_clink_saucer", "prompt": "The delicate clink of a porcelain teacup being placed on its saucer.", "duration_sec": 1.5}
       ]
     },
     {
-      "label": "S06_Zen",
-      "start_tc": "00:03:53",
-      "bgm_prompt": "Meditative ambient with Asian instruments, koto-like plucks, bamboo flute sounds, singing bowls, 50 BPM, zen atmosphere, water element, eternal flow",
-      "notes": "川音基調、BGM極控えめ",
+      "label": "S06_Science_Proof",
+      "start_tc": "00:05:10",
+      "bgm_prompt": "Clean and precise minimalist electronic music, with rhythmic synthesizer arpeggios, data sonification sounds, and a steady, unobtrusive beat. 75 BPM, intellectual and analytical but with a neutral-to-warm tone.",
+      "notes": "科学的で知的な雰囲気を出しつつ、冷たくなりすぎないように。データが可視化されるイメージ。",
       "sfx": [
-        {"time_tc": "00:03:54", "label": "river_flow", "prompt": "river flowing continuously, calm, natural", "duration_sec": 2.0},
-        {"time_tc": "00:04:10", "label": "temple_bell_far", "prompt": "temple bell toll, distant, soft reverb", "duration_sec": 1.5},
-        {"time_tc": "00:04:30", "label": "wind_chime", "prompt": "wind chimes, delicate, sparse", "duration_sec": 1.2},
-        {"time_tc": "00:04:45", "label": "singing_bowl", "prompt": "singing bowl resonant hit, long tail", "duration_sec": 2.0}
+        {"time_tc": "00:05:15", "label": "fmri_scan_abstract", "prompt": "An abstracted, rhythmic clicking sound inspired by an fMRI machine, but softer and more musical.", "duration_sec": 3.0},
+        {"time_tc": "00:05:40", "label": "data_points_appearing", "prompt": "A series of soft, digital blips and clicks, suggesting data points appearing on a screen.", "duration_sec": 2.5},
+        {"time_tc": "00:05:50", "label": "office_chatter_low", "prompt": "Very low, unintelligible office chatter, representing 'weak ties'.", "duration_sec": 4.0}
       ]
     },
     {
-      "label": "S07_Nostalgia",
-      "start_tc": "00:05:47",
-      "bgm_prompt": "Chamber music ambient, melancholic piano, string quartet touches, 55 BPM, European romantic era feeling, nostalgic and bittersweet, music box elements",
-      "notes": "オルゴール色を混ぜる、ノスタルジックに",
+      "label": "S07_New_Belonging",
+      "start_tc": "00:05:55",
+      "bgm_prompt": "Warm and hopeful ambient music, featuring acoustic guitar, soft string pads, and a simple, uplifting piano melody. A gentle build-up from introspection to quiet optimism. 68 BPM.",
+      "notes": "ここまでのテーマをまとめ、穏やかで前向きな解決策を提示するシーン。温かみのある音色で。",
       "sfx": [
-        {"time_tc": "00:05:50", "label": "old_clock", "prompt": "old clock ticking, warm room tone", "duration_sec": 2.0},
-        {"time_tc": "00:06:05", "label": "fountain_pen", "prompt": "fountain pen writing on paper, close, gentle", "duration_sec": 1.6},
-        {"time_tc": "00:06:25", "label": "teacup_put", "prompt": "placing teacup on saucer, porcelain, soft", "duration_sec": 1.2},
-        {"time_tc": "00:06:48", "label": "music_box_fragment", "prompt": "music box fragment, faint and nostalgic", "duration_sec": 1.4}
+        {"time_tc": "00:06:10", "label": "page_turn_modern_book", "prompt": "Turning the page of a modern book, representing a new chapter.", "duration_sec": 1.5},
+        {"time_tc": "00:06:30", "label": "cafe_ambience_warm", "prompt": "Warm, gentle ambience of a friendly cafe, with soft chatter and clinking cups.", "duration_sec": 4.0},
+        {"time_tc": "00:06:50", "label": "gentle_inspirational_swell", "prompt": "A subtle, inspirational synthesizer swell that builds hope.", "duration_sec": 3.0}
       ]
     },
     {
-      "label": "S08_Science",
-      "start_tc": "00:07:01",
-      "bgm_prompt": "Modern minimalist electronic, clean synthesizers, data sonification elements, 72 BPM, scientific clarity, neural network sounds, precise yet warm",
-      "notes": "知的でクリーン、温かみを保つ",
+      "label": "S08_Finale",
+      "start_tc": "00:06:55",
+      "bgm_prompt": "Grand and emotional finale version of the main theme. Full string orchestra, powerful piano chords, and ethereal choir pads. Builds to a majestic peak and then slowly fades out to a single piano note. 60 BPM.",
+      "notes": "番組の締め。壮大に盛り上げ、感動的なフィナーレを演出し、最後は静かな余韻を残して終わる。",
       "sfx": [
-        {"time_tc": "00:07:05", "label": "computer_fan_low", "prompt": "computer fan hum, low and steady", "duration_sec": 2.0},
-        {"time_tc": "00:07:15", "label": "mri_machine_like", "prompt": "abstracted MRI-like machine rhythm, soft clicks", "duration_sec": 1.8},
-        {"time_tc": "00:07:48", "label": "typing_data", "prompt": "keyboard typing, data entry, orderly", "duration_sec": 1.5}
-      ]
-    },
-    {
-      "label": "S09_Acceptance",
-      "start_tc": "00:08:04",
-      "bgm_prompt": "Hopeful ambient progression, warming synthesizers, soft string ensemble, 65 BPM, major key emergence, acceptance and transformation, gentle build",
-      "notes": "徐々に明るく、マイナーからメジャーへ",
-      "sfx": [
-        {"time_tc": "00:08:10", "label": "deep_breath", "prompt": "deep inhale and exhale, relaxed", "duration_sec": 1.6},
-        {"time_tc": "00:08:40", "label": "laptop_open", "prompt": "opening a laptop, hinge click, soft", "duration_sec": 1.0},
-        {"time_tc": "00:09:05", "label": "cafe_ambient_bg", "prompt": "cafe ambience background, light crowd, warm", "duration_sec": 2.0}
-      ]
-    },
-    {
-      "label": "S10_Morning",
-      "start_tc": "00:09:18",
-      "bgm_prompt": "Morning ambient electronica, gentle piano melody, urban awakening sounds, 68 BPM, fresh start feeling, optimistic but grounded, crisp and clear",
-      "notes": "明るく前向き、落ち着いたトーン",
-      "sfx": [
-        {"time_tc": "00:09:20", "label": "elevator_chime", "prompt": "elevator chime close, pleasant", "duration_sec": 0.9},
-        {"time_tc": "00:09:30", "label": "office_ac", "prompt": "office air conditioning hum, subtle", "duration_sec": 2.0},
-        {"time_tc": "00:09:40", "label": "coffee_machine", "prompt": "coffee machine brewing, short burst", "duration_sec": 1.6},
-        {"time_tc": "00:09:50", "label": "morning_birds", "prompt": "morning birds outside window, soft", "duration_sec": 1.8}
-      ]
-    },
-    {
-      "label": "S11_Finale",
-      "start_tc": "00:10:06",
-      "bgm_prompt": "Cosmic ambient finale, orchestral swells, ethereal voices, constellation sounds, 58 BPM, eternal and cyclical, profound peace, fade to stars",
-      "notes": "壮大に盛り上げてから静かにフェードアウト",
-      "sfx": [
-        {"time_tc": "00:10:08", "label": "soft_wind", "prompt": "soft wind, gentle whoosh", "duration_sec": 2.0},
-        {"time_tc": "00:10:30", "label": "distant_bell", "prompt": "distant bell chime, long tail", "duration_sec": 1.8},
-        {"time_tc": "00:11:00", "label": "fade_to_silence", "prompt": "fade towards silence ambience", "duration_sec": 2.0}
+        {"time_tc": "00:07:00", "label": "night_wind_gentle", "prompt": "A gentle whoosh of night wind, clean and vast.", "duration_sec": 3.0},
+        {"time_tc": "00:07:20", "label": "cosmic_shimmer_long", "prompt": "A long, beautiful cosmic shimmer, representing the eternal nature of the stars.", "duration_sec": 4.0},
+        {"time_tc": "00:07:38", "label": "final_note_reverb", "prompt": "A final, resonant sound that fades into complete silence.", "duration_sec": 3.5}
       ]
     }
   ]
 }
-

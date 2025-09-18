@@ -1,0 +1,9212 @@
+<?xml version='1.0' encoding='utf-8'?>
+<xmeml version="4">
+	<sequence id="sequence-4" TL.SQAudioVisibleBase="0" TL.SQVideoVisibleBase="0" TL.SQVisibleBaseTime="0" TL.SQAVDividerPosition="0.11604937911" TL.SQHideShyTracks="0" TL.SQHeaderWidth="204" TL.SQDataTrackViewControlState="0" Monitor.ProgramZoomOut="1765295013081600" Monitor.ProgramZoomIn="0" TL.SQTimePerPixel="2.2778311111111109" MZ.EditLine="133364623392000" MZ.Sequence.PreviewFrameSizeHeight="1080" MZ.Sequence.PreviewFrameSizeWidth="1920" MZ.Sequence.AudioTimeDisplayFormat="200" MZ.Sequence.PreviewRenderingClassID="1061109567" MZ.Sequence.PreviewRenderingPresetCodec="1634755443" MZ.Sequence.PreviewRenderingPresetPath="EncoderPresets/SequencePreview/795454d9-d3c2-429d-9474-923ab13b7018/QuickTime.epr" MZ.Sequence.PreviewUseMaxRenderQuality="false" MZ.Sequence.PreviewUseMaxBitDepth="false" MZ.Sequence.EditingModeGUID="795454d9-d3c2-429d-9474-923ab13b7018" MZ.Sequence.VideoTimeDisplayFormat="102" MZ.WorkOutPoint="15239249625600" MZ.WorkInPoint="0" explodedTracks="true">
+		<uuid>2939400b-ff4e-42d5-b44e-11e51f82ff94</uuid>
+		<duration>114355</duration>
+		<rate>
+			<timebase>30</timebase>
+			<ntsc>TRUE</ntsc>
+		</rate>
+		<name>022_1500_cut</name>
+		<media>
+			<video>
+				<format>
+					
+					
+					<samplecharacteristics>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<codec>
+							
+							
+							<name>Apple ProRes 422</name>
+							
+							
+							<appspecificdata>
+								
+								
+								<appname>Final Cut Pro</appname>
+								
+								
+								<appmanufacturer>Apple Inc.</appmanufacturer>
+								
+								
+								<appversion>7.0</appversion>
+								
+								
+								<data>
+									
+									
+									<qtcodec>
+										
+										
+										<codecname>Apple ProRes 422</codecname>
+										
+										
+										<codectypename>Apple ProRes 422</codectypename>
+										
+										
+										<codectypecode>apcn</codectypecode>
+										
+										
+										<codecvendorcode>appl</codecvendorcode>
+										
+										
+										<spatialquality>1024</spatialquality>
+										
+										
+										<temporalquality>0</temporalquality>
+										
+										
+										<keyframerate>0</keyframerate>
+										
+										
+										<datarate>0</datarate>
+										
+									
+									</qtcodec>
+									
+								
+								</data>
+								
+							
+							</appspecificdata>
+							
+						
+						</codec>
+						
+						
+						<width>1920</width>
+						
+						
+						<height>1080</height>
+						
+						
+						<anamorphic>FALSE</anamorphic>
+						
+						
+						<pixelaspectratio>square</pixelaspectratio>
+						
+						
+						<fielddominance>upper</fielddominance>
+						
+						
+						<colordepth>24</colordepth>
+						
+					
+					</samplecharacteristics>
+					
+				
+				</format>
+				<track TL.SQTrackShy="0" TL.SQTrackExpandedHeight="65" TL.SQTrackExpanded="0" MZ.TrackTargeted="1" MZ.TrackName="Video 1">
+					
+					
+					<enabled>TRUE</enabled>
+					
+					
+					<locked>FALSE</locked>
+					
+				
+					<clipitem id="vclipitem-626cebaf-f97d-483f-8773-f839aa5d1168">
+						<name>--- 20s GAP ---</name>
+						<enabled>TRUE</enabled>
+						<duration>302</duration>
+						<rate>
+							<timebase>30</timebase>
+							<ntsc>TRUE</ntsc>
+						</rate>
+						<start>2222</start>
+						<end>2524</end>
+						<in>0</in>
+						<out>302</out>
+					</clipitem>
+					<clipitem id="vclipitem-a63d8477-53da-4718-892a-e7ebe23cb11a">
+						<name>--- 20s GAP ---</name>
+						<enabled>TRUE</enabled>
+						<duration>302</duration>
+						<rate>
+							<timebase>30</timebase>
+							<ntsc>TRUE</ntsc>
+						</rate>
+						<start>6821</start>
+						<end>7123</end>
+						<in>0</in>
+						<out>302</out>
+					</clipitem>
+					<clipitem id="vclipitem-098d0d13-7ca9-4cc2-9a6a-1d5d7a132d6f">
+						<name>--- 20s GAP ---</name>
+						<enabled>TRUE</enabled>
+						<duration>302</duration>
+						<rate>
+							<timebase>30</timebase>
+							<ntsc>TRUE</ntsc>
+						</rate>
+						<start>20133</start>
+						<end>20435</end>
+						<in>0</in>
+						<out>302</out>
+					</clipitem>
+					<clipitem id="vclipitem-db5b96d4-03d3-4953-b216-cad9bfbe50e8">
+						<name>--- 20s GAP ---</name>
+						<enabled>TRUE</enabled>
+						<duration>302</duration>
+						<rate>
+							<timebase>30</timebase>
+							<ntsc>TRUE</ntsc>
+						</rate>
+						<start>32358</start>
+						<end>32660</end>
+						<in>0</in>
+						<out>302</out>
+					</clipitem>
+					<clipitem id="vclipitem-2a6013ec-4813-4829-9607-4cf56180b17d">
+						<name>--- 20s GAP ---</name>
+						<enabled>TRUE</enabled>
+						<duration>302</duration>
+						<rate>
+							<timebase>30</timebase>
+							<ntsc>TRUE</ntsc>
+						</rate>
+						<start>46955</start>
+						<end>47257</end>
+						<in>0</in>
+						<out>302</out>
+					</clipitem>
+					<clipitem id="vclipitem-55ab5025-2472-4d19-bf29-f11aa6c064de">
+						<name>--- 20s GAP ---</name>
+						<enabled>TRUE</enabled>
+						<duration>302</duration>
+						<rate>
+							<timebase>30</timebase>
+							<ntsc>TRUE</ntsc>
+						</rate>
+						<start>49105</start>
+						<end>49407</end>
+						<in>0</in>
+						<out>302</out>
+					</clipitem>
+					<clipitem id="vclipitem-d9e90f1a-c418-401a-84d2-6682002b8aba">
+						<name>--- 20s GAP ---</name>
+						<enabled>TRUE</enabled>
+						<duration>302</duration>
+						<rate>
+							<timebase>30</timebase>
+							<ntsc>TRUE</ntsc>
+						</rate>
+						<start>62566</start>
+						<end>62868</end>
+						<in>0</in>
+						<out>302</out>
+					</clipitem>
+					<clipitem id="vclipitem-26b4aeab-0412-4acf-8322-8e19e32cb93d">
+						<name>--- 20s GAP ---</name>
+						<enabled>TRUE</enabled>
+						<duration>302</duration>
+						<rate>
+							<timebase>30</timebase>
+							<ntsc>TRUE</ntsc>
+						</rate>
+						<start>74493</start>
+						<end>74795</end>
+						<in>0</in>
+						<out>302</out>
+					</clipitem>
+					<clipitem id="vclipitem-0b9528a4-1e6b-47b8-8001-5ff6653a8c36">
+						<name>--- 20s GAP ---</name>
+						<enabled>TRUE</enabled>
+						<duration>302</duration>
+						<rate>
+							<timebase>30</timebase>
+							<ntsc>TRUE</ntsc>
+						</rate>
+						<start>81107</start>
+						<end>81409</end>
+						<in>0</in>
+						<out>302</out>
+					</clipitem>
+					<clipitem id="vclipitem-eb39a222-9d9b-40c4-b80d-d690642e8d24">
+						<name>--- 20s GAP ---</name>
+						<enabled>TRUE</enabled>
+						<duration>302</duration>
+						<rate>
+							<timebase>30</timebase>
+							<ntsc>TRUE</ntsc>
+						</rate>
+						<start>91374</start>
+						<end>91676</end>
+						<in>0</in>
+						<out>302</out>
+					</clipitem>
+					<clipitem id="vclipitem-ba50d15e-92e5-44a4-94f7-a53fb7dc7b88">
+						<name>--- 20s GAP ---</name>
+						<enabled>TRUE</enabled>
+						<duration>302</duration>
+						<rate>
+							<timebase>30</timebase>
+							<ntsc>TRUE</ntsc>
+						</rate>
+						<start>98584</start>
+						<end>98886</end>
+						<in>0</in>
+						<out>302</out>
+					</clipitem>
+					<clipitem id="vclipitem-6fcd342c-4a8a-4560-bd6a-557c0e93a01e">
+						<name>--- 20s GAP ---</name>
+						<enabled>TRUE</enabled>
+						<duration>302</duration>
+						<rate>
+							<timebase>30</timebase>
+							<ntsc>TRUE</ntsc>
+						</rate>
+						<start>110952</start>
+						<end>111254</end>
+						<in>0</in>
+						<out>302</out>
+					</clipitem>
+					<clipitem id="vclipitem-a54cf4f6-18f2-4512-85b9-09bb6e7e9b9a">
+						<name>--- 20s GAP ---</name>
+						<enabled>TRUE</enabled>
+						<duration>302</duration>
+						<rate>
+							<timebase>30</timebase>
+							<ntsc>TRUE</ntsc>
+						</rate>
+						<start>114202</start>
+						<end>114504</end>
+						<in>0</in>
+						<out>302</out>
+					</clipitem>
+				</track>
+				<track TL.SQTrackShy="0" TL.SQTrackExpandedHeight="65" TL.SQTrackExpanded="0" MZ.TrackTargeted="0" MZ.TrackName="Video 2">
+					
+					
+					<enabled>TRUE</enabled>
+					
+					
+					<locked>FALSE</locked>
+					
+				
+				</track>
+				<track TL.SQTrackShy="0" TL.SQTrackExpandedHeight="65" TL.SQTrackExpanded="0" MZ.TrackTargeted="0" MZ.TrackName="Video 3">
+					
+					
+					<enabled>TRUE</enabled>
+					
+					
+					<locked>FALSE</locked>
+					
+				
+				</track>
+			</video>
+			<audio>
+				<numOutputChannels>6</numOutputChannels>
+				
+				
+				<format>
+					
+					
+					<samplecharacteristics>
+						
+						
+						<depth>16</depth>
+						
+						
+						<samplerate>48000</samplerate>
+						
+					
+					</samplecharacteristics>
+					
+				
+				</format>
+				
+				
+				<outputs>
+					
+					
+					<group>
+						
+						
+						<index>1</index>
+						
+						
+						<numchannels>1</numchannels>
+						
+						
+						<downmix>0</downmix>
+						
+						
+						<channel>
+							
+							
+							<index>1</index>
+							
+						
+						</channel>
+						
+					
+					</group>
+					
+					
+					<group>
+						
+						
+						<index>2</index>
+						
+						
+						<numchannels>1</numchannels>
+						
+						
+						<downmix>0</downmix>
+						
+						
+						<channel>
+							
+							
+							<index>2</index>
+							
+						
+						</channel>
+						
+					
+					</group>
+					
+					
+					<group>
+						
+						
+						<index>3</index>
+						
+						
+						<numchannels>1</numchannels>
+						
+						
+						<downmix>0</downmix>
+						
+						
+						<channel>
+							
+							
+							<index>3</index>
+							
+						
+						</channel>
+						
+					
+					</group>
+					
+					
+					<group>
+						
+						
+						<index>4</index>
+						
+						
+						<numchannels>1</numchannels>
+						
+						
+						<downmix>0</downmix>
+						
+						
+						<channel>
+							
+							
+							<index>4</index>
+							
+						
+						</channel>
+						
+					
+					</group>
+					
+					
+					<group>
+						
+						
+						<index>5</index>
+						
+						
+						<numchannels>1</numchannels>
+						
+						
+						<downmix>0</downmix>
+						
+						
+						<channel>
+							
+							
+							<index>5</index>
+							
+						
+						</channel>
+						
+					
+					</group>
+					
+					
+					<group>
+						
+						
+						<index>6</index>
+						
+						
+						<numchannels>1</numchannels>
+						
+						
+						<downmix>0</downmix>
+						
+						
+						<channel>
+							
+							
+							<index>6</index>
+							
+						
+						</channel>
+						
+					
+					</group>
+					
+				
+				</outputs>
+				
+				
+				<track TL.SQTrackAudioKeyframeStyle="0" TL.SQTrackShy="0" TL.SQTrackExpandedHeight="130" TL.SQTrackExpanded="0" MZ.TrackTargeted="1" MZ.TrackName="Output 1" PannerCurrentValue="0" PannerIsInverted="true" PannerStartKeyframe="-91445760000000000,0.,0,0,0,0,0,0" PannerName="Pan" currentExplodedTrackIndex="0" totalExplodedTrackCount="1" premiereTrackType="Mono">
+					<clipitem id="clipitem-1" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-moriyama-1</masterclipid>
+						
+						
+						<name>moriyama_all.wav</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>166792</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>149</start>
+						
+						
+						<end>2073</end>
+						
+						
+						<in>9175</in>
+						
+						
+						<out>11099</out>
+						
+						
+						<pproTicksIn>77686560000000</pproTicksIn>
+						
+						
+						<pproTicksOut>93977452800000</pproTicksOut>
+						
+						
+						<file id="file-8">
+							
+							
+							<name>moriyama_all.wav</name>
+							
+							
+							<pathurl>file://localhost/Volumes/P-40/Dropbox/%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8/01_%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8%e7%b4%a0%e6%9d%90/022_%e6%88%90%e7%94%b0%e6%a3%ae%e5%b1%b1/022_main/moriyama_all.wav</pathurl>
+							
+							
+							<rate>
+								
+								
+								<timebase>24</timebase>
+								
+								
+								<ntsc>FALSE</ntsc>
+								
+							
+							</rate>
+							
+							
+							<duration>166792</duration>
+							
+							
+							<timecode>
+								
+								
+								<rate>
+									
+									
+									<timebase>24</timebase>
+									
+									
+									<ntsc>FALSE</ntsc>
+									
+								
+								</rate>
+								
+								
+								<string>00:00:00:00</string>
+								
+								
+								<frame>0</frame>
+								
+								
+								<displayformat>NDF</displayformat>
+								
+							
+							</timecode>
+							
+							
+							<media>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>1</sourcechannel>
+										
+										
+										<channellabel>left</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>2</sourcechannel>
+										
+										
+										<channellabel>right</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+							
+							</media>
+							
+						
+						</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<filter>
+							
+							
+							<effect>
+								
+								
+								<name>Audio Levels</name>
+								
+								
+								<effectid>audiolevels</effectid>
+								
+								
+								<effectcategory>audiolevels</effectcategory>
+								
+								
+								<effecttype>audiolevels</effecttype>
+								
+								
+								<mediatype>audio</mediatype>
+								
+								
+								<pproBypass>false</pproBypass>
+								
+								
+								<parameter authoringApp="PremierePro">
+									
+									
+									<parameterid>level</parameterid>
+									
+									
+									<name>Level</name>
+									
+									
+									<valuemin>0</valuemin>
+									
+									
+									<valuemax>3.98109</valuemax>
+									
+									
+									<value>3.16228</value>
+									
+								
+								</parameter>
+								
+							
+							</effect>
+							
+						
+						</filter>
+						
+						
+						<logginginfo>
+							
+							
+							<description />
+							
+							
+							<scene />
+							
+							
+							<shottake />
+							
+							
+							<lognote />
+							
+							
+							<good />
+							
+							
+							<originalvideofilename />
+							
+							
+							<originalaudiofilename />
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut />
+							
+							
+							<lut1 />
+							
+							
+							<asc_sop />
+							
+							
+							<asc_sat />
+							
+							
+							<lut2 />
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Violet</label2>
+							
+						
+						</labels>
+						
+					
+						<file id="file-8">
+							<name>moriyama_all.wav</name>
+							<pathurl>file://localhost/Volumes/P-40/Dropbox/%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8/01_%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8%e7%b4%a0%e6%9d%90/022_%e6%88%90%e7%94%b0%e6%a3%ae%e5%b1%b1/022_main/moriyama_all.wav</pathurl>
+							<rate>
+								
+								
+								<timebase>24</timebase>
+								
+								
+								<ntsc>FALSE</ntsc>
+								
+							
+							</rate>
+							<duration>166792</duration>
+							<timecode>
+								
+								
+								<rate>
+									
+									
+									<timebase>24</timebase>
+									
+									
+									<ntsc>FALSE</ntsc>
+									
+								
+								</rate>
+								
+								
+								<string>00:00:00:00</string>
+								
+								
+								<frame>0</frame>
+								
+								
+								<displayformat>NDF</displayformat>
+								
+							
+							</timecode>
+							<media>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>1</sourcechannel>
+										
+										
+										<channellabel>left</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>2</sourcechannel>
+										
+										
+										<channellabel>right</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+							
+							</media>
+						</file>
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-2" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-moriyama-2</masterclipid>
+						
+						
+						<name>moriyama_all.wav</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>166792</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>2673</start>
+						
+						
+						<end>6672</end>
+						
+						
+						<in>45307</in>
+						
+						
+						<out>49306</out>
+						
+						
+						<pproTicksIn>383623430400000</pproTicksIn>
+						
+						
+						<pproTicksOut>417483763200000</pproTicksOut>
+						
+						
+						<file id="file-8">
+							
+							
+							<name>moriyama_all.wav</name>
+							
+							
+							<pathurl>file://localhost/Volumes/P-40/Dropbox/%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8/01_%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8%e7%b4%a0%e6%9d%90/022_%e6%88%90%e7%94%b0%e6%a3%ae%e5%b1%b1/022_main/moriyama_all.wav</pathurl>
+							
+							
+							<rate>
+								
+								
+								<timebase>24</timebase>
+								
+								
+								<ntsc>FALSE</ntsc>
+								
+							
+							</rate>
+							
+							
+							<duration>166792</duration>
+							
+							
+							<timecode>
+								
+								
+								<rate>
+									
+									
+									<timebase>24</timebase>
+									
+									
+									<ntsc>FALSE</ntsc>
+									
+								
+								</rate>
+								
+								
+								<string>00:00:00:00</string>
+								
+								
+								<frame>0</frame>
+								
+								
+								<displayformat>NDF</displayformat>
+								
+							
+							</timecode>
+							
+							
+							<media>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>1</sourcechannel>
+										
+										
+										<channellabel>left</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>2</sourcechannel>
+										
+										
+										<channellabel>right</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+							
+							</media>
+							
+						
+						</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<filter>
+							
+							
+							<effect>
+								
+								
+								<name>Audio Levels</name>
+								
+								
+								<effectid>audiolevels</effectid>
+								
+								
+								<effectcategory>audiolevels</effectcategory>
+								
+								
+								<effecttype>audiolevels</effecttype>
+								
+								
+								<mediatype>audio</mediatype>
+								
+								
+								<pproBypass>false</pproBypass>
+								
+								
+								<parameter authoringApp="PremierePro">
+									
+									
+									<parameterid>level</parameterid>
+									
+									
+									<name>Level</name>
+									
+									
+									<valuemin>0</valuemin>
+									
+									
+									<valuemax>3.98109</valuemax>
+									
+									
+									<value>3.16228</value>
+									
+								
+								</parameter>
+								
+							
+							</effect>
+							
+						
+						</filter>
+						
+						
+						<logginginfo>
+							
+							
+							<description />
+							
+							
+							<scene />
+							
+							
+							<shottake />
+							
+							
+							<lognote />
+							
+							
+							<good />
+							
+							
+							<originalvideofilename />
+							
+							
+							<originalaudiofilename />
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut />
+							
+							
+							<lut1 />
+							
+							
+							<asc_sop />
+							
+							
+							<asc_sat />
+							
+							
+							<lut2 />
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Caribbean</label2>
+							
+						
+						</labels>
+						
+					
+						<file id="file-8" />
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-3" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-moriyama-3</masterclipid>
+						
+						
+						<name>moriyama_all.wav</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>166792</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>7272</start>
+						
+						
+						<end>9238</end>
+						
+						
+						<in>12543</in>
+						
+						
+						<out>14509</out>
+						
+						
+						<pproTicksIn>106204089600000</pproTicksIn>
+						
+						
+						<pproTicksOut>122850604800000</pproTicksOut>
+						
+						
+						<file id="file-8">
+							
+							
+							<name>moriyama_all.wav</name>
+							
+							
+							<pathurl>file://localhost/Volumes/P-40/Dropbox/%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8/01_%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8%e7%b4%a0%e6%9d%90/022_%e6%88%90%e7%94%b0%e6%a3%ae%e5%b1%b1/022_main/moriyama_all.wav</pathurl>
+							
+							
+							<rate>
+								
+								
+								<timebase>24</timebase>
+								
+								
+								<ntsc>FALSE</ntsc>
+								
+							
+							</rate>
+							
+							
+							<duration>166792</duration>
+							
+							
+							<timecode>
+								
+								
+								<rate>
+									
+									
+									<timebase>24</timebase>
+									
+									
+									<ntsc>FALSE</ntsc>
+									
+								
+								</rate>
+								
+								
+								<string>00:00:00:00</string>
+								
+								
+								<frame>0</frame>
+								
+								
+								<displayformat>NDF</displayformat>
+								
+							
+							</timecode>
+							
+							
+							<media>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>1</sourcechannel>
+										
+										
+										<channellabel>left</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>2</sourcechannel>
+										
+										
+										<channellabel>right</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+							
+							</media>
+							
+						
+						</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<filter>
+							
+							
+							<effect>
+								
+								
+								<name>Audio Levels</name>
+								
+								
+								<effectid>audiolevels</effectid>
+								
+								
+								<effectcategory>audiolevels</effectcategory>
+								
+								
+								<effecttype>audiolevels</effecttype>
+								
+								
+								<mediatype>audio</mediatype>
+								
+								
+								<pproBypass>false</pproBypass>
+								
+								
+								<parameter authoringApp="PremierePro">
+									
+									
+									<parameterid>level</parameterid>
+									
+									
+									<name>Level</name>
+									
+									
+									<valuemin>0</valuemin>
+									
+									
+									<valuemax>3.98109</valuemax>
+									
+									
+									<value>3.16228</value>
+									
+								
+								</parameter>
+								
+							
+							</effect>
+							
+						
+						</filter>
+						
+						
+						<logginginfo>
+							
+							
+							<description />
+							
+							
+							<scene />
+							
+							
+							<shottake />
+							
+							
+							<lognote />
+							
+							
+							<good />
+							
+							
+							<originalvideofilename />
+							
+							
+							<originalaudiofilename />
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut />
+							
+							
+							<lut1 />
+							
+							
+							<asc_sop />
+							
+							
+							<asc_sat />
+							
+							
+							<lut2 />
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Rose</label2>
+							
+						
+						</labels>
+						
+					
+						<file id="file-8" />
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-4" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-moriyama-4</masterclipid>
+						
+						
+						<name>moriyama_all.wav</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>166792</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>9536</start>
+						
+						
+						<end>19984</end>
+						
+						
+						<in>19771</in>
+						
+						
+						<out>30219</out>
+						
+						
+						<pproTicksIn>167405011200000</pproTicksIn>
+						
+						
+						<pproTicksOut>255870316800000</pproTicksOut>
+						
+						
+						<file id="file-8">
+							
+							
+							<name>moriyama_all.wav</name>
+							
+							
+							<pathurl>file://localhost/Volumes/P-40/Dropbox/%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8/01_%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8%e7%b4%a0%e6%9d%90/022_%e6%88%90%e7%94%b0%e6%a3%ae%e5%b1%b1/022_main/moriyama_all.wav</pathurl>
+							
+							
+							<rate>
+								
+								
+								<timebase>24</timebase>
+								
+								
+								<ntsc>FALSE</ntsc>
+								
+							
+							</rate>
+							
+							
+							<duration>166792</duration>
+							
+							
+							<timecode>
+								
+								
+								<rate>
+									
+									
+									<timebase>24</timebase>
+									
+									
+									<ntsc>FALSE</ntsc>
+									
+								
+								</rate>
+								
+								
+								<string>00:00:00:00</string>
+								
+								
+								<frame>0</frame>
+								
+								
+								<displayformat>NDF</displayformat>
+								
+							
+							</timecode>
+							
+							
+							<media>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>1</sourcechannel>
+										
+										
+										<channellabel>left</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>2</sourcechannel>
+										
+										
+										<channellabel>right</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+							
+							</media>
+							
+						
+						</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<filter>
+							
+							
+							<effect>
+								
+								
+								<name>Audio Levels</name>
+								
+								
+								<effectid>audiolevels</effectid>
+								
+								
+								<effectcategory>audiolevels</effectcategory>
+								
+								
+								<effecttype>audiolevels</effecttype>
+								
+								
+								<mediatype>audio</mediatype>
+								
+								
+								<pproBypass>false</pproBypass>
+								
+								
+								<parameter authoringApp="PremierePro">
+									
+									
+									<parameterid>level</parameterid>
+									
+									
+									<name>Level</name>
+									
+									
+									<valuemin>0</valuemin>
+									
+									
+									<valuemax>3.98109</valuemax>
+									
+									
+									<value>3.16228</value>
+									
+								
+								</parameter>
+								
+							
+							</effect>
+							
+						
+						</filter>
+						
+						
+						<logginginfo>
+							
+							
+							<description />
+							
+							
+							<scene />
+							
+							
+							<shottake />
+							
+							
+							<lognote />
+							
+							
+							<good />
+							
+							
+							<originalvideofilename />
+							
+							
+							<originalaudiofilename />
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut />
+							
+							
+							<lut1 />
+							
+							
+							<asc_sop />
+							
+							
+							<asc_sat />
+							
+							
+							<lut2 />
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Yellow</label2>
+							
+						
+						</labels>
+						
+					
+						<file id="file-8" />
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-5" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-moriyama-5</masterclipid>
+						
+						
+						<name>moriyama_all.wav</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>166792</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>20584</start>
+						
+						
+						<end>32209</end>
+						
+						
+						<in>56752</in>
+						
+						
+						<out>68377</out>
+						
+						
+						<pproTicksIn>480530534400000</pproTicksIn>
+						
+						
+						<pproTicksOut>578961734400000</pproTicksOut>
+						
+						
+						<file id="file-8">
+							
+							
+							<name>moriyama_all.wav</name>
+							
+							
+							<pathurl>file://localhost/Volumes/P-40/Dropbox/%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8/01_%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8%e7%b4%a0%e6%9d%90/022_%e6%88%90%e7%94%b0%e6%a3%ae%e5%b1%b1/022_main/moriyama_all.wav</pathurl>
+							
+							
+							<rate>
+								
+								
+								<timebase>24</timebase>
+								
+								
+								<ntsc>FALSE</ntsc>
+								
+							
+							</rate>
+							
+							
+							<duration>166792</duration>
+							
+							
+							<timecode>
+								
+								
+								<rate>
+									
+									
+									<timebase>24</timebase>
+									
+									
+									<ntsc>FALSE</ntsc>
+									
+								
+								</rate>
+								
+								
+								<string>00:00:00:00</string>
+								
+								
+								<frame>0</frame>
+								
+								
+								<displayformat>NDF</displayformat>
+								
+							
+							</timecode>
+							
+							
+							<media>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>1</sourcechannel>
+										
+										
+										<channellabel>left</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>2</sourcechannel>
+										
+										
+										<channellabel>right</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+							
+							</media>
+							
+						
+						</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<filter>
+							
+							
+							<effect>
+								
+								
+								<name>Audio Levels</name>
+								
+								
+								<effectid>audiolevels</effectid>
+								
+								
+								<effectcategory>audiolevels</effectcategory>
+								
+								
+								<effecttype>audiolevels</effecttype>
+								
+								
+								<mediatype>audio</mediatype>
+								
+								
+								<pproBypass>false</pproBypass>
+								
+								
+								<parameter authoringApp="PremierePro">
+									
+									
+									<parameterid>level</parameterid>
+									
+									
+									<name>Level</name>
+									
+									
+									<valuemin>0</valuemin>
+									
+									
+									<valuemax>3.98109</valuemax>
+									
+									
+									<value>3.16228</value>
+									
+								
+								</parameter>
+								
+							
+							</effect>
+							
+						
+						</filter>
+						
+						
+						<logginginfo>
+							
+							
+							<description />
+							
+							
+							<scene />
+							
+							
+							<shottake />
+							
+							
+							<lognote />
+							
+							
+							<good />
+							
+							
+							<originalvideofilename />
+							
+							
+							<originalaudiofilename />
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut />
+							
+							
+							<lut1 />
+							
+							
+							<asc_sop />
+							
+							
+							<asc_sat />
+							
+							
+							<lut2 />
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Forest</label2>
+							
+						
+						</labels>
+						
+					
+						<file id="file-8" />
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-6" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-moriyama-6</masterclipid>
+						
+						
+						<name>moriyama_all.wav</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>166792</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>32809</start>
+						
+						
+						<end>46806</end>
+						
+						
+						<in>69380</in>
+						
+						
+						<out>83377</out>
+						
+						
+						<pproTicksIn>587454336000000</pproTicksIn>
+						
+						
+						<pproTicksOut>705969734400000</pproTicksOut>
+						
+						
+						<file id="file-8">
+							
+							
+							<name>moriyama_all.wav</name>
+							
+							
+							<pathurl>file://localhost/Volumes/P-40/Dropbox/%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8/01_%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8%e7%b4%a0%e6%9d%90/022_%e6%88%90%e7%94%b0%e6%a3%ae%e5%b1%b1/022_main/moriyama_all.wav</pathurl>
+							
+							
+							<rate>
+								
+								
+								<timebase>24</timebase>
+								
+								
+								<ntsc>FALSE</ntsc>
+								
+							
+							</rate>
+							
+							
+							<duration>166792</duration>
+							
+							
+							<timecode>
+								
+								
+								<rate>
+									
+									
+									<timebase>24</timebase>
+									
+									
+									<ntsc>FALSE</ntsc>
+									
+								
+								</rate>
+								
+								
+								<string>00:00:00:00</string>
+								
+								
+								<frame>0</frame>
+								
+								
+								<displayformat>NDF</displayformat>
+								
+							
+							</timecode>
+							
+							
+							<media>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>1</sourcechannel>
+										
+										
+										<channellabel>left</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>2</sourcechannel>
+										
+										
+										<channellabel>right</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+							
+							</media>
+							
+						
+						</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<filter>
+							
+							
+							<effect>
+								
+								
+								<name>Audio Levels</name>
+								
+								
+								<effectid>audiolevels</effectid>
+								
+								
+								<effectcategory>audiolevels</effectcategory>
+								
+								
+								<effecttype>audiolevels</effecttype>
+								
+								
+								<mediatype>audio</mediatype>
+								
+								
+								<pproBypass>false</pproBypass>
+								
+								
+								<parameter authoringApp="PremierePro">
+									
+									
+									<parameterid>level</parameterid>
+									
+									
+									<name>Level</name>
+									
+									
+									<valuemin>0</valuemin>
+									
+									
+									<valuemax>3.98109</valuemax>
+									
+									
+									<value>3.16228</value>
+									
+								
+								</parameter>
+								
+							
+							</effect>
+							
+						
+						</filter>
+						
+						
+						<logginginfo>
+							
+							
+							<description />
+							
+							
+							<scene />
+							
+							
+							<shottake />
+							
+							
+							<lognote />
+							
+							
+							<good />
+							
+							
+							<originalvideofilename />
+							
+							
+							<originalaudiofilename />
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut />
+							
+							
+							<lut1 />
+							
+							
+							<asc_sop />
+							
+							
+							<asc_sat />
+							
+							
+							<lut2 />
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Blue</label2>
+							
+						
+						</labels>
+						
+					
+						<file id="file-8" />
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-7" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-moriyama-7</masterclipid>
+						
+						
+						<name>moriyama_all.wav</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>166792</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>47406</start>
+						
+						
+						<end>48956</end>
+						
+						
+						<in>50433</in>
+						
+						
+						<out>51983</out>
+						
+						
+						<pproTicksIn>427026297600000</pproTicksIn>
+						
+						
+						<pproTicksOut>440150457600000</pproTicksOut>
+						
+						
+						<file id="file-8">
+							
+							
+							<name>moriyama_all.wav</name>
+							
+							
+							<pathurl>file://localhost/Volumes/P-40/Dropbox/%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8/01_%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8%e7%b4%a0%e6%9d%90/022_%e6%88%90%e7%94%b0%e6%a3%ae%e5%b1%b1/022_main/moriyama_all.wav</pathurl>
+							
+							
+							<rate>
+								
+								
+								<timebase>24</timebase>
+								
+								
+								<ntsc>FALSE</ntsc>
+								
+							
+							</rate>
+							
+							
+							<duration>166792</duration>
+							
+							
+							<timecode>
+								
+								
+								<rate>
+									
+									
+									<timebase>24</timebase>
+									
+									
+									<ntsc>FALSE</ntsc>
+									
+								
+								</rate>
+								
+								
+								<string>00:00:00:00</string>
+								
+								
+								<frame>0</frame>
+								
+								
+								<displayformat>NDF</displayformat>
+								
+							
+							</timecode>
+							
+							
+							<media>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>1</sourcechannel>
+										
+										
+										<channellabel>left</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>2</sourcechannel>
+										
+										
+										<channellabel>right</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+							
+							</media>
+							
+						
+						</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<filter>
+							
+							
+							<effect>
+								
+								
+								<name>Audio Levels</name>
+								
+								
+								<effectid>audiolevels</effectid>
+								
+								
+								<effectcategory>audiolevels</effectcategory>
+								
+								
+								<effecttype>audiolevels</effecttype>
+								
+								
+								<mediatype>audio</mediatype>
+								
+								
+								<pproBypass>false</pproBypass>
+								
+								
+								<parameter authoringApp="PremierePro">
+									
+									
+									<parameterid>level</parameterid>
+									
+									
+									<name>Level</name>
+									
+									
+									<valuemin>0</valuemin>
+									
+									
+									<valuemax>3.98109</valuemax>
+									
+									
+									<value>3.16228</value>
+									
+								
+								</parameter>
+								
+							
+							</effect>
+							
+						
+						</filter>
+						
+						
+						<logginginfo>
+							
+							
+							<description />
+							
+							
+							<scene />
+							
+							
+							<shottake />
+							
+							
+							<lognote />
+							
+							
+							<good />
+							
+							
+							<originalvideofilename />
+							
+							
+							<originalaudiofilename />
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut />
+							
+							
+							<lut1 />
+							
+							
+							<asc_sop />
+							
+							
+							<asc_sat />
+							
+							
+							<lut2 />
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Tan</label2>
+							
+						
+						</labels>
+						
+					
+						<file id="file-8" />
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-8" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-moriyama-8</masterclipid>
+						
+						
+						<name>moriyama_all.wav</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>166792</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>49556</start>
+						
+						
+						<end>62417</end>
+						
+						
+						<in>83379</in>
+						
+						
+						<out>96240</out>
+						
+						
+						<pproTicksIn>705986668800000</pproTicksIn>
+						
+						
+						<pproTicksOut>814883328000000</pproTicksOut>
+						
+						
+						<file id="file-8">
+							
+							
+							<name>moriyama_all.wav</name>
+							
+							
+							<pathurl>file://localhost/Volumes/P-40/Dropbox/%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8/01_%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8%e7%b4%a0%e6%9d%90/022_%e6%88%90%e7%94%b0%e6%a3%ae%e5%b1%b1/022_main/moriyama_all.wav</pathurl>
+							
+							
+							<rate>
+								
+								
+								<timebase>24</timebase>
+								
+								
+								<ntsc>FALSE</ntsc>
+								
+							
+							</rate>
+							
+							
+							<duration>166792</duration>
+							
+							
+							<timecode>
+								
+								
+								<rate>
+									
+									
+									<timebase>24</timebase>
+									
+									
+									<ntsc>FALSE</ntsc>
+									
+								
+								</rate>
+								
+								
+								<string>00:00:00:00</string>
+								
+								
+								<frame>0</frame>
+								
+								
+								<displayformat>NDF</displayformat>
+								
+							
+							</timecode>
+							
+							
+							<media>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>1</sourcechannel>
+										
+										
+										<channellabel>left</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>2</sourcechannel>
+										
+										
+										<channellabel>right</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+							
+							</media>
+							
+						
+						</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<filter>
+							
+							
+							<effect>
+								
+								
+								<name>Audio Levels</name>
+								
+								
+								<effectid>audiolevels</effectid>
+								
+								
+								<effectcategory>audiolevels</effectcategory>
+								
+								
+								<effecttype>audiolevels</effecttype>
+								
+								
+								<mediatype>audio</mediatype>
+								
+								
+								<pproBypass>false</pproBypass>
+								
+								
+								<parameter authoringApp="PremierePro">
+									
+									
+									<parameterid>level</parameterid>
+									
+									
+									<name>Level</name>
+									
+									
+									<valuemin>0</valuemin>
+									
+									
+									<valuemax>3.98109</valuemax>
+									
+									
+									<value>3.16228</value>
+									
+								
+								</parameter>
+								
+							
+							</effect>
+							
+						
+						</filter>
+						
+						
+						<logginginfo>
+							
+							
+							<description />
+							
+							
+							<scene />
+							
+							
+							<shottake />
+							
+							
+							<lognote />
+							
+							
+							<good />
+							
+							
+							<originalvideofilename />
+							
+							
+							<originalaudiofilename />
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut />
+							
+							
+							<lut1 />
+							
+							
+							<asc_sop />
+							
+							
+							<asc_sat />
+							
+							
+							<lut2 />
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Teal</label2>
+							
+						
+						</labels>
+						
+					
+						<file id="file-8" />
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-9" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-moriyama-9</masterclipid>
+						
+						
+						<name>moriyama_all.wav</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>166792</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>63017</start>
+						
+						
+						<end>74344</end>
+						
+						
+						<in>96243</in>
+						
+						
+						<out>107570</out>
+						
+						
+						<pproTicksIn>814908729600000</pproTicksIn>
+						
+						
+						<pproTicksOut>910816704000000</pproTicksOut>
+						
+						
+						<file id="file-8">
+							
+							
+							<name>moriyama_all.wav</name>
+							
+							
+							<pathurl>file://localhost/Volumes/P-40/Dropbox/%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8/01_%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8%e7%b4%a0%e6%9d%90/022_%e6%88%90%e7%94%b0%e6%a3%ae%e5%b1%b1/022_main/moriyama_all.wav</pathurl>
+							
+							
+							<rate>
+								
+								
+								<timebase>24</timebase>
+								
+								
+								<ntsc>FALSE</ntsc>
+								
+							
+							</rate>
+							
+							
+							<duration>166792</duration>
+							
+							
+							<timecode>
+								
+								
+								<rate>
+									
+									
+									<timebase>24</timebase>
+									
+									
+									<ntsc>FALSE</ntsc>
+									
+								
+								</rate>
+								
+								
+								<string>00:00:00:00</string>
+								
+								
+								<frame>0</frame>
+								
+								
+								<displayformat>NDF</displayformat>
+								
+							
+							</timecode>
+							
+							
+							<media>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>1</sourcechannel>
+										
+										
+										<channellabel>left</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>2</sourcechannel>
+										
+										
+										<channellabel>right</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+							
+							</media>
+							
+						
+						</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<filter>
+							
+							
+							<effect>
+								
+								
+								<name>Audio Levels</name>
+								
+								
+								<effectid>audiolevels</effectid>
+								
+								
+								<effectcategory>audiolevels</effectcategory>
+								
+								
+								<effecttype>audiolevels</effecttype>
+								
+								
+								<mediatype>audio</mediatype>
+								
+								
+								<pproBypass>false</pproBypass>
+								
+								
+								<parameter authoringApp="PremierePro">
+									
+									
+									<parameterid>level</parameterid>
+									
+									
+									<name>Level</name>
+									
+									
+									<valuemin>0</valuemin>
+									
+									
+									<valuemax>3.98109</valuemax>
+									
+									
+									<value>3.16228</value>
+									
+								
+								</parameter>
+								
+							
+							</effect>
+							
+						
+						</filter>
+						
+						
+						<logginginfo>
+							
+							
+							<description />
+							
+							
+							<scene />
+							
+							
+							<shottake />
+							
+							
+							<lognote />
+							
+							
+							<good />
+							
+							
+							<originalvideofilename />
+							
+							
+							<originalaudiofilename />
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut />
+							
+							
+							<lut1 />
+							
+							
+							<asc_sop />
+							
+							
+							<asc_sat />
+							
+							
+							<lut2 />
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Brown</label2>
+							
+						
+						</labels>
+						
+					
+						<file id="file-8" />
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-10" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-moriyama-10</masterclipid>
+						
+						
+						<name>moriyama_all.wav</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>166792</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>74944</start>
+						
+						
+						<end>80958</end>
+						
+						
+						<in>107573</in>
+						
+						
+						<out>113587</out>
+						
+						
+						<pproTicksIn>910842105600000</pproTicksIn>
+						
+						
+						<pproTicksOut>961763846400000</pproTicksOut>
+						
+						
+						<file id="file-8">
+							
+							
+							<name>moriyama_all.wav</name>
+							
+							
+							<pathurl>file://localhost/Volumes/P-40/Dropbox/%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8/01_%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8%e7%b4%a0%e6%9d%90/022_%e6%88%90%e7%94%b0%e6%a3%ae%e5%b1%b1/022_main/moriyama_all.wav</pathurl>
+							
+							
+							<rate>
+								
+								
+								<timebase>24</timebase>
+								
+								
+								<ntsc>FALSE</ntsc>
+								
+							
+							</rate>
+							
+							
+							<duration>166792</duration>
+							
+							
+							<timecode>
+								
+								
+								<rate>
+									
+									
+									<timebase>24</timebase>
+									
+									
+									<ntsc>FALSE</ntsc>
+									
+								
+								</rate>
+								
+								
+								<string>00:00:00:00</string>
+								
+								
+								<frame>0</frame>
+								
+								
+								<displayformat>NDF</displayformat>
+								
+							
+							</timecode>
+							
+							
+							<media>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>1</sourcechannel>
+										
+										
+										<channellabel>left</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>2</sourcechannel>
+										
+										
+										<channellabel>right</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+							
+							</media>
+							
+						
+						</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<filter>
+							
+							
+							<effect>
+								
+								
+								<name>Audio Levels</name>
+								
+								
+								<effectid>audiolevels</effectid>
+								
+								
+								<effectcategory>audiolevels</effectcategory>
+								
+								
+								<effecttype>audiolevels</effecttype>
+								
+								
+								<mediatype>audio</mediatype>
+								
+								
+								<pproBypass>false</pproBypass>
+								
+								
+								<parameter authoringApp="PremierePro">
+									
+									
+									<parameterid>level</parameterid>
+									
+									
+									<name>Level</name>
+									
+									
+									<valuemin>0</valuemin>
+									
+									
+									<valuemax>3.98109</valuemax>
+									
+									
+									<value>3.16228</value>
+									
+								
+								</parameter>
+								
+							
+							</effect>
+							
+						
+						</filter>
+						
+						
+						<logginginfo>
+							
+							
+							<description />
+							
+							
+							<scene />
+							
+							
+							<shottake />
+							
+							
+							<lognote />
+							
+							
+							<good />
+							
+							
+							<originalvideofilename />
+							
+							
+							<originalaudiofilename />
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut />
+							
+							
+							<lut1 />
+							
+							
+							<asc_sop />
+							
+							
+							<asc_sat />
+							
+							
+							<lut2 />
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Iris</label2>
+							
+						
+						</labels>
+						
+					
+						<file id="file-8" />
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-11" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-moriyama-11</masterclipid>
+						
+						
+						<name>moriyama_all.wav</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>166792</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>81558</start>
+						
+						
+						<end>91225</end>
+						
+						
+						<in>118281</in>
+						
+						
+						<out>127948</out>
+						
+						
+						<pproTicksIn>1001508883200000</pproTicksIn>
+						
+						
+						<pproTicksOut>1083361305600000</pproTicksOut>
+						
+						
+						<file id="file-8">
+							
+							
+							<name>moriyama_all.wav</name>
+							
+							
+							<pathurl>file://localhost/Volumes/P-40/Dropbox/%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8/01_%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8%e7%b4%a0%e6%9d%90/022_%e6%88%90%e7%94%b0%e6%a3%ae%e5%b1%b1/022_main/moriyama_all.wav</pathurl>
+							
+							
+							<rate>
+								
+								
+								<timebase>24</timebase>
+								
+								
+								<ntsc>FALSE</ntsc>
+								
+							
+							</rate>
+							
+							
+							<duration>166792</duration>
+							
+							
+							<timecode>
+								
+								
+								<rate>
+									
+									
+									<timebase>24</timebase>
+									
+									
+									<ntsc>FALSE</ntsc>
+									
+								
+								</rate>
+								
+								
+								<string>00:00:00:00</string>
+								
+								
+								<frame>0</frame>
+								
+								
+								<displayformat>NDF</displayformat>
+								
+							
+							</timecode>
+							
+							
+							<media>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>1</sourcechannel>
+										
+										
+										<channellabel>left</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>2</sourcechannel>
+										
+										
+										<channellabel>right</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+							
+							</media>
+							
+						
+						</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<filter>
+							
+							
+							<effect>
+								
+								
+								<name>Audio Levels</name>
+								
+								
+								<effectid>audiolevels</effectid>
+								
+								
+								<effectcategory>audiolevels</effectcategory>
+								
+								
+								<effecttype>audiolevels</effecttype>
+								
+								
+								<mediatype>audio</mediatype>
+								
+								
+								<pproBypass>false</pproBypass>
+								
+								
+								<parameter authoringApp="PremierePro">
+									
+									
+									<parameterid>level</parameterid>
+									
+									
+									<name>Level</name>
+									
+									
+									<valuemin>0</valuemin>
+									
+									
+									<valuemax>3.98109</valuemax>
+									
+									
+									<value>3.16228</value>
+									
+								
+								</parameter>
+								
+							
+							</effect>
+							
+						
+						</filter>
+						
+						
+						<logginginfo>
+							
+							
+							<description />
+							
+							
+							<scene />
+							
+							
+							<shottake />
+							
+							
+							<lognote />
+							
+							
+							<good />
+							
+							
+							<originalvideofilename />
+							
+							
+							<originalaudiofilename />
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut />
+							
+							
+							<lut1 />
+							
+							
+							<asc_sop />
+							
+							
+							<asc_sat />
+							
+							
+							<lut2 />
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Violet</label2>
+							
+						
+						</labels>
+						
+					
+						<file id="file-8" />
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-12" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-moriyama-12</masterclipid>
+						
+						
+						<name>moriyama_all.wav</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>166792</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>91825</start>
+						
+						
+						<end>98435</end>
+						
+						
+						<in>131029</in>
+						
+						
+						<out>137639</out>
+						
+						
+						<pproTicksIn>1109448748800000</pproTicksIn>
+						
+						
+						<pproTicksOut>1165416940800000</pproTicksOut>
+						
+						
+						<file id="file-8">
+							
+							
+							<name>moriyama_all.wav</name>
+							
+							
+							<pathurl>file://localhost/Volumes/P-40/Dropbox/%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8/01_%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8%e7%b4%a0%e6%9d%90/022_%e6%88%90%e7%94%b0%e6%a3%ae%e5%b1%b1/022_main/moriyama_all.wav</pathurl>
+							
+							
+							<rate>
+								
+								
+								<timebase>24</timebase>
+								
+								
+								<ntsc>FALSE</ntsc>
+								
+							
+							</rate>
+							
+							
+							<duration>166792</duration>
+							
+							
+							<timecode>
+								
+								
+								<rate>
+									
+									
+									<timebase>24</timebase>
+									
+									
+									<ntsc>FALSE</ntsc>
+									
+								
+								</rate>
+								
+								
+								<string>00:00:00:00</string>
+								
+								
+								<frame>0</frame>
+								
+								
+								<displayformat>NDF</displayformat>
+								
+							
+							</timecode>
+							
+							
+							<media>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>1</sourcechannel>
+										
+										
+										<channellabel>left</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>2</sourcechannel>
+										
+										
+										<channellabel>right</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+							
+							</media>
+							
+						
+						</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<filter>
+							
+							
+							<effect>
+								
+								
+								<name>Audio Levels</name>
+								
+								
+								<effectid>audiolevels</effectid>
+								
+								
+								<effectcategory>audiolevels</effectcategory>
+								
+								
+								<effecttype>audiolevels</effecttype>
+								
+								
+								<mediatype>audio</mediatype>
+								
+								
+								<pproBypass>false</pproBypass>
+								
+								
+								<parameter authoringApp="PremierePro">
+									
+									
+									<parameterid>level</parameterid>
+									
+									
+									<name>Level</name>
+									
+									
+									<valuemin>0</valuemin>
+									
+									
+									<valuemax>3.98109</valuemax>
+									
+									
+									<value>3.16228</value>
+									
+								
+								</parameter>
+								
+							
+							</effect>
+							
+						
+						</filter>
+						
+						
+						<logginginfo>
+							
+							
+							<description />
+							
+							
+							<scene />
+							
+							
+							<shottake />
+							
+							
+							<lognote />
+							
+							
+							<good />
+							
+							
+							<originalvideofilename />
+							
+							
+							<originalaudiofilename />
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut />
+							
+							
+							<lut1 />
+							
+							
+							<asc_sop />
+							
+							
+							<asc_sat />
+							
+							
+							<lut2 />
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Yellow</label2>
+							
+						
+						</labels>
+						
+					
+						<file id="file-8" />
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-13" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-moriyama-13</masterclipid>
+						
+						
+						<name>moriyama_all.wav</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>166792</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>99035</start>
+						
+						
+						<end>110803</end>
+						
+						
+						<in>167185</in>
+						
+						
+						<out>178953</out>
+						
+						
+						<pproTicksIn>1415588832000000</pproTicksIn>
+						
+						
+						<pproTicksOut>1515230841600000</pproTicksOut>
+						
+						
+						<file id="file-8">
+							
+							
+							<name>moriyama_all.wav</name>
+							
+							
+							<pathurl>file://localhost/Volumes/P-40/Dropbox/%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8/01_%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8%e7%b4%a0%e6%9d%90/022_%e6%88%90%e7%94%b0%e6%a3%ae%e5%b1%b1/022_main/moriyama_all.wav</pathurl>
+							
+							
+							<rate>
+								
+								
+								<timebase>24</timebase>
+								
+								
+								<ntsc>FALSE</ntsc>
+								
+							
+							</rate>
+							
+							
+							<duration>166792</duration>
+							
+							
+							<timecode>
+								
+								
+								<rate>
+									
+									
+									<timebase>24</timebase>
+									
+									
+									<ntsc>FALSE</ntsc>
+									
+								
+								</rate>
+								
+								
+								<string>00:00:00:00</string>
+								
+								
+								<frame>0</frame>
+								
+								
+								<displayformat>NDF</displayformat>
+								
+							
+							</timecode>
+							
+							
+							<media>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>1</sourcechannel>
+										
+										
+										<channellabel>left</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>2</sourcechannel>
+										
+										
+										<channellabel>right</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+							
+							</media>
+							
+						
+						</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<filter>
+							
+							
+							<effect>
+								
+								
+								<name>Audio Levels</name>
+								
+								
+								<effectid>audiolevels</effectid>
+								
+								
+								<effectcategory>audiolevels</effectcategory>
+								
+								
+								<effecttype>audiolevels</effecttype>
+								
+								
+								<mediatype>audio</mediatype>
+								
+								
+								<pproBypass>false</pproBypass>
+								
+								
+								<parameter authoringApp="PremierePro">
+									
+									
+									<parameterid>level</parameterid>
+									
+									
+									<name>Level</name>
+									
+									
+									<valuemin>0</valuemin>
+									
+									
+									<valuemax>3.98109</valuemax>
+									
+									
+									<value>3.16228</value>
+									
+								
+								</parameter>
+								
+							
+							</effect>
+							
+						
+						</filter>
+						
+						
+						<logginginfo>
+							
+							
+							<description />
+							
+							
+							<scene />
+							
+							
+							<shottake />
+							
+							
+							<lognote />
+							
+							
+							<good />
+							
+							
+							<originalvideofilename />
+							
+							
+							<originalaudiofilename />
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut />
+							
+							
+							<lut1 />
+							
+							
+							<asc_sop />
+							
+							
+							<asc_sat />
+							
+							
+							<lut2 />
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Forest</label2>
+							
+						
+						</labels>
+						
+					
+						<file id="file-8" />
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-14" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-moriyama-14</masterclipid>
+						
+						
+						<name>moriyama_all.wav</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>166792</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>111403</start>
+						
+						
+						<end>114053</end>
+						
+						
+						<in>148965</in>
+						
+						
+						<out>151615</out>
+						
+						
+						<pproTicksIn>1261316448000000</pproTicksIn>
+						
+						
+						<pproTicksOut>1283754528000000</pproTicksOut>
+						
+						
+						<file id="file-8">
+							
+							
+							<name>moriyama_all.wav</name>
+							
+							
+							<pathurl>file://localhost/Volumes/P-40/Dropbox/%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8/01_%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8%e7%b4%a0%e6%9d%90/022_%e6%88%90%e7%94%b0%e6%a3%ae%e5%b1%b1/022_main/moriyama_all.wav</pathurl>
+							
+							
+							<rate>
+								
+								
+								<timebase>24</timebase>
+								
+								
+								<ntsc>FALSE</ntsc>
+								
+							
+							</rate>
+							
+							
+							<duration>166792</duration>
+							
+							
+							<timecode>
+								
+								
+								<rate>
+									
+									
+									<timebase>24</timebase>
+									
+									
+									<ntsc>FALSE</ntsc>
+									
+								
+								</rate>
+								
+								
+								<string>00:00:00:00</string>
+								
+								
+								<frame>0</frame>
+								
+								
+								<displayformat>NDF</displayformat>
+								
+							
+							</timecode>
+							
+							
+							<media>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>1</sourcechannel>
+										
+										
+										<channellabel>left</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>2</sourcechannel>
+										
+										
+										<channellabel>right</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+							
+							</media>
+							
+						
+						</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<filter>
+							
+							
+							<effect>
+								
+								
+								<name>Audio Levels</name>
+								
+								
+								<effectid>audiolevels</effectid>
+								
+								
+								<effectcategory>audiolevels</effectcategory>
+								
+								
+								<effecttype>audiolevels</effecttype>
+								
+								
+								<mediatype>audio</mediatype>
+								
+								
+								<pproBypass>false</pproBypass>
+								
+								
+								<parameter authoringApp="PremierePro">
+									
+									
+									<parameterid>level</parameterid>
+									
+									
+									<name>Level</name>
+									
+									
+									<valuemin>0</valuemin>
+									
+									
+									<valuemax>3.98109</valuemax>
+									
+									
+									<value>3.16228</value>
+									
+								
+								</parameter>
+								
+							
+							</effect>
+							
+						
+						</filter>
+						
+						
+						<logginginfo>
+							
+							
+							<description />
+							
+							
+							<scene />
+							
+							
+							<shottake />
+							
+							
+							<lognote />
+							
+							
+							<good />
+							
+							
+							<originalvideofilename />
+							
+							
+							<originalaudiofilename />
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut />
+							
+							
+							<lut1 />
+							
+							
+							<asc_sop />
+							
+							
+							<asc_sat />
+							
+							
+							<lut2 />
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Caribbean</label2>
+							
+						
+						</labels>
+						
+					
+						<file id="file-8" />
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<enabled>TRUE</enabled>
+					<locked>FALSE</locked>
+					<outputchannelindex>1</outputchannelindex>
+				</track>
+				<track TL.SQTrackAudioKeyframeStyle="0" TL.SQTrackShy="0" TL.SQTrackExpandedHeight="143" TL.SQTrackExpanded="0" MZ.TrackTargeted="1" MZ.TrackName="Output 2" PannerIsInverted="true" PannerName="Pan" currentExplodedTrackIndex="0" totalExplodedTrackCount="1" premiereTrackType="Mono">
+					<clipitem id="clipitem-101" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-narita-1</masterclipid>
+						
+						
+						<name>narita_all.wav</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>173742</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>149</start>
+						
+						
+						<end>2073</end>
+						
+						
+						<in>9175</in>
+						
+						
+						<out>11099</out>
+						
+						
+						<pproTicksIn>77686560000000</pproTicksIn>
+						
+						
+						<pproTicksOut>93977452800000</pproTicksOut>
+						
+						
+						<file id="file-9">
+							
+							
+							<name>narita_all.wav</name>
+							
+							
+							<pathurl>file://localhost/Volumes/P-40/Dropbox/%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8/01_%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8%e7%b4%a0%e6%9d%90/022_%e6%88%90%e7%94%b0%e6%a3%ae%e5%b1%b1/022_main/narita_all.wav</pathurl>
+							
+							
+							<rate>
+								
+								
+								<timebase>25</timebase>
+								
+								
+								<ntsc>FALSE</ntsc>
+								
+							
+							</rate>
+							
+							
+							<duration>173742</duration>
+							
+							
+							<timecode>
+								
+								
+								<rate>
+									
+									
+									<timebase>25</timebase>
+									
+									
+									<ntsc>FALSE</ntsc>
+									
+								
+								</rate>
+								
+								
+								<string>00:00:00:00</string>
+								
+								
+								<frame>0</frame>
+								
+								
+								<displayformat>NDF</displayformat>
+								
+							
+							</timecode>
+							
+							
+							<media>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>1</sourcechannel>
+										
+										
+										<channellabel>left</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>2</sourcechannel>
+										
+										
+										<channellabel>right</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+							
+							</media>
+							
+						
+						</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>2</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<filter>
+							
+							
+							<effect>
+								
+								
+								<name>Audio Levels</name>
+								
+								
+								<effectid>audiolevels</effectid>
+								
+								
+								<effectcategory>audiolevels</effectcategory>
+								
+								
+								<effecttype>audiolevels</effecttype>
+								
+								
+								<mediatype>audio</mediatype>
+								
+								
+								<pproBypass>false</pproBypass>
+								
+								
+								<parameter authoringApp="PremierePro">
+									
+									
+									<parameterid>level</parameterid>
+									
+									
+									<name>Level</name>
+									
+									
+									<valuemin>0</valuemin>
+									
+									
+									<valuemax>3.98109</valuemax>
+									
+									
+									<value>3.16228</value>
+									
+								
+								</parameter>
+								
+							
+							</effect>
+							
+						
+						</filter>
+						
+						
+						<logginginfo>
+							
+							
+							<description />
+							
+							
+							<scene />
+							
+							
+							<shottake />
+							
+							
+							<lognote />
+							
+							
+							<good />
+							
+							
+							<originalvideofilename />
+							
+							
+							<originalaudiofilename />
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut />
+							
+							
+							<lut1 />
+							
+							
+							<asc_sop />
+							
+							
+							<asc_sat />
+							
+							
+							<lut2 />
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Violet</label2>
+							
+						
+						</labels>
+						
+					
+						<file id="file-9">
+							<name>narita_all.wav</name>
+							<pathurl>file://localhost/Volumes/P-40/Dropbox/%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8/01_%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8%e7%b4%a0%e6%9d%90/022_%e6%88%90%e7%94%b0%e6%a3%ae%e5%b1%b1/022_main/narita_all.wav</pathurl>
+							<rate>
+								
+								
+								<timebase>25</timebase>
+								
+								
+								<ntsc>FALSE</ntsc>
+								
+							
+							</rate>
+							<duration>173742</duration>
+							<timecode>
+								
+								
+								<rate>
+									
+									
+									<timebase>25</timebase>
+									
+									
+									<ntsc>FALSE</ntsc>
+									
+								
+								</rate>
+								
+								
+								<string>00:00:00:00</string>
+								
+								
+								<frame>0</frame>
+								
+								
+								<displayformat>NDF</displayformat>
+								
+							
+							</timecode>
+							<media>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>1</sourcechannel>
+										
+										
+										<channellabel>left</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>2</sourcechannel>
+										
+										
+										<channellabel>right</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+							
+							</media>
+						</file>
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>2</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-102" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-narita-2</masterclipid>
+						
+						
+						<name>narita_all.wav</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>173742</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>2673</start>
+						
+						
+						<end>6672</end>
+						
+						
+						<in>45307</in>
+						
+						
+						<out>49306</out>
+						
+						
+						<pproTicksIn>383623430400000</pproTicksIn>
+						
+						
+						<pproTicksOut>417483763200000</pproTicksOut>
+						
+						
+						<file id="file-9">
+							
+							
+							<name>narita_all.wav</name>
+							
+							
+							<pathurl>file://localhost/Volumes/P-40/Dropbox/%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8/01_%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8%e7%b4%a0%e6%9d%90/022_%e6%88%90%e7%94%b0%e6%a3%ae%e5%b1%b1/022_main/narita_all.wav</pathurl>
+							
+							
+							<rate>
+								
+								
+								<timebase>25</timebase>
+								
+								
+								<ntsc>FALSE</ntsc>
+								
+							
+							</rate>
+							
+							
+							<duration>173742</duration>
+							
+							
+							<timecode>
+								
+								
+								<rate>
+									
+									
+									<timebase>25</timebase>
+									
+									
+									<ntsc>FALSE</ntsc>
+									
+								
+								</rate>
+								
+								
+								<string>00:00:00:00</string>
+								
+								
+								<frame>0</frame>
+								
+								
+								<displayformat>NDF</displayformat>
+								
+							
+							</timecode>
+							
+							
+							<media>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>1</sourcechannel>
+										
+										
+										<channellabel>left</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>2</sourcechannel>
+										
+										
+										<channellabel>right</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+							
+							</media>
+							
+						
+						</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>2</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<filter>
+							
+							
+							<effect>
+								
+								
+								<name>Audio Levels</name>
+								
+								
+								<effectid>audiolevels</effectid>
+								
+								
+								<effectcategory>audiolevels</effectcategory>
+								
+								
+								<effecttype>audiolevels</effecttype>
+								
+								
+								<mediatype>audio</mediatype>
+								
+								
+								<pproBypass>false</pproBypass>
+								
+								
+								<parameter authoringApp="PremierePro">
+									
+									
+									<parameterid>level</parameterid>
+									
+									
+									<name>Level</name>
+									
+									
+									<valuemin>0</valuemin>
+									
+									
+									<valuemax>3.98109</valuemax>
+									
+									
+									<value>3.16228</value>
+									
+								
+								</parameter>
+								
+							
+							</effect>
+							
+						
+						</filter>
+						
+						
+						<logginginfo>
+							
+							
+							<description />
+							
+							
+							<scene />
+							
+							
+							<shottake />
+							
+							
+							<lognote />
+							
+							
+							<good />
+							
+							
+							<originalvideofilename />
+							
+							
+							<originalaudiofilename />
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut />
+							
+							
+							<lut1 />
+							
+							
+							<asc_sop />
+							
+							
+							<asc_sat />
+							
+							
+							<lut2 />
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Caribbean</label2>
+							
+						
+						</labels>
+						
+					
+						<file id="file-9" />
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>2</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-103" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-narita-3</masterclipid>
+						
+						
+						<name>narita_all.wav</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>173742</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>7272</start>
+						
+						
+						<end>9238</end>
+						
+						
+						<in>12543</in>
+						
+						
+						<out>14509</out>
+						
+						
+						<pproTicksIn>106204089600000</pproTicksIn>
+						
+						
+						<pproTicksOut>122850604800000</pproTicksOut>
+						
+						
+						<file id="file-9">
+							
+							
+							<name>narita_all.wav</name>
+							
+							
+							<pathurl>file://localhost/Volumes/P-40/Dropbox/%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8/01_%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8%e7%b4%a0%e6%9d%90/022_%e6%88%90%e7%94%b0%e6%a3%ae%e5%b1%b1/022_main/narita_all.wav</pathurl>
+							
+							
+							<rate>
+								
+								
+								<timebase>25</timebase>
+								
+								
+								<ntsc>FALSE</ntsc>
+								
+							
+							</rate>
+							
+							
+							<duration>173742</duration>
+							
+							
+							<timecode>
+								
+								
+								<rate>
+									
+									
+									<timebase>25</timebase>
+									
+									
+									<ntsc>FALSE</ntsc>
+									
+								
+								</rate>
+								
+								
+								<string>00:00:00:00</string>
+								
+								
+								<frame>0</frame>
+								
+								
+								<displayformat>NDF</displayformat>
+								
+							
+							</timecode>
+							
+							
+							<media>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>1</sourcechannel>
+										
+										
+										<channellabel>left</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>2</sourcechannel>
+										
+										
+										<channellabel>right</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+							
+							</media>
+							
+						
+						</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>2</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<filter>
+							
+							
+							<effect>
+								
+								
+								<name>Audio Levels</name>
+								
+								
+								<effectid>audiolevels</effectid>
+								
+								
+								<effectcategory>audiolevels</effectcategory>
+								
+								
+								<effecttype>audiolevels</effecttype>
+								
+								
+								<mediatype>audio</mediatype>
+								
+								
+								<pproBypass>false</pproBypass>
+								
+								
+								<parameter authoringApp="PremierePro">
+									
+									
+									<parameterid>level</parameterid>
+									
+									
+									<name>Level</name>
+									
+									
+									<valuemin>0</valuemin>
+									
+									
+									<valuemax>3.98109</valuemax>
+									
+									
+									<value>3.16228</value>
+									
+								
+								</parameter>
+								
+							
+							</effect>
+							
+						
+						</filter>
+						
+						
+						<logginginfo>
+							
+							
+							<description />
+							
+							
+							<scene />
+							
+							
+							<shottake />
+							
+							
+							<lognote />
+							
+							
+							<good />
+							
+							
+							<originalvideofilename />
+							
+							
+							<originalaudiofilename />
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut />
+							
+							
+							<lut1 />
+							
+							
+							<asc_sop />
+							
+							
+							<asc_sat />
+							
+							
+							<lut2 />
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Rose</label2>
+							
+						
+						</labels>
+						
+					
+						<file id="file-9" />
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>2</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-104" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-narita-4</masterclipid>
+						
+						
+						<name>narita_all.wav</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>173742</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>9536</start>
+						
+						
+						<end>19984</end>
+						
+						
+						<in>19771</in>
+						
+						
+						<out>30219</out>
+						
+						
+						<pproTicksIn>167405011200000</pproTicksIn>
+						
+						
+						<pproTicksOut>255870316800000</pproTicksOut>
+						
+						
+						<file id="file-9">
+							
+							
+							<name>narita_all.wav</name>
+							
+							
+							<pathurl>file://localhost/Volumes/P-40/Dropbox/%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8/01_%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8%e7%b4%a0%e6%9d%90/022_%e6%88%90%e7%94%b0%e6%a3%ae%e5%b1%b1/022_main/narita_all.wav</pathurl>
+							
+							
+							<rate>
+								
+								
+								<timebase>25</timebase>
+								
+								
+								<ntsc>FALSE</ntsc>
+								
+							
+							</rate>
+							
+							
+							<duration>173742</duration>
+							
+							
+							<timecode>
+								
+								
+								<rate>
+									
+									
+									<timebase>25</timebase>
+									
+									
+									<ntsc>FALSE</ntsc>
+									
+								
+								</rate>
+								
+								
+								<string>00:00:00:00</string>
+								
+								
+								<frame>0</frame>
+								
+								
+								<displayformat>NDF</displayformat>
+								
+							
+							</timecode>
+							
+							
+							<media>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>1</sourcechannel>
+										
+										
+										<channellabel>left</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>2</sourcechannel>
+										
+										
+										<channellabel>right</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+							
+							</media>
+							
+						
+						</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>2</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<filter>
+							
+							
+							<effect>
+								
+								
+								<name>Audio Levels</name>
+								
+								
+								<effectid>audiolevels</effectid>
+								
+								
+								<effectcategory>audiolevels</effectcategory>
+								
+								
+								<effecttype>audiolevels</effecttype>
+								
+								
+								<mediatype>audio</mediatype>
+								
+								
+								<pproBypass>false</pproBypass>
+								
+								
+								<parameter authoringApp="PremierePro">
+									
+									
+									<parameterid>level</parameterid>
+									
+									
+									<name>Level</name>
+									
+									
+									<valuemin>0</valuemin>
+									
+									
+									<valuemax>3.98109</valuemax>
+									
+									
+									<value>3.16228</value>
+									
+								
+								</parameter>
+								
+							
+							</effect>
+							
+						
+						</filter>
+						
+						
+						<logginginfo>
+							
+							
+							<description />
+							
+							
+							<scene />
+							
+							
+							<shottake />
+							
+							
+							<lognote />
+							
+							
+							<good />
+							
+							
+							<originalvideofilename />
+							
+							
+							<originalaudiofilename />
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut />
+							
+							
+							<lut1 />
+							
+							
+							<asc_sop />
+							
+							
+							<asc_sat />
+							
+							
+							<lut2 />
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Yellow</label2>
+							
+						
+						</labels>
+						
+					
+						<file id="file-9" />
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>2</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-105" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-narita-5</masterclipid>
+						
+						
+						<name>narita_all.wav</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>173742</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>20584</start>
+						
+						
+						<end>32209</end>
+						
+						
+						<in>56752</in>
+						
+						
+						<out>68377</out>
+						
+						
+						<pproTicksIn>480530534400000</pproTicksIn>
+						
+						
+						<pproTicksOut>578961734400000</pproTicksOut>
+						
+						
+						<file id="file-9">
+							
+							
+							<name>narita_all.wav</name>
+							
+							
+							<pathurl>file://localhost/Volumes/P-40/Dropbox/%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8/01_%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8%e7%b4%a0%e6%9d%90/022_%e6%88%90%e7%94%b0%e6%a3%ae%e5%b1%b1/022_main/narita_all.wav</pathurl>
+							
+							
+							<rate>
+								
+								
+								<timebase>25</timebase>
+								
+								
+								<ntsc>FALSE</ntsc>
+								
+							
+							</rate>
+							
+							
+							<duration>173742</duration>
+							
+							
+							<timecode>
+								
+								
+								<rate>
+									
+									
+									<timebase>25</timebase>
+									
+									
+									<ntsc>FALSE</ntsc>
+									
+								
+								</rate>
+								
+								
+								<string>00:00:00:00</string>
+								
+								
+								<frame>0</frame>
+								
+								
+								<displayformat>NDF</displayformat>
+								
+							
+							</timecode>
+							
+							
+							<media>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>1</sourcechannel>
+										
+										
+										<channellabel>left</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>2</sourcechannel>
+										
+										
+										<channellabel>right</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+							
+							</media>
+							
+						
+						</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>2</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<filter>
+							
+							
+							<effect>
+								
+								
+								<name>Audio Levels</name>
+								
+								
+								<effectid>audiolevels</effectid>
+								
+								
+								<effectcategory>audiolevels</effectcategory>
+								
+								
+								<effecttype>audiolevels</effecttype>
+								
+								
+								<mediatype>audio</mediatype>
+								
+								
+								<pproBypass>false</pproBypass>
+								
+								
+								<parameter authoringApp="PremierePro">
+									
+									
+									<parameterid>level</parameterid>
+									
+									
+									<name>Level</name>
+									
+									
+									<valuemin>0</valuemin>
+									
+									
+									<valuemax>3.98109</valuemax>
+									
+									
+									<value>3.16228</value>
+									
+								
+								</parameter>
+								
+							
+							</effect>
+							
+						
+						</filter>
+						
+						
+						<logginginfo>
+							
+							
+							<description />
+							
+							
+							<scene />
+							
+							
+							<shottake />
+							
+							
+							<lognote />
+							
+							
+							<good />
+							
+							
+							<originalvideofilename />
+							
+							
+							<originalaudiofilename />
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut />
+							
+							
+							<lut1 />
+							
+							
+							<asc_sop />
+							
+							
+							<asc_sat />
+							
+							
+							<lut2 />
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Forest</label2>
+							
+						
+						</labels>
+						
+					
+						<file id="file-9" />
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>2</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-106" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-narita-6</masterclipid>
+						
+						
+						<name>narita_all.wav</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>173742</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>32809</start>
+						
+						
+						<end>46806</end>
+						
+						
+						<in>69380</in>
+						
+						
+						<out>83377</out>
+						
+						
+						<pproTicksIn>587454336000000</pproTicksIn>
+						
+						
+						<pproTicksOut>705969734400000</pproTicksOut>
+						
+						
+						<file id="file-9">
+							
+							
+							<name>narita_all.wav</name>
+							
+							
+							<pathurl>file://localhost/Volumes/P-40/Dropbox/%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8/01_%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8%e7%b4%a0%e6%9d%90/022_%e6%88%90%e7%94%b0%e6%a3%ae%e5%b1%b1/022_main/narita_all.wav</pathurl>
+							
+							
+							<rate>
+								
+								
+								<timebase>25</timebase>
+								
+								
+								<ntsc>FALSE</ntsc>
+								
+							
+							</rate>
+							
+							
+							<duration>173742</duration>
+							
+							
+							<timecode>
+								
+								
+								<rate>
+									
+									
+									<timebase>25</timebase>
+									
+									
+									<ntsc>FALSE</ntsc>
+									
+								
+								</rate>
+								
+								
+								<string>00:00:00:00</string>
+								
+								
+								<frame>0</frame>
+								
+								
+								<displayformat>NDF</displayformat>
+								
+							
+							</timecode>
+							
+							
+							<media>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>1</sourcechannel>
+										
+										
+										<channellabel>left</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>2</sourcechannel>
+										
+										
+										<channellabel>right</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+							
+							</media>
+							
+						
+						</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>2</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<filter>
+							
+							
+							<effect>
+								
+								
+								<name>Audio Levels</name>
+								
+								
+								<effectid>audiolevels</effectid>
+								
+								
+								<effectcategory>audiolevels</effectcategory>
+								
+								
+								<effecttype>audiolevels</effecttype>
+								
+								
+								<mediatype>audio</mediatype>
+								
+								
+								<pproBypass>false</pproBypass>
+								
+								
+								<parameter authoringApp="PremierePro">
+									
+									
+									<parameterid>level</parameterid>
+									
+									
+									<name>Level</name>
+									
+									
+									<valuemin>0</valuemin>
+									
+									
+									<valuemax>3.98109</valuemax>
+									
+									
+									<value>3.16228</value>
+									
+								
+								</parameter>
+								
+							
+							</effect>
+							
+						
+						</filter>
+						
+						
+						<logginginfo>
+							
+							
+							<description />
+							
+							
+							<scene />
+							
+							
+							<shottake />
+							
+							
+							<lognote />
+							
+							
+							<good />
+							
+							
+							<originalvideofilename />
+							
+							
+							<originalaudiofilename />
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut />
+							
+							
+							<lut1 />
+							
+							
+							<asc_sop />
+							
+							
+							<asc_sat />
+							
+							
+							<lut2 />
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Blue</label2>
+							
+						
+						</labels>
+						
+					
+						<file id="file-9" />
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>2</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-107" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-narita-7</masterclipid>
+						
+						
+						<name>narita_all.wav</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>173742</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>47406</start>
+						
+						
+						<end>48956</end>
+						
+						
+						<in>50433</in>
+						
+						
+						<out>51983</out>
+						
+						
+						<pproTicksIn>427026297600000</pproTicksIn>
+						
+						
+						<pproTicksOut>440150457600000</pproTicksOut>
+						
+						
+						<file id="file-9">
+							
+							
+							<name>narita_all.wav</name>
+							
+							
+							<pathurl>file://localhost/Volumes/P-40/Dropbox/%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8/01_%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8%e7%b4%a0%e6%9d%90/022_%e6%88%90%e7%94%b0%e6%a3%ae%e5%b1%b1/022_main/narita_all.wav</pathurl>
+							
+							
+							<rate>
+								
+								
+								<timebase>25</timebase>
+								
+								
+								<ntsc>FALSE</ntsc>
+								
+							
+							</rate>
+							
+							
+							<duration>173742</duration>
+							
+							
+							<timecode>
+								
+								
+								<rate>
+									
+									
+									<timebase>25</timebase>
+									
+									
+									<ntsc>FALSE</ntsc>
+									
+								
+								</rate>
+								
+								
+								<string>00:00:00:00</string>
+								
+								
+								<frame>0</frame>
+								
+								
+								<displayformat>NDF</displayformat>
+								
+							
+							</timecode>
+							
+							
+							<media>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>1</sourcechannel>
+										
+										
+										<channellabel>left</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>2</sourcechannel>
+										
+										
+										<channellabel>right</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+							
+							</media>
+							
+						
+						</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>2</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<filter>
+							
+							
+							<effect>
+								
+								
+								<name>Audio Levels</name>
+								
+								
+								<effectid>audiolevels</effectid>
+								
+								
+								<effectcategory>audiolevels</effectcategory>
+								
+								
+								<effecttype>audiolevels</effecttype>
+								
+								
+								<mediatype>audio</mediatype>
+								
+								
+								<pproBypass>false</pproBypass>
+								
+								
+								<parameter authoringApp="PremierePro">
+									
+									
+									<parameterid>level</parameterid>
+									
+									
+									<name>Level</name>
+									
+									
+									<valuemin>0</valuemin>
+									
+									
+									<valuemax>3.98109</valuemax>
+									
+									
+									<value>3.16228</value>
+									
+								
+								</parameter>
+								
+							
+							</effect>
+							
+						
+						</filter>
+						
+						
+						<logginginfo>
+							
+							
+							<description />
+							
+							
+							<scene />
+							
+							
+							<shottake />
+							
+							
+							<lognote />
+							
+							
+							<good />
+							
+							
+							<originalvideofilename />
+							
+							
+							<originalaudiofilename />
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut />
+							
+							
+							<lut1 />
+							
+							
+							<asc_sop />
+							
+							
+							<asc_sat />
+							
+							
+							<lut2 />
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Tan</label2>
+							
+						
+						</labels>
+						
+					
+						<file id="file-9" />
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>2</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-108" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-narita-8</masterclipid>
+						
+						
+						<name>narita_all.wav</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>173742</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>49556</start>
+						
+						
+						<end>62417</end>
+						
+						
+						<in>83379</in>
+						
+						
+						<out>96240</out>
+						
+						
+						<pproTicksIn>705986668800000</pproTicksIn>
+						
+						
+						<pproTicksOut>814883328000000</pproTicksOut>
+						
+						
+						<file id="file-9">
+							
+							
+							<name>narita_all.wav</name>
+							
+							
+							<pathurl>file://localhost/Volumes/P-40/Dropbox/%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8/01_%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8%e7%b4%a0%e6%9d%90/022_%e6%88%90%e7%94%b0%e6%a3%ae%e5%b1%b1/022_main/narita_all.wav</pathurl>
+							
+							
+							<rate>
+								
+								
+								<timebase>25</timebase>
+								
+								
+								<ntsc>FALSE</ntsc>
+								
+							
+							</rate>
+							
+							
+							<duration>173742</duration>
+							
+							
+							<timecode>
+								
+								
+								<rate>
+									
+									
+									<timebase>25</timebase>
+									
+									
+									<ntsc>FALSE</ntsc>
+									
+								
+								</rate>
+								
+								
+								<string>00:00:00:00</string>
+								
+								
+								<frame>0</frame>
+								
+								
+								<displayformat>NDF</displayformat>
+								
+							
+							</timecode>
+							
+							
+							<media>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>1</sourcechannel>
+										
+										
+										<channellabel>left</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>2</sourcechannel>
+										
+										
+										<channellabel>right</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+							
+							</media>
+							
+						
+						</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>2</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<filter>
+							
+							
+							<effect>
+								
+								
+								<name>Audio Levels</name>
+								
+								
+								<effectid>audiolevels</effectid>
+								
+								
+								<effectcategory>audiolevels</effectcategory>
+								
+								
+								<effecttype>audiolevels</effecttype>
+								
+								
+								<mediatype>audio</mediatype>
+								
+								
+								<pproBypass>false</pproBypass>
+								
+								
+								<parameter authoringApp="PremierePro">
+									
+									
+									<parameterid>level</parameterid>
+									
+									
+									<name>Level</name>
+									
+									
+									<valuemin>0</valuemin>
+									
+									
+									<valuemax>3.98109</valuemax>
+									
+									
+									<value>3.16228</value>
+									
+								
+								</parameter>
+								
+							
+							</effect>
+							
+						
+						</filter>
+						
+						
+						<logginginfo>
+							
+							
+							<description />
+							
+							
+							<scene />
+							
+							
+							<shottake />
+							
+							
+							<lognote />
+							
+							
+							<good />
+							
+							
+							<originalvideofilename />
+							
+							
+							<originalaudiofilename />
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut />
+							
+							
+							<lut1 />
+							
+							
+							<asc_sop />
+							
+							
+							<asc_sat />
+							
+							
+							<lut2 />
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Teal</label2>
+							
+						
+						</labels>
+						
+					
+						<file id="file-9" />
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>2</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-109" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-narita-9</masterclipid>
+						
+						
+						<name>narita_all.wav</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>173742</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>63017</start>
+						
+						
+						<end>74344</end>
+						
+						
+						<in>96243</in>
+						
+						
+						<out>107570</out>
+						
+						
+						<pproTicksIn>814908729600000</pproTicksIn>
+						
+						
+						<pproTicksOut>910816704000000</pproTicksOut>
+						
+						
+						<file id="file-9">
+							
+							
+							<name>narita_all.wav</name>
+							
+							
+							<pathurl>file://localhost/Volumes/P-40/Dropbox/%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8/01_%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8%e7%b4%a0%e6%9d%90/022_%e6%88%90%e7%94%b0%e6%a3%ae%e5%b1%b1/022_main/narita_all.wav</pathurl>
+							
+							
+							<rate>
+								
+								
+								<timebase>25</timebase>
+								
+								
+								<ntsc>FALSE</ntsc>
+								
+							
+							</rate>
+							
+							
+							<duration>173742</duration>
+							
+							
+							<timecode>
+								
+								
+								<rate>
+									
+									
+									<timebase>25</timebase>
+									
+									
+									<ntsc>FALSE</ntsc>
+									
+								
+								</rate>
+								
+								
+								<string>00:00:00:00</string>
+								
+								
+								<frame>0</frame>
+								
+								
+								<displayformat>NDF</displayformat>
+								
+							
+							</timecode>
+							
+							
+							<media>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>1</sourcechannel>
+										
+										
+										<channellabel>left</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>2</sourcechannel>
+										
+										
+										<channellabel>right</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+							
+							</media>
+							
+						
+						</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>2</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<filter>
+							
+							
+							<effect>
+								
+								
+								<name>Audio Levels</name>
+								
+								
+								<effectid>audiolevels</effectid>
+								
+								
+								<effectcategory>audiolevels</effectcategory>
+								
+								
+								<effecttype>audiolevels</effecttype>
+								
+								
+								<mediatype>audio</mediatype>
+								
+								
+								<pproBypass>false</pproBypass>
+								
+								
+								<parameter authoringApp="PremierePro">
+									
+									
+									<parameterid>level</parameterid>
+									
+									
+									<name>Level</name>
+									
+									
+									<valuemin>0</valuemin>
+									
+									
+									<valuemax>3.98109</valuemax>
+									
+									
+									<value>3.16228</value>
+									
+								
+								</parameter>
+								
+							
+							</effect>
+							
+						
+						</filter>
+						
+						
+						<logginginfo>
+							
+							
+							<description />
+							
+							
+							<scene />
+							
+							
+							<shottake />
+							
+							
+							<lognote />
+							
+							
+							<good />
+							
+							
+							<originalvideofilename />
+							
+							
+							<originalaudiofilename />
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut />
+							
+							
+							<lut1 />
+							
+							
+							<asc_sop />
+							
+							
+							<asc_sat />
+							
+							
+							<lut2 />
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Brown</label2>
+							
+						
+						</labels>
+						
+					
+						<file id="file-9" />
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>2</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-110" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-narita-10</masterclipid>
+						
+						
+						<name>narita_all.wav</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>173742</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>74944</start>
+						
+						
+						<end>80958</end>
+						
+						
+						<in>107573</in>
+						
+						
+						<out>113587</out>
+						
+						
+						<pproTicksIn>910842105600000</pproTicksIn>
+						
+						
+						<pproTicksOut>961763846400000</pproTicksOut>
+						
+						
+						<file id="file-9">
+							
+							
+							<name>narita_all.wav</name>
+							
+							
+							<pathurl>file://localhost/Volumes/P-40/Dropbox/%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8/01_%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8%e7%b4%a0%e6%9d%90/022_%e6%88%90%e7%94%b0%e6%a3%ae%e5%b1%b1/022_main/narita_all.wav</pathurl>
+							
+							
+							<rate>
+								
+								
+								<timebase>25</timebase>
+								
+								
+								<ntsc>FALSE</ntsc>
+								
+							
+							</rate>
+							
+							
+							<duration>173742</duration>
+							
+							
+							<timecode>
+								
+								
+								<rate>
+									
+									
+									<timebase>25</timebase>
+									
+									
+									<ntsc>FALSE</ntsc>
+									
+								
+								</rate>
+								
+								
+								<string>00:00:00:00</string>
+								
+								
+								<frame>0</frame>
+								
+								
+								<displayformat>NDF</displayformat>
+								
+							
+							</timecode>
+							
+							
+							<media>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>1</sourcechannel>
+										
+										
+										<channellabel>left</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>2</sourcechannel>
+										
+										
+										<channellabel>right</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+							
+							</media>
+							
+						
+						</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>2</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<filter>
+							
+							
+							<effect>
+								
+								
+								<name>Audio Levels</name>
+								
+								
+								<effectid>audiolevels</effectid>
+								
+								
+								<effectcategory>audiolevels</effectcategory>
+								
+								
+								<effecttype>audiolevels</effecttype>
+								
+								
+								<mediatype>audio</mediatype>
+								
+								
+								<pproBypass>false</pproBypass>
+								
+								
+								<parameter authoringApp="PremierePro">
+									
+									
+									<parameterid>level</parameterid>
+									
+									
+									<name>Level</name>
+									
+									
+									<valuemin>0</valuemin>
+									
+									
+									<valuemax>3.98109</valuemax>
+									
+									
+									<value>3.16228</value>
+									
+								
+								</parameter>
+								
+							
+							</effect>
+							
+						
+						</filter>
+						
+						
+						<logginginfo>
+							
+							
+							<description />
+							
+							
+							<scene />
+							
+							
+							<shottake />
+							
+							
+							<lognote />
+							
+							
+							<good />
+							
+							
+							<originalvideofilename />
+							
+							
+							<originalaudiofilename />
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut />
+							
+							
+							<lut1 />
+							
+							
+							<asc_sop />
+							
+							
+							<asc_sat />
+							
+							
+							<lut2 />
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Iris</label2>
+							
+						
+						</labels>
+						
+					
+						<file id="file-9" />
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>2</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-111" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-narita-11</masterclipid>
+						
+						
+						<name>narita_all.wav</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>173742</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>81558</start>
+						
+						
+						<end>91225</end>
+						
+						
+						<in>118281</in>
+						
+						
+						<out>127948</out>
+						
+						
+						<pproTicksIn>1001508883200000</pproTicksIn>
+						
+						
+						<pproTicksOut>1083361305600000</pproTicksOut>
+						
+						
+						<file id="file-9">
+							
+							
+							<name>narita_all.wav</name>
+							
+							
+							<pathurl>file://localhost/Volumes/P-40/Dropbox/%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8/01_%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8%e7%b4%a0%e6%9d%90/022_%e6%88%90%e7%94%b0%e6%a3%ae%e5%b1%b1/022_main/narita_all.wav</pathurl>
+							
+							
+							<rate>
+								
+								
+								<timebase>25</timebase>
+								
+								
+								<ntsc>FALSE</ntsc>
+								
+							
+							</rate>
+							
+							
+							<duration>173742</duration>
+							
+							
+							<timecode>
+								
+								
+								<rate>
+									
+									
+									<timebase>25</timebase>
+									
+									
+									<ntsc>FALSE</ntsc>
+									
+								
+								</rate>
+								
+								
+								<string>00:00:00:00</string>
+								
+								
+								<frame>0</frame>
+								
+								
+								<displayformat>NDF</displayformat>
+								
+							
+							</timecode>
+							
+							
+							<media>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>1</sourcechannel>
+										
+										
+										<channellabel>left</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>2</sourcechannel>
+										
+										
+										<channellabel>right</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+							
+							</media>
+							
+						
+						</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>2</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<filter>
+							
+							
+							<effect>
+								
+								
+								<name>Audio Levels</name>
+								
+								
+								<effectid>audiolevels</effectid>
+								
+								
+								<effectcategory>audiolevels</effectcategory>
+								
+								
+								<effecttype>audiolevels</effecttype>
+								
+								
+								<mediatype>audio</mediatype>
+								
+								
+								<pproBypass>false</pproBypass>
+								
+								
+								<parameter authoringApp="PremierePro">
+									
+									
+									<parameterid>level</parameterid>
+									
+									
+									<name>Level</name>
+									
+									
+									<valuemin>0</valuemin>
+									
+									
+									<valuemax>3.98109</valuemax>
+									
+									
+									<value>3.16228</value>
+									
+								
+								</parameter>
+								
+							
+							</effect>
+							
+						
+						</filter>
+						
+						
+						<logginginfo>
+							
+							
+							<description />
+							
+							
+							<scene />
+							
+							
+							<shottake />
+							
+							
+							<lognote />
+							
+							
+							<good />
+							
+							
+							<originalvideofilename />
+							
+							
+							<originalaudiofilename />
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut />
+							
+							
+							<lut1 />
+							
+							
+							<asc_sop />
+							
+							
+							<asc_sat />
+							
+							
+							<lut2 />
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Violet</label2>
+							
+						
+						</labels>
+						
+					
+						<file id="file-9" />
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>2</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-112" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-narita-12</masterclipid>
+						
+						
+						<name>narita_all.wav</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>173742</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>91825</start>
+						
+						
+						<end>98435</end>
+						
+						
+						<in>131029</in>
+						
+						
+						<out>137639</out>
+						
+						
+						<pproTicksIn>1109448748800000</pproTicksIn>
+						
+						
+						<pproTicksOut>1165416940800000</pproTicksOut>
+						
+						
+						<file id="file-9">
+							
+							
+							<name>narita_all.wav</name>
+							
+							
+							<pathurl>file://localhost/Volumes/P-40/Dropbox/%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8/01_%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8%e7%b4%a0%e6%9d%90/022_%e6%88%90%e7%94%b0%e6%a3%ae%e5%b1%b1/022_main/narita_all.wav</pathurl>
+							
+							
+							<rate>
+								
+								
+								<timebase>25</timebase>
+								
+								
+								<ntsc>FALSE</ntsc>
+								
+							
+							</rate>
+							
+							
+							<duration>173742</duration>
+							
+							
+							<timecode>
+								
+								
+								<rate>
+									
+									
+									<timebase>25</timebase>
+									
+									
+									<ntsc>FALSE</ntsc>
+									
+								
+								</rate>
+								
+								
+								<string>00:00:00:00</string>
+								
+								
+								<frame>0</frame>
+								
+								
+								<displayformat>NDF</displayformat>
+								
+							
+							</timecode>
+							
+							
+							<media>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>1</sourcechannel>
+										
+										
+										<channellabel>left</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>2</sourcechannel>
+										
+										
+										<channellabel>right</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+							
+							</media>
+							
+						
+						</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>2</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<filter>
+							
+							
+							<effect>
+								
+								
+								<name>Audio Levels</name>
+								
+								
+								<effectid>audiolevels</effectid>
+								
+								
+								<effectcategory>audiolevels</effectcategory>
+								
+								
+								<effecttype>audiolevels</effecttype>
+								
+								
+								<mediatype>audio</mediatype>
+								
+								
+								<pproBypass>false</pproBypass>
+								
+								
+								<parameter authoringApp="PremierePro">
+									
+									
+									<parameterid>level</parameterid>
+									
+									
+									<name>Level</name>
+									
+									
+									<valuemin>0</valuemin>
+									
+									
+									<valuemax>3.98109</valuemax>
+									
+									
+									<value>3.16228</value>
+									
+								
+								</parameter>
+								
+							
+							</effect>
+							
+						
+						</filter>
+						
+						
+						<logginginfo>
+							
+							
+							<description />
+							
+							
+							<scene />
+							
+							
+							<shottake />
+							
+							
+							<lognote />
+							
+							
+							<good />
+							
+							
+							<originalvideofilename />
+							
+							
+							<originalaudiofilename />
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut />
+							
+							
+							<lut1 />
+							
+							
+							<asc_sop />
+							
+							
+							<asc_sat />
+							
+							
+							<lut2 />
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Yellow</label2>
+							
+						
+						</labels>
+						
+					
+						<file id="file-9" />
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>2</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-113" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-narita-13</masterclipid>
+						
+						
+						<name>narita_all.wav</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>173742</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>99035</start>
+						
+						
+						<end>110803</end>
+						
+						
+						<in>167185</in>
+						
+						
+						<out>178953</out>
+						
+						
+						<pproTicksIn>1415588832000000</pproTicksIn>
+						
+						
+						<pproTicksOut>1515230841600000</pproTicksOut>
+						
+						
+						<file id="file-9">
+							
+							
+							<name>narita_all.wav</name>
+							
+							
+							<pathurl>file://localhost/Volumes/P-40/Dropbox/%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8/01_%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8%e7%b4%a0%e6%9d%90/022_%e6%88%90%e7%94%b0%e6%a3%ae%e5%b1%b1/022_main/narita_all.wav</pathurl>
+							
+							
+							<rate>
+								
+								
+								<timebase>25</timebase>
+								
+								
+								<ntsc>FALSE</ntsc>
+								
+							
+							</rate>
+							
+							
+							<duration>173742</duration>
+							
+							
+							<timecode>
+								
+								
+								<rate>
+									
+									
+									<timebase>25</timebase>
+									
+									
+									<ntsc>FALSE</ntsc>
+									
+								
+								</rate>
+								
+								
+								<string>00:00:00:00</string>
+								
+								
+								<frame>0</frame>
+								
+								
+								<displayformat>NDF</displayformat>
+								
+							
+							</timecode>
+							
+							
+							<media>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>1</sourcechannel>
+										
+										
+										<channellabel>left</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>2</sourcechannel>
+										
+										
+										<channellabel>right</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+							
+							</media>
+							
+						
+						</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>2</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<filter>
+							
+							
+							<effect>
+								
+								
+								<name>Audio Levels</name>
+								
+								
+								<effectid>audiolevels</effectid>
+								
+								
+								<effectcategory>audiolevels</effectcategory>
+								
+								
+								<effecttype>audiolevels</effecttype>
+								
+								
+								<mediatype>audio</mediatype>
+								
+								
+								<pproBypass>false</pproBypass>
+								
+								
+								<parameter authoringApp="PremierePro">
+									
+									
+									<parameterid>level</parameterid>
+									
+									
+									<name>Level</name>
+									
+									
+									<valuemin>0</valuemin>
+									
+									
+									<valuemax>3.98109</valuemax>
+									
+									
+									<value>3.16228</value>
+									
+								
+								</parameter>
+								
+							
+							</effect>
+							
+						
+						</filter>
+						
+						
+						<logginginfo>
+							
+							
+							<description />
+							
+							
+							<scene />
+							
+							
+							<shottake />
+							
+							
+							<lognote />
+							
+							
+							<good />
+							
+							
+							<originalvideofilename />
+							
+							
+							<originalaudiofilename />
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut />
+							
+							
+							<lut1 />
+							
+							
+							<asc_sop />
+							
+							
+							<asc_sat />
+							
+							
+							<lut2 />
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Forest</label2>
+							
+						
+						</labels>
+						
+					
+						<file id="file-9" />
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>2</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-114" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-narita-14</masterclipid>
+						
+						
+						<name>narita_all.wav</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>173742</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>111403</start>
+						
+						
+						<end>114053</end>
+						
+						
+						<in>148965</in>
+						
+						
+						<out>151615</out>
+						
+						
+						<pproTicksIn>1261316448000000</pproTicksIn>
+						
+						
+						<pproTicksOut>1283754528000000</pproTicksOut>
+						
+						
+						<file id="file-9">
+							
+							
+							<name>narita_all.wav</name>
+							
+							
+							<pathurl>file://localhost/Volumes/P-40/Dropbox/%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8/01_%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8%e7%b4%a0%e6%9d%90/022_%e6%88%90%e7%94%b0%e6%a3%ae%e5%b1%b1/022_main/narita_all.wav</pathurl>
+							
+							
+							<rate>
+								
+								
+								<timebase>25</timebase>
+								
+								
+								<ntsc>FALSE</ntsc>
+								
+							
+							</rate>
+							
+							
+							<duration>173742</duration>
+							
+							
+							<timecode>
+								
+								
+								<rate>
+									
+									
+									<timebase>25</timebase>
+									
+									
+									<ntsc>FALSE</ntsc>
+									
+								
+								</rate>
+								
+								
+								<string>00:00:00:00</string>
+								
+								
+								<frame>0</frame>
+								
+								
+								<displayformat>NDF</displayformat>
+								
+							
+							</timecode>
+							
+							
+							<media>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>1</sourcechannel>
+										
+										
+										<channellabel>left</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<layout>stereo</layout>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>2</sourcechannel>
+										
+										
+										<channellabel>right</channellabel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+							
+							</media>
+							
+						
+						</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>2</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<filter>
+							
+							
+							<effect>
+								
+								
+								<name>Audio Levels</name>
+								
+								
+								<effectid>audiolevels</effectid>
+								
+								
+								<effectcategory>audiolevels</effectcategory>
+								
+								
+								<effecttype>audiolevels</effecttype>
+								
+								
+								<mediatype>audio</mediatype>
+								
+								
+								<pproBypass>false</pproBypass>
+								
+								
+								<parameter authoringApp="PremierePro">
+									
+									
+									<parameterid>level</parameterid>
+									
+									
+									<name>Level</name>
+									
+									
+									<valuemin>0</valuemin>
+									
+									
+									<valuemax>3.98109</valuemax>
+									
+									
+									<value>3.16228</value>
+									
+								
+								</parameter>
+								
+							
+							</effect>
+							
+						
+						</filter>
+						
+						
+						<logginginfo>
+							
+							
+							<description />
+							
+							
+							<scene />
+							
+							
+							<shottake />
+							
+							
+							<lognote />
+							
+							
+							<good />
+							
+							
+							<originalvideofilename />
+							
+							
+							<originalaudiofilename />
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut />
+							
+							
+							<lut1 />
+							
+							
+							<asc_sop />
+							
+							
+							<asc_sat />
+							
+							
+							<lut2 />
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Caribbean</label2>
+							
+						
+						</labels>
+						
+					
+						<file id="file-9" />
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>2</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<enabled>TRUE</enabled>
+					<locked>FALSE</locked>
+					<outputchannelindex>2</outputchannelindex>
+				</track>
+			</audio>
+		</media>
+	</sequence>
+</xmeml>

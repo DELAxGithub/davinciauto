@@ -40,6 +40,7 @@ final_*.py
 minivt_pipeline/output/
 *.mp3
 *.wav
+*.mov
 
 # Environment files  
 .env

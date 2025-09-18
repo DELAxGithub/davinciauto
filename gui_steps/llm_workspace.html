@@ -738,14 +738,7 @@
       try{
         if(!projectDir) await chooseProjectFolder();
         if(!projectDir){ alert('プロジェクトフォルダを選択してください'); return; }
-        await ensureDir(projectDir,'inputs');
-        await ensureDir(projectDir,'テロップ類');
-        await ensureDir(projectDir,'テロップ類/CSV');
-        await ensureDir(projectDir,'テロップ類/SRT');
-        await ensureDir(projectDir,'サウンド類');
-        await ensureDir(projectDir,'サウンド類/Narration');
-        await ensureDir(projectDir,'サウンド類/BGM');
-        await ensureDir(projectDir,'サウンド類/SE');
+        await ensureDir(projectDir,'inputs'); await ensureDir(projectDir,'exports');
         if(lastImportedScriptText){ await writeFile(projectDir, 'inputs/script.txt', lastImportedScriptText); }
         await autoSaveProjectJson();
         await saveCsvToFolder();

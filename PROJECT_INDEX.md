@@ -134,6 +134,21 @@ experiments/
 │   └── llm/              # LLM 由来（json, md, txt）
 └── scratch/              # 試行コードや一時出力
 ```
+
+### 🧰 ツールセット (`/tools/`)
+```
+tools/
+├── resolve_auto_tagging/
+│   ├── README.md                     # Resolve向けAIタグ生成セット
+│   ├── run_auto_tagging.py           # LLMでKeywordsを付与
+│   └── create_smart_bins_poc.py      # Smart Bin 自動生成PoC
+└── autocut/
+    ├── README.md
+    ├── csv_premiere.js
+    ├── csv_xml_cutter.py
+    ├── docs/
+    └── merge_two_csvs.py
+```
 ```
 
 ---
