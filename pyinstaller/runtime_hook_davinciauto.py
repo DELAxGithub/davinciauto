@@ -22,10 +22,12 @@ if meipass:
         ffmpeg_candidate = bin_dir / "ffmpeg"
         if ffmpeg_candidate.exists():
             os.environ["DAVA_FFMPEG_PATH"] = str(ffmpeg_candidate)
+            os.environ.setdefault("DAVINCIAUTO_FFMPEG", str(ffmpeg_candidate))
     if "DAVA_FFPROBE_PATH" not in os.environ:
         ffprobe_candidate = bin_dir / "ffprobe"
         if ffprobe_candidate.exists():
             os.environ["DAVA_FFPROBE_PATH"] = str(ffprobe_candidate)
+            os.environ.setdefault("DAVINCIAUTO_FFPROBE", str(ffprobe_candidate))
     current_path = os.environ.get("PATH", "")
     if bin_dir_str not in current_path.split(os.pathsep):
         os.environ["PATH"] = bin_dir_str + os.pathsep + current_path if current_path else bin_dir_str

@@ -37,12 +37,16 @@ setup:
 
 .PHONY: self-check
 self-check:
-	@DAVA_FFMPEG_PATH="$(FFMPEG)" DAVA_FFPROBE_PATH="$(FFPROBE)" $(CLI) --self-check --json || true
+	@DAVINCIAUTO_FFMPEG="$(FFMPEG)" DAVINCIAUTO_FFPROBE="$(FFPROBE)" \
+	 DAVA_FFMPEG_PATH="$(FFMPEG)" DAVA_FFPROBE_PATH="$(FFPROBE)" \
+	 $(CLI) --self-check --json || true
 
 .PHONY: fake-tts
 fake-tts:
 	@mkdir -p .out/fake_tts
-	@DAVA_FFMPEG_PATH="$(FFMPEG)" DAVA_FFPROBE_PATH="$(FFPROBE)" $(CLI) run --script samples/sample_script.txt --output .out/fake_tts --fake-tts --provider fake --target resolve
+	@DAVINCIAUTO_FFMPEG="$(FFMPEG)" DAVINCIAUTO_FFPROBE="$(FFPROBE)" \
+	 DAVA_FFMPEG_PATH="$(FFMPEG)" DAVA_FFPROBE_PATH="$(FFPROBE)" \
+	 $(CLI) run --script samples/sample_script.txt --output .out/fake_tts --fake-tts --provider fake --target resolve
 	@echo "Outputs written to .out/fake_tts"
 
 .PHONY: run

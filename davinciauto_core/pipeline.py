@@ -312,11 +312,33 @@ def _get_audio_segment():
     return AudioSegment
 
 
-def _generate_silent_audio(audio_path: Path, duration_seconds: float) -> None:
-    audio_segment = _get_audio_segment()
-    silence = audio_segment.silent(duration=int(duration_seconds * 1000), frame_rate=44100)
+def _generate_silent_audio(audio_path: Path, duration_seconds: float) -> Path:
     audio_path.parent.mkdir(parents=True, exist_ok=True)
-    silence.export(audio_path, format="mp3")
+
+    try:
+        audio_segment = _get_audio_segment()
+        silence = audio_segment.silent(duration=int(duration_seconds * 1000), frame_rate=44100)
+        format_hint = audio_path.suffix.lstrip('.') or 'mp3'
+        silence.export(audio_path, format=format_hint)
+        return audio_path
+    except Exception:
+        pass
+
+    import wave
+    import struct
+    import math
+
+    sample_rate = 48000
+    wav_path = audio_path.with_suffix('.wav')
+    frames = int(sample_rate * max(duration_seconds, 1.0))
+    with wave.open(str(wav_path), 'wb') as wav_file:
+        wav_file.setnchannels(1)
+        wav_file.setsampwidth(2)
+        wav_file.setframerate(sample_rate)
+        for i in range(frames):
+            value = int(0.05 * 32767 * math.sin(2 * math.pi * 220 * i / sample_rate))
+            wav_file.writeframes(struct.pack('<h', value))
+    return wav_path
 
 
 def _probe_tool_version(executable: Optional[str]) -> Optional[str]:
@@ -341,8 +363,12 @@ def _collect_tool_versions() -> Dict[str, Optional[str]]:
     except Exception:  # pragma: no cover
         versions["pydub"] = None
 
-    versions["ffmpeg"] = _probe_tool_version(os.getenv("DAVA_FFMPEG_PATH"))
-    versions["ffprobe"] = _probe_tool_version(os.getenv("DAVA_FFPROBE_PATH"))
+    versions["ffmpeg"] = _probe_tool_version(
+        os.getenv("DAVA_FFMPEG_PATH") or os.getenv("DAVINCIAUTO_FFMPEG")
+    )
+    versions["ffprobe"] = _probe_tool_version(
+        os.getenv("DAVA_FFPROBE_PATH") or os.getenv("DAVINCIAUTO_FFPROBE")
+    )
     return versions
 
 
@@ -410,7 +436,7 @@ def run_pipeline(config: PipelineConfig) -> PipelineResult:
         try:
             if config.fake_tts:
                 estimated_seconds = max(2.5 * len(items), 3.0)
-                _generate_silent_audio(paths.audio_path, estimated_seconds)
+                paths.audio_path = _generate_silent_audio(paths.audio_path, estimated_seconds)
                 piece_files: List[Path] = []
                 progress.emit("audio_synth", mode="fake", estimated_seconds=estimated_seconds)
             else:
@@ -440,12 +466,12 @@ def run_pipeline(config: PipelineConfig) -> PipelineResult:
                 remaining=exc.remaining,
                 suggested_concurrency=exc.suggested_concurrency,
             )
-            _generate_silent_audio(paths.audio_path, max(2.5 * len(items), 3.0))
+            paths.audio_path = _generate_silent_audio(paths.audio_path, max(2.5 * len(items), 3.0))
             piece_files = []
             cost_summary = f"Rate limit hit: retry after {exc.retry_after}s."
             progress.emit("audio_complete", mode="rate_limit", segments=0)
         except TTSError as exc:
-            _generate_silent_audio(paths.audio_path, max(2.5 * len(items), 3.0))
+            paths.audio_path = _generate_silent_audio(paths.audio_path, max(2.5 * len(items), 3.0))
             piece_files = []
             cost_summary = f"TTS failed: {exc}. Fallback silent audio generated."
             progress.emit("warning", stage="audio", message=str(exc))

@@ -3,10 +3,11 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import shutil
 import sys
 from importlib import metadata
 from pathlib import Path
-from typing import Iterable, Optional
+from typing import Iterable, Optional, Tuple
 
 from davinciauto_core.pipeline import PipelineConfig, perform_self_check, run_pipeline
 
@@ -35,6 +36,48 @@ def _resolve_version() -> str:
         except metadata.PackageNotFoundError:
             continue
     return "0.0.0"
+
+
+def _resolve_tool(tool: str, cli_arg: Optional[str] = None) -> Tuple[str, str]:
+    """Locate external tool with deterministic precedence."""
+
+    def candidate(value: Optional[str]) -> Optional[str]:
+        if not value:
+            return None
+        if os.path.exists(value):
+            return value
+        resolved = shutil.which(value)
+        return resolved
+
+    if cli_arg:
+        resolved = candidate(cli_arg)
+        if resolved:
+            return resolved, "flag"
+        raise SystemExit(f"{tool} specified via flag but not found: {cli_arg}")
+
+    env_map = {
+        "ffmpeg": ["DAVINCIAUTO_FFMPEG", "DAVA_FFMPEG_PATH", "FFMPEG"],
+        "ffprobe": ["DAVINCIAUTO_FFPROBE", "DAVA_FFPROBE_PATH", "FFPROBE"],
+    }
+    for env_name in env_map[tool]:
+        resolved = candidate(os.getenv(env_name))
+        if resolved:
+            return resolved, f"env:{env_name}"
+
+    meipass = getattr(sys, "_MEIPASS", None)
+    if meipass:
+        bundled = Path(meipass) / "bin" / tool
+        if bundled.exists():
+            return str(bundled), "bundle"
+
+    resolved = shutil.which(tool)
+    if resolved:
+        return resolved, "path"
+
+    raise SystemExit(
+        f"{tool} not found. Provide --{tool} or set one of "
+        f"{', '.join(env_map[tool])}"
+    )
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -115,6 +158,8 @@ def build_parser() -> argparse.ArgumentParser:
         "--progress-log",
         help="path to write JSONL progress events",
     )
+    run_cmd.add_argument("--ffmpeg", help="path to ffmpeg executable")
+    run_cmd.add_argument("--ffprobe", help="path to ffprobe executable")
 
     return parser
 
@@ -143,17 +188,27 @@ def _self_check(json_mode: bool) -> int:
         "internal_dir": str(internal_dir),
         "is_frozen": frozen,
     }
-    ffmpeg_path = info.get("ffmpeg") or os.environ.get("DAVA_FFMPEG_PATH")
-    info["ffmpeg_path"] = ffmpeg_path
-
     if frozen and not licenses_present:
         info["ok"] = False
 
-    ffmpeg_path = info.get("ffmpeg") or os.environ.get("DAVA_FFMPEG_PATH")
-    info["ffmpeg"] = {
-        "path": ffmpeg_path,
-    }
-    info["ffmpeg_path"] = ffmpeg_path
+    try:
+        ffmpeg_path, ffmpeg_source = _resolve_tool("ffmpeg")
+        os.environ.setdefault("DAVA_FFMPEG_PATH", ffmpeg_path)
+        os.environ.setdefault("DAVINCIAUTO_FFMPEG", ffmpeg_path)
+        info["ffmpeg"] = {"path": ffmpeg_path, "source": ffmpeg_source}
+        info["ffmpeg_path"] = ffmpeg_path
+    except SystemExit:
+        info.setdefault("issues", []).append("ffmpeg-not-found")
+
+    try:
+        ffprobe_path, ffprobe_source = _resolve_tool("ffprobe")
+        os.environ.setdefault("DAVA_FFPROBE_PATH", ffprobe_path)
+        os.environ.setdefault("DAVINCIAUTO_FFPROBE", ffprobe_path)
+        info["ffprobe"] = {"path": ffprobe_path, "source": ffprobe_source}
+        info["ffprobe_path"] = ffprobe_path
+    except SystemExit:
+        info.setdefault("issues", []).append("ffprobe-not-found")
+
     info["version"] = info.get("version") or _resolve_version()
 
     payload = json.dumps(info, ensure_ascii=False, indent=None if json_mode else 2)
@@ -176,6 +231,13 @@ def _run_pipeline(args: argparse.Namespace) -> int:
         progress_log_path=Path(args.progress_log) if args.progress_log else None,
         api_key=args.api_key,
     )
+
+    ffmpeg_path, _ = _resolve_tool("ffmpeg", args.ffmpeg)
+    ffprobe_path, _ = _resolve_tool("ffprobe", args.ffprobe)
+    os.environ["DAVA_FFMPEG_PATH"] = ffmpeg_path
+    os.environ["DAVINCIAUTO_FFMPEG"] = ffmpeg_path
+    os.environ["DAVA_FFPROBE_PATH"] = ffprobe_path
+    os.environ["DAVINCIAUTO_FFPROBE"] = ffprobe_path
 
     try:
         result = run_pipeline(config)

@@ -34,7 +34,9 @@ mkdir -p "$RUN_DIR"
 printf 'NA: これはスモークテストです。\nセリフ: 偽TTSモードが動作しています。\n' > "$SCRIPT_PATH"
 
 set +e
-DAVA_FFMPEG_PATH="$FFMPEG_BIN" DAVA_FFPROBE_PATH="$FFPROBE_BIN" "$CLI" --self-check --json
+DAVINCIAUTO_FFMPEG="$FFMPEG_BIN" DAVINCIAUTO_FFPROBE="$FFPROBE_BIN" \
+  DAVA_FFMPEG_PATH="$FFMPEG_BIN" DAVA_FFPROBE_PATH="$FFPROBE_BIN" \
+  "$CLI" --self-check --json
 SELF_CHECK_STATUS=$?
 set -e
 
@@ -42,7 +44,8 @@ if [ $SELF_CHECK_STATUS -ne 0 ]; then
   echo "Self-check reported issues (exit $SELF_CHECK_STATUS). Continuing to Fake-TTS run." >&2
 fi
 
-DAVA_FFMPEG_PATH="$FFMPEG_BIN" DAVA_FFPROBE_PATH="$FFPROBE_BIN" \
+DAVINCIAUTO_FFMPEG="$FFMPEG_BIN" DAVINCIAUTO_FFPROBE="$FFPROBE_BIN" \
+  DAVA_FFMPEG_PATH="$FFMPEG_BIN" DAVA_FFPROBE_PATH="$FFPROBE_BIN" \
   "$CLI" run --script "$SCRIPT_PATH" --output "$RUN_DIR" --fake-tts --provider fake --target resolve
 
 echo "Smoke test complete. Inspect outputs under $RUN_DIR"

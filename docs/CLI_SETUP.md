@@ -4,7 +4,7 @@ This guide explains how to run the DaVinci Auto pipeline via the new `davinciaut
 
 ## Prerequisites
 - macOS with Python 3.11 installed (via python.org, Homebrew, pyenv, etc.).
-- `ffmpeg` and `ffprobe` available on the system path (Homebrew `brew install ffmpeg` works). You can override the discovery path by exporting `DAVA_FFMPEG_PATH` and `DAVA_FFPROBE_PATH`.
+- `ffmpeg` and `ffprobe` available on the system path (Homebrew `brew install ffmpeg` works). You can override the discovery path by exporting `DAVINCIAUTO_FFMPEG` / `DAVINCIAUTO_FFPROBE` (the legacy `DAVA_*` variables are still honoured).
 - Clone of this repository.
 
 ## Quick Start
@@ -32,7 +32,7 @@ After bootstrap, the CLI binary lives at `.venv/bin/davinciauto-cli`.
   --target resolve
 ```
 
-Pass `--api-key` when invoking `run` to supply a provider key (or set `ELEVENLABS_API_KEY` in the environment). Additional arguments map directly to `PipelineConfig` fields (see `davinciauto_core.pipeline`).
+Pass `--api-key` when invoking `run` to supply a provider key (or set `ELEVENLABS_API_KEY` in the environment). Additional arguments map directly to `PipelineConfig` fields (see `davinciauto_core.pipeline`). You can override tool locations via `--ffmpeg` / `--ffprobe` or the `DAVINCIAUTO_FFMPEG` / `DAVINCIAUTO_FFPROBE` environment variables (legacy `DAVA_*` names are still accepted).
 
 ## Smoke Test Script
 `make smoke` executes `scripts/smoke_fake_tts.sh`, which:
