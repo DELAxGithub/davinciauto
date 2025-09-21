@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["ok", "version", "bundle", "ffmpeg", "licenses"],
+  "properties": {
+    "ok": {"type": "boolean"},
+    "version": {"type": "string"},
+    "bundle": {
+      "type": "object",
+      "required": ["layout", "root"],
+      "properties": {
+        "layout": {"type": "string"},
+        "root": {"type": "string"},
+        "binary_dir": {"type": "string"},
+        "internal_dir": {"type": "string"},
+        "is_frozen": {"type": "boolean"}
+      }
+    },
+    "ffmpeg": {
+      "type": "object",
+      "required": ["path"],
+      "properties": {
+        "path": {"type": "string"}
+      }
+    },
+    "licenses": {
+      "type": "object",
+      "required": ["present"],
+      "properties": {
+        "present": {"type": "boolean"}
+      }
+    }
+  },
+  "additionalProperties": true
+}

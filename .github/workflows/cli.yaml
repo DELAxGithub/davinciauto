@@ -1,0 +1,88 @@
+name: CLI Bundle
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-14, macos-13]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install FFmpeg
+        run: |
+          if ! command -v ffmpeg >/dev/null; then
+            HOMEBREW_NO_AUTO_UPDATE=1 brew install ffmpeg
+          fi
+
+      - name: Cache virtualenv
+        uses: actions/cache@v4
+        with:
+          path: .venv
+          key: v2-${{ runner.os }}-py311-${{ hashFiles('**/pyproject.toml', '**/requirements*.txt') }}
+
+      - name: Setup
+        run: make setup
+
+      - name: Determine build metadata
+        id: meta
+        run: |
+          if [[ "${GITHUB_REF_TYPE}" == "tag" ]]; then
+            VERSION="${GITHUB_REF_NAME#v}"
+          else
+            VERSION="0.1.0+${GITHUB_SHA::7}"
+          fi
+          ARCH=$(uname -m)
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "arch=$ARCH" >> "$GITHUB_OUTPUT"
+
+      - name: Verify editable self-check
+        run: |
+          OUT=$(.venv/bin/davinciauto-cli --self-check --json)
+          echo "$OUT"
+          python - <<'PY' <<<"$OUT"
+import json, sys
+obj = json.loads(sys.stdin.read())
+assert obj.get("ok") is True, "editable self-check failed"
+ff = obj.get("ffmpeg", {})
+path = ff.get("path") if isinstance(ff, dict) else ff
+assert path not in (None, "", "NOT_FOUND"), "ffmpeg missing"
+PY
+
+      - name: Smoke (Fake-TTS)
+        run: make smoke
+
+      - name: Bundle (PyInstaller + DMG)
+        env:
+          CLI_VERSION: ${{ steps.meta.outputs.version }}
+          CLI_ARCH: ${{ steps.meta.outputs.arch }}
+        run: make bundle
+
+      - name: Verify packaged bundle
+        env:
+          CLI_VERSION: ${{ steps.meta.outputs.version }}
+          CLI_ARCH: ${{ steps.meta.outputs.arch }}
+        run: |
+          BUNDLE_NAME="davinciauto-cli-${CLI_VERSION}-${CLI_ARCH}"
+          bash ci/verify_bundle.sh "dist/${BUNDLE_NAME}" "dist/${BUNDLE_NAME}.dmg"
+          otool -L "$FFMPEG_BIN"
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: davinciauto-cli-${{ steps.meta.outputs.version }}-${{ steps.meta.outputs.arch }}
+          path: |
+            dist/davinciauto-cli-${{ steps.meta.outputs.version }}-${{ steps.meta.outputs.arch }}/**
+            dist/davinciauto-cli-${{ steps.meta.outputs.version }}-${{ steps.meta.outputs.arch }}.dmg
+            dist/davinciauto-cli-${{ steps.meta.outputs.version }}-${{ steps.meta.outputs.arch }}.tar.gz
+            dist/davinciauto-cli-${{ steps.meta.outputs.version }}-${{ steps.meta.outputs.arch }}-SHA256SUMS.txt

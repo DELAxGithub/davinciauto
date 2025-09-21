@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=67", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "davinciauto-core"
+version = "0.1.0"
+description = "Core pipeline package for DaVinci Auto macOS build"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+  {name = "DaVinci Auto Team"}
+]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Operating System :: MacOS",
+  "License :: OSI Approved :: MIT License",
+]
+dependencies = [
+  "pydub",
+  "python-dotenv",
+  "requests",
+]
+
+[project.optional-dependencies]
+tts = ["elevenlabs"]
+backend = ["fastapi", "uvicorn[standard]", "python-multipart"]
+cli = []
+dev = ["pyinstaller>=6.0"]
+
+[project.scripts]
+davinciauto-pipeline = "davinciauto_core.cli:main"
+davinciauto-cli = "davinciauto_cli.__main__:main"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["davinciauto_core*", "davinciauto_cli*", "backend*", "core*"]
+exclude = ["tests", "experiments", "tools", "output", "projects"]
+
+[tool.setuptools.package-data]
+"davinciauto_core" = ["prompts/*.jsonl"]

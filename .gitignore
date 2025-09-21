@@ -10,6 +10,8 @@ __pycache__/
 
 # Generated outputs
 output/
+.out/
+dist/
 *.edl
 *.csv.bak
 

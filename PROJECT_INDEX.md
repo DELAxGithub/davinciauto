@@ -8,6 +8,13 @@
 
 ---
 
+## 🚀 CLI Distribution (新設)
+
+- [CLI Setup Guide](docs/CLI_SETUP.md): `davinciauto-cli` のブートストラップ手順 (`scripts/bootstrap_cli.sh` / `make self-check` / `make fake-tts`)
+- [CLI Bundle Status](docs/CLI_BUNDLE.md): PyInstaller ベース単体配布の進捗メモ
+
+---
+
 ## 🧭 PlantUML サマリービュー
 
 ```plantuml
