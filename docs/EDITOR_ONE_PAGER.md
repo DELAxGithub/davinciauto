@@ -6,7 +6,7 @@
 
 - Script: 脚本を取り込む（txt/markdown）→ 行に分解 → project.json に保存
 - Telop: フォロー/注釈を整える → CSV/SRTに出力（Resolve/Premiere対応）
-- Narration: ElevenLabsで台本から音声を作る（NA/セリフ/引用）
+- Narration: Azure Speechで台本から音声を作る（NA/セリフ/引用）
 - BGM/SE: 指示書からBGM/SEを自動生成
 - Assembly: XMLやCSVからタイムラインを合体（Premiere/Resolve）
 
@@ -27,7 +27,7 @@
 - パスを入力 → 保存API/読込API ボタン
 - SRT保存 → テロップ類/SRT/{Project}_Sub_follow.srt を生成
 
-3) 音声生成（ElevenLabs ワーカー起動時）
+3) 音声生成（Azure Speech ワーカー起動時）
 - 右ペインの指示に従い、ナレーションやBGM/SEを送信
 - サウンド類/* に自動保存（Resolveでそのままインポート）
 
@@ -37,6 +37,5 @@
 - 使い方: プロジェクトフォルダを指定 → ボタンで保存/SRT出力を実行
 
 補足
-- ワーカー: ElevenLabsワーカー（port 8787）が起動していると音声の自動保存が有効
+- ワーカー: Azure Speechワーカー（port 8788）が起動していると音声の自動保存が有効
 - 既存の統合UI: `/` で開く LLM ワークスペース（詳細操作）
-

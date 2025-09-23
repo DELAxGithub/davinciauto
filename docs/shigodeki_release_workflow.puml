@@ -1,0 +1,80 @@
+@startuml シゴデキ！リリースワークフロー
+left to right direction
+skinparam activity {
+  BackgroundColor White
+  BorderColor Black
+  FontSize 13
+  Shadowing false
+}
+skinparam activityDiamondShape rhombus
+skinparam noteBackgroundColor #FFF5CC
+skinparam noteBorderColor #D4AA00
+
+|エディター / 企画|
+start
+:プロジェクト開始・要件ヒアリング;
+:台本・素材を準備しドラフト確定;
+
+|DaVinci Auto (GUI/CLI/Backend)|
+:Step1: スクリプト解析・役割自動割当・project.json更新;
+
+repeat
+  |エディター / 企画|
+  :台本修正＋コメント反映;
+  |DaVinci Auto (GUI/CLI/Backend)|
+  :Step1を再実行して更新を反映;
+repeat while (台本修正が必要？) is (はい)
+
+|エディター / 企画|
+:Step2実行前チェック（声プリセット/再生速度）;
+
+repeat
+  |DaVinci Auto (GUI/CLI/Backend)|
+  :Step2: バッチTTSジョブ送信 (CLI `--script` / GUI Step2);
+  |音声・生成サービス|
+  :Azure Speech / ElevenLabs が音声を合成;
+  |DaVinci Auto (GUI/CLI/Backend)|
+  :生成音声を集約し narration.mp3 / 行別MP3 を出力;
+  |エディター / 企画|
+  :音声QC: スポットチェック＆修正点を記録;
+repeat while (音声クオリティOK？) is (いいえ)
+
+|DaVinci Auto (GUI/CLI/Backend)|
+:Step3: 字幕生成＆時間配分（SRT/CSVエクスポート）;
+
+|エディター / 企画|
+:字幕表示/タイミングをチェックし微調整;
+:BGM/SEプラン作成 (`projects/<name>/inputs/bgm_se_plan.json`);
+
+|DaVinci Auto (GUI/CLI/Backend)|
+:BGM/SEスクリプト実行（generate_bgm_se_from_plan.py 等）;
+
+|音声・生成サービス|
+:ElevenLabsがBGM/効果音を生成・ダウンロード;
+
+|DaVinci Auto (GUI/CLI/Backend)|
+:BGM整音＆タイムライン統合（master_bgm_from_plan.py / build_fcpx_with_bgm_se.py）;
+:CSV→FCP XML + Resolveインポートパッケージ出力;
+
+repeat
+  |エディター / 企画|
+  :Resolve向けパッケージをレビュー;
+  if (Resolve用パッケージに課題？) then (はい)
+    |DaVinci Auto (GUI/CLI/Backend)|
+    :メタデータ/構成を修正しパッケージ再生成;
+  endif
+repeat while (Resolve用パッケージに課題？) is (はい)
+
+|DaVinci Resolve / 最終出力|
+:Step4: ResolveへXML/SRTをインポートしテンプレ適用;
+:レンダー＆成果物パッケージ（マスター/字幕/素材）;
+stop
+
+note bottom
+重要メモ:
+- Azure Speech / ElevenLabs のAPIキー・レート制限を事前確認
+- Step2は `--fake-tts` でドライラン可能（GUI Step2 Minimal / CLI `--fake-tts`）
+- プロジェクトフォルダ命名: `projects/<Name>/exports/*` に統一
+- ResolveテンプレDRPでA1=VO/A2=MUSIC/A3=SE設定を適用
+end note
+@enduml

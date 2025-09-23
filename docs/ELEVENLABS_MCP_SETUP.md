@@ -1,5 +1,7 @@
 # ElevenLabs MCP Server 統合ガイド
 
+> **Legacy Notice**: The active TTS pipeline now targets Azure Speech Service. ElevenLabs MCP integration is optional/legacy and should only be used for archival workflows.
+
 ## 🎯 統合完了
 
 **✅ ElevenLabs MCP サーバーが正常に統合されました！**

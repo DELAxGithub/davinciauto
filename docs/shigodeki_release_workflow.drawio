@@ -1,0 +1,134 @@
+<mxfile host="app.diagrams.net" modified="2025-03-16T00:00:00Z" agent="7.0" version="20.6.3" type="device" compressed="false">
+  <diagram id="p7Kj1zABvD3pIasQ0l1U" name="シゴデキ！リリースワークフロー">
+    <mxGraphModel dx="1920" dy="1080" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="4800" pageHeight="2025" math="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="シゴデキ！Mini VTR リリースまでの制作ワークフロー" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=28;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="0" y="-60" width="4800" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="lane1" value="エディター / 企画" style="swimlane;horizontal=0;startSize=40;childLayout=stackLayout;fillColor=#F4F1DE;strokeColor=#B89A67;fontSize=16;fontStyle=1;resizeLast=0;collapsible=0;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="4800" height="260" as="geometry"/>
+        </mxCell>
+        <mxCell id="lane2" value="DaVinci Auto (GUI/CLI/Backend)" style="swimlane;horizontal=0;startSize=40;childLayout=stackLayout;fillColor=#E6F0FF;strokeColor=#5A8FD8;fontSize=16;fontStyle=1;resizeLast=0;collapsible=0;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="0" y="260" width="4800" height="260" as="geometry"/>
+        </mxCell>
+        <mxCell id="lane3" value="音声・生成サービス" style="swimlane;horizontal=0;startSize=40;childLayout=stackLayout;fillColor=#E9F7EF;strokeColor=#6EBF8B;fontSize=16;fontStyle=1;resizeLast=0;collapsible=0;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="0" y="520" width="4800" height="260" as="geometry"/>
+        </mxCell>
+        <mxCell id="lane4" value="DaVinci Resolve / 最終出力" style="swimlane;horizontal=0;startSize=40;childLayout=stackLayout;fillColor=#FFECEC;strokeColor=#E28484;fontSize=16;fontStyle=1;resizeLast=0;collapsible=0;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="0" y="780" width="4800" height="260" as="geometry"/>
+        </mxCell>
+        <mxCell id="info" value="重要メモ&#xa;・Azure Speech / ElevenLabs のAPIキー・レート制限を事前確認&#xa;・Step2は `--fake-tts` でドライラン可能（GUI Step2 Minimal / CLI `--fake-tts`）&#xa;・プロジェクトフォルダの命名: `projects/&lt;Name&gt;/exports/*` に統一&#xa;・ResolveテンプレDRPでA1=VO/A2=MUSIC/A3=SE設定を必ず適用" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF5CC;strokeColor=#D4AA00;fontSize=14;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="0" y="1040" width="4800" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="n1" value="プロジェクト開始・要件ヒアリング" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#B89A67;fontSize=14;" vertex="1" parent="lane1">
+          <mxGeometry x="40" y="60" width="160" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="n2" value="台本・素材を準備しドラフト確定" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#B89A67;fontSize=14;" vertex="1" parent="lane1">
+          <mxGeometry x="240" y="60" width="200" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="n3" value="Step1 GUIでスクリプトを読み込み/送信" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#B89A67;fontSize=14;" vertex="1" parent="lane1">
+          <mxGeometry x="440" y="60" width="220" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="p1" value="Step1: スクリプト解析・役割自動割当・project.json更新" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#5A8FD8;fontSize=14;" vertex="1" parent="lane2">
+          <mxGeometry x="440" y="60" width="220" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="d1" value="台本に修正が必要？" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#B89A67;fontSize=14;" vertex="1" parent="lane1">
+          <mxGeometry x="660" y="55" width="140" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="n4" value="修正が必要な場合は台本を更新しStep1を再実行（完了後に継続）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#B89A67;fontSize=14;" vertex="1" parent="lane1">
+          <mxGeometry x="820" y="60" width="220" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="n5" value="Step2実行前チェック（声のプリセット/再生速度を確定）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#B89A67;fontSize=14;" vertex="1" parent="lane1">
+          <mxGeometry x="1040" y="60" width="220" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="p2" value="Step2: バッチTTSジョブを送信（CLI `--script` / GUI Step2）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#5A8FD8;fontSize=14;" vertex="1" parent="lane2">
+          <mxGeometry x="1040" y="60" width="220" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="s1" value="Azure Speech / ElevenLabs が音声を合成" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#6EBF8B;fontSize=14;" vertex="1" parent="lane3">
+          <mxGeometry x="1260" y="60" width="220" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="p3" value="生成音声を集約し narration.mp3 / 行別MP3 を出力" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#5A8FD8;fontSize=14;" vertex="1" parent="lane2">
+          <mxGeometry x="1480" y="60" width="220" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="n6" value="音声QC: スポットチェック＆修正点を記録" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#B89A67;fontSize=14;" vertex="1" parent="lane1">
+          <mxGeometry x="1480" y="60" width="220" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="d2" value="音声クオリティOK？" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#B89A67;fontSize=14;" vertex="1" parent="lane1">
+          <mxGeometry x="1700" y="55" width="140" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="n7" value="NG: 修正点を反映しStep2を再実行（合格まで停止）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#B89A67;fontSize=14;" vertex="1" parent="lane1">
+          <mxGeometry x="1880" y="60" width="240" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="p2r" value="音声修正: 再TTSジョブ＆差し替え (Step2再実行)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#5A8FD8;fontSize=14;" vertex="1" parent="lane2">
+          <mxGeometry x="1880" y="60" width="240" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="p4" value="Step3: 字幕生成＆時間配分（SRT/CSVエクスポート）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#5A8FD8;fontSize=14;" vertex="1" parent="lane2">
+          <mxGeometry x="2080" y="60" width="220" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="n8" value="字幕表示/タイミングをチェックし微調整" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#B89A67;fontSize=14;" vertex="1" parent="lane1">
+          <mxGeometry x="2280" y="60" width="220" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="n9" value="BGM/SEプラン（`projects/&lt;name&gt;/inputs/bgm_se_plan.json`）を作成" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#B89A67;fontSize=14;" vertex="1" parent="lane1">
+          <mxGeometry x="2480" y="60" width="220" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="p5" value="BGM/SEスクリプト実行（generate_bgm_se_from_plan.py 等）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#5A8FD8;fontSize=14;" vertex="1" parent="lane2">
+          <mxGeometry x="2680" y="60" width="220" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="s2" value="ElevenLabsがBGM/効果音を生成・ダウンロード" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#6EBF8B;fontSize=14;" vertex="1" parent="lane3">
+          <mxGeometry x="2880" y="60" width="220" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="p6" value="BGM整音＆タイムライン統合（master_bgm_from_plan.py / build_fcpx_with_bgm_se.py）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#5A8FD8;fontSize=14;" vertex="1" parent="lane2">
+          <mxGeometry x="3080" y="60" width="220" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="p7" value="CSV→FCP XML + Resolveインポートパッケージ出力" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#5A8FD8;fontSize=14;" vertex="1" parent="lane2">
+          <mxGeometry x="3280" y="60" width="220" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="d3" value="Resolve用パッケージに課題？" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#B89A67;fontSize=14;" vertex="1" parent="lane1">
+          <mxGeometry x="3520" y="55" width="150" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="p8" value="No対応: メタデータ/構成を修正しパッケージを再生成" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#5A8FD8;fontSize=14;" vertex="1" parent="lane2">
+          <mxGeometry x="3760" y="60" width="220" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="r1" value="Step4: ResolveへXML/SRTをインポートしテンプレ適用" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#E28484;fontSize=14;" vertex="1" parent="lane4">
+          <mxGeometry x="4040" y="60" width="220" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="r2" value="レンダー＆成果物パッケージ（マスター/字幕/素材）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#E28484;fontSize=14;" vertex="1" parent="lane4">
+          <mxGeometry x="4300" y="60" width="200" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="end" value="リリース準備完了" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#E28484;fontSize=14;" vertex="1" parent="lane4">
+          <mxGeometry x="4540" y="70" width="80" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="e1" edge="1" source="n1" target="n2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;strokeColor=#B89A67;"/>
+        <mxCell id="e2" edge="1" source="n2" target="n3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;strokeColor=#B89A67;"/>
+        <mxCell id="e3" edge="1" source="n3" target="p1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;strokeColor=#5A8FD8;"/>
+        <mxCell id="e4" edge="1" source="p1" target="d1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;strokeColor=#B89A67;"/>
+        <mxCell id="e5" value="いいえ" edge="1" source="d1" target="n5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;strokeColor=#B89A67;"/>
+        <mxCell id="e6" value="はい" edge="1" source="d1" target="n4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;strokeColor=#B89A67;"/>
+        <mxCell id="e7" edge="1" source="n4" target="n5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;strokeColor=#B89A67;"/>
+        <mxCell id="e8" edge="1" source="n5" target="p2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;strokeColor=#5A8FD8;"/>
+        <mxCell id="e9" edge="1" source="p2" target="s1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;strokeColor=#6EBF8B;"/>
+        <mxCell id="e10" edge="1" source="s1" target="p3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;strokeColor=#5A8FD8;"/>
+        <mxCell id="e11" edge="1" source="p3" target="n6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;strokeColor=#B89A67;"/>
+        <mxCell id="e12" edge="1" source="n6" target="d2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;strokeColor=#B89A67;"/>
+        <mxCell id="e13" value="はい" edge="1" source="d2" target="p4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;strokeColor=#5A8FD8;"/>
+        <mxCell id="e14" value="いいえ" edge="1" source="d2" target="n7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;strokeColor=#B89A67;"/>
+        <mxCell id="e15" edge="1" source="n7" target="p2r" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;strokeColor=#B89A67;"/>
+        <mxCell id="e15b" edge="1" source="p2r" target="p4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;strokeColor=#5A8FD8;"/>
+        <mxCell id="e16" edge="1" source="p4" target="n8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;strokeColor=#B89A67;"/>
+        <mxCell id="e17" edge="1" source="n8" target="n9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;strokeColor=#B89A67;"/>
+        <mxCell id="e18" edge="1" source="n9" target="p5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;strokeColor=#5A8FD8;"/>
+        <mxCell id="e19" edge="1" source="p5" target="s2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;strokeColor=#6EBF8B;"/>
+        <mxCell id="e20" edge="1" source="s2" target="p6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;strokeColor=#5A8FD8;"/>
+        <mxCell id="e21" edge="1" source="p6" target="p7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;strokeColor=#5A8FD8;"/>
+        <mxCell id="e22" edge="1" source="p7" target="d3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;strokeColor=#B89A67;"/>
+        <mxCell id="e23" value="はい" edge="1" source="d3" target="r1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;strokeColor=#E28484;"/>
+        <mxCell id="e24" value="いいえ" edge="1" source="d3" target="p8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;strokeColor=#5A8FD8;"/>
+        <mxCell id="e25" edge="1" source="p8" target="r1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;strokeColor=#5A8FD8;"/>
+        <mxCell id="e26" edge="1" source="r1" target="r2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;strokeColor=#E28484;"/>
+        <mxCell id="e27" edge="1" source="r2" target="end" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;strokeColor=#E28484;"/>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

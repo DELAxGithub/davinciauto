@@ -11,7 +11,7 @@ CLI_VERSION=0.1.0 CLI_ARCH=$(uname -m) make bundle
 
 Artifacts under `dist/`:
 
-- `dist/davinciauto-cli-${version}-${arch}/` – collected binary with `README_FIRST.txt`, `CLI_SETUP.md`, `samples/`, `licenses/`, `VERSION`
+- `dist/davinciauto-cli-${version}-${arch}/` – collected binary with `README_FIRST.txt`, `CLI_SETUP.md`, `GUI_LAUNCHER.md`, `DavinciAutoLauncher.command`, `gui_launcher_run.sh`, `samples/`, `licenses/`, `VERSION`
 - `dist/davinciauto-cli-${version}-${arch}.dmg` – disk image wrapper (ad-hoc signed by default)
 - `dist/davinciauto-cli-${version}-${arch}.tar.gz` – tgz of the directory bundle
 - `dist/davinciauto-cli-${version}-${arch}-SHA256SUMS.txt` – SHA256 hashes for DMG + TGZ

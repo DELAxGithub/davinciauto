@@ -53,11 +53,8 @@ class SrtExportRequest(BaseModel):
 class TTSRequest(BaseModel):
     """音声合成リクエスト"""
     text: str
-    provider: Literal["elevenlabs", "azure"] = "elevenlabs"
-    voice_id: str = "21m00Tcm4TlvDq8ikWAM"  # Default: Rachel
-    model_id: str = "eleven_multilingual_v2"
-    stability: float = 0.5
-    similarity_boost: float = 0.75
+    provider: Literal["azure"] = "azure"
+    voice_id: Optional[str] = None
     azure_style: Optional[str] = None
     azure_role: Optional[str] = None
     speaking_rate: Optional[float] = None

@@ -14,10 +14,16 @@ pip install -r requirements.txt
 Create `.env` file in the project root:
 
 ```bash
-# Required - ElevenLabs TTS
-ELEVENLABS_API_KEY=your_elevenlabs_api_key
-ELEVENLABS_VOICE_ID_NARRATION=voice_id_for_narration
-ELEVENLABS_VOICE_ID_DIALOGUE=voice_id_for_dialogue
+# Required - Azure Speech Service
+AZURE_SPEECH_KEY=your_azure_speech_key
+AZURE_SPEECH_REGION=your_azure_region
+
+# Optional - Voice tuning
+# AZURE_SPEECH_VOICE=ja-JP-NanamiNeural
+# AZURE_SPEECH_VOICE_NARRATION=ja-JP-NanamiNeural
+# AZURE_SPEECH_VOICE_DIALOGUE=ja-JP-KeitaNeural
+# AZURE_SPEECH_VOICE_FEMALE=ja-JP-MayuNeural
+# AZURE_SPEECH_VOICE_MALE=ja-JP-KeitaNeural
 
 # Optional - Performance tuning
 HTTP_TIMEOUT=30
@@ -94,11 +100,11 @@ NA: この疑問に答えるため、最新の研究を見てみましょう。
 3. **Rate Control**: Adjust playback speed (0.8-1.3 recommended range)
 
 #### Quality Settings
-The pipeline uses ElevenLabs' optimized settings:
-- **Stability**: 0.4 (natural variation)
-- **Similarity Boost**: 0.8 (voice consistency)
-- **Style**: 0.3 (moderate expressiveness)
-- **Speaker Boost**: Enabled (clarity enhancement)
+The pipeline targets Azure Speech neural voices:
+- **Narration voice**: `ja-JP-NanamiNeural` by default
+- **Dialogue voice**: `ja-JP-KeitaNeural` (configurable via env vars)
+- **Expressive style**: `narration-professional` for narration, `chat` for dialogue
+- **Rate control**: optional playback speed multiplier (`--rate`)
 
 #### Processing Flow
 1. **Text Analysis**: Parse roles and content
@@ -215,64 +221,30 @@ For large scripts:
 
 ### Custom Voice Configuration
 
-#### Voice ID Discovery
-1. Log into ElevenLabs platform
-2. Go to Voice Lab → Voice Library
-3. Copy voice IDs from your preferred voices
-4. Update `.env` file with specific IDs
+#### Voice Selection
+1. Sign in to the [Azure AI Speech portal](https://speech.microsoft.com/portal)
+2. Browse the **Neural voices** catalog for Japanese voices (e.g. Nanami, Keita, Mayu)
+3. Update `.env` with any preferred voice overrides (`AZURE_SPEECH_VOICE_*`)
+4. Re-run the pipeline; voices are picked automatically by role and gender hints
 
 #### Voice Testing
 ```bash
-# Test different voices quickly
-ELEVENLABS_VOICE_ID_NARRATION=new_voice_id python src/pipeline.py --script test.txt --fake-tts
+# Quick experiment with narration voice override
+AZURE_SPEECH_VOICE_NARRATION=ja-JP-AoiNeural \
+python src/pipeline.py --script test.txt --fake-tts
 ```
 
 ### Script Variations
 
 #### Multi-Character Dialogue
 Currently supports NA/DL roles. For multiple characters:
-1. Use consistent speaker tags in script
-2. Modify voice selection logic in `tts_elevenlabs.py`
-3. Add additional voice ID environment variables
+1. Keep speaker cues consistent in the script
+2. Extend role-to-voice mapping in `davinciauto_core/clients/tts_azure.py`
+3. Optionally set per-character hints via custom parsing
 
 #### Mixed Language Content
-- ElevenLabs multilingual_v2 model supports mixed content
-- English phrases in Japanese context work well
-
----
-
-## OrionEp2: ElevenLabs → Timeline → Resolve → SRT
-
-This is the streamlined pipeline we used for OrionEp2 (MP3-only, 30fps, FCP7 XML).
-
-- Prerequisites
-  - `.env` has `ELEVENLABS_API_KEY`
-  - `projects/OrionEp2/project.json` defines voice casting and `output_format: mp3_44100_128`
-- Optional voice preview
-  - `python scripts/generate_previews_orionep2.py`
-- Generate narration (1–27 / 28–63)
-  - `python scripts/generate_orionep2_lines_1_27.py`
-  - `python scripts/generate_orionep2_lines_28_63.py`
-- Build gap-aware timeline CSV (30fps pacing)
-  - `python scripts/build_timeline_orionep2.py`
-  - Output: `projects/OrionEp2/exports/timelines/OrionEp2_timeline_v1.csv`
-- Create FCP7 XML for Resolve
-  - `python scripts/csv_to_fcpx7_from_timeline.py projects/OrionEp2/exports/timelines/OrionEp2_timeline_v1.csv`
-  - Output: `projects/OrionEp2/exports/timelines/OrionEp2_timeline_v1.xml`
-- Generate SRT from XML + CSV
-  - `python scripts/make_srt_from_xml_and_csv.py projects/OrionEp2/exports/timelines/OrionEp2_timeline_v1.xml projects/OrionEp2/exports/timelines/OrionEp2_timeline_v1.csv`
-  - Output: `projects/OrionEp2/テロップ類/SRT/OrionEp2_Sub_follow.srt`
-
-Pacing rules (defaults)
-- Base gap: NA=0.35s, DL/Quotes=0.60s
-- Scene break: 1.80s (chapter ends)
-- Emphasis: +0.30s for questions, +min(0.40s, 0.004s×chars) for long text
-- Pre-roll: 0.50s
-
-Notes
-- Model: `eleven_v3` (stable)
-- Output: MP3-only (`mp3_44100_128`)
-- Technical terms maintain pronunciation accuracy
+- Azure multilingual voices handle Japanese + English phrases reliably
+- For other languages, use language-specific voices through env overrides
 
 ---
 
@@ -280,10 +252,10 @@ Notes
 
 ### Common Errors
 
-#### `ELEVENLABS_API_KEY is not set`
-**Solution**: Add API key to `.env` file
+#### `AZURE_SPEECH_KEY is not set`
+**Solution**: Add your Azure Speech key to `.env`
 ```bash
-ELEVENLABS_API_KEY=your_actual_api_key_here
+AZURE_SPEECH_KEY=your_actual_speech_key_here
 ```
 
 #### `台本から 'NA:' または 'セリフ:' の行が見つかりませんでした`
@@ -293,30 +265,30 @@ ELEVENLABS_API_KEY=your_actual_api_key_here
 - Check for invisible characters
 
 #### `TTS failed: HTTP 401`
-**Solution**: Verify API key and account status
-- Check ElevenLabs account billing
-- Verify API key is active
-- Test with ElevenLabs web interface
+**Solution**: Verify Azure credentials
+- Confirm `AZURE_SPEECH_KEY` and `AZURE_SPEECH_REGION`
+- Ensure the Speech resource is active
+- Test synthesis in the Azure portal
 
 #### `TTS failed: HTTP 429`
-**Solution**: Rate limiting triggered
-- Increase `RATE_LIMIT_SLEEP` value
-- Check ElevenLabs usage quotas
+**Solution**: Azure rate limiting triggered
+- Increase `RATE_LIMIT_SLEEP` value if configured
+- Review Azure Speech pricing tier quotas
 - Retry after waiting period
 
 ### Performance Issues
 
 #### Slow TTS Generation
-- **Normal**: 2-3 seconds per line
-- **Optimize**: Use `--fake-tts` for testing
-- **Monitor**: Check network connectivity
-- **Upgrade**: Consider ElevenLabs subscription tier
+- **Normal**: 2-3 seconds per line with Azure neural voices
+- **Optimize**: Use `--fake-tts` for testing layouts
+- **Monitor**: Check network connectivity and Azure status page
+- **Scale**: Consider higher pricing tier or regional endpoints
 
 #### Audio Quality Issues
-- **Check**: Voice ID configuration
+- **Check**: Voice override environment variables
 - **Adjust**: Rate setting (0.8-1.2 optimal)
 - **Verify**: Input text quality
-- **Test**: Different voice models
+- **Test**: Alternative Azure voices/styles
 
 ### File Issues
 
@@ -385,7 +357,7 @@ projects/
 - **CLAUDE.md**: Development guidelines
 
 ### External Resources
-- **ElevenLabs Documentation**: https://docs.elevenlabs.io/
+- **Azure Speech Service Documentation**: https://learn.microsoft.com/azure/ai-services/speech-service/
 - **DaVinci Resolve Scripting**: Blackmagic Design documentation
 - **Japanese TTS Guidelines**: Voice model optimization tips
 

@@ -4,7 +4,7 @@
 
 ## Top-Level Roles
 
-- backend: FastAPI エンドポイント、MCP 連携、ローカル ElevenLabs ワーカー（`eleven_server.py`）
+- backend: FastAPI エンドポイント、MCP 連携、Azure Speech ベースのTTS API
 - gui_steps: 既存 GUI（統合 UI、ステップ別 GUI）
 - minivt_pipeline: 旧パイプライン（utils/clients 資産）
 - projects: 各種ユーティリティ（autocut 等）、プロジェクト単位の素材
@@ -34,8 +34,8 @@
 ```
 backend/
   main.py            # DaVinci Auto Backend（FastAPI）
-  eleven_server.py   # ElevenLabs ワーカー（独立 FastAPI）
-  mcp_*.py           # MCP 連携
+  azure_server.py    # Azure Speech Worker (legacy helper)
+  eleven_server.py   # [Legacy] ElevenLabs ワーカー（保守目的で残置）
 gui_steps/
   llm_workspace.html # 統合 UI
   step*_*.py         # ステップ別 GUI
@@ -80,7 +80,7 @@ chmod +x scripts/repo_tree.sh
 ## Naming
 
 - スクリプト/脚本: `projects/<name>/project.json` に保存（将来）
-- 音声: `projects/<name>/exports/audio/narr/`（既存 eleven_server を踏襲）
+- 音声: `projects/<name>/exports/audio/narr/`（Azure Speech 出力を保存）
 - BGM/SE: `projects/<name>/exports/audio/bgm|se/`
 - テロップ/SRT: `projects/<name>/exports/subtitles/`
 - タイムライン: `projects/<name>/exports/timelines/`

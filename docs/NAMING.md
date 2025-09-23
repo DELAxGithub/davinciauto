@@ -34,11 +34,11 @@
 
 注意:
 - `{Project}` はプロジェクトルートのフォルダ名、または UI の `projectName` を使用。
-- 音声系は 44.1kHz mp3 固定（ElevenLabs の標準出力に準拠、用途に応じて変更可能）。
+- 音声系は 24kHz/160kbps の MP3（Azure Speech 既定）を標準とし、用途に応じて変更可能。
 
 ## System Defaults (実装)
 
-- ElevenLabs Worker (backend/eleven_server.py)
+- Azure Speech Worker (backend/azure_server.py)
   - Narration 出力先: `サウンド類/Narration/`
   - BGM 出力先: `サウンド類/BGM/`
   - SE 出力先: `サウンド類/SE/`
@@ -55,4 +55,3 @@
 - CG: `映像類/CG/*`
 
 将来的に自動ダウンロード/自動整理を追加する場合も、上記配下に統一します。
-

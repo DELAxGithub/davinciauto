@@ -10,9 +10,6 @@ from fastapi import FastAPI, WebSocket, WebSocketDisconnect, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, StreamingResponse, Response
 from fastapi.staticfiles import StaticFiles
-from elevenlabs import Voice, VoiceSettings
-from elevenlabs.client import ElevenLabs
-
 try:
     import azure.cognitiveservices.speech as speechsdk  # type: ignore
 except Exception:  # pragma: no cover - optional dependency
@@ -37,14 +34,9 @@ app = FastAPI(title="DaVinci Auto Backend")
 
 # --- 静的ファイルとCORSの設定 ---
 
-# ElevenLabs クライアントの初期化
-# 環境変数 ELEVENLABS_API_KEY が自動的に使用されます
-eleven_client = ElevenLabs()
-
 AZURE_SPEECH_KEY = os.getenv("AZURE_SPEECH_KEY", "")
 AZURE_SPEECH_REGION = os.getenv("AZURE_SPEECH_REGION", "")
 DEFAULT_AZURE_VOICE = os.getenv("AZURE_SPEECH_VOICE", "ja-JP-NanamiNeural")
-ELEVEN_DEFAULT_MODEL = "eleven_v3_alpha"
 
 
 static_dir = Path(__file__).parent / "static"
@@ -213,24 +205,6 @@ async def websocket_batch_generate(websocket: WebSocket):
         print(f"WebSocket Error: {e}")
         await websocket.close(code=1011, reason=str(e))
 
-def _synthesize_with_elevenlabs(request: TTSRequest):
-    """Call ElevenLabs TTS and normalize the response object."""
-    try:
-        audio_data = eleven_client.text_to_speech.convert(
-            text=request.text,
-            voice_id=request.voice_id,
-            model_id=request.model_id or ELEVEN_DEFAULT_MODEL,
-            output_format="mp3_44100_128",
-        )
-    except Exception as exc:
-        print(f"ElevenLabs API Error: {exc}")
-        raise HTTPException(status_code=502, detail=f"ElevenLabs API error: {exc}") from exc
-
-    if isinstance(audio_data, (bytes, bytearray)):
-        return Response(content=audio_data, media_type="audio/mpeg")
-    return StreamingResponse(audio_data, media_type="audio/mpeg")
-
-
 async def _synthesize_with_azure(request: TTSRequest):
     """Call Azure Cognitive Services Speech TTS."""
     if speechsdk is None:
@@ -283,11 +257,8 @@ async def _synthesize_with_azure(request: TTSRequest):
 @app.post("/api/tts/generate")
 async def generate_tts(request: TTSRequest):
     """音声合成ルーター。プロバイダに応じて合成を実行する。"""
-    provider = (request.provider or "elevenlabs").lower()
+    provider = (request.provider or "azure").lower()
+    if provider != "azure":
+        raise HTTPException(status_code=400, detail="Unsupported TTS provider. Azure only.")
 
-    if provider == "elevenlabs":
-        return _synthesize_with_elevenlabs(request)
-    if provider == "azure":
-        return await _synthesize_with_azure(request)
-
-    raise HTTPException(status_code=400, detail=f"Unsupported TTS provider: {request.provider}")
+    return await _synthesize_with_azure(request)

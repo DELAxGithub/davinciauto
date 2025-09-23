@@ -1,34 +1,4 @@
 {
-  "mcpServers": {
-    "elevenlabs": {
-      "command": "uvx",
-      "args": ["elevenlabs-mcp"],
-      "env": {
-        "ELEVENLABS_API_KEY": "${ELEVENLABS_API_KEY}",
-        "ELEVENLABS_MCP_BASE_PATH": "/Users/hiroshikodera/repos/_active/tools/davinciauto/minivt_pipeline/output"
-      }
-    }
-  },
-  "instructions": "ElevenLabs MCPサーバー設定ファイル - Claude Codeでの音声生成自動化用",
-  "usage": {
-    "setup": "1. 環境変数 ELEVENLABS_API_KEY を設定, 2. Claude Desktop設定にコピー, 3. Claude Code から /mcp:tts コマンドで呼び出し",
-    "default_model": "eleven_v3_alpha",
-    "quality_priority": "最高品質固定 - eleven_v3_alpha以下は使用しない",
-    "integration": {
-      "gui_workflow": "GUI統合ワークフロー用の最高品質音声生成",
-      "batch_processing": "バッチ処理での最高品質音声生成",
-      "voice_cloning": "カスタム音声クローニング（eleven_v3_alpha）",
-      "multiple_generation": "複数生成→選択ワークフロー（alpha版推奨）"
-    },
-    "tools": {
-      "text_to_speech": "テキスト→音声変換（eleven_v3_alpha固定）",
-      "search_voices": "音声ライブラリ検索",
-      "get_voice": "特定音声の詳細取得",
-      "text_to_voice": "音声プレビュー生成（3バリエーション・最高品質）",
-      "create_voice_instant_clone": "インスタント音声クローニング",
-      "transcribe_audio": "音声→テキスト変換",
-      "transform_voice": "音声変換（既存音声→別音声）",
-      "check_subscription": "API使用量・制限確認"
-    }
-  }
+  "mcpServers": {},
+  "instructions": "Azure Speech Service が標準TTSとなったため、ElevenLabs MCP 設定は廃止されました。必要な場合は独自に MCP サーバーを追加してください。"
 }

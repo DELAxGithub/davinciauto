@@ -1,5 +1,7 @@
 # MCP Setup (Context7 + ElevenLabs)
 
+> **Note**: The primary TTS pipeline now uses Azure Speech Service exclusively. ElevenLabs MCP integration is considered legacy and is kept for archival purposes. The instructions below remain for teams still experimenting with ElevenLabs tooling.
+
 This project includes an optional MCP proxy in the backend to let HTTP clients list tools and call tools from external MCP servers like Upstash Context7 and ElevenLabs.
 
 Two ways to use MCP:
