@@ -1,0 +1,372 @@
+{
+  "project": "OrionEp2_Complete_Audio_Plan",
+  "total_duration": "08:00",
+  "segments": [
+    {
+      "segment_id": "S01",
+      "time_code": "00:00-00:30",
+      "theme": "深夜のオフィス、SNSで同期の転職を知り焦燥感に駆られる",
+      "emotional_tone": ["静寂", "焦り", "孤独", "羨望", "内省的"],
+      "bgm": {
+        "prompt": "A minimalist, atmospheric ambient track with a simple, repeating piano melody, BPM 60, creating a sense of urban loneliness and quiet contemplation.",
+        "bpm": 60,
+        "key": "minor",
+        "style": "ambient_piano",
+        "fade_in": "00:00:05",
+        "crossfade_to_next": "00:00:25"
+      },
+      "sound_effects": [
+        {
+          "time_code": "00:00:05",
+          "type": "computer mouse click",
+          "description": "マウスのクリック音をナレーションの合間に小さく配置",
+          "volume": "low"
+        },
+        {
+          "time_code": "00:00:15",
+          "type": "keyboard typing, soft",
+          "description": "キーボードの音をナレーションの合間に小さく配置",
+          "volume": "low"
+        },
+        {
+          "time_code": "00:00:00",
+          "type": "office air conditioner hum, low",
+          "description": "静かな環境音として継続",
+          "volume": "very_low",
+          "duration": "00:00:30"
+        },
+        {
+          "time_code": "00:00:00",
+          "type": "distant city traffic drone",
+          "description": "遠くの交通音として背景に",
+          "volume": "very_low",
+          "duration": "00:00:30"
+        }
+      ],
+      "audio_direction": "冒頭は静かな環境音のみ。ナレーション開始と共に、BPM60のピアノBGMをゆっくりとフェードイン。"
+    },
+    {
+      "segment_id": "S02",
+      "time_code": "00:30-01:00",
+      "theme": "古代から現代までの知性が「転職」をテーマに繋がる星座の提示",
+      "emotional_tone": ["神秘的", "荘厳", "知的好奇心", "期待感"],
+      "bgm": {
+        "prompt": "A mysterious and evolving cinematic soundscape with ethereal synth pads, subtle choir, and a slow, deep string section, BPM 70, evoking a sense of cosmic scale and intellectual discovery.",
+        "bpm": 70,
+        "key": "major",
+        "style": "cinematic_orchestral",
+        "crossfade_from_prev": "00:00:25",
+        "crossfade_to_next": "01:00"
+      },
+      "sound_effects": [
+        {
+          "time_code": "00:00:35",
+          "type": "subtle whoosh sound",
+          "description": "星が結ばれるタイミングで使用",
+          "volume": "medium"
+        },
+        {
+          "time_code": "00:00:40",
+          "type": "shimmering magical sound effect",
+          "description": "星が結ばれるタイミングで、きらめくような効果音",
+          "volume": "medium"
+        },
+        {
+          "time_code": "00:00:30",
+          "type": "deep resonant hum",
+          "description": "知性の繋がりを表現する低音",
+          "volume": "low",
+          "duration": "00:00:30"
+        }
+      ],
+      "audio_direction": "前のシーンのBGMからクロスフェードで、より壮大なサウンドスケープに移行。星が結ばれるタイミングできらめく効果音を加える。"
+    },
+    {
+      "segment_id": "S03",
+      "time_code": "01:00-02:00",
+      "theme": "転職サイトからの通知と、同僚たちの愚痴が蔓延する日常",
+      "emotional_tone": ["閉塞感", "不満", "現実逃避", "倦怠感"],
+      "bgm": {
+        "prompt": "A slightly dissonant, repetitive electronic track with a prominent bassline and glitchy percussion, BPM 110, creating a feeling of mundane routine and underlying anxiety.",
+        "bpm": 110,
+        "key": "minor",
+        "style": "electronic_glitch",
+        "change_time": "01:00"
+      },
+      "sound_effects": [
+        {
+          "time_code": "01:05",
+          "type": "smartphone notification ping",
+          "description": "転職エージェントからの通知音を際立たせる",
+          "volume": "high"
+        },
+        {
+          "time_code": "01:20",
+          "type": "crowd murmur in restaurant, indistinct",
+          "description": "居酒屋での人々の会話、聞き取れないガヤとして処理",
+          "volume": "medium",
+          "duration": "00:00:25"
+        },
+        {
+          "time_code": "01:25",
+          "type": "ice clinking in glass",
+          "description": "居酒屋のアンビエント音として",
+          "volume": "low"
+        }
+      ],
+      "audio_direction": "BGMを日常的で少しざわついたエレクトロニカに変更。人々の会話は聞き取れないガヤとして処理し、閉塞感を強調する。"
+    },
+    {
+      "segment_id": "S04",
+      "time_code": "02:00-03:30",
+      "theme": "出エジプトの民が自由の荒野で「予測可能」な奴隷時代を懐かしむ",
+      "emotional_tone": ["壮大", "過酷", "絶望", "皮肉", "混乱"],
+      "bgm": {
+        "prompt": "An epic, dramatic orchestral piece with heavy percussion, mournful woodwinds (like a duduk), and sweeping strings, BPM 75, conveying a sense of struggle, vastness, and historical gravity.",
+        "bpm": 75,
+        "key": "minor",
+        "style": "epic_orchestral",
+        "instruments": ["percussion", "duduk", "strings"],
+        "change_time": "02:00"
+      },
+      "sound_effects": [
+        {
+          "time_code": "02:00",
+          "type": "strong desert wind blowing",
+          "description": "常に強い風の音を背景に流し、荒野の厳しさを表現",
+          "volume": "medium",
+          "duration": "01:30"
+        },
+        {
+          "time_code": "02:30",
+          "type": "distant thunder rumble",
+          "description": "遠くの雷鳴で不安感を演出",
+          "volume": "low"
+        },
+        {
+          "time_code": "02:45",
+          "type": "tired footsteps on sand",
+          "description": "砂の上の疲れた足音",
+          "volume": "medium"
+        },
+        {
+          "time_code": "03:00",
+          "type": "crowd murmuring with discontent",
+          "description": "「エジプトにいた方がよかった」部分での不満の群衆音",
+          "volume": "medium"
+        }
+      ],
+      "audio_direction": "BGMを荘厳なオーケストラ曲へ変更。「エジプトにいた方がよかった」セリフ部分ではBGMを下げ、疲れた男の声と不満の群衆のざわめきを重ねる。"
+    },
+    {
+      "segment_id": "S05",
+      "time_code": "03:30-04:30",
+      "theme": "ニーチェの「神は死んだ」と「奴隷道徳」による価値観の崩壊",
+      "emotional_tone": ["哲学的", "挑発的", "重厚", "知的", "不安"],
+      "bgm": {
+        "prompt": "A dark, brooding classical piece featuring a solo cello and deep piano chords, with occasional dissonant strings, BPM 60, creating an atmosphere of profound, unsettling intellectual thought.",
+        "bpm": 60,
+        "key": "minor",
+        "style": "classical_dark",
+        "instruments": ["cello", "piano", "strings"],
+        "change_time": "03:30"
+      },
+      "sound_effects": [
+        {
+          "time_code": "03:45",
+          "type": "stone crumbling sound",
+          "description": "価値観の崩壊を象徴するSE",
+          "volume": "medium"
+        },
+        {
+          "time_code": "04:00",
+          "type": "heavy chain snapping",
+          "description": "奴隷道徳からの解放を象徴",
+          "volume": "high"
+        },
+        {
+          "time_code": "04:20",
+          "type": "old paper page turn",
+          "description": "ニーチェの原稿を表現",
+          "volume": "low"
+        }
+      ],
+      "audio_direction": "「神は死んだ」のセリフの直後に一瞬の無音を挟み、言葉の重みを強調する。象徴的なSEを効果的に挿入。",
+      "special_effects": [
+        {
+          "time_code": "03:35",
+          "type": "silence",
+          "description": "「神は死んだ」直後の無音",
+          "duration": "00:00:02"
+        }
+      ]
+    },
+    {
+      "segment_id": "S06",
+      "time_code": "04:30-05:30",
+      "theme": "現代科学が解き明かす「心理的契約」と不確実性への恐怖",
+      "emotional_tone": ["分析的", "科学的", "冷静", "客観的", "未来的"],
+      "bgm": {
+        "prompt": "A precise and clean electronic track with intricate synth patterns, a steady digital beat, and a sense of clinical precision, BPM 120, evoking scientific analysis and data.",
+        "bpm": 120,
+        "key": "major",
+        "style": "electronic_clinical",
+        "change_time": "04:30"
+      },
+      "sound_effects": [
+        {
+          "time_code": "04:35",
+          "type": "data processing sound effects",
+          "description": "データが処理されるような細かい電子音を散りばめる",
+          "volume": "low",
+          "duration": "00:00:45"
+        },
+        {
+          "time_code": "04:45",
+          "type": "futuristic UI sounds",
+          "description": "未来的なUI音",
+          "volume": "low"
+        },
+        {
+          "time_code": "05:00",
+          "type": "heartbeat monitor beep, steady",
+          "description": "fMRIシーンで心音のような規則的なビート音",
+          "volume": "medium",
+          "duration": "00:00:20"
+        }
+      ],
+      "audio_direction": "BGMを未来的で分析的なエレクトロニック・ミュージックに変更。生物学的な反応であることを示唆するビート音を加える。"
+    },
+    {
+      "segment_id": "S07",
+      "time_code": "05:30-06:30",
+      "theme": "「脱出」目的ではなく「目的地」を問うことの重要性",
+      "emotional_tone": ["希望", "内省", "啓発的", "穏やか", "決意"],
+      "bgm": {
+        "prompt": "A gentle and uplifting acoustic track with fingerstyle guitar, soft piano, and warm string pads, BPM 80, creating a hopeful and reflective mood.",
+        "bpm": 80,
+        "key": "major",
+        "style": "acoustic_hopeful",
+        "instruments": ["guitar", "piano", "strings"],
+        "change_time": "05:30"
+      },
+      "sound_effects": [
+        {
+          "time_code": "05:30",
+          "type": "gentle breeze rustling leaves",
+          "description": "自然で心地よい環境音",
+          "volume": "low",
+          "duration": "01:00"
+        },
+        {
+          "time_code": "05:35",
+          "type": "birds chirping softly, distant",
+          "description": "遠くの鳥のさえずり",
+          "volume": "very_low",
+          "duration": "01:00"
+        },
+        {
+          "time_code": "06:15",
+          "type": "deep, slow breath sound",
+          "description": "「問うべきことがあります」の前で内省的雰囲気を高める",
+          "volume": "low"
+        }
+      ],
+      "audio_direction": "BGMを温かみのあるアコースティック曲調へ転換。自然で心地よい環境音を主体にし、深い呼吸音で内省的な雰囲気を高める。"
+    },
+    {
+      "segment_id": "S08",
+      "time_code": "06:30-07:30",
+      "theme": "今いる場所を「実験場」と捉え直す、新しい視点の獲得",
+      "emotional_tone": ["前向き", "発見", "日常の再評価", "穏やかな力強さ"],
+      "bgm": {
+        "prompt": "A light, optimistic instrumental pop track with a simple, catchy piano riff, steady drums, and clean electric guitar, BPM 115, evoking a sense of clarity and proactive energy.",
+        "bpm": 115,
+        "key": "major",
+        "style": "pop_optimistic",
+        "instruments": ["piano", "drums", "electric_guitar"],
+        "change_time": "06:30"
+      },
+      "sound_effects": [
+        {
+          "time_code": "06:35",
+          "type": "city morning ambiance",
+          "description": "街の活気ある朝の環境音",
+          "volume": "low",
+          "duration": "00:00:55"
+        },
+        {
+          "time_code": "06:50",
+          "type": "marker pen writing on whiteboard",
+          "description": "アイデアを書き出す音",
+          "volume": "medium"
+        },
+        {
+          "time_code": "07:00",
+          "type": "coffee mug placed on desk",
+          "description": "新しい一日の始まりを表現",
+          "volume": "low"
+        }
+      ],
+      "audio_direction": "軽快でポジティブなインスト曲へ。通勤シーンで世界が違って見え始めた感覚を環境音で表現。"
+    },
+    {
+      "segment_id": "S09",
+      "time_code": "07:30-08:00",
+      "theme": "本当の自由は内側から始まるという結論と、視聴者への問いかけ",
+      "emotional_tone": ["静かな確信", "解放感", "宇宙的", "余韻", "希望"],
+      "bgm": {
+        "prompt": "A reprise of the main piano theme from the beginning, now layered with a full, warm string orchestra and ethereal choir, BPM 65, creating a sense of resolution, peace, and vastness.",
+        "bpm": 65,
+        "key": "major",
+        "style": "orchestral_finale",
+        "instruments": ["piano", "strings", "choir"],
+        "change_time": "07:30",
+        "fade_out": "07:55"
+      },
+      "sound_effects": [
+        {
+          "time_code": "07:32",
+          "type": "gentle night wind",
+          "description": "穏やかな夜風",
+          "volume": "low",
+          "duration": "00:00:28"
+        },
+        {
+          "time_code": "07:45",
+          "type": "subtle, final whoosh sound",
+          "description": "最後の壮大な効果音",
+          "volume": "medium"
+        },
+        {
+          "time_code": "07:58",
+          "type": "a single, resonant chime",
+          "description": "最後に一つだけ響くチャイムで深い余韻",
+          "volume": "medium",
+          "fade_out": "08:00"
+        }
+      ],
+      "audio_direction": "冒頭のピアノテーマをより豊かで壮大なオーケストラアレンジで再現。「新しい物語を待っています」の後、すべてをゆっくりフェードアウト。",
+      "special_effects": [
+        {
+          "time_code": "07:58",
+          "type": "fade_to_silence",
+          "description": "最後のチャイム音と共にすべてがフェードアウト",
+          "duration": "00:00:02"
+        }
+      ]
+    }
+  ],
+  "global_audio_settings": {
+    "master_volume": "normalized",
+    "dynamic_range": "wide",
+    "frequency_response": "full_range",
+    "spatial_audio": "stereo_wide"
+  },
+  "technical_notes": [
+    "各BGMの切り替えはクロスフェードで自然に行う",
+    "SEの音量バランスはナレーションを邪魔しないよう調整",
+    "全体を通して一貫した音響空間を維持する",
+    "最終ミックスでは深い余韻を残すよう、リバーブとディレイを効果的に活用"
+  ]
+}

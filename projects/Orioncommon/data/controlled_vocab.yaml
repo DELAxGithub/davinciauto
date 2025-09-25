@@ -1,0 +1,403 @@
+schema_version: 1
+vocabulary:
+  S:
+    label: Scene
+    description: ロケーションや環境に関するタグ
+    items:
+    - id: S:図書館
+      label: 図書館
+      description: 図書館
+      synonyms:
+      - 図書館
+    - id: S:夜景
+      label: 夜景
+      description: 夜景
+      synonyms:
+      - 夜景
+    - id: S:寺社
+      label: 寺社
+      description: 寺社
+      synonyms:
+      - 寺社
+    - id: S:屋内
+      label: 屋内
+      description: 屋内
+      synonyms:
+      - 屋内
+    - id: S:屋外
+      label: 屋外
+      description: 屋外
+      synonyms:
+      - 屋外
+    - id: S:社内
+      label: 社内
+      description: 社内
+      synonyms:
+      - 社内
+    - id: S:自然
+      label: 自然
+      description: 自然
+      synonyms:
+      - 自然
+  M:
+    label: Motif
+    description: 象徴となるモチーフやオブジェクト
+    items:
+    - id: M:インク
+      label: インク
+      description: インク
+      synonyms:
+      - インク
+    - id: M:ネットワーク
+      label: ネットワーク
+      description: ネットワーク
+      synonyms:
+      - ネットワーク
+    - id: M:光芒
+      label: 光芒
+      description: 光芒
+      synonyms:
+      - 光芒
+    - id: M:地図
+      label: 地図
+      description: 地図
+      synonyms:
+      - 地図
+    - id: M:星空
+      label: 星空
+      description: 星空
+      synonyms:
+      - 星空
+    - id: M:書物
+      label: 書物
+      description: 書物
+      synonyms:
+      - 書物
+    - id: M:海
+      label: 海
+      description: 海
+      synonyms:
+      - 海
+    - id: M:砂丘
+      label: 砂丘
+      description: 砂丘
+      synonyms:
+      - 砂丘
+    - id: M:砂時計
+      label: 砂時計
+      description: 砂時計
+      synonyms:
+      - 砂時計
+    - id: M:禅庭
+      label: 禅庭
+      description: 禅庭
+      synonyms:
+      - 禅庭
+    - id: M:窓
+      label: 窓
+      description: 窓
+      synonyms:
+      - 窓
+    - id: M:竹林
+      label: 竹林
+      description: 竹林
+      synonyms:
+      - 竹林
+    - id: M:羅針盤
+      label: 羅針盤
+      description: 羅針盤
+      synonyms:
+      - 羅針盤
+    - id: M:羊皮紙
+      label: 羊皮紙
+      description: 羊皮紙
+      synonyms:
+      - 羊皮紙
+    - id: M:群集
+      label: 群集
+      description: 群集
+      synonyms:
+      - 群集
+    - id: M:群鳥
+      label: 群鳥
+      description: 群鳥
+      synonyms:
+      - 群鳥
+    - id: M:脳HUD
+      label: 脳HUD
+      description: 脳HUD
+      synonyms:
+      - 脳HUD
+  E:
+    label: Emotion
+    description: 感情・ムードのタグ
+    items:
+    - id: E:孤独
+      label: 孤独
+      description: 孤独
+      synonyms:
+      - 孤独
+    - id: E:苦悩
+      label: 苦悩
+      description: 苦悩
+      synonyms:
+      - 苦悩
+    - id: E:静寂
+      label: 静寂
+      description: 静寂
+      synonyms:
+      - 静寂
+    - id: E:高揚
+      label: 高揚
+      description: 高揚
+      synonyms:
+      - 高揚
+  A:
+    label: Action
+    description: 登場人物のアクションや動き
+    items:
+    - id: A:会議
+      label: 会議
+      description: 会議
+      synonyms:
+      - 会議
+    - id: A:握手
+      label: 握手
+      description: 握手
+      synonyms:
+      - 握手
+    - id: A:歩行
+      label: 歩行
+      description: 歩行
+      synonyms:
+      - 歩行
+    - id: A:筆記
+      label: 筆記
+      description: 筆記
+      synonyms:
+      - 筆記
+    - id: A:読書
+      label: 読書
+      description: 読書
+      synonyms:
+      - 読書
+  C:
+    label: Camera
+    description: 撮影手法・カメラワーク
+    items:
+    - id: C:TL
+      label: TL
+      description: TL
+      synonyms:
+      - TL
+    - id: C:スロモ
+      label: スロモ
+      description: スロモ
+      synonyms:
+      - スロモ
+    - id: C:パン
+      label: パン
+      description: パン
+      synonyms:
+      - パン
+    - id: C:マクロ
+      label: マクロ
+      description: マクロ
+      synonyms:
+      - マクロ
+    - id: C:俯瞰
+      label: 俯瞰
+      description: 俯瞰
+      synonyms:
+      - 俯瞰
+    - id: C:固定
+      label: 固定
+      description: 固定
+      synonyms:
+      - 固定
+    - id: C:望遠
+      label: 望遠
+      description: 望遠
+      synonyms:
+      - 望遠
+    - id: C:空撮
+      label: 空撮
+      description: 空撮
+      synonyms:
+      - 空撮
+  T:
+    label: Theme
+    description: 概念・テーマに関するタグ
+    items:
+    - id: T:倫理
+      label: 倫理
+      description: 倫理
+      synonyms:
+      - 倫理
+    - id: T:時間
+      label: 時間
+      description: 時間
+      synonyms:
+      - 時間
+    - id: T:歴史
+      label: 歴史
+      description: 歴史
+      synonyms:
+      - 歴史
+    - id: T:組織
+      label: 組織
+      description: 組織
+      synonyms:
+      - 組織
+    - id: T:脳科学
+      label: 脳科学
+      description: 脳科学
+      synonyms:
+      - 脳科学
+    - id: T:自己
+      label: 自己
+      description: 自己
+      synonyms:
+      - 自己
+normalize_map:
+  A:会議: A:会議
+  A:握手: A:握手
+  A:歩行: A:歩行
+  A:筆記: A:筆記
+  A:読書: A:読書
+  Action:会議: A:会議
+  Action:握手: A:握手
+  Action:歩行: A:歩行
+  Action:筆記: A:筆記
+  Action:読書: A:読書
+  C:TL: C:TL
+  C:スロモ: C:スロモ
+  C:パン: C:パン
+  C:マクロ: C:マクロ
+  C:俯瞰: C:俯瞰
+  C:固定: C:固定
+  C:望遠: C:望遠
+  C:空撮: C:空撮
+  Camera:TL: C:TL
+  Camera:スロモ: C:スロモ
+  Camera:パン: C:パン
+  Camera:マクロ: C:マクロ
+  Camera:俯瞰: C:俯瞰
+  Camera:固定: C:固定
+  Camera:望遠: C:望遠
+  Camera:空撮: C:空撮
+  E:孤独: E:孤独
+  E:苦悩: E:苦悩
+  E:静寂: E:静寂
+  E:高揚: E:高揚
+  Emotion:孤独: E:孤独
+  Emotion:苦悩: E:苦悩
+  Emotion:静寂: E:静寂
+  Emotion:高揚: E:高揚
+  M:インク: M:インク
+  M:ネットワーク: M:ネットワーク
+  M:光芒: M:光芒
+  M:地図: M:地図
+  M:星空: M:星空
+  M:書物: M:書物
+  M:海: M:海
+  M:砂丘: M:砂丘
+  M:砂時計: M:砂時計
+  M:禅庭: M:禅庭
+  M:窓: M:窓
+  M:竹林: M:竹林
+  M:羅針盤: M:羅針盤
+  M:羊皮紙: M:羊皮紙
+  M:群集: M:群集
+  M:群鳥: M:群鳥
+  M:脳HUD: M:脳HUD
+  Motif:インク: M:インク
+  Motif:ネットワーク: M:ネットワーク
+  Motif:光芒: M:光芒
+  Motif:地図: M:地図
+  Motif:星空: M:星空
+  Motif:書物: M:書物
+  Motif:海: M:海
+  Motif:砂丘: M:砂丘
+  Motif:砂時計: M:砂時計
+  Motif:禅庭: M:禅庭
+  Motif:窓: M:窓
+  Motif:竹林: M:竹林
+  Motif:羅針盤: M:羅針盤
+  Motif:羊皮紙: M:羊皮紙
+  Motif:群集: M:群集
+  Motif:群鳥: M:群鳥
+  Motif:脳HUD: M:脳HUD
+  S:図書館: S:図書館
+  S:夜景: S:夜景
+  S:寺社: S:寺社
+  S:屋内: S:屋内
+  S:屋外: S:屋外
+  S:社内: S:社内
+  S:自然: S:自然
+  Scene:図書館: S:図書館
+  Scene:夜景: S:夜景
+  Scene:寺社: S:寺社
+  Scene:屋内: S:屋内
+  Scene:屋外: S:屋外
+  Scene:社内: S:社内
+  Scene:自然: S:自然
+  T:倫理: T:倫理
+  T:時間: T:時間
+  T:歴史: T:歴史
+  T:組織: T:組織
+  T:脳科学: T:脳科学
+  T:自己: T:自己
+  TL: C:TL
+  Theme:倫理: T:倫理
+  Theme:時間: T:時間
+  Theme:歴史: T:歴史
+  Theme:組織: T:組織
+  Theme:脳科学: T:脳科学
+  Theme:自己: T:自己
+  インク: M:インク
+  スロモ: C:スロモ
+  ネットワーク: M:ネットワーク
+  パン: C:パン
+  マクロ: C:マクロ
+  会議: A:会議
+  俯瞰: C:俯瞰
+  倫理: T:倫理
+  光芒: M:光芒
+  図書館: S:図書館
+  固定: C:固定
+  地図: M:地図
+  夜景: S:夜景
+  孤独: E:孤独
+  寺社: S:寺社
+  屋内: S:屋内
+  屋外: S:屋外
+  握手: A:握手
+  星空: M:星空
+  時間: T:時間
+  書物: M:書物
+  望遠: C:望遠
+  歩行: A:歩行
+  歴史: T:歴史
+  海: M:海
+  砂丘: M:砂丘
+  砂時計: M:砂時計
+  社内: S:社内
+  禅庭: M:禅庭
+  空撮: C:空撮
+  窓: M:窓
+  竹林: M:竹林
+  筆記: A:筆記
+  組織: T:組織
+  羅針盤: M:羅針盤
+  羊皮紙: M:羊皮紙
+  群集: M:群集
+  群鳥: M:群鳥
+  脳HUD: M:脳HUD
+  脳科学: T:脳科学
+  自己: T:自己
+  自然: S:自然
+  苦悩: E:苦悩
+  読書: A:読書
+  静寂: E:静寂
+  高揚: E:高揚

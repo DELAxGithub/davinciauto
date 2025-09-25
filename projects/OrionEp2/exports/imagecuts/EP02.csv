@@ -1,0 +1,11 @@
+Episode,Clip Name,Bin Path,Source File,Keywords,Comments,Notes
+EP02,EP02_010_RemoteCafe,Episode02/Intro,[TBD],"S:屋内; M:窓; A:読書; C:マクロ; E:孤独; T:自己","EP02_導入_リモート孤独","allepisodes.md EP02 導入。カフェリモート描写。"
+EP02,EP02_020_PhoneAlerts,Episode02/Intro,[TBD],"S:屋内; M:ネットワーク; C:TL; C:マクロ; E:苦悩; T:自己","EP02_導入_通知洪水","通知SE重ね予定。台本 EP02 冒頭。"
+EP02,EP02_030_StarMapSegue,Episode02/StarMap,[TBD],"S:夜景; M:星空; M:ネットワーク; C:TL; C:パン; E:高揚","EP02_OP_星座提示","星座アニメはEP01テンプレ流用。"
+EP02,EP02_040_StormShip,Episode02/Myth,[TBD],"S:自然; M:海; C:空撮; C:スロモ; E:高揚; T:歴史","EP02_古代_嵐の航海","オデュッセウス象徴。CG船素材検討。"
+EP02,EP02_050_LighthouseBeam,Episode02/Bridge,[TBD],"S:夜景; M:海; C:望遠; E:静寂; T:自己; M:砂時計","EP02_橋渡し_灯台","夜間灯台回転ショット。"
+EP02,EP02_060_AncientMap,Episode02/History,[TBD],"S:図書館; M:羊皮紙; M:書物; C:マクロ; T:歴史; E:静寂","EP02_古代_羊皮紙地図","古地図上の光点移動CG追加予定。"
+EP02,EP02_070_OdysseusIsolation,Episode02/Myth,[TBD],"S:自然; M:砂丘; C:俯瞰; C:スロモ; E:孤独; T:歴史","EP02_神話_孤独な船長","孤島テント遠景。神話要素は抽象影で。"
+EP02,EP02_080_ModernReturn,Episode02/Modern,[TBD],"S:社内; A:歩行; C:パン; E:孤独; T:組織; M:窓","EP02_現代_出社の朝","ビルエントランス実写候補。"
+EP02,EP02_090_NostalgiaRoom,Episode02/Reflection,[TBD],"S:屋内; M:窓; A:読書; E:苦悩; T:自己; C:固定","EP02_内省_帰りたい場所","ノスタルジア段落引用。"
+EP02,EP02_100_NightskyOutro,Episode02/Outro,[TBD],"S:夜景; M:星空; M:ネットワーク; C:空撮; E:静寂; T:自己","EP02_結末_星が導く","夜空タイムラプス締め。"

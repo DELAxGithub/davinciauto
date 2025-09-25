@@ -9,6 +9,8 @@ import base64
 import yaml
 import argparse
 from pathlib import Path
+from datetime import datetime
+from typing import List, Optional
 from dotenv import load_dotenv, find_dotenv
 
 # --- DaVinci Resolve APIのパス設定 ---
@@ -46,6 +48,21 @@ VOCAB_FILE = os.getenv("VOCAB_FILE", "controlled_vocab.yaml")
 DEFAULT_PROVIDER = os.getenv("LLM_PROVIDER", "gemini").lower()
 OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-4o")
 GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-2.5-pro")
+
+
+class _Tee:
+    """stdout/stderr を指定ファイルへ複製する薄い Tee."""
+
+    def __init__(self, *streams):
+        self._streams = streams
+
+    def write(self, data: str) -> None:
+        for stream in self._streams:
+            stream.write(data)
+
+    def flush(self) -> None:
+        for stream in self._streams:
+            stream.flush()
 
 def get_openai_client():
     try:
@@ -93,16 +110,39 @@ def extract_thumbnail(clip_path, output_dir, midpoint_seconds):
         print(f"❌ サムネイル抽出に失敗: {e}")
         return None
 
-def load_controlled_vocab(filepath):
+def load_controlled_vocab(filepath: str) -> Optional[List[str]]:
     try:
-        with open(filepath, 'r', encoding='utf-8') as f:
+        with open(filepath, "r", encoding="utf-8") as f:
             vocab_data = yaml.safe_load(f)
-            flat_vocab_list = []
-            for category in vocab_data.values():
-                flat_vocab_list.extend(category)
-            return flat_vocab_list
     except FileNotFoundError:
         return None
+
+    if not vocab_data:
+        return []
+
+    # schema_version 付き (Orion 用) を優先的に解釈
+    if isinstance(vocab_data, dict):
+        if "vocabulary" in vocab_data:
+            vocab_section = vocab_data.get("vocabulary", {}) or {}
+            flat: List[str] = []
+            for items in vocab_section.values():
+                for entry in (items or {}).get("items", []):
+                    tag = entry.get("id") or entry.get("label")
+                    if tag:
+                        flat.append(str(tag))
+            return flat
+
+        # 旧形式 {category: [tag, ...]} への後方互換
+        flat_list: List[str] = []
+        for value in vocab_data.values():
+            if isinstance(value, list):
+                flat_list.extend(str(item) for item in value)
+        return flat_list
+
+    if isinstance(vocab_data, list):
+        return [str(item) for item in vocab_data]
+
+    return []
 
 def resolve_path_with_fallbacks(filename: str):
     """'filename' が絶対パスならそのまま。相対の場合は複数の候補から探索して返す。見つからなければ None。"""
@@ -196,6 +236,20 @@ def _mime_type_for(image_path: str) -> str:
         return "image/webp"
     return "image/jpeg"
 
+def _normalize_tags(raw: str) -> List[str]:
+    if not raw:
+        return []
+    raw = raw.replace("；", ";").replace("，", ",")
+    candidates = raw.split(",")
+    tags: List[str] = []
+    for fragment in candidates:
+        for token in fragment.split(";"):
+            cleaned = token.strip()
+            if cleaned and cleaned not in tags:
+                tags.append(cleaned)
+    return tags
+
+
 def analyze_image_with_ai(image_path, vocabulary, provider=DEFAULT_PROVIDER):
     print(f"🤖 AIが画像を分析中: {os.path.basename(image_path)} ...")
     vocab_string = ", ".join(vocabulary)
@@ -262,110 +316,237 @@ def get_media_pool_clips(folder):
     return clip_list
 
 # --- メインの実行部分 ---
-def main():
+def main() -> int:
     parser = argparse.ArgumentParser(description="DaVinci Resolve clips auto-tagging using OpenAI/Gemini.")
     parser.add_argument("-p", "--provider", choices=["openai", "gemini"], default=DEFAULT_PROVIDER, help="使用するLLMプロバイダ")
     parser.add_argument("--model", default=None, help="モデル名を上書き（プロバイダに応じて）")
     parser.add_argument("-v", "--vocab", default=None, help="管理語彙YAMLのパス（未指定時は自動探索）")
     parser.add_argument("--env", dest="env_file", default=None, help="読み込む .env のパス（Resolve環境などで推奨）")
+    parser.add_argument("--project", dest="project_name", default=None, help="対象のResolveプロジェクト名")
+    parser.add_argument("--limit", type=int, default=None, help="処理するクリップ数の上限")
+    parser.add_argument("--batch", type=int, default=0, help="進捗を表示する処理件数間隔 (0 で無効)")
+    parser.add_argument("--merge-policy", choices=["append_unique", "replace"], default="append_unique", help="既存キーワードとの突き合わせ方")
+    parser.add_argument("--dry-run", action="store_true", help="書き込みを行わず予定の変更内容のみ表示")
+    parser.add_argument("--thumbnails", dest="thumbnail_dir", default=None, help="サムネイル出力先ディレクトリ")
+    parser.add_argument("--log", dest="log_path", default=None, help="ログを追記出力するファイルパス")
     args = parser.parse_args()
 
-    # 指定があれば .env を追加読み込み（環境変数を上書き）
-    if args.env_file:
-        env_path = os.path.expanduser(args.env_file)
-        if os.path.exists(env_path):
-            load_dotenv(dotenv_path=env_path, override=True)
-        else:
-            print(f"警告: 指定の .env が見つかりません: {env_path}")
-
-    # モデル名の上書き
-    global OPENAI_MODEL, GEMINI_MODEL
-    if args.model:
-        if args.provider == "openai":
-            OPENAI_MODEL = args.model
-        else:
-            GEMINI_MODEL = args.model
-    # Resolveに接続
+    original_stdout, original_stderr = sys.stdout, sys.stderr
+    log_file = None
     try:
-        resolve = dvr_script.scriptapp("Resolve")
-        project = resolve.GetProjectManager().GetCurrentProject()
-        media_pool = project.GetMediaPool()
-        root_folder = media_pool.GetRootFolder()
-    except Exception:
-        print("エラー: DaVinci Resolveに接続できませんでした。")
-        return
+        if args.log_path:
+            log_path = os.path.expanduser(args.log_path)
+            log_dir = os.path.dirname(log_path) or "."
+            os.makedirs(log_dir, exist_ok=True)
+            log_file = open(log_path, "a", encoding="utf-8")
+            timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            header = f"\n--- run_auto_tagging.py started at {timestamp} ---\n"
+            log_file.write(header)
+            log_file.flush()
+            tee_stdout = _Tee(original_stdout, log_file)
+            tee_stderr = _Tee(original_stderr, log_file)
+            sys.stdout = tee_stdout
+            sys.stderr = tee_stderr
 
-    # 管理語彙を読み込む
-    vocab_path = args.vocab or resolve_path_with_fallbacks(VOCAB_FILE)
-    if not vocab_path:
-        print(
-            "エラー: 管理語彙ファイルが見つかりません。以下を確認してください:\n"
-            f" - {_BASE_DIR / VOCAB_FILE}\n"
-            f" - {Path.cwd() / VOCAB_FILE}\n"
-            "対処:\n"
-            " - --vocab で絶対パスを指定\n"
-            " - --env で .env を読み込み、.env に VOCAB_PATH を設定\n"
-            " - 環境変数 DAVINCIAUTO_ROOT（または PROJECT_ROOT/REPO_ROOT）をリポジトリルートに設定"
-        )
-        return
-    vocab = load_controlled_vocab(vocab_path)
-    if not vocab:
-        print(f"エラー: 管理語彙ファイル '{vocab_path}' の読み込みに失敗しました。")
-        return
-
-    # 一時サムネイル用のフォルダを作成
-    # スクリプトがある場所にフォルダを作成
-    script_dir = os.path.dirname(os.path.realpath(__file__)) if '__file__' in locals() else os.getcwd()
-    thumbnail_output_dir = os.path.join(script_dir, THUMBNAIL_DIR)
-    os.makedirs(thumbnail_output_dir, exist_ok=True)
-    
-    # Media Poolのクリップを走査（サブフォルダまで再帰的に探索）
-    print("--- Media Poolの全クリップを検索中... ---")
-    all_clips = get_media_pool_clips(root_folder)
-    
-    print("--- 自動タグ付け処理を開始 ---")
-    for clip in all_clips:
-        file_path = clip.GetClipProperty("File Path")
-        
-        if file_path and file_path.lower().endswith(VIDEO_EXTENSIONS):
-            clip_name = clip.GetName()
-            print(f"\n▶️  処理対象クリップ: {clip_name}")
-
-            # 1. サムネイル抽出
-            duration_tc = clip.GetClipProperty("Duration")
-            fps = clip.GetClipProperty("FPS")
-            duration_sec = timecode_to_seconds(duration_tc, fps)
-            
-            if not duration_sec or duration_sec <= 0:
-                print("⚠️ 時間が取得できずスキップします。")
-                continue
-
-            thumb_path = extract_thumbnail(file_path, thumbnail_output_dir, duration_sec / 2.0)
-            if not thumb_path:
-                continue
-
-            # 2. AIで分析
-            ai_tags_str = analyze_image_with_ai(thumb_path, vocab, provider=args.provider)
-            os.remove(thumb_path) # サムネイルはすぐに削除
-            
-            if not ai_tags_str:
-                print("⚠️ AIからタグが返されませんでした。")
-                continue
-            
-            # 3. Resolveに書き戻し
-            # AIが返す "tag1, tag2, tag3" を "tag1;tag2;tag3" の形式に変換
-            tags_for_resolve = ";".join([tag.strip() for tag in ai_tags_str.split(',')])
-            
-            # SetMetadataを使ってキーワードを書き込む
-            success = clip.SetMetadata("Keywords", tags_for_resolve)
-            
-            if success:
-                print(f"✅ キーワードを書き込みました: [{tags_for_resolve}]")
+        # 指定があれば .env を追加読み込み（環境変数を上書き）
+        if args.env_file:
+            env_path = os.path.expanduser(args.env_file)
+            if os.path.exists(env_path):
+                load_dotenv(dotenv_path=env_path, override=True)
             else:
-                print("❌ キーワードの書き込みに失敗しました。")
-            
-    
-    print("--- 全ての処理が完了しました ---")
+                print(f"警告: 指定の .env が見つかりません: {env_path}")
+
+        # モデル名の上書き
+        global OPENAI_MODEL, GEMINI_MODEL
+        if args.model:
+            if args.provider == "openai":
+                OPENAI_MODEL = args.model
+            else:
+                GEMINI_MODEL = args.model
+        # Resolveに接続
+        try:
+            resolve = dvr_script.scriptapp("Resolve")
+            project_manager = resolve.GetProjectManager()
+            project = None
+            if args.project_name:
+                project = project_manager.LoadProject(args.project_name)
+                if project is None:
+                    print(f"エラー: 指定のプロジェクトが見つかりません: {args.project_name}")
+                    return 1
+            else:
+                project = project_manager.GetCurrentProject()
+                if project is None:
+                    print("エラー: 現在のプロジェクトを取得できません。")
+                    return 1
+
+            media_pool = project.GetMediaPool()
+            root_folder = media_pool.GetRootFolder()
+        except Exception as exc:
+            print(f"エラー: DaVinci Resolveに接続できませんでした。({exc})")
+            return 1
+
+        if args.project_name:
+            print(f"対象プロジェクト: {args.project_name}")
+        else:
+            print(f"対象プロジェクト: {project.GetName() if project else '未取得'}")
+
+        # 管理語彙を読み込む
+        vocab_path = args.vocab or resolve_path_with_fallbacks(VOCAB_FILE)
+        if not vocab_path:
+            print(
+                "エラー: 管理語彙ファイルが見つかりません。以下を確認してください:\n"
+                f" - {_BASE_DIR / VOCAB_FILE}\n"
+                f" - {Path.cwd() / VOCAB_FILE}\n"
+                "対処:\n"
+                " - --vocab で絶対パスを指定\n"
+                " - --env で .env を読み込み、.env に VOCAB_PATH を設定\n"
+                " - 環境変数 DAVINCIAUTO_ROOT（または PROJECT_ROOT/REPO_ROOT）をリポジトリルートに設定"
+            )
+            return 1
+        vocab = load_controlled_vocab(vocab_path)
+        if not vocab:
+            print(f"エラー: 管理語彙ファイル '{vocab_path}' の読み込みに失敗しました。")
+            return 1
+
+        # 一時サムネイル用のフォルダを作成
+        # サムネイル出力先は指定があれば優先
+        script_dir = os.path.dirname(os.path.realpath(__file__)) if '__file__' in locals() else os.getcwd()
+        if args.thumbnail_dir:
+            thumbnail_output_dir = os.path.expanduser(args.thumbnail_dir)
+        else:
+            thumbnail_output_dir = os.path.join(script_dir, THUMBNAIL_DIR)
+        os.makedirs(thumbnail_output_dir, exist_ok=True)
+
+        # Media Poolのクリップを走査（サブフォルダまで再帰的に探索）
+        print("--- Media Poolの全クリップを検索中... ---")
+        all_clips = get_media_pool_clips(root_folder)
+
+        print("--- 自動タグ付け処理を開始 ---")
+        stats = {
+            "processed": 0,
+            "eligible": 0,
+            "tagged": 0,
+            "appended": 0,
+            "replaced": 0,
+            "skipped_no_duration": 0,
+            "skipped_ai_empty": 0,
+            "skipped_no_change": 0,
+            "errors": 0,
+        }
+
+        limit = args.limit if args.limit and args.limit > 0 else None
+
+        for clip in all_clips:
+            file_path = clip.GetClipProperty("File Path")
+
+            if file_path and file_path.lower().endswith(VIDEO_EXTENSIONS):
+                if limit is not None and stats["processed"] >= limit:
+                    break
+
+                stats["processed"] += 1
+                clip_name = clip.GetName()
+                print(f"\n▶️  処理対象クリップ: {clip_name}")
+
+                # 1. サムネイル抽出
+                duration_tc = clip.GetClipProperty("Duration")
+                fps = clip.GetClipProperty("FPS")
+                duration_sec = timecode_to_seconds(duration_tc, fps)
+
+                if not duration_sec or duration_sec <= 0:
+                    print("⚠️ 時間が取得できずスキップします。")
+                    stats["skipped_no_duration"] += 1
+                    continue
+
+                stats["eligible"] += 1
+                thumb_path = extract_thumbnail(file_path, thumbnail_output_dir, duration_sec / 2.0)
+                if not thumb_path:
+                    stats["errors"] += 1
+                    continue
+
+                # 2. AIで分析
+                ai_tags_str = analyze_image_with_ai(thumb_path, vocab, provider=args.provider)
+                os.remove(thumb_path) # サムネイルはすぐに削除
+
+                if not ai_tags_str:
+                    print("⚠️ AIからタグが返されませんでした。")
+                    stats["skipped_ai_empty"] += 1
+                    continue
+
+                # 3. Resolveに書き戻し
+                normalized_tags = _normalize_tags(ai_tags_str)
+                if not normalized_tags:
+                    print("⚠️ 正常化後にタグが残りませんでした。")
+                    stats["skipped_ai_empty"] += 1
+                    continue
+
+                existing_keywords_raw = (
+                    clip.GetMetadata("Keywords")
+                    or clip.GetClipProperty("Keywords")
+                    or ""
+                )
+                if isinstance(existing_keywords_raw, (list, tuple)):
+                    existing_keywords_raw = ";".join(existing_keywords_raw)
+                existing_keywords = _normalize_tags(str(existing_keywords_raw))
+
+                if args.merge_policy == "append_unique":
+                    merged_keywords = existing_keywords[:]
+                    newly_added = []
+                    for tag in normalized_tags:
+                        if tag not in merged_keywords:
+                            merged_keywords.append(tag)
+                            newly_added.append(tag)
+                    keywords_changed = bool(newly_added)
+                    if keywords_changed:
+                        stats["appended"] += 1
+                else:  # replace
+                    merged_keywords = normalized_tags
+                    keywords_changed = merged_keywords != existing_keywords
+                    if keywords_changed:
+                        stats["replaced"] += 1
+
+                if not keywords_changed:
+                    print("ℹ️ 既存キーワードと変化なしのためスキップします。")
+                    stats["skipped_no_change"] += 1
+                    continue
+
+                tags_for_resolve = "; ".join(merged_keywords)
+
+                if args.dry_run:
+                    print(f"[DRY-RUN] {clip_name}: {tags_for_resolve}")
+                    stats["tagged"] += 1
+                else:
+                    success = clip.SetMetadata("Keywords", tags_for_resolve)
+                    if success:
+                        print(f"✅ キーワードを書き込みました: [{tags_for_resolve}]")
+                        stats["tagged"] += 1
+                    else:
+                        print("❌ キーワードの書き込みに失敗しました。")
+                        stats["errors"] += 1
+
+                if args.batch and args.batch > 0 and stats["processed"] % args.batch == 0:
+                    print(
+                        f"... 進捗: 処理={stats['processed']} / 成功={stats['tagged']} / "
+                        f"追加={stats['appended']} / 置換={stats['replaced']} ..."
+                    )
+
+        print("\n--- 全ての処理が完了しました ---")
+        print(
+            "サマリ: "
+            f"処理={stats['processed']} / 対象={stats['eligible']} / 成功={stats['tagged']} / "
+            f"追加={stats['appended']} / 置換={stats['replaced']} / "
+            f"時間取得失敗={stats['skipped_no_duration']} / AI無応答={stats['skipped_ai_empty']} / 変化なし={stats['skipped_no_change']} / エラー={stats['errors']}"
+        )
+
+        if log_file:
+            log_file.write("--- run_auto_tagging.py finished ---\n")
+
+        return 0 if stats["errors"] == 0 else 1
+    finally:
+        if log_file:
+            log_file.flush()
+            log_file.close()
+        sys.stdout = original_stdout
+        sys.stderr = original_stderr
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

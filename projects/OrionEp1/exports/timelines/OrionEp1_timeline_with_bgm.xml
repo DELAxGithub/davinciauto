@@ -1,0 +1,1957 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xmeml version="4">
+  <sequence>
+    <uuid>OrionEp1_timeline_with_bgm</uuid>
+    <duration>16642</duration>
+    <name>OrionEp1_timeline_with_bgm</name>
+    <rate>
+      <timebase>30</timebase>
+      <ntsc>TRUE</ntsc>
+    </rate>
+    <media>
+      <video>
+        <format/>
+      </video>
+      <audio>
+        <track>
+          <clipitem id="clipitem-1" premiereChannelType="mono">
+            <name>OrionEp1-001-NA.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>168</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>15</start>
+            <end>183</end>
+            <in>0</in>
+            <out>168</out>
+            <file id="file-1">
+              <name>OrionEp1-001-NA.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-001-NA.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-2" premiereChannelType="mono">
+            <name>OrionEp1-002-NA.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>156</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>206</start>
+            <end>362</end>
+            <in>0</in>
+            <out>156</out>
+            <file id="file-2">
+              <name>OrionEp1-002-NA.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-002-NA.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-3" premiereChannelType="mono">
+            <name>OrionEp1-003-NA.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>297</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>384</start>
+            <end>681</end>
+            <in>0</in>
+            <out>297</out>
+            <file id="file-3">
+              <name>OrionEp1-003-NA.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-003-NA.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-4" premiereChannelType="mono">
+            <name>OrionEp1-004-NA.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>207</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>698</start>
+            <end>905</end>
+            <in>0</in>
+            <out>207</out>
+            <file id="file-4">
+              <name>OrionEp1-004-NA.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-004-NA.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-5" premiereChannelType="mono">
+            <name>OrionEp1-005-NA.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>519</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>919</start>
+            <end>1438</end>
+            <in>0</in>
+            <out>519</out>
+            <file id="file-5">
+              <name>OrionEp1-005-NA.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-005-NA.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-6" premiereChannelType="mono">
+            <name>OrionEp1-006-NA.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>106</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>1460</start>
+            <end>1566</end>
+            <in>0</in>
+            <out>106</out>
+            <file id="file-6">
+              <name>OrionEp1-006-NA.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-006-NA.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-7" premiereChannelType="mono">
+            <name>OrionEp1-007-NA.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>427</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>1578</start>
+            <end>2005</end>
+            <in>0</in>
+            <out>427</out>
+            <file id="file-7">
+              <name>OrionEp1-007-NA.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-007-NA.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-8" premiereChannelType="mono">
+            <name>OrionEp1-008-NA.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>97</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>2024</start>
+            <end>2121</end>
+            <in>0</in>
+            <out>97</out>
+            <file id="file-8">
+              <name>OrionEp1-008-NA.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-008-NA.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-9" premiereChannelType="mono">
+            <name>OrionEp1-009-NA.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>400</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>2133</start>
+            <end>2533</end>
+            <in>0</in>
+            <out>400</out>
+            <file id="file-9">
+              <name>OrionEp1-009-NA.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-009-NA.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-10" premiereChannelType="mono">
+            <name>OrionEp1-010-NA.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>294</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>2553</start>
+            <end>2847</end>
+            <in>0</in>
+            <out>294</out>
+            <file id="file-10">
+              <name>OrionEp1-010-NA.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-010-NA.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-11" premiereChannelType="mono">
+            <name>OrionEp1-011-NA.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>183</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>2864</start>
+            <end>3047</end>
+            <in>0</in>
+            <out>183</out>
+            <file id="file-11">
+              <name>OrionEp1-011-NA.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-011-NA.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-12" premiereChannelType="mono">
+            <name>OrionEp1-012-NA.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>258</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>3060</start>
+            <end>3318</end>
+            <in>0</in>
+            <out>258</out>
+            <file id="file-12">
+              <name>OrionEp1-012-NA.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-012-NA.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-13" premiereChannelType="mono">
+            <name>OrionEp1-013-DL.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>94</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>3334</start>
+            <end>3428</end>
+            <in>0</in>
+            <out>94</out>
+            <file id="file-13">
+              <name>OrionEp1-013-DL.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-013-DL.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-14" premiereChannelType="mono">
+            <name>OrionEp1-014-NA.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>402</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>3448</start>
+            <end>3850</end>
+            <in>0</in>
+            <out>402</out>
+            <file id="file-14">
+              <name>OrionEp1-014-NA.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-014-NA.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-15" premiereChannelType="mono">
+            <name>OrionEp1-015-NA.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>394</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>3868</start>
+            <end>4262</end>
+            <in>0</in>
+            <out>394</out>
+            <file id="file-15">
+              <name>OrionEp1-015-NA.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-015-NA.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-16" premiereChannelType="mono">
+            <name>OrionEp1-016-NA.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>232</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>4280</start>
+            <end>4512</end>
+            <in>0</in>
+            <out>232</out>
+            <file id="file-16">
+              <name>OrionEp1-016-NA.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-016-NA.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-17" premiereChannelType="mono">
+            <name>OrionEp1-017-NA.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>73</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>4536</start>
+            <end>4609</end>
+            <in>0</in>
+            <out>73</out>
+            <file id="file-17">
+              <name>OrionEp1-017-NA.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-017-NA.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-18" premiereChannelType="mono">
+            <name>OrionEp1-018-NA.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>135</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>4621</start>
+            <end>4756</end>
+            <in>0</in>
+            <out>135</out>
+            <file id="file-18">
+              <name>OrionEp1-018-NA.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-018-NA.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-19" premiereChannelType="mono">
+            <name>OrionEp1-019-NA.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>376</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>4769</start>
+            <end>5145</end>
+            <in>0</in>
+            <out>376</out>
+            <file id="file-19">
+              <name>OrionEp1-019-NA.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-019-NA.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-20" premiereChannelType="mono">
+            <name>OrionEp1-020-NA.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>45</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>5163</start>
+            <end>5208</end>
+            <in>0</in>
+            <out>45</out>
+            <file id="file-20">
+              <name>OrionEp1-020-NA.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-020-NA.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-21" premiereChannelType="mono">
+            <name>OrionEp1-021-DL.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>202</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>5220</start>
+            <end>5422</end>
+            <in>0</in>
+            <out>202</out>
+            <file id="file-21">
+              <name>OrionEp1-021-DL.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-021-DL.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-22" premiereChannelType="mono">
+            <name>OrionEp1-022-NA.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>337</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>5445</start>
+            <end>5782</end>
+            <in>0</in>
+            <out>337</out>
+            <file id="file-22">
+              <name>OrionEp1-022-NA.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-022-NA.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-23" premiereChannelType="mono">
+            <name>OrionEp1-023-NA.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>512</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>5799</start>
+            <end>6311</end>
+            <in>0</in>
+            <out>512</out>
+            <file id="file-23">
+              <name>OrionEp1-023-NA.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-023-NA.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-24" premiereChannelType="mono">
+            <name>OrionEp1-024-NA.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>386</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>6339</start>
+            <end>6725</end>
+            <in>0</in>
+            <out>386</out>
+            <file id="file-24">
+              <name>OrionEp1-024-NA.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-024-NA.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-25" premiereChannelType="mono">
+            <name>OrionEp1-025-NA.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>223</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>6743</start>
+            <end>6966</end>
+            <in>0</in>
+            <out>223</out>
+            <file id="file-25">
+              <name>OrionEp1-025-NA.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-025-NA.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-26" premiereChannelType="mono">
+            <name>OrionEp1-026-NA.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>294</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>6981</start>
+            <end>7275</end>
+            <in>0</in>
+            <out>294</out>
+            <file id="file-26">
+              <name>OrionEp1-026-NA.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-026-NA.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-27" premiereChannelType="mono">
+            <name>OrionEp1-027-DL.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>135</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>7290</start>
+            <end>7425</end>
+            <in>0</in>
+            <out>135</out>
+            <file id="file-27">
+              <name>OrionEp1-027-DL.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-027-DL.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-28" premiereChannelType="mono">
+            <name>OrionEp1-028-NA.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>379</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>7446</start>
+            <end>7825</end>
+            <in>0</in>
+            <out>379</out>
+            <file id="file-28">
+              <name>OrionEp1-028-NA.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-028-NA.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-29" premiereChannelType="mono">
+            <name>OrionEp1-029-NA.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>225</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>7842</start>
+            <end>8067</end>
+            <in>0</in>
+            <out>225</out>
+            <file id="file-29">
+              <name>OrionEp1-029-NA.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-029-NA.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-30" premiereChannelType="mono">
+            <name>OrionEp1-030-NA.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>490</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>8082</start>
+            <end>8572</end>
+            <in>0</in>
+            <out>490</out>
+            <file id="file-30">
+              <name>OrionEp1-030-NA.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-030-NA.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-31" premiereChannelType="mono">
+            <name>OrionEp1-031-NA.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>329</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>8593</start>
+            <end>8922</end>
+            <in>0</in>
+            <out>329</out>
+            <file id="file-31">
+              <name>OrionEp1-031-NA.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-031-NA.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-32" premiereChannelType="mono">
+            <name>OrionEp1-032-NA.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>436</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>8939</start>
+            <end>9375</end>
+            <in>0</in>
+            <out>436</out>
+            <file id="file-32">
+              <name>OrionEp1-032-NA.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-032-NA.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-33" premiereChannelType="mono">
+            <name>OrionEp1-033-NA.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>418</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>9394</start>
+            <end>9812</end>
+            <in>0</in>
+            <out>418</out>
+            <file id="file-33">
+              <name>OrionEp1-033-NA.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-033-NA.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-34" premiereChannelType="mono">
+            <name>OrionEp1-034-NA.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>276</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>9831</start>
+            <end>10107</end>
+            <in>0</in>
+            <out>276</out>
+            <file id="file-34">
+              <name>OrionEp1-034-NA.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-034-NA.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-35" premiereChannelType="mono">
+            <name>OrionEp1-035-NA.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>739</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>10122</start>
+            <end>10861</end>
+            <in>0</in>
+            <out>739</out>
+            <file id="file-35">
+              <name>OrionEp1-035-NA.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-035-NA.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-36" premiereChannelType="mono">
+            <name>OrionEp1-036-NA.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>323</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>10884</start>
+            <end>11207</end>
+            <in>0</in>
+            <out>323</out>
+            <file id="file-36">
+              <name>OrionEp1-036-NA.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-036-NA.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-37" premiereChannelType="mono">
+            <name>OrionEp1-037-NA.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>104</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>11224</start>
+            <end>11328</end>
+            <in>0</in>
+            <out>104</out>
+            <file id="file-37">
+              <name>OrionEp1-037-NA.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-037-NA.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-38" premiereChannelType="mono">
+            <name>OrionEp1-038-NA.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>373</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>11342</start>
+            <end>11715</end>
+            <in>0</in>
+            <out>373</out>
+            <file id="file-38">
+              <name>OrionEp1-038-NA.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-038-NA.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-39" premiereChannelType="mono">
+            <name>OrionEp1-039-NA.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>523</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>11733</start>
+            <end>12256</end>
+            <in>0</in>
+            <out>523</out>
+            <file id="file-39">
+              <name>OrionEp1-039-NA.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-039-NA.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-40" premiereChannelType="mono">
+            <name>OrionEp1-040-NA.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>132</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>12278</start>
+            <end>12410</end>
+            <in>0</in>
+            <out>132</out>
+            <file id="file-40">
+              <name>OrionEp1-040-NA.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-040-NA.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-41" premiereChannelType="mono">
+            <name>OrionEp1-041-NA.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>216</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>12423</start>
+            <end>12639</end>
+            <in>0</in>
+            <out>216</out>
+            <file id="file-41">
+              <name>OrionEp1-041-NA.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-041-NA.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-42" premiereChannelType="mono">
+            <name>OrionEp1-042-NA.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>287</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>12663</start>
+            <end>12950</end>
+            <in>0</in>
+            <out>287</out>
+            <file id="file-42">
+              <name>OrionEp1-042-NA.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-042-NA.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-43" premiereChannelType="mono">
+            <name>OrionEp1-043-NA.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>219</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>12968</start>
+            <end>13187</end>
+            <in>0</in>
+            <out>219</out>
+            <file id="file-43">
+              <name>OrionEp1-043-NA.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-043-NA.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-44" premiereChannelType="mono">
+            <name>OrionEp1-044-NA.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>211</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>13201</start>
+            <end>13412</end>
+            <in>0</in>
+            <out>211</out>
+            <file id="file-44">
+              <name>OrionEp1-044-NA.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-044-NA.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-45" premiereChannelType="mono">
+            <name>OrionEp1-045-NA.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>445</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>13426</start>
+            <end>13871</end>
+            <in>0</in>
+            <out>445</out>
+            <file id="file-45">
+              <name>OrionEp1-045-NA.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-045-NA.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-46" premiereChannelType="mono">
+            <name>OrionEp1-046-NA.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>314</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>13891</start>
+            <end>14205</end>
+            <in>0</in>
+            <out>314</out>
+            <file id="file-46">
+              <name>OrionEp1-046-NA.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-046-NA.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-47" premiereChannelType="mono">
+            <name>OrionEp1-047-NA.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>351</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>14222</start>
+            <end>14573</end>
+            <in>0</in>
+            <out>351</out>
+            <file id="file-47">
+              <name>OrionEp1-047-NA.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-047-NA.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-48" premiereChannelType="mono">
+            <name>OrionEp1-048-NA.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>207</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>14591</start>
+            <end>14798</end>
+            <in>0</in>
+            <out>207</out>
+            <file id="file-48">
+              <name>OrionEp1-048-NA.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-048-NA.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-49" premiereChannelType="mono">
+            <name>OrionEp1-049-NA.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>506</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>14813</start>
+            <end>15319</end>
+            <in>0</in>
+            <out>506</out>
+            <file id="file-49">
+              <name>OrionEp1-049-NA.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-049-NA.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-50" premiereChannelType="mono">
+            <name>OrionEp1-050-NA.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>280</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>15340</start>
+            <end>15620</end>
+            <in>0</in>
+            <out>280</out>
+            <file id="file-50">
+              <name>OrionEp1-050-NA.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-050-NA.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-51" premiereChannelType="mono">
+            <name>OrionEp1-051-NA.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>288</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>15636</start>
+            <end>15924</end>
+            <in>0</in>
+            <out>288</out>
+            <file id="file-51">
+              <name>OrionEp1-051-NA.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-051-NA.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-52" premiereChannelType="mono">
+            <name>OrionEp1-052-NA.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>163</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>15940</start>
+            <end>16103</end>
+            <in>0</in>
+            <out>163</out>
+            <file id="file-52">
+              <name>OrionEp1-052-NA.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-052-NA.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-53" premiereChannelType="mono">
+            <name>OrionEp1-053-NA.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>122</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>16116</start>
+            <end>16238</end>
+            <in>0</in>
+            <out>122</out>
+            <file id="file-53">
+              <name>OrionEp1-053-NA.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-053-NA.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-54" premiereChannelType="mono">
+            <name>OrionEp1-054-NA.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>381</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>16261</start>
+            <end>16642</end>
+            <in>0</in>
+            <out>381</out>
+            <file id="file-54">
+              <name>OrionEp1-054-NA.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-054-NA.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+        </track>
+        <track>
+          <clipitem id="clipitem-55" premiereChannelType="mono">
+            <name>OrionEp1_BGM01_S01.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>660</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>15</start>
+            <end>675</end>
+            <in>0</in>
+            <out>660</out>
+            <file id="file-55">
+              <name>OrionEp1_BGM01_S01.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/BGM/OrionEp1_BGM01_S01.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-56" premiereChannelType="mono">
+            <name>OrionEp1_BGM02_S02.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>871</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>698</start>
+            <end>1569</end>
+            <in>0</in>
+            <out>871</out>
+            <file id="file-56">
+              <name>OrionEp1_BGM02_S02.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/BGM/OrionEp1_BGM02_S02.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-57" premiereChannelType="mono">
+            <name>OrionEp1_BGM03_S03.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>1861</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>1578</start>
+            <end>3439</end>
+            <in>0</in>
+            <out>1861</out>
+            <file id="file-57">
+              <name>OrionEp1_BGM03_S03.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/BGM/OrionEp1_BGM03_S03.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-58" premiereChannelType="mono">
+            <name>OrionEp1_BGM04_S04.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>2340</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>3448</start>
+            <end>5788</end>
+            <in>0</in>
+            <out>2340</out>
+            <file id="file-58">
+              <name>OrionEp1_BGM04_S04.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/BGM/OrionEp1_BGM04_S04.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-59" premiereChannelType="mono">
+            <name>OrionEp1_BGM05_S05.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>2281</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>5799</start>
+            <end>8080</end>
+            <in>0</in>
+            <out>2281</out>
+            <file id="file-59">
+              <name>OrionEp1_BGM05_S05.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/BGM/OrionEp1_BGM05_S05.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-60" premiereChannelType="mono">
+            <name>OrionEp1_BGM06_S06.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>1740</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>8082</start>
+            <end>9822</end>
+            <in>0</in>
+            <out>1740</out>
+            <file id="file-60">
+              <name>OrionEp1_BGM06_S06.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/BGM/OrionEp1_BGM06_S06.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-61" premiereChannelType="mono">
+            <name>OrionEp1_BGM07_S07.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>1500</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>9831</start>
+            <end>11331</end>
+            <in>0</in>
+            <out>1500</out>
+            <file id="file-61">
+              <name>OrionEp1_BGM07_S07.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/BGM/OrionEp1_BGM07_S07.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-62" premiereChannelType="mono">
+            <name>OrionEp1_BGM08_S08.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>2070</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>11342</start>
+            <end>13412</end>
+            <in>0</in>
+            <out>2070</out>
+            <file id="file-62">
+              <name>OrionEp1_BGM08_S08.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/BGM/OrionEp1_BGM08_S08.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-63" premiereChannelType="mono">
+            <name>OrionEp1_BGM09_S09.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>3211</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>13426</start>
+            <end>16637</end>
+            <in>0</in>
+            <out>3211</out>
+            <file id="file-63">
+              <name>OrionEp1_BGM09_S09.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/BGM/OrionEp1_BGM09_S09.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+        </track>
+        <track>
+          <clipitem id="clipitem-64" premiereChannelType="mono">
+            <name>OrionEp1_SE01_00-00-05_computer mouse click.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>48</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>150</start>
+            <end>198</end>
+            <in>0</in>
+            <out>48</out>
+            <file id="file-64">
+              <name>OrionEp1_SE01_00-00-05_computer mouse click.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/SE/OrionEp1_SE01_00-00-05_computer%20mouse%20click.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-65" premiereChannelType="mono">
+            <name>OrionEp1_SE01_00-00-15_keyboard typing, soft.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>48</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>450</start>
+            <end>498</end>
+            <in>0</in>
+            <out>48</out>
+            <file id="file-65">
+              <name>OrionEp1_SE01_00-00-15_keyboard typing, soft.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/SE/OrionEp1_SE01_00-00-15_keyboard%20typing%2C%20soft.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-66" premiereChannelType="mono">
+            <name>OrionEp1_SE01_00-00-00.500_office air conditioner hum, low.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>900</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>15</start>
+            <end>915</end>
+            <in>0</in>
+            <out>900</out>
+            <file id="file-66">
+              <name>OrionEp1_SE01_00-00-00.500_office air conditioner hum, low.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/SE/OrionEp1_SE01_00-00-00.500_office%20air%20conditioner%20hum%2C%20low.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-67" premiereChannelType="mono">
+            <name>OrionEp1_SE01_00-00-00.500_distant city traffic drone.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>900</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>15</start>
+            <end>915</end>
+            <in>0</in>
+            <out>900</out>
+            <file id="file-67">
+              <name>OrionEp1_SE01_00-00-00.500_distant city traffic drone.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/SE/OrionEp1_SE01_00-00-00.500_distant%20city%20traffic%20drone.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-68" premiereChannelType="mono">
+            <name>OrionEp1_SE02_00-00-35_subtle whoosh sound.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>48</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>1050</start>
+            <end>1098</end>
+            <in>0</in>
+            <out>48</out>
+            <file id="file-68">
+              <name>OrionEp1_SE02_00-00-35_subtle whoosh sound.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/SE/OrionEp1_SE02_00-00-35_subtle%20whoosh%20sound.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-69" premiereChannelType="mono">
+            <name>OrionEp1_SE02_00-00-40_shimmering magical sound effect.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>48</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>1200</start>
+            <end>1248</end>
+            <in>0</in>
+            <out>48</out>
+            <file id="file-69">
+              <name>OrionEp1_SE02_00-00-40_shimmering magical sound effect.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/SE/OrionEp1_SE02_00-00-40_shimmering%20magical%20sound%20effect.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-70" premiereChannelType="mono">
+            <name>OrionEp1_SE02_00-00-30_deep resonant hum.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>900</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>900</start>
+            <end>1800</end>
+            <in>0</in>
+            <out>900</out>
+            <file id="file-70">
+              <name>OrionEp1_SE02_00-00-30_deep resonant hum.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/SE/OrionEp1_SE02_00-00-30_deep%20resonant%20hum.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-71" premiereChannelType="mono">
+            <name>OrionEp1_SE03_00-01-05_smartphone notification ping.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>48</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>1950</start>
+            <end>1998</end>
+            <in>0</in>
+            <out>48</out>
+            <file id="file-71">
+              <name>OrionEp1_SE03_00-01-05_smartphone notification ping.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/SE/OrionEp1_SE03_00-01-05_smartphone%20notification%20ping.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-72" premiereChannelType="mono">
+            <name>OrionEp1_SE03_00-01-20_crowd murmur in restaurant, indistinct.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>750</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>2400</start>
+            <end>3150</end>
+            <in>0</in>
+            <out>750</out>
+            <file id="file-72">
+              <name>OrionEp1_SE03_00-01-20_crowd murmur in restaurant, indistinct.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/SE/OrionEp1_SE03_00-01-20_crowd%20murmur%20in%20restaurant%2C%20indistinct.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-73" premiereChannelType="mono">
+            <name>OrionEp1_SE03_00-01-25.106_ice clinking in glass.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>48</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>2553</start>
+            <end>2601</end>
+            <in>0</in>
+            <out>48</out>
+            <file id="file-73">
+              <name>OrionEp1_SE03_00-01-25.106_ice clinking in glass.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/SE/OrionEp1_SE03_00-01-25.106_ice%20clinking%20in%20glass.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-74" premiereChannelType="mono">
+            <name>OrionEp1_SE04_00-02-00_strong desert wind blowing.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>900</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>3600</start>
+            <end>4500</end>
+            <in>0</in>
+            <out>900</out>
+            <file id="file-74">
+              <name>OrionEp1_SE04_00-02-00_strong desert wind blowing.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/SE/OrionEp1_SE04_00-02-00_strong%20desert%20wind%20blowing.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-75" premiereChannelType="mono">
+            <name>OrionEp1_SE04_00-02-30_distant thunder rumble.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>48</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>4500</start>
+            <end>4548</end>
+            <in>0</in>
+            <out>48</out>
+            <file id="file-75">
+              <name>OrionEp1_SE04_00-02-30_distant thunder rumble.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/SE/OrionEp1_SE04_00-02-30_distant%20thunder%20rumble.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-76" premiereChannelType="mono">
+            <name>OrionEp1_SE04_00-02-45_tired footsteps on sand.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>48</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>4950</start>
+            <end>4998</end>
+            <in>0</in>
+            <out>48</out>
+            <file id="file-76">
+              <name>OrionEp1_SE04_00-02-45_tired footsteps on sand.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/SE/OrionEp1_SE04_00-02-45_tired%20footsteps%20on%20sand.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-77" premiereChannelType="mono">
+            <name>OrionEp1_SE04_00-03-00_crowd murmuring with discontent.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>48</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>5400</start>
+            <end>5448</end>
+            <in>0</in>
+            <out>48</out>
+            <file id="file-77">
+              <name>OrionEp1_SE04_00-03-00_crowd murmuring with discontent.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/SE/OrionEp1_SE04_00-03-00_crowd%20murmuring%20with%20discontent.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-78" premiereChannelType="mono">
+            <name>OrionEp1_SE05_00-03-45_stone crumbling sound.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>48</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>6750</start>
+            <end>6798</end>
+            <in>0</in>
+            <out>48</out>
+            <file id="file-78">
+              <name>OrionEp1_SE05_00-03-45_stone crumbling sound.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/SE/OrionEp1_SE05_00-03-45_stone%20crumbling%20sound.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-79" premiereChannelType="mono">
+            <name>OrionEp1_SE05_00-04-00_heavy chain snapping.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>48</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>7200</start>
+            <end>7248</end>
+            <in>0</in>
+            <out>48</out>
+            <file id="file-79">
+              <name>OrionEp1_SE05_00-04-00_heavy chain snapping.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/SE/OrionEp1_SE05_00-04-00_heavy%20chain%20snapping.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-80" premiereChannelType="mono">
+            <name>OrionEp1_SE05_00-04-20_old paper page turn.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>48</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>7800</start>
+            <end>7848</end>
+            <in>0</in>
+            <out>48</out>
+            <file id="file-80">
+              <name>OrionEp1_SE05_00-04-20_old paper page turn.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/SE/OrionEp1_SE05_00-04-20_old%20paper%20page%20turn.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-81" premiereChannelType="mono">
+            <name>OrionEp1_SE06_00-04-35_data processing sound effects.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>900</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>8250</start>
+            <end>9150</end>
+            <in>0</in>
+            <out>900</out>
+            <file id="file-81">
+              <name>OrionEp1_SE06_00-04-35_data processing sound effects.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/SE/OrionEp1_SE06_00-04-35_data%20processing%20sound%20effects.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-82" premiereChannelType="mono">
+            <name>OrionEp1_SE06_00-04-45_futuristic UI sounds.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>48</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>8550</start>
+            <end>8598</end>
+            <in>0</in>
+            <out>48</out>
+            <file id="file-82">
+              <name>OrionEp1_SE06_00-04-45_futuristic UI sounds.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/SE/OrionEp1_SE06_00-04-45_futuristic%20UI%20sounds.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-83" premiereChannelType="mono">
+            <name>OrionEp1_SE06_00-05-00_heartbeat monitor beep, steady.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>600</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>9000</start>
+            <end>9600</end>
+            <in>0</in>
+            <out>600</out>
+            <file id="file-83">
+              <name>OrionEp1_SE06_00-05-00_heartbeat monitor beep, steady.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/SE/OrionEp1_SE06_00-05-00_heartbeat%20monitor%20beep%2C%20steady.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-84" premiereChannelType="mono">
+            <name>OrionEp1_SE07_00-05-30_gentle breeze rustling leaves.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>900</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>9900</start>
+            <end>10800</end>
+            <in>0</in>
+            <out>900</out>
+            <file id="file-84">
+              <name>OrionEp1_SE07_00-05-30_gentle breeze rustling leaves.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/SE/OrionEp1_SE07_00-05-30_gentle%20breeze%20rustling%20leaves.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-85" premiereChannelType="mono">
+            <name>OrionEp1_SE07_00-05-35_birds chirping softly, distant.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>900</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>10050</start>
+            <end>10950</end>
+            <in>0</in>
+            <out>900</out>
+            <file id="file-85">
+              <name>OrionEp1_SE07_00-05-35_birds chirping softly, distant.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/SE/OrionEp1_SE07_00-05-35_birds%20chirping%20softly%2C%20distant.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-86" premiereChannelType="mono">
+            <name>OrionEp1_SE07_00-06-15_deep, slow breath sound.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>48</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>11250</start>
+            <end>11298</end>
+            <in>0</in>
+            <out>48</out>
+            <file id="file-86">
+              <name>OrionEp1_SE07_00-06-15_deep, slow breath sound.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/SE/OrionEp1_SE07_00-06-15_deep%2C%20slow%20breath%20sound.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-87" premiereChannelType="mono">
+            <name>OrionEp1_SE08_00-06-35_city morning ambiance.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>900</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>11850</start>
+            <end>12750</end>
+            <in>0</in>
+            <out>900</out>
+            <file id="file-87">
+              <name>OrionEp1_SE08_00-06-35_city morning ambiance.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/SE/OrionEp1_SE08_00-06-35_city%20morning%20ambiance.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-88" premiereChannelType="mono">
+            <name>OrionEp1_SE08_00-06-50_marker pen writing on whiteboard.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>48</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>12300</start>
+            <end>12348</end>
+            <in>0</in>
+            <out>48</out>
+            <file id="file-88">
+              <name>OrionEp1_SE08_00-06-50_marker pen writing on whiteboard.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/SE/OrionEp1_SE08_00-06-50_marker%20pen%20writing%20on%20whiteboard.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-89" premiereChannelType="mono">
+            <name>OrionEp1_SE08_00-07-00_coffee mug placed on desk.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>48</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>12600</start>
+            <end>12648</end>
+            <in>0</in>
+            <out>48</out>
+            <file id="file-89">
+              <name>OrionEp1_SE08_00-07-00_coffee mug placed on desk.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/SE/OrionEp1_SE08_00-07-00_coffee%20mug%20placed%20on%20desk.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-90" premiereChannelType="mono">
+            <name>OrionEp1_SE09_00-07-32_gentle night wind.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>840</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>13560</start>
+            <end>14400</end>
+            <in>0</in>
+            <out>840</out>
+            <file id="file-90">
+              <name>OrionEp1_SE09_00-07-32_gentle night wind.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/SE/OrionEp1_SE09_00-07-32_gentle%20night%20wind.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-91" premiereChannelType="mono">
+            <name>OrionEp1_SE09_00-07-45_subtle, final whoosh sound.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>48</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>13950</start>
+            <end>13998</end>
+            <in>0</in>
+            <out>48</out>
+            <file id="file-91">
+              <name>OrionEp1_SE09_00-07-45_subtle, final whoosh sound.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/SE/OrionEp1_SE09_00-07-45_subtle%2C%20final%20whoosh%20sound.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+          <clipitem id="clipitem-92" premiereChannelType="mono">
+            <name>OrionEp1_SE09_00-07-58_a single, resonant chime.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>48</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>14340</start>
+            <end>14388</end>
+            <in>0</in>
+            <out>48</out>
+            <file id="file-92">
+              <name>OrionEp1_SE09_00-07-58_a single, resonant chime.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/SE/OrionEp1_SE09_00-07-58_a%20single%2C%20resonant%20chime.mp3</pathurl>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+          </clipitem>
+        </track>
+      </audio>
+    </media>
+  </sequence>
+</xmeml>

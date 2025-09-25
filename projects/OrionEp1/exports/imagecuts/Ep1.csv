@@ -1,0 +1,14 @@
+Episode,Clip Name,Bin Path,Source File,Keywords,Comments,Notes
+EP01,EP01_010_NightOfficeEstablish,Episode01/Intro,[TBD],"S:夜景; S:社内; M:窓; C:望遠; E:孤独; T:組織","EP01_導入_深夜オフィス","orinonep1.md 冒頭段落。夜景望遠ショット想定。"
+EP01,EP01_020_SnsFeedClose,Episode01/Intro,[TBD],"S:社内; M:ネットワーク; M:書物; C:マクロ; C:パン; E:孤独","EP01_導入_SNSフィード","スマホ画面スクロール。iStock候補メモ。"
+EP01,EP01_030_BarConversation,Episode01/ModernLife,[TBD],"S:屋内; S:社内; M:群集; A:会議; C:固定; E:苦悩","EP01_現代_飲み会愚痴","居酒屋/オフィス休憩室の再現。群集素材検討。"
+EP01,EP01_040_StarMapReveal,Episode01/StarMap,[TBD],"S:夜景; M:星空; M:ネットワーク; C:TL; C:パン; E:高揚","EP01_OP_星座提示","After Effects星座ライン演出。"
+EP01,EP01_050_DesertExodus,Episode01/History,[TBD],"S:自然; M:砂丘; M:砂時計; C:空撮; E:孤独; T:歴史","EP01_古代_出エジプト","砂漠キャラバン空撮。台本 Exodus セクション。"
+EP01,EP01_060_IsraelitesComplain,Episode01/History,[TBD],"S:自然; M:群集; C:俯瞰; C:スロモ; E:苦悩; T:歴史","EP01_古代_民の嘆き","群衆俯瞰イメージ。引用: orinonep1.md モーセ段落。"
+EP01,EP01_070_NietzscheStudy,Episode01/Philosophy,[TBD],"S:図書館; M:書物; M:羊皮紙; A:筆記; C:マクロ; T:倫理","EP01_哲学_ニーチェ","書斎再現。書籍クローズアップ。"
+EP01,EP01_080_CorporateContract,Episode01/ModernTheory,[TBD],"S:社内; M:書物; A:会議; C:固定; T:組織; E:静寂","EP01_理論_心理的契約","会議室ホワイトボード。台本 心理的契約節。"
+EP01,EP01_090_BrainScanVisual,Episode01/Science,[TBD],"S:社内; M:脳HUD; M:ネットワーク; C:マクロ; T:脳科学; E:高揚","EP01_科学_fMRI反応","HUD系合成。素材: Plexus脳アニメーション。"
+EP01,EP01_100_HirschmanChoices,Episode01/Concept,[TBD],"S:社内; M:羅針盤; M:ネットワーク; C:望遠; T:組織; E:苦悩","EP01_概念_離脱発言忠誠","羅針盤メタファー。orinonep1.md ハーシュマン節。"
+EP01,EP01_110_IntrospectiveQuestion,Episode01/Pivot,[TBD],"S:屋内; S:社内; M:窓; E:孤独; T:自己; C:固定","EP01_内省_問い直し","窓辺で考える人物。台本 内的変容段落。"
+EP01,EP01_120_MorningCommute,Episode01/Resolution,[TBD],"S:社内; S:屋外; A:歩行; C:パン; E:静寂; T:自己","EP01_現代_月曜の朝","朝のエレベーター/デスク着席。orinonep1.md 終盤。"
+EP01,EP01_130_NightSkyOutro,Episode01/Outro,[TBD],"S:夜景; M:星空; C:空撮; C:TL; E:高揚; T:倫理","EP01_結末_星空締め","夜空タイムラプス。締めナレーション部分。

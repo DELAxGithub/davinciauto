@@ -1,0 +1,318 @@
+{
+  "project": "OrionEp1",
+  "sections": [
+    {
+      "label": "S01",
+      "start_tc": "00:00:00.500",
+      "notes": "深夜のオフィス、SNSで同期の転職を知り焦燥感に駆られる",
+      "bgm_prompt": "A minimalist, atmospheric ambient track with a simple, repeating piano melody, BPM 60, creating a sense of urban loneliness and quiet contemplation. style:ambient_piano | bpm:60 | key:minor",
+      "sfx": [
+        {
+          "label": "computer mouse click",
+          "prompt": "computer mouse click: マウスのクリック音をナレーションの合間に小さく配置",
+          "time_tc": "00:00:05",
+          "line_number": "001",
+          "offset_sec": 4.5
+        },
+        {
+          "label": "keyboard typing, soft",
+          "prompt": "keyboard typing, soft: キーボードの音をナレーションの合間に小さく配置",
+          "time_tc": "00:00:15",
+          "line_number": "003",
+          "offset_sec": 2.192
+        },
+        {
+          "label": "office air conditioner hum, low",
+          "prompt": "office air conditioner hum, low: 静かな環境音として継続",
+          "time_tc": "00:00:00.500",
+          "duration_sec": 30.0,
+          "line_number": "001",
+          "offset_sec": 0.0
+        },
+        {
+          "label": "distant city traffic drone",
+          "prompt": "distant city traffic drone: 遠くの交通音として背景に",
+          "time_tc": "00:00:00.500",
+          "duration_sec": 30.0,
+          "line_number": "001",
+          "offset_sec": 0.0
+        }
+      ],
+      "start_line": "001",
+      "end_line": "004",
+      "end_tc": "00:00:30.162"
+    },
+    {
+      "label": "S02",
+      "start_tc": "00:00:23.250",
+      "notes": "古代から現代までの知性が「転職」をテーマに繋がる星座の提示",
+      "bgm_prompt": "A mysterious and evolving cinematic soundscape with ethereal synth pads, subtle choir, and a slow, deep string section, BPM 70, evoking a sense of cosmic scale and intellectual discovery. style:cinematic_orchestral | bpm:70 | key:major",
+      "sfx": [
+        {
+          "label": "subtle whoosh sound",
+          "prompt": "subtle whoosh sound: 星が結ばれるタイミングで使用",
+          "time_tc": "00:00:35",
+          "line_number": "005",
+          "offset_sec": 4.356
+        },
+        {
+          "label": "shimmering magical sound effect",
+          "prompt": "shimmering magical sound effect: 星が結ばれるタイミングで、きらめくような効果音",
+          "time_tc": "00:00:40",
+          "line_number": "005",
+          "offset_sec": 9.356
+        },
+        {
+          "label": "deep resonant hum",
+          "prompt": "deep resonant hum: 知性の繋がりを表現する低音",
+          "time_tc": "00:00:30",
+          "duration_sec": 30.0,
+          "line_number": "004",
+          "offset_sec": 6.75
+        }
+      ],
+      "start_line": "004",
+      "end_line": "007",
+      "end_tc": "00:01:06.836"
+    },
+    {
+      "label": "S03",
+      "start_tc": "00:00:52.604",
+      "notes": "転職サイトからの通知と、同僚たちの愚痴が蔓延する日常",
+      "bgm_prompt": "A slightly dissonant, repetitive electronic track with a prominent bassline and glitchy percussion, BPM 110, creating a feeling of mundane routine and underlying anxiety. style:electronic_glitch | bpm:110 | key:minor",
+      "sfx": [
+        {
+          "label": "smartphone notification ping",
+          "prompt": "smartphone notification ping: 転職エージェントからの通知音を際立たせる",
+          "time_tc": "00:01:05",
+          "line_number": "007",
+          "offset_sec": 12.396
+        },
+        {
+          "label": "crowd murmur in restaurant, indistinct",
+          "prompt": "crowd murmur in restaurant, indistinct: 居酒屋での人々の会話、聞き取れないガヤとして処理",
+          "time_tc": "00:01:20",
+          "duration_sec": 25.0,
+          "line_number": "009",
+          "offset_sec": 8.888
+        },
+        {
+          "label": "ice clinking in glass",
+          "prompt": "ice clinking in glass: 居酒屋のアンビエント音として",
+          "time_tc": "00:01:25.106",
+          "line_number": "010",
+          "offset_sec": 0.0
+        }
+      ],
+      "start_line": "007",
+      "end_line": "014",
+      "end_tc": "00:02:08.328"
+    },
+    {
+      "label": "S04",
+      "start_tc": "00:01:54.936",
+      "notes": "出エジプトの民が自由の荒野で「予測可能」な奴隷時代を懐かしむ",
+      "bgm_prompt": "An epic, dramatic orchestral piece with heavy percussion, mournful woodwinds (like a duduk), and sweeping strings, BPM 75, conveying a sense of struggle, vastness, and historical gravity. style:epic_orchestral | bpm:75 | key:minor | instruments:percussion, duduk, strings",
+      "sfx": [
+        {
+          "label": "strong desert wind blowing",
+          "prompt": "strong desert wind blowing: 常に強い風の音を背景に流し、荒野の厳しさを表現",
+          "time_tc": "00:02:00",
+          "duration_sec": 30.0,
+          "line_number": "014",
+          "offset_sec": 5.064
+        },
+        {
+          "label": "distant thunder rumble",
+          "prompt": "distant thunder rumble: 遠くの雷鳴で不安感を演出",
+          "time_tc": "00:02:30",
+          "line_number": "016",
+          "offset_sec": 7.336
+        },
+        {
+          "label": "tired footsteps on sand",
+          "prompt": "tired footsteps on sand: 砂の上の疲れた足音",
+          "time_tc": "00:02:45",
+          "line_number": "019",
+          "offset_sec": 6.018
+        },
+        {
+          "label": "crowd murmuring with discontent",
+          "prompt": "crowd murmuring with discontent: 「エジプトにいた方がよかった」部分での不満の群衆音",
+          "time_tc": "00:03:00",
+          "line_number": "021",
+          "offset_sec": 6.014
+        }
+      ],
+      "start_line": "014",
+      "end_line": "023",
+      "end_tc": "00:03:30.348"
+    },
+    {
+      "label": "S05",
+      "start_tc": "00:03:13.284",
+      "notes": "ニーチェの「神は死んだ」と「奴隷道徳」による価値観の崩壊",
+      "bgm_prompt": "A dark, brooding classical piece featuring a solo cello and deep piano chords, with occasional dissonant strings, BPM 60, creating an atmosphere of profound, unsettling intellectual thought. style:classical_dark | bpm:60 | key:minor | instruments:cello, piano, strings",
+      "sfx": [
+        {
+          "label": "stone crumbling sound",
+          "prompt": "stone crumbling sound: 価値観の崩壊を象徴するSE",
+          "time_tc": "00:03:45",
+          "line_number": "025",
+          "offset_sec": 0.228
+        },
+        {
+          "label": "heavy chain snapping",
+          "prompt": "heavy chain snapping: 奴隷道徳からの解放を象徴",
+          "time_tc": "00:04:00",
+          "line_number": "026",
+          "offset_sec": 7.306
+        },
+        {
+          "label": "old paper page turn",
+          "prompt": "old paper page turn: ニーチェの原稿を表現",
+          "time_tc": "00:04:20",
+          "line_number": "028",
+          "offset_sec": 11.796
+        }
+      ],
+      "start_line": "023",
+      "end_line": "030",
+      "end_tc": "00:04:45.732"
+    },
+    {
+      "label": "S06",
+      "start_tc": "00:04:29.412",
+      "notes": "現代科学が解き明かす「心理的契約」と不確実性への恐怖",
+      "bgm_prompt": "A precise and clean electronic track with intricate synth patterns, a steady digital beat, and a sense of clinical precision, BPM 120, evoking scientific analysis and data. style:electronic_clinical | bpm:120 | key:major",
+      "sfx": [
+        {
+          "label": "data processing sound effects",
+          "prompt": "data processing sound effects: データが処理されるような細かい電子音を散りばめる",
+          "time_tc": "00:04:35",
+          "duration_sec": 30.0,
+          "line_number": "030",
+          "offset_sec": 5.588
+        },
+        {
+          "label": "futuristic UI sounds",
+          "prompt": "futuristic UI sounds: 未来的なUI音",
+          "time_tc": "00:04:45",
+          "line_number": "030",
+          "offset_sec": 15.588
+        },
+        {
+          "label": "heartbeat monitor beep, steady",
+          "prompt": "heartbeat monitor beep, steady: fMRIシーンで心音のような規則的なビート音",
+          "time_tc": "00:05:00",
+          "duration_sec": 20.0,
+          "line_number": "032",
+          "offset_sec": 2.024
+        }
+      ],
+      "start_line": "030",
+      "end_line": "034",
+      "end_tc": "00:05:36.884"
+    },
+    {
+      "label": "S07",
+      "start_tc": "00:05:27.692",
+      "notes": "「脱出」目的ではなく「目的地」を問うことの重要性",
+      "bgm_prompt": "A gentle and uplifting acoustic track with fingerstyle guitar, soft piano, and warm string pads, BPM 80, creating a hopeful and reflective mood. style:acoustic_hopeful | bpm:80 | key:major | instruments:guitar, piano, strings",
+      "sfx": [
+        {
+          "label": "gentle breeze rustling leaves",
+          "prompt": "gentle breeze rustling leaves: 自然で心地よい環境音",
+          "time_tc": "00:05:30",
+          "duration_sec": 30.0,
+          "line_number": "034",
+          "offset_sec": 2.308
+        },
+        {
+          "label": "birds chirping softly, distant",
+          "prompt": "birds chirping softly, distant: 遠くの鳥のさえずり",
+          "time_tc": "00:05:35",
+          "duration_sec": 30.0,
+          "line_number": "034",
+          "offset_sec": 7.308
+        },
+        {
+          "label": "deep, slow breath sound",
+          "prompt": "deep, slow breath sound: 「問うべきことがあります」の前で内省的雰囲気を高める",
+          "time_tc": "00:06:15",
+          "line_number": "037",
+          "offset_sec": 0.85
+        }
+      ],
+      "start_line": "034",
+      "end_line": "038",
+      "end_tc": "00:06:30.484"
+    },
+    {
+      "label": "S08",
+      "start_tc": "00:06:18.052",
+      "notes": "今いる場所を「実験場」と捉え直す、新しい視点の獲得",
+      "bgm_prompt": "A light, optimistic instrumental pop track with a simple, catchy piano riff, steady drums, and clean electric guitar, BPM 115, evoking a sense of clarity and proactive energy. style:pop_optimistic | bpm:115 | key:major | instruments:piano, drums, electric_guitar",
+      "sfx": [
+        {
+          "label": "city morning ambiance",
+          "prompt": "city morning ambiance: 街の活気ある朝の環境音",
+          "time_tc": "00:06:35",
+          "duration_sec": 30.0,
+          "line_number": "039",
+          "offset_sec": 3.906
+        },
+        {
+          "label": "marker pen writing on whiteboard",
+          "prompt": "marker pen writing on whiteboard: アイデアを書き出す音",
+          "time_tc": "00:06:50",
+          "line_number": "040",
+          "offset_sec": 0.748
+        },
+        {
+          "label": "coffee mug placed on desk",
+          "prompt": "coffee mug placed on desk: 新しい一日の始まりを表現",
+          "time_tc": "00:07:00",
+          "line_number": "041",
+          "offset_sec": 5.89
+        }
+      ],
+      "start_line": "038",
+      "end_line": "045",
+      "end_tc": "00:07:42.370"
+    },
+    {
+      "label": "S09",
+      "start_tc": "00:07:27.538",
+      "notes": "本当の自由は内側から始まるという結論と、視聴者への問いかけ",
+      "bgm_prompt": "A reprise of the main piano theme from the beginning, now layered with a full, warm string orchestra and ethereal choir, BPM 65, creating a sense of resolution, peace, and vastness. style:orchestral_finale | bpm:65 | key:major | instruments:piano, strings, choir",
+      "sfx": [
+        {
+          "label": "gentle night wind",
+          "prompt": "gentle night wind: 穏やかな夜風",
+          "time_tc": "00:07:32",
+          "duration_sec": 28.0,
+          "line_number": "045",
+          "offset_sec": 4.462
+        },
+        {
+          "label": "subtle, final whoosh sound",
+          "prompt": "subtle, final whoosh sound: 最後の壮大な効果音",
+          "time_tc": "00:07:45",
+          "line_number": "046",
+          "offset_sec": 1.972
+        },
+        {
+          "label": "a single, resonant chime",
+          "prompt": "a single, resonant chime: 最後に一つだけ響くチャイムで深い余韻",
+          "time_tc": "00:07:58",
+          "line_number": "047",
+          "offset_sec": 3.95
+        }
+      ],
+      "start_line": "045",
+      "end_line": "054",
+      "end_tc": "00:09:14.724"
+    }
+  ]
+}

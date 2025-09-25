@@ -63,6 +63,12 @@ def parse_xml(xml_path: pathlib.Path) -> list[tuple[int, int]]:
     root = tree.getroot()
     clips: list[tuple[int, int]] = []
     for clip in root.findall('.//clipitem'):
+        file_elem = clip.find('file')
+        pathurl = file_elem.find('pathurl').text if file_elem is not None and file_elem.find('pathurl') is not None else ''
+        if 'サウンド類/Narration' not in pathurl and 'Narration' not in pathurl:
+            name = clip.findtext('name') or ''
+            if not name.endswith('-NA.mp3'):
+                continue
         st_el = clip.find('start')
         en_el = clip.find('end')
         if st_el is None or en_el is None:
@@ -79,56 +85,60 @@ def parse_xml(xml_path: pathlib.Path) -> list[tuple[int, int]]:
 
 
 def retime(cues: list[dict[str, str]], clips: list[tuple[int, int]], fps: int = FPS) -> list[str]:
-    n_c = len(cues)
-    n_k = len(clips)
-    out_lines: list[str] = []
-    if n_c == 0 or n_k == 0:
-        return out_lines
+    total_cues = len(cues)
+    if total_cues == 0 or not clips:
+        return []
 
-    # Strategy: distribute cues across clips proportionally
-    ci = 0  # cue index
-    for ki, (st, en) in enumerate(clips):
-        remaining_cues = n_c - ci
-        remaining_clips = n_k - ki
-        if remaining_cues <= 0:
+    total_frames = sum(en - st for st, en in clips)
+    remaining_cues = total_cues
+    remaining_frames = total_frames
+    cue_index = 0
+    out_lines: list[str] = []
+
+    for clip_idx, (st, en) in enumerate(clips):
+        if cue_index >= total_cues:
             break
-        # Assign how many cues to this clip (ceil division for front-loading)
-        per = (remaining_cues + remaining_clips - 1) // remaining_clips
-        per = max(1, per)
-        used = min(per, remaining_cues)
-        dur = en - st
-        if used <= 1:
-            # Single cue spans whole clip
-            c = cues[ci]
-            idx = len(out_lines) // 3 + 1
-            out_lines.append(str(idx))
-            out_lines.append(f"{frames_to_tc(st,fps)} --> {frames_to_tc(en,fps)}")
-            out_lines.append(c['text'] + '\n')
-            ci += 1
+        dur_frames = max(1, en - st)
+        remaining_clips = len(clips) - clip_idx
+
+        if remaining_frames > 0:
+            portion = dur_frames / remaining_frames
         else:
-            # Enforce minimum duration per segment
-            max_segments_by_time = max(1, int((dur / fps) // MIN_CUE_SEC))
-            used = max(1, min(used, max_segments_by_time))
-            if used == 1:
-                # Fallback to single cue
-                c = cues[ci]
-                idx = len(out_lines) // 3 + 1
-                out_lines.append(str(idx))
-                out_lines.append(f"{frames_to_tc(st,fps)} --> {frames_to_tc(en,fps)}")
-                out_lines.append(c['text'] + '\n')
-                ci += 1
-                continue
-            # Split clip into equal segments for multiple cues
-            seg = dur // used
-            for j in range(used):
-                c = cues[ci]
-                seg_st = st + seg * j
-                seg_en = en if j == used - 1 else st + seg * (j + 1)
-                idx = len(out_lines) // 3 + 1
-                out_lines.append(str(idx))
-                out_lines.append(f"{frames_to_tc(seg_st,fps)} --> {frames_to_tc(seg_en,fps)}")
-                out_lines.append(c['text'] + '\n')
-                ci += 1
+            portion = 1.0 / remaining_clips
+
+        assign = max(1, round(portion * remaining_cues))
+        max_assign = remaining_cues - (remaining_clips - 1)
+        assign = min(assign, max_assign)
+
+        assign = min(assign, remaining_cues)
+
+        if assign <= 0:
+            assign = 1
+
+        for j in range(assign):
+            if cue_index >= total_cues:
+                break
+            c = cues[cue_index]
+            start_frames = st + (dur_frames * j) // assign
+            end_frames = en if j == assign - 1 else st + (dur_frames * (j + 1)) // assign
+            idx_num = len(out_lines) // 3 + 1
+            out_lines.append(str(idx_num))
+            out_lines.append(f"{frames_to_tc(start_frames, fps)} --> {frames_to_tc(end_frames, fps)}")
+            out_lines.append(c['text'] + '\n')
+            cue_index += 1
+
+        remaining_cues = total_cues - cue_index
+        remaining_frames -= dur_frames
+
+    # If any cues remain, append them sequentially after the last clip using final time
+    if cue_index < total_cues:
+        last_end = clips[-1][1]
+        for i in range(cue_index, total_cues):
+            idx_num = len(out_lines) // 3 + 1
+            out_lines.append(str(idx_num))
+            out_lines.append(f"{frames_to_tc(last_end, fps)} --> {frames_to_tc(last_end, fps)}")
+            out_lines.append(cues[i]['text'] + '\n')
+
     return out_lines
 
 

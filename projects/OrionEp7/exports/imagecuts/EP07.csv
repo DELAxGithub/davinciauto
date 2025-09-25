@@ -1,0 +1,11 @@
+Episode,Clip Name,Bin Path,Source File,Keywords,Comments,Notes
+EP07,EP07_010_FormalMeeting,Episode07/Intro,[TBD],"S:社内; A:会議; C:固定; E:静寂; T:組織; M:窓","EP07_導入_形式的会議","無音気味固定ショット。"
+EP07,EP07_020_CorridorWhisper,Episode07/Backchannel,[TBD],"S:社内; A:握手; C:望遠; E:静寂; T:組織; M:窓","EP07_裏交渉_囁き","廊下での根回し。"
+EP07,EP07_030_StarMapSegue,Episode07/StarMap,[TBD],"S:夜景; M:星空; M:ネットワーク; C:TL; E:高揚; T:組織","EP07_OP_星座提示","テンプレ流用。"
+EP07,EP07_040_SunTzuScroll,Episode07/History,[TBD],"S:寺社; M:書物; M:竹林; C:マクロ; E:静寂; T:歴史","EP07_古代_竹簡","竹簡アニメ。"
+EP07,EP07_050_TeaCeremony,Episode07/Tradition,[TBD],"S:寺社; M:禅庭; E:静寂; T:倫理; C:俯瞰","EP07_東洋_茶室","茶室俯瞰+にじり口。"
+EP07,EP07_060_GoStones,Episode07/Bridge,[TBD],"S:屋内; M:書物; C:マクロ; E:静寂; T:組織; A:会議","EP07_橋渡し_碁石","囲碁の手元。"
+EP07,EP07_070_KoiPond,Episode07/Metaphor,[TBD],"S:自然; M:群鳥; C:俯瞰; E:静寂; T:自己; M:禅庭","EP07_比喩_水鳥","水鳥足比喩用水中ショット。"
+EP07,EP07_080_ModernPrep,Episode07/Modern,[TBD],"S:社内; A:会議; C:TL; E:静寂; T:組織; M:ネットワーク","EP07_現代_資料準備","資料配布TL。"
+EP07,EP07_090_FinalHandshake,Episode07/Resolution,[TBD],"S:社内; A:握手; C:固定; E:静寂; T:組織; M:窓","EP07_結末_円滑な合意","和やかな握手。"
+EP07,EP07_100_NightskyOutro,Episode07/Outro,[TBD],"S:夜景; M:星空; C:空撮; E:静寂; T:倫理; M:ネットワーク","EP07_結末_星空締め","恒例アウトロ。"
