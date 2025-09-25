@@ -111,9 +111,10 @@ def build_parser() -> argparse.ArgumentParser:
     run_cmd.add_argument("--output", required=True, help="output directory root")
     run_cmd.add_argument(
         "--provider",
-        default="elevenlabs",
-        help="TTS provider identifier (metadata only when using --fake-tts)",
+        default=None,
+        help="TTS provider identifier (default: azure)",
     )
+    run_cmd.add_argument("--bgm-plan", help="BGM/SE plan JSON path", dest="bgm_plan")
     run_cmd.add_argument(
         "--target",
         default="resolve",
@@ -220,7 +221,7 @@ def _run_pipeline(args: argparse.Namespace) -> int:
     config = PipelineConfig(
         script_path=Path(args.script),
         output_root=Path(args.output),
-        provider=args.provider,
+        provider=(args.provider or "azure"),
         target=args.target,
         fake_tts=args.fake_tts,
         concurrency=max(1, args.concurrency),
@@ -230,6 +231,7 @@ def _run_pipeline(args: argparse.Namespace) -> int:
         project_id=args.project_id,
         progress_log_path=Path(args.progress_log) if args.progress_log else None,
         api_key=args.api_key,
+        bgm_plan_path=Path(args.bgm_plan).expanduser() if args.bgm_plan else None,
     )
 
     ffmpeg_path, _ = _resolve_tool("ffmpeg", args.ffmpeg)

@@ -13,6 +13,7 @@ bundle_name = os.environ.get("DAVINCIAUTO_CLI_BUNDLE", "davinciauto-cli")
 hiddenimports = (
     collect_submodules("davinciauto_cli")
     + collect_submodules("davinciauto_core")
+    + collect_submodules("elevenlabs")
 )
 
 resources = []

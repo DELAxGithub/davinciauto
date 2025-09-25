@@ -24,8 +24,10 @@ help:
 	@echo "  make self-check   # run CLI self-check with JSON output"
 	@echo "  make fake-tts     # run pipeline in fake TTS mode against sample data"
 	@echo "  make run ARGS=…   # pass custom args to davinciauto-cli"
+	@echo "  make gui          # run PySide6 GUI (dev mode)"
 	@echo "  make smoke        # execute smoke test script"
-	@echo "  make bundle       # build PyInstaller bundle and DMG"
+	@echo "  make bundle       # build legacy CLI bundle"
+	@echo "  make bundle-gui   # build PyInstaller GUI bundle"
 	@echo "  make clean        # remove virtualenv and build artefacts"
 
 .PHONY: setup
@@ -56,6 +58,10 @@ run:
 		exit 1; \
 	fi
 	@$(CLI) run $(ARGS)
+
+.PHONY: gui
+gui:
+	@$(PYTHON) -m gui_app.main
 
 .PHONY: smoke
 smoke:
@@ -92,6 +98,7 @@ bundle:
 	@mkdir -p "$(BUNDLE_DIR)/samples"
 	@cp samples/sample_script.txt "$(BUNDLE_DIR)/samples/sample_script.txt"
 	@cp docs/CLI_SETUP.md $(BUNDLE_DIR)/CLI_SETUP.md
+	@cp docs/CLI_SETUP_JA.md $(BUNDLE_DIR)/CLI_SETUP_JA.md
 	@echo "Creating DMG $(BUNDLE_DMG)..."
 	@scripts/package_dmg.sh "$(BUNDLE_DIR)" "$(BUNDLE_NAME)"
 	@echo "Creating tarball $(BUNDLE_TAR)..."
@@ -100,6 +107,10 @@ bundle:
 	@shasum -a 256 "$(BUNDLE_DMG)" "$(BUNDLE_TAR)" > "$(BUNDLE_HASH)"
 	@echo "Bundle artifacts available under dist/:"
 	@ls -1 dist
+
+.PHONY: bundle-gui
+bundle-gui:
+	@pyinstaller/build_gui.sh
 
 .PHONY: clean
 clean:

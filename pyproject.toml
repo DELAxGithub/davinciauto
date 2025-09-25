@@ -26,7 +26,21 @@ dependencies = [
 tts = ["elevenlabs"]
 backend = ["fastapi", "uvicorn[standard]", "python-multipart"]
 cli = []
-dev = ["pyinstaller>=6.0"]
+gui = [
+  "PySide6>=6.6,<6.8",
+  "appdirs>=1.4",
+  "watchdog>=4.0",
+  "keyring>=24.0",
+  "rich>=13.0",
+]
+dev = [
+  "pyinstaller>=6.0",
+  "PySide6>=6.6,<6.8",
+  "appdirs>=1.4",
+  "watchdog>=4.0",
+  "keyring>=24.0",
+  "rich>=13.0",
+]
 
 [project.scripts]
 davinciauto-pipeline = "davinciauto_core.cli:main"

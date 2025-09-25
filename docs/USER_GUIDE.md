@@ -9,6 +9,15 @@ cd minivt_pipeline
 pip install -r requirements.txt
 ```
 
+> **Note:** `requirements.txt` には Azure / ElevenLabs SDK と ffmpeg バイナリ管理ツールが含まれており、
+> パイプラインで必要な依存関係はすべてこの手順で揃います。配布用の PyInstaller バンドルでは同じ
+> 依存が同梱されるため、利用者が別途 `pip install elevenlabs` を実行する必要はありません。
+
+### macOS GUI 配布パッケージ
+
+リリース用には `pyinstaller/build_gui.sh` を実行すると `dist/DaVinciAuto GUI.app` と `dist/DaVinciAuto_GUI.dmg` が生成されます。
+編集担当者には DMG を渡し、ダブルクリックでマウント → `DaVinciAuto GUI.app` を Applications にドラッグするだけで導入できます。
+
 ### 2. Environment Setup
 
 Create `.env` file in the project root:

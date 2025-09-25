@@ -2,6 +2,11 @@
 
 **8分間の教育動画自動生成パイプライン** - スクリプトからDaVinci Resolve用素材まで一貫制作
 
+> **New in 2025**: macOS ネイティブな SwiftUI GUI を廃止し、Python (PySide6) + PyInstaller で
+> ワンクリック GUI を提供します。旧 Swift プロジェクトは 2024 年までのコミットに
+> アーカイブされており、必要であれば Git の履歴から参照してください。下記の
+> Quick Start を参照して PyInstaller ビルドをご利用ください。
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python: 3.11+](https://img.shields.io/badge/Python-3.11+-blue.svg)]()
 [![DaVinci Resolve](https://img.shields.io/badge/DaVinci_Resolve-18+-red.svg)]()
@@ -18,6 +23,33 @@ Mini VTR Automation Pipeline は、テキストスクリプトから高品質な
 - 🔧 プロフェッショナル制作ワークフロー対応
 
 ## 🚀 クイックスタート
+
+### PyInstaller GUI
+
+```bash
+# 仮想環境と依存をインストール
+make setup            # .venv が作成され、[cli,dev] 依存が入ります
+
+# GUI を開いてパイプラインを実行
+.venv/bin/python -m gui_app.main
+
+# PyInstaller で OneDir バンドルを作成
+pyinstaller/build_gui.sh
+open "dist/DaVinciAuto GUI.app"
+```
+
+> **配布バンドルについて**
+> - `pyinstaller/build_gui.sh` 実行後、`dist/DaVinciAuto GUI.app` と `dist/DaVinciAuto_GUI.dmg` が生成されます。
+>   編集担当者へは DMG を配布し、「ダブルクリック → `DaVinciAuto GUI.app` を Applications にドラッグ」だけで導入完了です。
+> - Azure / ElevenLabs SDK、ffmpeg/ffprobe がビルド済みなので、追加の `pip install` 作業は不要です。
+> - 初回起動時はセットアップダイアログで API キーを入力するだけでナレーション/音声／BGMワークフローを利用できます。
+>   ElevenLabs を使わない運用では GUI セットアップ画面の「ナレーション生成をスキップ」で音声ステップを抑止できます。
+
+*Self-check* や Azure/ELEVEN API キーの登録、ウィザードによる入力保管、進捗ログの
+閲覧などは GUI から操作できます。旧 Swift GUI は `archive/` 以下にアーカイブされており、
+今後の開発は Python GUI に一本化します。
+
+### CLI パイプライン
 
 ### 1. インストール
 

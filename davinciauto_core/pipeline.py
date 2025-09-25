@@ -3,8 +3,10 @@ from __future__ import annotations
 import json
 import os
 import platform
+import re
 import signal
 import subprocess
+import sys
 import tempfile
 import threading
 import time
@@ -14,6 +16,13 @@ from typing import Dict, List, Optional, Sequence
 
 from dotenv import load_dotenv
 
+from .bgm import (
+    BGMGenerationError,
+    ElevenLabsAPIKeyError,
+    ElevenLabsDependencyError,
+    generate_bgm_and_se,
+)
+from .clients.tts_azure import AzureTTSError, tts_azure_per_line
 from .clients.tts_elevenlabs import RateLimitError, TTSError, tts_elevenlabs_per_line
 from .utils.cost_tracker import CostTracker
 from .utils.srt import Cue, build_srt, distribute_by_audio_length
@@ -40,11 +49,20 @@ class PipelineConfig:
     progress_log_path: Optional[Path] = None
     concurrency: int = 1
     project_id: Optional[str] = None
-    provider: str = "elevenlabs"
+    provider: str = "azure"
     target: str = "resolve"
     frame_rate: float = 23.976
     sample_rate: int = 48000
     api_key: Optional[str] = None
+    subtitle_lang: str = "ja-JP"
+    subtitle_format: str = "srt"
+    audio_format: str = "mp3"
+    subtitle_text_path: Optional[Path] = None
+    subtitle_srt_path: Optional[Path] = None
+    bgm_plan_path: Optional[Path] = None
+    scene_plan_path: Optional[Path] = None
+    timeline_csv_path: Optional[Path] = None
+    enable_bgm_workflow: bool = True
 
     def resolve_script_text(self) -> str:
         """Return the script contents, reading from disk if necessary."""
@@ -126,13 +144,19 @@ class ProgressLogger:
             return
         self._counter += 1
         now = time.time()
+        level = str(payload.pop("level", "info"))
+        message = payload.get("message") or payload.get("msg")
         record = {
             "schema": "davinciauto.v1",
             "seq": self._counter,
             "type": event_type,
+            "code": payload.get("code", event_type),
+            "level": level,
             "ts": now,
             **payload,
         }
+        if message:
+            record.setdefault("message", message)
         line = json.dumps(record, ensure_ascii=False)
         with self._path.open("a", encoding="utf-8") as handle:
             handle.write(line + "\n")
@@ -159,21 +183,39 @@ class PipelineResult:
     original_items: List[Dict[str, str]]
     cost_summary: Optional[str] = None
     usage_log_path: Optional[Path] = None
+    bgm_tracks: List[Path] = field(default_factory=list)
+    se_tracks: List[Path] = field(default_factory=list)
+    bgm_errors: List[str] = field(default_factory=list)
     extra: Dict[str, object] = field(default_factory=dict)
 
 
+_SCRIPT_PREFIX = re.compile(r"^(NA|セリフ)\s*[:：,，、]\s*(.+)$")
+
+
+def _resource_path(relative: str) -> Path:
+    base = Path(getattr(sys, "_MEIPASS", Path(__file__).resolve().parent.parent))
+    return (base / relative).resolve()
+
+
 def parse_script(script_text: str) -> List[Dict[str, str]]:
-    """Extract dialogue/narration rows from the raw script."""
+    """Extract dialogue/narration rows from the raw script.
+
+    Historically、台本は ``NA: ...`` / ``セリフ: ...`` の形式だったが、
+    実際には「NA,」「NA：」などの記法も混在するケースがあるため、
+    コロン・読点の揺れを吸収する。
+    """
 
     items: List[Dict[str, str]] = []
     for line in script_text.splitlines():
         stripped = line.strip()
         if not stripped:
             continue
-        if stripped.startswith("NA:"):
-            items.append({"role": "NA", "text": stripped.replace("NA:", "", 1).strip()})
-        elif stripped.startswith("セリフ:"):
-            items.append({"role": "DL", "text": stripped.replace("セリフ:", "", 1).strip()})
+        match = _SCRIPT_PREFIX.match(stripped)
+        if not match:
+            continue
+        role_key, body = match.groups()
+        role = "NA" if role_key == "NA" else "DL"
+        items.append({"role": role, "text": body.strip()})
     return items
 
 
@@ -240,6 +282,14 @@ def perform_self_check() -> Dict[str, object]:
         return info
 
     try:
+        import elevenlabs  # type: ignore
+
+        info.setdefault("deps", {})["elevenlabs"] = getattr(elevenlabs, "__version__", "unknown")
+    except Exception as exc:  # pragma: no cover - optional dependency guard
+        info.setdefault("issues", []).append("elevenlabs-missing")
+        info.setdefault("warnings", []).append(str(exc))
+
+    try:
         _get_audio_segment()
         info["ffmpeg"] = os.getenv("DAVA_FFMPEG_PATH", "")
         info["ffprobe"] = os.getenv("DAVA_FFPROBE_PATH", "")
@@ -288,9 +338,14 @@ def _get_audio_segment():
 
     ffmpeg_path = os.getenv("DAVA_FFMPEG_PATH")
     if not ffmpeg_path:
-        raise RuntimeError(
-            "Set DAVA_FFMPEG_PATH to the bundled ffmpeg binary so pydub can render audio."
-        )
+        candidate = _resource_path("Resources/bin/ffmpeg")
+        if candidate.exists():
+            ffmpeg_path = str(candidate)
+            os.environ["DAVA_FFMPEG_PATH"] = ffmpeg_path
+        else:
+            raise RuntimeError(
+                "Set DAVA_FFMPEG_PATH to the bundled ffmpeg binary so pydub can render audio."
+            )
 
     ffmpeg_file = Path(ffmpeg_path)
     if not ffmpeg_file.exists():
@@ -299,6 +354,11 @@ def _get_audio_segment():
         raise RuntimeError(f"DAVA_FFMPEG_PATH is not executable: {ffmpeg_file}")
 
     ffprobe_path = os.getenv("DAVA_FFPROBE_PATH") or str(ffmpeg_file.with_name("ffprobe"))
+    if not Path(ffprobe_path).exists():
+        candidate = _resource_path("Resources/bin/ffprobe")
+        if candidate.exists():
+            ffprobe_path = str(candidate)
+            os.environ["DAVA_FFPROBE_PATH"] = ffprobe_path
     if not Path(ffprobe_path).exists():
         raise RuntimeError(
             "Set DAVA_FFPROBE_PATH to the bundled ffprobe binary (or place it alongside ffmpeg)."
@@ -398,14 +458,32 @@ def run_pipeline(config: PipelineConfig) -> PipelineResult:
     cost_tracker = CostTracker(log_dir=str(cost_log_dir))
 
     progress = ProgressLogger(config.progress_log_path)
-    progress.emit("start", stage="init", output_root=str(paths.output_root))
-    progress.emit("parsed_script", items=len(items))
+    progress.emit(
+        "start",
+        level="info",
+        stage="init",
+        message=f"Pipeline start: output={paths.output_root}",
+        output_root=str(paths.output_root),
+        tool_versions=_collect_tool_versions(),
+    )
+    progress.emit(
+        "parsed_script",
+        level="info",
+        message=f"Parsed script items={len(items)}",
+        items=len(items),
+    )
 
     stop_event = threading.Event()
     abort_flag = threading.Event()
 
     def _segment_progress(index: int, total: int) -> None:
-        progress.emit("segment_generated", index=index, total=total)
+        progress.emit(
+            "segment_generated",
+            level="progress",
+            message=f"Generated segment {index}/{total}",
+            index=index,
+            total=total,
+        )
         progress.maybe_heartbeat()
 
     def heartbeat_worker() -> None:
@@ -420,7 +498,12 @@ def run_pipeline(config: PipelineConfig) -> PipelineResult:
 
     def signal_handler(sig: int, _frame) -> None:
         if not abort_flag.is_set():
-            progress.emit("aborted", signal=sig)
+            progress.emit(
+                "aborted",
+                level="error",
+                message=f"Aborted due to signal {sig}",
+                signal=sig,
+            )
             abort_flag.set()
         stop_event.set()
         raise KeyboardInterrupt()
@@ -432,36 +515,72 @@ def run_pipeline(config: PipelineConfig) -> PipelineResult:
 
     try:
         cost_summary: Optional[str] = None
+        bgm_tracks: List[Path] = []
+        se_tracks: List[Path] = []
+        bgm_errors: List[str] = []
+
+        provider = (config.provider or "azure").lower()
 
         try:
             if config.fake_tts:
                 estimated_seconds = max(2.5 * len(items), 3.0)
                 paths.audio_path = _generate_silent_audio(paths.audio_path, estimated_seconds)
                 piece_files: List[Path] = []
-                progress.emit("audio_synth", mode="fake", estimated_seconds=estimated_seconds)
-            else:
-                progress.emit("audio_synth", mode="tts", items=len(items), concurrency=config.concurrency)
-                audio_path, raw_piece_files = tts_elevenlabs_per_line(
-                    items,
-                    out_dir=str(paths.audio_dir),
-                    rate=config.rate,
-                    cost_tracker=cost_tracker,
-                    enable_voice_parsing=config.enable_voice_parsing,
-                    voice_preset=config.voice_preset,
-                    concurrency=config.concurrency,
-                    on_rate_limit=lambda rl: progress.emit(
-                        "rate_limit",
-                        retry_after=rl.retry_after,
-                        remaining=rl.remaining,
-                        suggested_concurrency=rl.suggested_concurrency,
-                    ),
-                    on_progress=_segment_progress,
+                progress.emit(
+                    "audio_synth",
+                    level="info",
+                    mode="fake",
+                    message=f"Generated silent audio (duration≈{estimated_seconds:.1f}s)",
+                    estimated_seconds=estimated_seconds,
                 )
+            else:
+                progress.emit(
+                    "audio_synth",
+                    level="info",
+                    mode="tts",
+                    message=f"Synthesizing audio segments={len(items)} via {provider}",
+                    items=len(items),
+                    concurrency=config.concurrency,
+                    provider=provider,
+                )
+                if provider == "elevenlabs":
+                    audio_path, raw_piece_files = tts_elevenlabs_per_line(
+                        items,
+                        out_dir=str(paths.audio_dir),
+                        rate=config.rate,
+                        cost_tracker=cost_tracker,
+                        enable_voice_parsing=config.enable_voice_parsing,
+                        voice_preset=config.voice_preset,
+                        concurrency=config.concurrency,
+                        on_rate_limit=lambda rl: progress.emit(
+                            "rate_limit",
+                            level="warn",
+                            message=f"Rate limit hit: retry {rl.retry_after}s",
+                            retry_after=rl.retry_after,
+                            remaining=rl.remaining,
+                            suggested_concurrency=rl.suggested_concurrency,
+                        ),
+                        on_progress=_segment_progress,
+                    )
+                elif provider == "azure":
+                    audio_path, raw_piece_files = tts_azure_per_line(
+                        items,
+                        out_dir=str(paths.audio_dir),
+                        rate=config.rate,
+                        enable_voice_parsing=config.enable_voice_parsing,
+                        concurrency=config.concurrency,
+                        on_progress=_segment_progress,
+                    )
+                else:
+                    raise RuntimeError(f"Unsupported TTS provider: {config.provider}")
+
                 paths.audio_path = Path(audio_path)
                 piece_files = [Path(p) for p in raw_piece_files]
         except RateLimitError as exc:
             progress.emit(
                 "rate_limit",
+                level="warn",
+                message=f"Rate limit hit: retry {exc.retry_after}s",
                 retry_after=exc.retry_after,
                 remaining=exc.remaining,
                 suggested_concurrency=exc.suggested_concurrency,
@@ -469,25 +588,130 @@ def run_pipeline(config: PipelineConfig) -> PipelineResult:
             paths.audio_path = _generate_silent_audio(paths.audio_path, max(2.5 * len(items), 3.0))
             piece_files = []
             cost_summary = f"Rate limit hit: retry after {exc.retry_after}s."
-            progress.emit("audio_complete", mode="rate_limit", segments=0)
-        except TTSError as exc:
+            progress.emit(
+                "audio_complete",
+                level="warn",
+                mode="rate_limit",
+                message="Audio fallback due to rate limit",
+                segments=0,
+            )
+        except (TTSError, AzureTTSError) as exc:
             paths.audio_path = _generate_silent_audio(paths.audio_path, max(2.5 * len(items), 3.0))
             piece_files = []
             cost_summary = f"TTS failed: {exc}. Fallback silent audio generated."
-            progress.emit("warning", stage="audio", message=str(exc))
-            progress.emit("audio_complete", mode="fallback", segments=0)
+            progress.emit(
+                "warning",
+                level="warn",
+                stage="audio",
+                message=str(exc),
+            )
+            progress.emit(
+                "audio_complete",
+                level="warn",
+                mode="fallback",
+                message="Audio fallback due to TTS failure",
+                segments=0,
+            )
         except KeyboardInterrupt:
             if not abort_flag.is_set():
-                progress.emit("aborted", reason="keyboard_interrupt")
+                progress.emit(
+                    "aborted",
+                    level="error",
+                    message="Aborted by user",
+                    reason="keyboard_interrupt",
+                )
                 abort_flag.set()
             raise
         else:
-            cost_summary = cost_tracker.get_cost_summary() if not config.fake_tts else None
+            if not config.fake_tts and provider == "elevenlabs":
+                cost_summary = cost_tracker.get_cost_summary()
             progress.emit(
                 "audio_complete",
+                level="info",
                 mode="fake" if config.fake_tts else "tts",
+                message=f"Audio complete segments={len(piece_files)}",
                 segments=len(piece_files),
+                provider=provider,
             )
+
+        if config.enable_bgm_workflow and config.bgm_plan_path:
+            plan_path = Path(config.bgm_plan_path).expanduser()
+            if plan_path.exists():
+                progress.emit(
+                    "bgm_plan",
+                    level="info",
+                    message="Loaded BGM/SE plan",
+                    plan=str(plan_path),
+                )
+                try:
+                    bgm_tracks_raw, se_tracks_raw, bgm_errors = generate_bgm_and_se(plan_path)
+                    bgm_tracks = [Path(p) for p in bgm_tracks_raw]
+                    se_tracks = [Path(p) for p in se_tracks_raw]
+                    for track in bgm_tracks:
+                        progress.emit(
+                            "bgm_generated",
+                            level="info",
+                            message=f"BGM saved",
+                            path=str(track),
+                        )
+                    progress.emit(
+                        "bgm_complete",
+                        level="info",
+                        message="BGM generation finished",
+                        tracks=len(bgm_tracks),
+                    )
+                    for track in se_tracks:
+                        progress.emit(
+                            "se_generated",
+                            level="info",
+                            message="SE saved",
+                            path=str(track),
+                        )
+                    progress.emit(
+                        "se_complete",
+                        level="info",
+                        message="SE generation finished",
+                        tracks=len(se_tracks),
+                    )
+                    for err in bgm_errors:
+                        progress.emit(
+                            "bgm_warning",
+                            level="warn",
+                            stage="bgm",
+                            message=err,
+                        )
+                except ElevenLabsDependencyError as exc:
+                    bgm_errors = [str(exc)]
+                    progress.emit(
+                        "bgm_error",
+                        level="error",
+                        stage="bgm",
+                        message=str(exc),
+                    )
+                except ElevenLabsAPIKeyError as exc:
+                    bgm_errors = [str(exc)]
+                    progress.emit(
+                        "bgm_error",
+                        level="error",
+                        stage="bgm",
+                        message=str(exc),
+                    )
+                except BGMGenerationError as exc:
+                    bgm_errors = [str(exc)]
+                    progress.emit(
+                        "bgm_error",
+                        level="error",
+                        stage="bgm",
+                        message=str(exc),
+                    )
+            else:
+                progress.emit(
+                    "bgm_warning",
+                    level="warn",
+                    stage="bgm",
+                    message=f"BGM/SE plan not found: {plan_path}",
+                )
+                bgm_errors = [f"Plan not found: {plan_path}"]
 
         subtitle_cards: List[Dict[str, Sequence[str]]] = []
         roles: List[str] = []
@@ -533,6 +757,8 @@ def run_pipeline(config: PipelineConfig) -> PipelineResult:
 
         progress.emit(
             "subtitles_built",
+            level="info",
+            message=f"Generated subtitles cues={len(cues)}",
             cards=len(subtitle_cards),
             audio_duration=audio_duration,
             cues=len(cues),
@@ -552,10 +778,16 @@ def run_pipeline(config: PipelineConfig) -> PipelineResult:
             original_items=items,
             cost_summary=cost_summary,
             usage_log_path=usage_log,
+            bgm_tracks=bgm_tracks,
+            se_tracks=se_tracks,
+            bgm_errors=bgm_errors,
             extra={
                 "output_root": str(paths.output_root),
                 "audio_duration": audio_duration,
                 "tool_versions": storyboard_payload["tool_versions"],
+                "bgm_tracks": [str(path) for path in bgm_tracks],
+                "se_tracks": [str(path) for path in se_tracks],
+                "bgm_errors": bgm_errors,
             },
         )
 
@@ -563,6 +795,8 @@ def run_pipeline(config: PipelineConfig) -> PipelineResult:
         if not abort_flag.is_set():
             progress.emit(
                 "done",
+                level="info",
+                message="Pipeline finished",
                 audio=str(paths.audio_path),
                 srt=str(paths.subtitles_path),
                 subtitles=len(subtitle_cards),
