@@ -41,7 +41,7 @@ open "dist/DaVinciAuto GUI.app"
 > **配布バンドルについて**
 > - `pyinstaller/build_gui.sh` 実行後、`dist/DaVinciAuto GUI.app` と `dist/DaVinciAuto_GUI.dmg` が生成されます。
 >   編集担当者へは DMG を配布し、「ダブルクリック → `DaVinciAuto GUI.app` を Applications にドラッグ」だけで導入完了です。
-> - Azure / ElevenLabs SDK、ffmpeg/ffprobe がビルド済みなので、追加の `pip install` 作業は不要です。
+> - Azure Speech / ElevenLabs (TTS) / Stable Audio 依存、ffmpeg/ffprobe がバンドル済みなので追加の `pip install` は不要です。
 > - 初回起動時はセットアップダイアログで API キーを入力するだけでナレーション/音声／BGMワークフローを利用できます。
 >   ElevenLabs を使わない運用では GUI セットアップ画面の「ナレーション生成をスキップ」で音声ステップを抑止できます。
 
@@ -69,6 +69,9 @@ AZURE_SPEECH_KEY=your_azure_speech_key
 AZURE_SPEECH_REGION=your_region
 AZURE_SPEECH_VOICE_NARRATION=voice_name_for_narration
 AZURE_SPEECH_VOICE_DIALOGUE=voice_name_for_dialogue
+
+# Stable Audio（BGM/SE 自動生成）
+STABILITY_API_KEY=your_stability_api_key
 
 # パフォーマンス調整（オプション）
 HTTP_TIMEOUT=30

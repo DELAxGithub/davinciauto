@@ -8,8 +8,9 @@ import sys
 
 from davinciauto_core.bgm import (
     BGMGenerationError,
-    ElevenLabsAPIKeyError,
-    ElevenLabsDependencyError,
+    StableAudioAPIError,
+    StableAudioAPIKeyError,
+    StableAudioDependencyError,
     generate_bgm_and_se,
 )
 
@@ -36,15 +37,18 @@ def main() -> int:
 
     try:
         bgm_tracks, se_tracks, errors = generate_bgm_and_se(plan_path, only=only_mode)
-    except ElevenLabsDependencyError as exc:
+    except StableAudioDependencyError as exc:
         print(f"ERROR: {exc}", file=sys.stderr)
         return 5
-    except ElevenLabsAPIKeyError as exc:
+    except StableAudioAPIKeyError as exc:
         print(f"ERROR: {exc}", file=sys.stderr)
         return 4
-    except BGMGenerationError as exc:
+    except StableAudioAPIError as exc:
         print(f"ERROR: {exc}", file=sys.stderr)
         return 6
+    except BGMGenerationError as exc:
+        print(f"ERROR: {exc}", file=sys.stderr)
+        return 7
 
     print("BGM SAVED:")
     for path in bgm_tracks:

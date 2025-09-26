@@ -1,4 +1,4 @@
-"""Helpers for BGM/SE生成（ElevenLabs API を利用）。"""
+"""Helpers for BGM/SE自動生成（Stable Audio API を利用）。"""
 
 from __future__ import annotations
 
@@ -9,35 +9,60 @@ import pathlib
 import re
 from typing import Any, Dict, Iterable, List, Optional, Tuple
 
+try:  # pragma: no cover - optional dependency
+    import requests
+    from requests import RequestException
+except Exception as exc:  # pragma: no cover - optional dependency
+    requests = None  # type: ignore
+    RequestException = Exception  # type: ignore
+    _REQUESTS_IMPORT_ERROR = exc
+else:
+    _REQUESTS_IMPORT_ERROR = None
+
 
 class BGMGenerationError(RuntimeError):
     """Base exception for BGM/SE 自動生成エラー。"""
 
 
-class ElevenLabsDependencyError(BGMGenerationError):
-    """Raised when elevenlabs SDK is missing."""
+class StableAudioDependencyError(BGMGenerationError):
+    """Raised when the requests dependency is missing."""
 
 
-class ElevenLabsAPIKeyError(BGMGenerationError):
-    """Raised when ELEVENLABS_API_KEY is not configured."""
+class StableAudioAPIKeyError(BGMGenerationError):
+    """Raised when a Stability API key is not configured."""
+
+
+class StableAudioAPIError(BGMGenerationError):
+    """Raised when the Stable Audio API call fails."""
 
 
 def _load_api_key(explicit: Optional[str] = None) -> str:
     if explicit:
         return explicit
-    key = os.getenv("ELEVENLABS_API_KEY")
-    if key:
-        return key
+
+    candidates = (
+        "STABILITY_API_KEY",
+        "STABILITY_KEY",
+        "STABLE_AUDIO_API_KEY",
+    )
+    for env_name in candidates:
+        key = os.getenv(env_name)
+        if key:
+            return key
+
     env_path = pathlib.Path(".env")
     if env_path.exists():
-        pattern = re.compile(r"^ELEVENLABS_API_KEY\s*=\s*(.+)$")
+        pattern = re.compile(r"^(STABILITY_API_KEY|STABILITY_KEY|STABLE_AUDIO_API_KEY)\s*=\s*(.+)$")
         for line in env_path.read_text(encoding="utf-8").splitlines():
             match = pattern.match(line.strip())
             if match:
-                candidate = match.group(1).split("#", 1)[0].strip().strip('"').strip("'")
+                candidate = match.group(2).split("#", 1)[0].strip().strip('"').strip("'")
                 if candidate:
                     return candidate
-    raise ElevenLabsAPIKeyError("ELEVENLABS_API_KEY is not set.")
+
+    raise StableAudioAPIKeyError(
+        "Stability API key is not set. Configure STABILITY_API_KEY in environment or .env."
+    )
 
 
 def _tc_to_seconds(tc: str) -> float:
@@ -80,6 +105,61 @@ def _consume_audio_chunks(chunks: Iterable[bytes]) -> bytes:
     return b"".join(chunk for chunk in chunks if isinstance(chunk, (bytes, bytearray)))
 
 
+def _post_stable_audio(
+    *,
+    api_key: str,
+    prompt: str,
+    duration_seconds: float,
+    model: str = "stable-audio-2",
+    steps: Optional[int] = None,
+    cfg_scale: Optional[float] = None,
+    seed: Optional[int] = None,
+    output_format: str = "mp3",
+    timeout: int = 120,
+) -> bytes:
+    if requests is None:  # pragma: no cover - optional dependency
+        raise StableAudioDependencyError(
+            "`requests` package is required for Stable Audio generation. Install it via `pip install requests`."
+        ) from _REQUESTS_IMPORT_ERROR
+
+    url = "https://api.stability.ai/v2beta/audio/stable-audio-2/text-to-audio"
+    duration_int = max(1, min(int(round(duration_seconds)), 180))
+    payload: Dict[str, Any] = {
+        "prompt": prompt,
+        "duration": duration_int,
+        "output_format": output_format,
+        "model": model,
+    }
+    if seed is not None:
+        payload["seed"] = seed
+    if steps is not None:
+        payload["steps"] = steps
+    if cfg_scale is not None:
+        payload["cfg_scale"] = cfg_scale
+
+    try:
+        response = requests.post(
+            url,
+            headers={
+                "Authorization": f"Bearer {api_key}",
+                "Accept": "audio/*",
+            },
+            files={"image": (None, "")},
+            data=payload,
+            timeout=timeout,
+        )
+    except RequestException as exc:  # pragma: no cover - network failure
+        raise StableAudioAPIError(f"Stable Audio request failed: {exc}") from exc
+
+    if response.status_code >= 400:
+        body = response.text[:500]
+        raise StableAudioAPIError(
+            f"Stable Audio API error: HTTP {response.status_code} body={body}"
+        )
+
+    return response.content
+
+
 def generate_bgm_and_se(
     plan_path: pathlib.Path,
     *,
@@ -88,19 +168,12 @@ def generate_bgm_and_se(
 ) -> Tuple[List[pathlib.Path], List[pathlib.Path], List[str]]:
     """Generate BGM / SE assets from a plan JSON."""
 
-    try:
-        from elevenlabs import ElevenLabs
-    except Exception as exc:  # pragma: no cover - optional dependency
-        raise ElevenLabsDependencyError(
-            "elevenlabs package is required for BGM/SE generation. Install it via `pip install elevenlabs`."
-        ) from exc
-
     plan_path = pathlib.Path(plan_path).expanduser().resolve()
     if not plan_path.exists():
         raise BGMGenerationError(f"Plan file not found: {plan_path}")
 
     payload = json.loads(plan_path.read_text(encoding="utf-8"))
-    sections: List[Dict[str, Any]] = payload.get("sections", [])
+    sections: List[Dict[str, Any]] = payload.get("sections") or payload.get("segments", [])
     if not sections:
         raise BGMGenerationError("Plan JSON does not contain any sections.")
 
@@ -130,7 +203,6 @@ def generate_bgm_and_se(
         section["length_ms"] = max(1000, int(round((section["end_sec"] - section["start_sec"]) * 1000)))
 
     key = _load_api_key(api_key)
-    client = ElevenLabs(api_key=key)
 
     only_mode = only.lower() if only else None
     do_bgm = only_mode in (None, "bgm")
@@ -146,12 +218,26 @@ def generate_bgm_and_se(
             if not prompt:
                 continue
             try:
-                audio = client.music.compose(prompt=prompt, music_length_ms=int(section["length_ms"]))
-                chunk_bytes = audio if isinstance(audio, (bytes, bytearray)) else _consume_audio_chunks(audio)
+                model = section.get("bgm_model") or section.get("model") or "stable-audio-2"
+                cfg_scale = section.get("bgm_cfg_scale") or section.get("cfg_scale")
+                steps = section.get("bgm_steps") or section.get("steps")
+                seed = section.get("bgm_seed") or section.get("seed")
+                duration_seconds = section.get("length_ms", 0) / 1000.0
+                chunk_bytes = _post_stable_audio(
+                    api_key=key,
+                    prompt=prompt,
+                    duration_seconds=duration_seconds,
+                    model=model,
+                    cfg_scale=cfg_scale,
+                    steps=steps,
+                    seed=seed,
+                )
                 out_path = bgm_dir / f"{project_name}_BGM{idx:02d}_{section.get('label','')}.mp3"
                 out_path.write_bytes(chunk_bytes)
                 bgm_saved.append(out_path)
-            except Exception as exc:  # pragma: no cover - API failures
+            except BGMGenerationError as exc:
+                errors.append(f"BGM section {idx}: {exc}")
+            except Exception as exc:  # pragma: no cover - unexpected failure
                 errors.append(f"BGM section {idx}: {exc}")
 
     if do_se:
@@ -160,20 +246,32 @@ def generate_bgm_and_se(
             for cue_index, cue in enumerate(cues, 1):
                 prompt = (cue.get("prompt") or "").strip()
                 if not prompt:
+                    prompt = (cue.get("type") or cue.get("description") or "").strip()
+                if not prompt:
                     continue
                 try:
-                    duration = float(cue.get("duration_sec", 1.6) or 1.6)
-                    try:
-                        audio = client.sound_effects.convert(text=prompt, duration_seconds=duration)  # type: ignore[attr-defined]
-                    except Exception:
-                        audio = client.text_to_sound_effects.convert(text=prompt, duration_seconds=duration)  # type: ignore[attr-defined]
-                    chunk_bytes = audio if isinstance(audio, (bytes, bytearray)) else _consume_audio_chunks(audio)
+                    duration = float(cue.get("duration_sec", cue.get("duration")) or 1.6)
+                    cfg_scale = cue.get("cfg_scale")
+                    steps = cue.get("steps")
+                    seed = cue.get("seed")
+                    model = cue.get("model") or "stable-audio-2"
+                    chunk_bytes = _post_stable_audio(
+                        api_key=key,
+                        prompt=prompt,
+                        duration_seconds=duration,
+                        model=model,
+                        cfg_scale=cfg_scale,
+                        steps=steps,
+                        seed=seed,
+                    )
                     timecode = (cue.get("time_tc") or "00:00:00").replace(":", "-")
                     label = cue.get("label") or f"SFX{idx:02d}_{cue_index:02d}"
                     out_path = se_dir / f"{project_name}_SE{idx:02d}_{timecode}_{label}.mp3"
                     out_path.write_bytes(chunk_bytes)
                     se_saved.append(out_path)
-                except Exception as exc:  # pragma: no cover - API failures
+                except BGMGenerationError as exc:
+                    errors.append(f"SE section {idx}-{cue_index}: {exc}")
+                except Exception as exc:  # pragma: no cover - unexpected failure
                     errors.append(f"SE section {idx}-{cue_index}: {exc}")
 
     return bgm_saved, se_saved, errors
@@ -181,7 +279,12 @@ def generate_bgm_and_se(
 
 __all__ = [
     "BGMGenerationError",
-    "ElevenLabsDependencyError",
-    "ElevenLabsAPIKeyError",
+    "StableAudioDependencyError",
+    "StableAudioAPIKeyError",
+    "StableAudioAPIError",
     "generate_bgm_and_se",
 ]
+
+# Backwards-compatibility exports for older imports
+ElevenLabsDependencyError = StableAudioDependencyError
+ElevenLabsAPIKeyError = StableAudioAPIKeyError

@@ -18,8 +18,9 @@ from dotenv import load_dotenv
 
 from .bgm import (
     BGMGenerationError,
-    ElevenLabsAPIKeyError,
-    ElevenLabsDependencyError,
+    StableAudioAPIError,
+    StableAudioAPIKeyError,
+    StableAudioDependencyError,
     generate_bgm_and_se,
 )
 from .clients.tts_azure import AzureTTSError, tts_azure_per_line
@@ -680,7 +681,7 @@ def run_pipeline(config: PipelineConfig) -> PipelineResult:
                             stage="bgm",
                             message=err,
                         )
-                except ElevenLabsDependencyError as exc:
+                except StableAudioDependencyError as exc:
                     bgm_errors = [str(exc)]
                     progress.emit(
                         "bgm_error",
@@ -688,7 +689,15 @@ def run_pipeline(config: PipelineConfig) -> PipelineResult:
                         stage="bgm",
                         message=str(exc),
                     )
-                except ElevenLabsAPIKeyError as exc:
+                except StableAudioAPIKeyError as exc:
+                    bgm_errors = [str(exc)]
+                    progress.emit(
+                        "bgm_error",
+                        level="error",
+                        stage="bgm",
+                        message=str(exc),
+                    )
+                except StableAudioAPIError as exc:
                     bgm_errors = [str(exc)]
                     progress.emit(
                         "bgm_error",

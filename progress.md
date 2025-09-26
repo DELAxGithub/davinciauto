@@ -1,13 +1,13 @@
 # Progress Log
 
-_Last updated: 2025-09-18_
+_Last updated: 2025-09-26_
 
 ## OrionEp2 Workstream
-- ✅ Azure TTS narration flow confirmed from timeline CSV → FCPXML (`scripts/build_timeline_orionep2.py`, `scripts/csv_to_fcpx7_from_timeline.py`).
-- ✅ Documentation refreshed for Azure Speech Service (README + PROJECT_INDEX).
-- ⚠️ BGM/SE generation still depends on ElevenLabs (`scripts/generate_bgm_se_from_plan.py`, `scripts/master_bgm_from_plan.py`). Keep API key active until alternate provider is ready.
-- ✅ Follow-up SRT workflow validated (`scripts/make_srt_from_xml_and_csv.py` with `OrionEp2_timeline_v1.*`).
-- 🔄 Repository cleanup ongoing: only restore components needed for Ep2 delivery; leave archived extras untouched for now.
+- ✅ Stable Audio 2.0 を導入し、BGM/SE 生成スクリプト (`davinciauto_core/bgm.py`, `scripts/generate_bgm_se_from_plan.py`) を ElevenLabs 依存から移行。
+- ✅ `.env.example` と README を更新し、`STABILITY_API_KEY` を含む Stable Audio 用のセットアップ手順を追加。
+- ✅ `PYTHONPATH=.` `python -m scripts.generate_bgm_se_from_plan projects/OrionEp2/inputs/bgm_se_plan.json` を実行し、`projects/OrionEp2_Short/サウンド類/{BGM,SE}/` に Ep2 ショート版の音源を再生成。
+- ✅ `projects/OrionEp2/exports/timelines/OrionEp2_short_soundperfect.xml` が新しい BGM/SE ファイルを参照していることを確認。必要であれば `scripts/csv_to_fcpx7_from_timeline.py` で再書き出し可能。
+- 🔄 Repository cleanup ongoing: only restore components needed for Ep2 delivery; leave archived extras untouched for now。
 
 ## OrionEp1 Automation
 - ✅ Azureナレーション → タイムラインCSV → BGM/SE → FCPXML の完全パイプラインを再構築。
@@ -25,10 +25,10 @@ _Last updated: 2025-09-18_
 - ✅ `scripts/add_markers_from_csv.py` を追加し、タイムラインCSV + LLM出力CSVから Guide マーカー（コメント/タグ/メモとデュレーション付与）をFCPXMLへ自動挿入。
 
 ## Immediate Next Steps
-1. Re-run BGM/SE generation for any new `bgm_se_plan.json` tweaks; master outputs with `scripts/master_bgm_from_plan.py`.
-2. Package the refreshed narration + SRT + mastered audio into the Resolve project template and confirm import on Resolve 18+.
+1. Re-run BGM/SE generation for any new `bgm_se_plan.json` tweaks; master outputs with `scripts/master_bgm_from_plan.py`（Stable Audio対応版に差し替え予定）。
+2. Package the refreshed narration + SRT + mastered audio into the Resolve project template and confirm import on Resolve 18+。
 3. 手動で基礎/意図スマートビンをテンプレ `.drp` に組み込み、Power Bin 化。`import_metadata.py` + `run_auto_tagging.py` の運用手順を編集部へ引き継ぎ。
-4. Decide on long-term replacement for ElevenLabs music/SFX (Azure Audio Content Creation or local library) before future episodes.
+4. Decide on long-term licensing / credit policy for Stable Audio出力（キューシート記載形式を確認）。
 
 ## Parking Lot
 - Migrate `generate_bgm_se_from_plan.py` to optionally call Azure or local assets once a new provider is chosen.
