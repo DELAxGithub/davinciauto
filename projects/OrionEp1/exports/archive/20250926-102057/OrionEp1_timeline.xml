@@ -2,7 +2,7 @@
 <xmeml version="4">
   <sequence>
     <uuid>OrionEp1_timeline</uuid>
-    <duration>13669</duration>
+    <duration>16642</duration>
     <name>OrionEp1_timeline</name>
     <rate>
       <timebase>30</timebase>
@@ -51,15 +51,15 @@
           <clipitem id="clipitem-2">
             <name>OrionEp1-002-NA.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>153</duration>
+            <duration>156</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
             <start>206</start>
-            <end>359</end>
+            <end>362</end>
             <in>0</in>
-            <out>153</out>
+            <out>156</out>
             <file id="file-3">
               <name>OrionEp1-002-NA.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-002-NA.mp3</pathurl>
@@ -85,15 +85,15 @@
           <clipitem id="clipitem-3">
             <name>OrionEp1-003-NA.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>217</duration>
+            <duration>297</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>381</start>
-            <end>598</end>
+            <start>384</start>
+            <end>681</end>
             <in>0</in>
-            <out>217</out>
+            <out>297</out>
             <file id="file-4">
               <name>OrionEp1-003-NA.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-003-NA.mp3</pathurl>
@@ -119,15 +119,15 @@
           <clipitem id="clipitem-4">
             <name>OrionEp1-004-NA.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>233</duration>
+            <duration>207</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>612</start>
-            <end>845</end>
+            <start>698</start>
+            <end>905</end>
             <in>0</in>
-            <out>233</out>
+            <out>207</out>
             <file id="file-5">
               <name>OrionEp1-004-NA.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-004-NA.mp3</pathurl>
@@ -153,15 +153,15 @@
           <clipitem id="clipitem-5">
             <name>OrionEp1-005-NA.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>575</duration>
+            <duration>519</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>860</start>
-            <end>1435</end>
+            <start>919</start>
+            <end>1438</end>
             <in>0</in>
-            <out>575</out>
+            <out>519</out>
             <file id="file-6">
               <name>OrionEp1-005-NA.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-005-NA.mp3</pathurl>
@@ -187,15 +187,15 @@
           <clipitem id="clipitem-6">
             <name>OrionEp1-006-NA.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>210</duration>
+            <duration>106</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>1457</start>
-            <end>1667</end>
+            <start>1460</start>
+            <end>1566</end>
             <in>0</in>
-            <out>210</out>
+            <out>106</out>
             <file id="file-7">
               <name>OrionEp1-006-NA.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-006-NA.mp3</pathurl>
@@ -221,15 +221,15 @@
           <clipitem id="clipitem-7">
             <name>OrionEp1-007-NA.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>183</duration>
+            <duration>427</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>1681</start>
-            <end>1864</end>
+            <start>1578</start>
+            <end>2005</end>
             <in>0</in>
-            <out>183</out>
+            <out>427</out>
             <file id="file-8">
               <name>OrionEp1-007-NA.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-007-NA.mp3</pathurl>
@@ -255,15 +255,15 @@
           <clipitem id="clipitem-8">
             <name>OrionEp1-008-NA.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>253</duration>
+            <duration>97</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>1878</start>
-            <end>2131</end>
+            <start>2024</start>
+            <end>2121</end>
             <in>0</in>
-            <out>253</out>
+            <out>97</out>
             <file id="file-9">
               <name>OrionEp1-008-NA.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-008-NA.mp3</pathurl>
@@ -287,20 +287,20 @@
             </sourcetrack>
           </clipitem>
           <clipitem id="clipitem-9">
-            <name>OrionEp1-009-DL.mp3</name>
+            <name>OrionEp1-009-NA.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>93</duration>
+            <duration>400</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>2147</start>
-            <end>2240</end>
+            <start>2133</start>
+            <end>2533</end>
             <in>0</in>
-            <out>93</out>
+            <out>400</out>
             <file id="file-10">
-              <name>OrionEp1-009-DL.mp3</name>
-              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-009-DL.mp3</pathurl>
+              <name>OrionEp1-009-NA.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-009-NA.mp3</pathurl>
               <rate>
                 <timebase>44100</timebase>
                 <ntsc>FALSE</ntsc>
@@ -323,15 +323,15 @@
           <clipitem id="clipitem-10">
             <name>OrionEp1-010-NA.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>242</duration>
+            <duration>294</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>2260</start>
-            <end>2502</end>
+            <start>2553</start>
+            <end>2847</end>
             <in>0</in>
-            <out>242</out>
+            <out>294</out>
             <file id="file-11">
               <name>OrionEp1-010-NA.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-010-NA.mp3</pathurl>
@@ -357,15 +357,15 @@
           <clipitem id="clipitem-11">
             <name>OrionEp1-011-NA.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>143</duration>
+            <duration>183</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>2517</start>
-            <end>2660</end>
+            <start>2864</start>
+            <end>3047</end>
             <in>0</in>
-            <out>143</out>
+            <out>183</out>
             <file id="file-12">
               <name>OrionEp1-011-NA.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-011-NA.mp3</pathurl>
@@ -391,15 +391,15 @@
           <clipitem id="clipitem-12">
             <name>OrionEp1-012-NA.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>232</duration>
+            <duration>258</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>2674</start>
-            <end>2906</end>
+            <start>3060</start>
+            <end>3318</end>
             <in>0</in>
-            <out>232</out>
+            <out>258</out>
             <file id="file-13">
               <name>OrionEp1-012-NA.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-012-NA.mp3</pathurl>
@@ -423,20 +423,20 @@
             </sourcetrack>
           </clipitem>
           <clipitem id="clipitem-13">
-            <name>OrionEp1-013-NA.mp3</name>
+            <name>OrionEp1-013-DL.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>122</duration>
+            <duration>94</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>2930</start>
-            <end>3052</end>
+            <start>3334</start>
+            <end>3428</end>
             <in>0</in>
-            <out>122</out>
+            <out>94</out>
             <file id="file-14">
-              <name>OrionEp1-013-NA.mp3</name>
-              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-013-NA.mp3</pathurl>
+              <name>OrionEp1-013-DL.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-013-DL.mp3</pathurl>
               <rate>
                 <timebase>44100</timebase>
                 <ntsc>FALSE</ntsc>
@@ -459,15 +459,15 @@
           <clipitem id="clipitem-14">
             <name>OrionEp1-014-NA.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>354</duration>
+            <duration>402</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>3064</start>
-            <end>3418</end>
+            <start>3448</start>
+            <end>3850</end>
             <in>0</in>
-            <out>354</out>
+            <out>402</out>
             <file id="file-15">
               <name>OrionEp1-014-NA.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-014-NA.mp3</pathurl>
@@ -493,15 +493,15 @@
           <clipitem id="clipitem-15">
             <name>OrionEp1-015-NA.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>166</duration>
+            <duration>394</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>3435</start>
-            <end>3601</end>
+            <start>3868</start>
+            <end>4262</end>
             <in>0</in>
-            <out>166</out>
+            <out>394</out>
             <file id="file-16">
               <name>OrionEp1-015-NA.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-015-NA.mp3</pathurl>
@@ -525,20 +525,20 @@
             </sourcetrack>
           </clipitem>
           <clipitem id="clipitem-16">
-            <name>OrionEp1-016-DL.mp3</name>
+            <name>OrionEp1-016-NA.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>203</duration>
+            <duration>232</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>3614</start>
-            <end>3817</end>
+            <start>4280</start>
+            <end>4512</end>
             <in>0</in>
-            <out>203</out>
+            <out>232</out>
             <file id="file-17">
-              <name>OrionEp1-016-DL.mp3</name>
-              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-016-DL.mp3</pathurl>
+              <name>OrionEp1-016-NA.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-016-NA.mp3</pathurl>
               <rate>
                 <timebase>44100</timebase>
                 <ntsc>FALSE</ntsc>
@@ -561,15 +561,15 @@
           <clipitem id="clipitem-17">
             <name>OrionEp1-017-NA.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>189</duration>
+            <duration>73</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>3840</start>
-            <end>4029</end>
+            <start>4536</start>
+            <end>4609</end>
             <in>0</in>
-            <out>189</out>
+            <out>73</out>
             <file id="file-18">
               <name>OrionEp1-017-NA.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-017-NA.mp3</pathurl>
@@ -595,15 +595,15 @@
           <clipitem id="clipitem-18">
             <name>OrionEp1-018-NA.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>192</duration>
+            <duration>135</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>4043</start>
-            <end>4235</end>
+            <start>4621</start>
+            <end>4756</end>
             <in>0</in>
-            <out>192</out>
+            <out>135</out>
             <file id="file-19">
               <name>OrionEp1-018-NA.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-018-NA.mp3</pathurl>
@@ -629,15 +629,15 @@
           <clipitem id="clipitem-19">
             <name>OrionEp1-019-NA.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>288</duration>
+            <duration>376</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>4258</start>
-            <end>4546</end>
+            <start>4769</start>
+            <end>5145</end>
             <in>0</in>
-            <out>288</out>
+            <out>376</out>
             <file id="file-20">
               <name>OrionEp1-019-NA.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-019-NA.mp3</pathurl>
@@ -663,15 +663,15 @@
           <clipitem id="clipitem-20">
             <name>OrionEp1-020-NA.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>156</duration>
+            <duration>45</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>4562</start>
-            <end>4718</end>
+            <start>5163</start>
+            <end>5208</end>
             <in>0</in>
-            <out>156</out>
+            <out>45</out>
             <file id="file-21">
               <name>OrionEp1-020-NA.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-020-NA.mp3</pathurl>
@@ -695,20 +695,20 @@
             </sourcetrack>
           </clipitem>
           <clipitem id="clipitem-21">
-            <name>OrionEp1-021-NA.mp3</name>
+            <name>OrionEp1-021-DL.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>263</duration>
+            <duration>202</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>4731</start>
-            <end>4994</end>
+            <start>5220</start>
+            <end>5422</end>
             <in>0</in>
-            <out>263</out>
+            <out>202</out>
             <file id="file-22">
-              <name>OrionEp1-021-NA.mp3</name>
-              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-021-NA.mp3</pathurl>
+              <name>OrionEp1-021-DL.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-021-DL.mp3</pathurl>
               <rate>
                 <timebase>44100</timebase>
                 <ntsc>FALSE</ntsc>
@@ -729,20 +729,20 @@
             </sourcetrack>
           </clipitem>
           <clipitem id="clipitem-22">
-            <name>OrionEp1-022-DL.mp3</name>
+            <name>OrionEp1-022-NA.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>135</duration>
+            <duration>337</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>5009</start>
-            <end>5144</end>
+            <start>5445</start>
+            <end>5782</end>
             <in>0</in>
-            <out>135</out>
+            <out>337</out>
             <file id="file-23">
-              <name>OrionEp1-022-DL.mp3</name>
-              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-022-DL.mp3</pathurl>
+              <name>OrionEp1-022-NA.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-022-NA.mp3</pathurl>
               <rate>
                 <timebase>44100</timebase>
                 <ntsc>FALSE</ntsc>
@@ -765,15 +765,15 @@
           <clipitem id="clipitem-23">
             <name>OrionEp1-023-NA.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>379</duration>
+            <duration>512</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>5165</start>
-            <end>5544</end>
+            <start>5799</start>
+            <end>6311</end>
             <in>0</in>
-            <out>379</out>
+            <out>512</out>
             <file id="file-24">
               <name>OrionEp1-023-NA.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-023-NA.mp3</pathurl>
@@ -799,15 +799,15 @@
           <clipitem id="clipitem-24">
             <name>OrionEp1-024-NA.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>201</duration>
+            <duration>386</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>5561</start>
-            <end>5762</end>
+            <start>6339</start>
+            <end>6725</end>
             <in>0</in>
-            <out>201</out>
+            <out>386</out>
             <file id="file-25">
               <name>OrionEp1-024-NA.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-024-NA.mp3</pathurl>
@@ -833,15 +833,15 @@
           <clipitem id="clipitem-25">
             <name>OrionEp1-025-NA.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>349</duration>
+            <duration>223</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>5776</start>
-            <end>6125</end>
+            <start>6743</start>
+            <end>6966</end>
             <in>0</in>
-            <out>349</out>
+            <out>223</out>
             <file id="file-26">
               <name>OrionEp1-025-NA.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-025-NA.mp3</pathurl>
@@ -867,15 +867,15 @@
           <clipitem id="clipitem-26">
             <name>OrionEp1-026-NA.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>312</duration>
+            <duration>294</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>6143</start>
-            <end>6455</end>
+            <start>6981</start>
+            <end>7275</end>
             <in>0</in>
-            <out>312</out>
+            <out>294</out>
             <file id="file-27">
               <name>OrionEp1-026-NA.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-026-NA.mp3</pathurl>
@@ -899,20 +899,20 @@
             </sourcetrack>
           </clipitem>
           <clipitem id="clipitem-27">
-            <name>OrionEp1-027-NA.mp3</name>
+            <name>OrionEp1-027-DL.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>410</duration>
+            <duration>135</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>6471</start>
-            <end>6881</end>
+            <start>7290</start>
+            <end>7425</end>
             <in>0</in>
-            <out>410</out>
+            <out>135</out>
             <file id="file-28">
-              <name>OrionEp1-027-NA.mp3</name>
-              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-027-NA.mp3</pathurl>
+              <name>OrionEp1-027-DL.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-027-DL.mp3</pathurl>
               <rate>
                 <timebase>44100</timebase>
                 <ntsc>FALSE</ntsc>
@@ -935,15 +935,15 @@
           <clipitem id="clipitem-28">
             <name>OrionEp1-028-NA.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>253</duration>
+            <duration>379</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>6900</start>
-            <end>7153</end>
+            <start>7446</start>
+            <end>7825</end>
             <in>0</in>
-            <out>253</out>
+            <out>379</out>
             <file id="file-29">
               <name>OrionEp1-028-NA.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-028-NA.mp3</pathurl>
@@ -969,15 +969,15 @@
           <clipitem id="clipitem-29">
             <name>OrionEp1-029-NA.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>449</duration>
+            <duration>225</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>7169</start>
-            <end>7618</end>
+            <start>7842</start>
+            <end>8067</end>
             <in>0</in>
-            <out>449</out>
+            <out>225</out>
             <file id="file-30">
               <name>OrionEp1-029-NA.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-029-NA.mp3</pathurl>
@@ -1003,15 +1003,15 @@
           <clipitem id="clipitem-30">
             <name>OrionEp1-030-NA.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>303</duration>
+            <duration>490</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>7637</start>
-            <end>7940</end>
+            <start>8082</start>
+            <end>8572</end>
             <in>0</in>
-            <out>303</out>
+            <out>490</out>
             <file id="file-31">
               <name>OrionEp1-030-NA.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-030-NA.mp3</pathurl>
@@ -1037,15 +1037,15 @@
           <clipitem id="clipitem-31">
             <name>OrionEp1-031-NA.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>251</duration>
+            <duration>329</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>7957</start>
-            <end>8208</end>
+            <start>8593</start>
+            <end>8922</end>
             <in>0</in>
-            <out>251</out>
+            <out>329</out>
             <file id="file-32">
               <name>OrionEp1-031-NA.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-031-NA.mp3</pathurl>
@@ -1071,15 +1071,15 @@
           <clipitem id="clipitem-32">
             <name>OrionEp1-032-NA.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>104</duration>
+            <duration>436</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>8223</start>
-            <end>8327</end>
+            <start>8939</start>
+            <end>9375</end>
             <in>0</in>
-            <out>104</out>
+            <out>436</out>
             <file id="file-33">
               <name>OrionEp1-032-NA.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-032-NA.mp3</pathurl>
@@ -1105,15 +1105,15 @@
           <clipitem id="clipitem-33">
             <name>OrionEp1-033-NA.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>204</duration>
+            <duration>418</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>8340</start>
-            <end>8544</end>
+            <start>9394</start>
+            <end>9812</end>
             <in>0</in>
-            <out>204</out>
+            <out>418</out>
             <file id="file-34">
               <name>OrionEp1-033-NA.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-033-NA.mp3</pathurl>
@@ -1139,15 +1139,15 @@
           <clipitem id="clipitem-34">
             <name>OrionEp1-034-NA.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>170</duration>
+            <duration>276</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>8560</start>
-            <end>8730</end>
+            <start>9831</start>
+            <end>10107</end>
             <in>0</in>
-            <out>170</out>
+            <out>276</out>
             <file id="file-35">
               <name>OrionEp1-034-NA.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-034-NA.mp3</pathurl>
@@ -1173,15 +1173,15 @@
           <clipitem id="clipitem-35">
             <name>OrionEp1-035-NA.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>150</duration>
+            <duration>739</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>8743</start>
-            <end>8893</end>
+            <start>10122</start>
+            <end>10861</end>
             <in>0</in>
-            <out>150</out>
+            <out>739</out>
             <file id="file-36">
               <name>OrionEp1-035-NA.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-035-NA.mp3</pathurl>
@@ -1207,15 +1207,15 @@
           <clipitem id="clipitem-36">
             <name>OrionEp1-036-NA.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>194</duration>
+            <duration>323</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>8907</start>
-            <end>9101</end>
+            <start>10884</start>
+            <end>11207</end>
             <in>0</in>
-            <out>194</out>
+            <out>323</out>
             <file id="file-37">
               <name>OrionEp1-036-NA.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-036-NA.mp3</pathurl>
@@ -1241,15 +1241,15 @@
           <clipitem id="clipitem-37">
             <name>OrionEp1-037-NA.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>168</duration>
+            <duration>104</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>9116</start>
-            <end>9284</end>
+            <start>11224</start>
+            <end>11328</end>
             <in>0</in>
-            <out>168</out>
+            <out>104</out>
             <file id="file-38">
               <name>OrionEp1-037-NA.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-037-NA.mp3</pathurl>
@@ -1275,15 +1275,15 @@
           <clipitem id="clipitem-38">
             <name>OrionEp1-038-NA.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>145</duration>
+            <duration>373</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>9298</start>
-            <end>9443</end>
+            <start>11342</start>
+            <end>11715</end>
             <in>0</in>
-            <out>145</out>
+            <out>373</out>
             <file id="file-39">
               <name>OrionEp1-038-NA.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-038-NA.mp3</pathurl>
@@ -1309,15 +1309,15 @@
           <clipitem id="clipitem-39">
             <name>OrionEp1-039-NA.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>230</duration>
+            <duration>523</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>9456</start>
-            <end>9686</end>
+            <start>11733</start>
+            <end>12256</end>
             <in>0</in>
-            <out>230</out>
+            <out>523</out>
             <file id="file-40">
               <name>OrionEp1-039-NA.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-039-NA.mp3</pathurl>
@@ -1343,15 +1343,15 @@
           <clipitem id="clipitem-40">
             <name>OrionEp1-040-NA.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>256</duration>
+            <duration>132</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>9701</start>
-            <end>9957</end>
+            <start>12278</start>
+            <end>12410</end>
             <in>0</in>
-            <out>256</out>
+            <out>132</out>
             <file id="file-41">
               <name>OrionEp1-040-NA.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-040-NA.mp3</pathurl>
@@ -1377,15 +1377,15 @@
           <clipitem id="clipitem-41">
             <name>OrionEp1-041-NA.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>219</duration>
+            <duration>216</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>9973</start>
-            <end>10192</end>
+            <start>12423</start>
+            <end>12639</end>
             <in>0</in>
-            <out>219</out>
+            <out>216</out>
             <file id="file-42">
               <name>OrionEp1-041-NA.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-041-NA.mp3</pathurl>
@@ -1411,15 +1411,15 @@
           <clipitem id="clipitem-42">
             <name>OrionEp1-042-NA.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>211</duration>
+            <duration>287</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>10207</start>
-            <end>10418</end>
+            <start>12663</start>
+            <end>12950</end>
             <in>0</in>
-            <out>211</out>
+            <out>287</out>
             <file id="file-43">
               <name>OrionEp1-042-NA.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-042-NA.mp3</pathurl>
@@ -1445,15 +1445,15 @@
           <clipitem id="clipitem-43">
             <name>OrionEp1-043-NA.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>158</duration>
+            <duration>219</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>10432</start>
-            <end>10590</end>
+            <start>12968</start>
+            <end>13187</end>
             <in>0</in>
-            <out>158</out>
+            <out>219</out>
             <file id="file-44">
               <name>OrionEp1-043-NA.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-043-NA.mp3</pathurl>
@@ -1479,15 +1479,15 @@
           <clipitem id="clipitem-44">
             <name>OrionEp1-044-NA.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>162</duration>
+            <duration>211</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>10603</start>
-            <end>10765</end>
+            <start>13201</start>
+            <end>13412</end>
             <in>0</in>
-            <out>162</out>
+            <out>211</out>
             <file id="file-45">
               <name>OrionEp1-044-NA.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-044-NA.mp3</pathurl>
@@ -1513,15 +1513,15 @@
           <clipitem id="clipitem-45">
             <name>OrionEp1-045-NA.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>129</duration>
+            <duration>445</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>10779</start>
-            <end>10908</end>
+            <start>13426</start>
+            <end>13871</end>
             <in>0</in>
-            <out>129</out>
+            <out>445</out>
             <file id="file-46">
               <name>OrionEp1-045-NA.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-045-NA.mp3</pathurl>
@@ -1547,15 +1547,15 @@
           <clipitem id="clipitem-46">
             <name>OrionEp1-046-NA.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>148</duration>
+            <duration>314</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>10921</start>
-            <end>11069</end>
+            <start>13891</start>
+            <end>14205</end>
             <in>0</in>
-            <out>148</out>
+            <out>314</out>
             <file id="file-47">
               <name>OrionEp1-046-NA.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-046-NA.mp3</pathurl>
@@ -1581,15 +1581,15 @@
           <clipitem id="clipitem-47">
             <name>OrionEp1-047-NA.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>182</duration>
+            <duration>351</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>11083</start>
-            <end>11265</end>
+            <start>14222</start>
+            <end>14573</end>
             <in>0</in>
-            <out>182</out>
+            <out>351</out>
             <file id="file-48">
               <name>OrionEp1-047-NA.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-047-NA.mp3</pathurl>
@@ -1615,15 +1615,15 @@
           <clipitem id="clipitem-48">
             <name>OrionEp1-048-NA.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>192</duration>
+            <duration>207</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>11279</start>
-            <end>11471</end>
+            <start>14591</start>
+            <end>14798</end>
             <in>0</in>
-            <out>192</out>
+            <out>207</out>
             <file id="file-49">
               <name>OrionEp1-048-NA.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-048-NA.mp3</pathurl>
@@ -1649,15 +1649,15 @@
           <clipitem id="clipitem-49">
             <name>OrionEp1-049-NA.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>139</duration>
+            <duration>506</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>11485</start>
-            <end>11624</end>
+            <start>14813</start>
+            <end>15319</end>
             <in>0</in>
-            <out>139</out>
+            <out>506</out>
             <file id="file-50">
               <name>OrionEp1-049-NA.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-049-NA.mp3</pathurl>
@@ -1683,15 +1683,15 @@
           <clipitem id="clipitem-50">
             <name>OrionEp1-050-NA.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>207</duration>
+            <duration>280</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>11638</start>
-            <end>11845</end>
+            <start>15340</start>
+            <end>15620</end>
             <in>0</in>
-            <out>207</out>
+            <out>280</out>
             <file id="file-51">
               <name>OrionEp1-050-NA.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-050-NA.mp3</pathurl>
@@ -1717,15 +1717,15 @@
           <clipitem id="clipitem-51">
             <name>OrionEp1-051-NA.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>229</duration>
+            <duration>288</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>11859</start>
-            <end>12088</end>
+            <start>15636</start>
+            <end>15924</end>
             <in>0</in>
-            <out>229</out>
+            <out>288</out>
             <file id="file-52">
               <name>OrionEp1-051-NA.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-051-NA.mp3</pathurl>
@@ -1751,15 +1751,15 @@
           <clipitem id="clipitem-52">
             <name>OrionEp1-052-NA.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>244</duration>
+            <duration>163</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>12103</start>
-            <end>12347</end>
+            <start>15940</start>
+            <end>16103</end>
             <in>0</in>
-            <out>244</out>
+            <out>163</out>
             <file id="file-53">
               <name>OrionEp1-052-NA.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-052-NA.mp3</pathurl>
@@ -1785,15 +1785,15 @@
           <clipitem id="clipitem-53">
             <name>OrionEp1-053-NA.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>285</duration>
+            <duration>122</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>12362</start>
-            <end>12647</end>
+            <start>16116</start>
+            <end>16238</end>
             <in>0</in>
-            <out>285</out>
+            <out>122</out>
             <file id="file-54">
               <name>OrionEp1-053-NA.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-053-NA.mp3</pathurl>
@@ -1819,154 +1819,18 @@
           <clipitem id="clipitem-54">
             <name>OrionEp1-054-NA.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>275</duration>
+            <duration>381</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>12664</start>
-            <end>12939</end>
+            <start>16261</start>
+            <end>16642</end>
             <in>0</in>
-            <out>275</out>
+            <out>381</out>
             <file id="file-55">
               <name>OrionEp1-054-NA.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-054-NA.mp3</pathurl>
-              <rate>
-                <timebase>44100</timebase>
-                <ntsc>FALSE</ntsc>
-              </rate>
-              <media>
-                <audio>
-                  <channelcount>1</channelcount>
-                  <samplecharacteristics>
-                    <samplerate>44100</samplerate>
-                    <samplesize>16</samplesize>
-                  </samplecharacteristics>
-                </audio>
-              </media>
-            </file>
-            <sourcetrack>
-              <mediatype>audio</mediatype>
-              <trackindex>1</trackindex>
-            </sourcetrack>
-          </clipitem>
-          <clipitem id="clipitem-55">
-            <name>OrionEp1-055-NA.mp3</name>
-            <enabled>TRUE</enabled>
-            <duration>153</duration>
-            <rate>
-              <timebase>30</timebase>
-              <ntsc>TRUE</ntsc>
-            </rate>
-            <start>12955</start>
-            <end>13108</end>
-            <in>0</in>
-            <out>153</out>
-            <file id="file-56">
-              <name>OrionEp1-055-NA.mp3</name>
-              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-055-NA.mp3</pathurl>
-              <rate>
-                <timebase>44100</timebase>
-                <ntsc>FALSE</ntsc>
-              </rate>
-              <media>
-                <audio>
-                  <channelcount>1</channelcount>
-                  <samplecharacteristics>
-                    <samplerate>44100</samplerate>
-                    <samplesize>16</samplesize>
-                  </samplecharacteristics>
-                </audio>
-              </media>
-            </file>
-            <sourcetrack>
-              <mediatype>audio</mediatype>
-              <trackindex>1</trackindex>
-            </sourcetrack>
-          </clipitem>
-          <clipitem id="clipitem-56">
-            <name>OrionEp1-056-NA.mp3</name>
-            <enabled>TRUE</enabled>
-            <duration>122</duration>
-            <rate>
-              <timebase>30</timebase>
-              <ntsc>TRUE</ntsc>
-            </rate>
-            <start>13121</start>
-            <end>13243</end>
-            <in>0</in>
-            <out>122</out>
-            <file id="file-57">
-              <name>OrionEp1-056-NA.mp3</name>
-              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-056-NA.mp3</pathurl>
-              <rate>
-                <timebase>44100</timebase>
-                <ntsc>FALSE</ntsc>
-              </rate>
-              <media>
-                <audio>
-                  <channelcount>1</channelcount>
-                  <samplecharacteristics>
-                    <samplerate>44100</samplerate>
-                    <samplesize>16</samplesize>
-                  </samplecharacteristics>
-                </audio>
-              </media>
-            </file>
-            <sourcetrack>
-              <mediatype>audio</mediatype>
-              <trackindex>1</trackindex>
-            </sourcetrack>
-          </clipitem>
-          <clipitem id="clipitem-57">
-            <name>OrionEp1-057-NA.mp3</name>
-            <enabled>TRUE</enabled>
-            <duration>201</duration>
-            <rate>
-              <timebase>30</timebase>
-              <ntsc>TRUE</ntsc>
-            </rate>
-            <start>13266</start>
-            <end>13467</end>
-            <in>0</in>
-            <out>201</out>
-            <file id="file-58">
-              <name>OrionEp1-057-NA.mp3</name>
-              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-057-NA.mp3</pathurl>
-              <rate>
-                <timebase>44100</timebase>
-                <ntsc>FALSE</ntsc>
-              </rate>
-              <media>
-                <audio>
-                  <channelcount>1</channelcount>
-                  <samplecharacteristics>
-                    <samplerate>44100</samplerate>
-                    <samplesize>16</samplesize>
-                  </samplecharacteristics>
-                </audio>
-              </media>
-            </file>
-            <sourcetrack>
-              <mediatype>audio</mediatype>
-              <trackindex>1</trackindex>
-            </sourcetrack>
-          </clipitem>
-          <clipitem id="clipitem-58">
-            <name>OrionEp1-058-NA.mp3</name>
-            <enabled>TRUE</enabled>
-            <duration>188</duration>
-            <rate>
-              <timebase>30</timebase>
-              <ntsc>TRUE</ntsc>
-            </rate>
-            <start>13481</start>
-            <end>13669</end>
-            <in>0</in>
-            <out>188</out>
-            <file id="file-59">
-              <name>OrionEp1-058-NA.mp3</name>
-              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp1/%E3%82%B5%E3%82%A6%E3%83%B3%E3%83%89%E9%A1%9E/Narration/OrionEp1-058-NA.mp3</pathurl>
               <rate>
                 <timebase>44100</timebase>
                 <ntsc>FALSE</ntsc>

@@ -1,0 +1,21 @@
+@startuml
+skinparam backgroundColor #ffffff
+skinparam activity {
+  FontSize 14
+  FontName "Noto Sans CJK JP"
+  BackgroundColor #f2f2f2
+  BorderColor #444444
+}
+start
+:台本確認\n`Ep1生台本.md` を校正ルールで整理;
+:脚本整形\n`script_timed.md` にロール付け転記;
+:Azureナレ収録\n`scripts/process_orionep2_short.py` を\n`script_timed.md` 指定で実行\n→ `サウンド類/Narration/*.mp3`;
+:尺計測＆タイムラインCSV\n同スクリプトで `OrionEp1_timeline.csv` 出力;
+:BGM/SEプラン同期\n`fit_bgm_plan_to_timeline.py` で\n`bgm_se_plan.json` を実尺に合わせ、\n`bgm_se_plan_synced.json` 更新;
+:BGM/SE生成\n`generate_bgm_se_from_plan.py` →\n`サウンド類/{BGM,SE}/` に書き出し;
+:タイムライン合成\n`build_fcpx_with_bgm_se.py` で\nナレーション+BGM/SEのCSVとFCPXML出力;
+:SRTリタイム\n`retime_srt_with_timeline.py` で\n`subtitle_draft.srt` を実尺合わせ;
+:マーカー付与\n`add_markers_from_csv.py` で\n`Ep1_image_markers.csv` をタイムラインに合成;
+:FCPXML納品\n最終XMLを `exports/timelines/` へ配置;
+stop
+@enduml

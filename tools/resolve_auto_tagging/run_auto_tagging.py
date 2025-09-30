@@ -6,6 +6,7 @@ import sys
 import os
 import subprocess
 import base64
+import hashlib
 import yaml
 import argparse
 from pathlib import Path
@@ -97,13 +98,25 @@ def timecode_to_seconds(timecode_str, fps):
 
 def extract_thumbnail(clip_path, output_dir, midpoint_seconds):
     base_filename = os.path.basename(clip_path)
-    output_filename = os.path.join(output_dir, f"{base_filename}.jpg")
+    hash_suffix = hashlib.md5(clip_path.encode("utf-8", "ignore")).hexdigest()[:8]
+    stem, _ = os.path.splitext(base_filename)
+    safe_stem = stem[:80]
+    output_filename = os.path.join(output_dir, f"{safe_stem}_{hash_suffix}.jpg")
 
     if os.path.exists(output_filename):
         os.remove(output_filename) # 念のため古いファイルを削除
 
     try:
-        command = [FFMPEG_PATH, '-i', clip_path, '-ss', str(midpoint_seconds), '-vframes', '1', '-q:v', '3', '-y', output_filename]
+        command = [
+            FFMPEG_PATH,
+            '-i', clip_path,
+            '-ss', str(midpoint_seconds),
+            '-vframes', '1',
+            '-vf', 'zscale=primariesin=bt709:transferin=bt709:matrixin=bt709:primaries=bt709:transfer=bt709:matrix=bt709,format=yuv420p',
+            '-q:v', '3',
+            '-f', 'image2',
+            '-y', output_filename,
+        ]
         subprocess.run(command, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         return output_filename
     except Exception as e:
@@ -324,6 +337,8 @@ def main() -> int:
     parser.add_argument("--env", dest="env_file", default=None, help="読み込む .env のパス（Resolve環境などで推奨）")
     parser.add_argument("--project", dest="project_name", default=None, help="対象のResolveプロジェクト名")
     parser.add_argument("--limit", type=int, default=None, help="処理するクリップ数の上限")
+    parser.add_argument("--skip", type=int, default=0, help="最初のN件の対象クリップをスキップ")
+    parser.add_argument("--only-untagged", action="store_true", help="既にキーワードがあるクリップをスキップ")
     parser.add_argument("--batch", type=int, default=0, help="進捗を表示する処理件数間隔 (0 で無効)")
     parser.add_argument("--merge-policy", choices=["append_unique", "replace"], default="append_unique", help="既存キーワードとの突き合わせ方")
     parser.add_argument("--dry-run", action="store_true", help="書き込みを行わず予定の変更内容のみ表示")
@@ -436,10 +451,18 @@ def main() -> int:
 
         limit = args.limit if args.limit and args.limit > 0 else None
 
+        skip = max(0, args.skip)
         for clip in all_clips:
             file_path = clip.GetClipProperty("File Path")
 
             if file_path and file_path.lower().endswith(VIDEO_EXTENSIONS):
+                if skip > 0:
+                    skip -= 1
+                    continue
+                if args.only_untagged:
+                    existing = clip.GetMetadata("Keywords") or clip.GetClipProperty("Keywords")
+                    if existing:
+                        continue
                 if limit is not None and stats["processed"] >= limit:
                     break
 
