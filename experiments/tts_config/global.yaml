@@ -1,0 +1,86 @@
+style_prompts:
+  openai: >-
+    Please read the following text slowly and warmly, with clear articulation suitable for shared educational storytelling.
+  gemini: >-
+    Please narrate the script in a composed, insightful tone with deliberate pacing and gentle engagement.
+  google: >-
+    Please deliver the narration with a calm, educational tone, keeping the cadence steady and welcoming.
+pronunciation_hints:
+  - term: 一期一会
+    reading: いちごいちえ
+  - term: 茶人
+    reading: ちゃじん
+  - term: 権謀術数
+    reading: けんぼうじゅっすう
+  - term: 千利休
+    reading: せんのりきゅう
+  - term: ハーバーマス
+    reading: はーばーます
+  - term: マキャベリ
+    reading: まきゃべり
+  - term: 叡智
+    reading: えいち
+  - term: 視座
+    reading: しざ
+  - term: 兵法家
+    reading: ひょうほうか
+  - term: 体現
+    reading: たいげん
+  - term: 処世術
+    reading: しょせいじゅつ
+  - term: 紡ぎ
+    reading: つむぎ
+  - term: 没入
+    reading: ぼつにゅう
+  - term: 智慧
+    reading: ちえ
+  - term: 躙口
+    reading: にじりぐち
+  - term: 冷徹
+    reading: れいてつ
+  - term: 裏工作
+    reading: うらこうさく
+  - term: 硬直化
+    reading: こうちょくか
+  - term: 発話
+    reading: はつわ
+  - term: 利得
+    reading: りとく
+  - term: 面子
+    reading: めんつ
+  - term: 撤回
+    reading: てっかい
+  - term: 阻害
+    reading: そがい
+  - term: 架橋
+    reading: かきょう
+  - term: 甘んじる
+    reading: あまんじる
+  - term: 逆説的
+    reading: ぎゃくせつてき
+  - term: 度量
+    reading: どりょう
+  - term: 参宿
+    reading: しんしゅく
+  - term: 然り
+    reading: しかり
+  - term: 謙抑
+    reading: けんよく
+  - term: 設え
+    reading: しつらえ
+  - term: 狡知
+    reading: こうち
+  - term: 逐語
+    reading: ちくご
+  - term: 稟議
+    reading: りんぎ
+  - term: 孫子
+    reading: そんし
+  - term: 君主論
+    reading: くんしゅろん
+pacing:
+  sentence_pause_ms: 600
+  paragraph_pause_ms: 800
+google_tts:
+  use_ssml: true
+  break_ms: 600

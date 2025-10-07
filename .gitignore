@@ -12,6 +12,7 @@ __pycache__/
 output/
 !/terop/output/
 !/terop/output/**
+projects/*/output/
 .out/
 dist/
 *.edl
