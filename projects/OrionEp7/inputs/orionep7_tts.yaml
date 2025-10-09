@@ -1,27 +1,164 @@
 pronunciation_hints:
-  - term: 根回し
-    reading: ねまわし
-  - term: 戦国大名
-    reading: せんごくだいみょう
-  - term: にじり口
-    reading: にじりぐち
-  - term: プレ・バーゲニング
-    reading: ぷれ・ばーげにんぐ
-  - term: コミットメント
-    reading: こみっとめんと
-  - term: 高コンテクスト
-    reading: こうこんてくすと
-  - term: 低コンテクスト
-    reading: ていこんてくすと
-  - term: ハリウッド・ピッチ
-    reading: はりうっど・ぴっち
-  - term: ベンチャーキャピタリスト
-    reading: べんちゃーきゃぴたりすと
-  - term: エドワード・T・ホール
-    reading: えどわーど・てぃー・ほーる
-  - term: ルネサンス
-    reading: るねさんす
-  - term: ユルゲン・ハーバーマス
-    reading: ゆるげん・はーばーます
-  - term: ニッコロ・マキャベリ
-    reading: にっころ・まきゃべり
+  # 漢字
+  叡智: えいち
+  権謀術数: けんぼうじゅっすう
+  殆うからず: あやうからず
+  参宿: しんしゅく
+  然り: しかり
+  根回し: ねまわし
+  戦国大名: せんごくだいみょう
+  にじり口: にじりぐち
+
+  # 固有名詞
+  マキャベリ: マキャベリ
+  ハーバーマス: ハーバーマス
+  孫子: そんし
+  千利休: せんのりきゅう
+
+  # カタカナ表記ゆれ
+  オリオン: おりおん
+  シリコンバレー: しりこんばれー
+  プレ・バーゲニング: ぷれ・ばーげにんぐ
+  コミットメント: こみっとめんと
+  高コンテクスト: こうこんてくすと
+  低コンテクスト: ていこんてくすと
+  ハリウッド・ピッチ: はりうっど・ぴっち
+  ベンチャーキャピタリスト: べんちゃーきゃぴたりすと
+  エドワード・T・ホール: えどわーど・てぃー・ほーる
+  ルネサンス: るねさんす
+  ユルゲン・ハーバーマス: ゆるげん・はーばーます
+  ニッコロ・マキャベリ: にっころ・まきゃべり
+
+  # 数値・略語
+  16世紀: じゅうろくせいき
+  20世紀: にじゅっせいき
+  21世紀: にじゅういっせいき
+  紀元前500年: きげんぜんごひゃくねん
+  2500年: にせんごひゃくねん
+
+google_tts:
+  use_ssml: true
+  break_ms: 400
+  default_break_ms: 400
+  custom_breaks:
+    "——": 1500
+    "ーー": 1500
+    "−−": 1500
+    "--": 1500
+    "、": 600
+    "，": 600
+    "。": 700
+    "．": 700
+    "？": 800
+    "?": 800
+    "！": 800
+    "!": 800
+    "：": 500
+    "...": 900
+    "……": 900
+    ",": 400
+    ".": 700
+    scene_transition: 3000
+  segment_gap_ms: 300
+  quote_breaks:
+    open_ms: 120
+    close_ms: 30
+  replacements:
+    "...": "……"
+    "..": "……"
+    "…": "……"
+    "-": "——"
+    "—": "——"
+    "【": "（"
+    "】": "）"
+    "『": "「"
+    "』": "」"
+    ":": "："
+  gemini_dialogue:
+    enabled: true
+    rewrite_enabled: false
+    rewrite_model: gemini-2.5-pro
+    tts_model: gemini-2.5-flash-preview-tts
+    voice_name: kore
+    voice_overrides:
+      課長: charon
+      部長: gacrux
+      若手: aoede
+    base_instruction: >-
+      Rewrite the following Japanese dialogue so it is natural, emotionally
+      expressive, and easy to perform aloud. Preserve meaning, key terms, and
+      speaker intent. Keep the rewritten text in Japanese and omit any extra
+      commentary.
+    style_prompts:
+      default: >-
+        Deliver the line with conversational, lifelike cadence suited for
+        contemporary storytelling.
+      課長: >-
+        Speak like a friendly male colleague gently checking in, warm and
+        approachable.
+      部長: >-
+        Deliver in a calm, senior male voice with quiet authority and subtle
+        concern.
+      若手: >-
+        Sound like a slightly nervous but earnest young professional trying to
+        respond politely.
+      孫子: >-
+        Speak in a steady, composed male voice with quiet strength, as though
+        quoting a timeless principle with deep respect.
+  voices:
+    ナレーター:
+      name: ja-JP-Neural2-C
+      speaking_rate: 0.95
+      pitch: 0.0
+      description: "落ち着いた知的な男性声"
+    課長:
+      name: ja-JP-Neural2-D
+      speaking_rate: 1.05
+      pitch: 1.0
+      description: "さりげなく話しかける自然な男性声"
+    部長:
+      name: ja-JP-Neural2-B
+      speaking_rate: 0.9
+      pitch: -1.5
+      description: "低めで威厳のある男性声"
+    若手:
+      name: ja-JP-Wavenet-A
+      speaking_rate: 1.1
+      pitch: 2.0
+      description: "若い女性声"
+    若手社員:
+      name: ja-JP-Wavenet-A
+      speaking_rate: 1.1
+      pitch: 2.0
+      description: "若い女性声（若手と同じ）"
+    孫子:
+      name: ja-JP-Wavenet-C
+      speaking_rate: 0.85
+      pitch: -2.0
+      description: "重厚で威厳のある声"
+    マキャベリ:
+      name: ja-JP-Neural2-D
+      speaking_rate: 0.9
+      pitch: -1.0
+      description: "冷徹で知的な声"
+    ハーバーマス:
+      name: ja-JP-Neural2-C
+      speaking_rate: 0.95
+      pitch: 0.5
+      description: "理知的で穏やかな声"
+
+style_prompts:
+  google:
+    ナレーター: "知的で落ち着いたドキュメンタリー調のナレーション"
+    課長: "さりげなく話しかける自然な口調"
+    部長: "探るような、やや警戒した口調"
+    若手: "戸惑いながらも丁寧に答える口調"
+    若手社員: "戸惑いながらも丁寧に答える口調"
+    孫子: "静かに語りかける重厚な語り"
+    マキャベリ: "冷静に状況を分析する語り"
+    ハーバーマス: "落ち着いた知的なトーン"
+
+pacing:
+  sentence_pause_ms: 700
+  paragraph_pause_ms: 1200
+  scene_pause_ms: 2000

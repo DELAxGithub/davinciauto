@@ -2,7 +2,7 @@
 <xmeml version="4">
   <sequence>
     <uuid>OrionEp7_timeline</uuid>
-    <duration>18248</duration>
+    <duration>27648</duration>
     <name>OrionEp7_timeline</name>
     <rate>
       <timebase>30</timebase>
@@ -17,15 +17,15 @@
           <clipitem id="clipitem-1">
             <name>OrionEp7_001.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>274</duration>
+            <duration>369</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>0</start>
-            <end>274</end>
+            <start>60</start>
+            <end>429</end>
             <in>0</in>
-            <out>274</out>
+            <out>369</out>
             <file id="file-1">
               <name>OrionEp7_001.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_001.mp3</pathurl>
@@ -50,7 +50,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>274</end>
+              <end>369</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -69,7 +69,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>274</end>
+              <end>369</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -90,15 +90,15 @@
           <clipitem id="clipitem-2">
             <name>OrionEp7_002.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>157</duration>
+            <duration>485</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>274</start>
-            <end>431</end>
+            <start>429</start>
+            <end>914</end>
             <in>0</in>
-            <out>157</out>
+            <out>485</out>
             <file id="file-2">
               <name>OrionEp7_002.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_002.mp3</pathurl>
@@ -123,7 +123,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>157</end>
+              <end>485</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -142,7 +142,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>157</end>
+              <end>485</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -163,15 +163,15 @@
           <clipitem id="clipitem-3">
             <name>OrionEp7_003.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>241</duration>
+            <duration>251</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>431</start>
-            <end>672</end>
+            <start>914</start>
+            <end>1165</end>
             <in>0</in>
-            <out>241</out>
+            <out>251</out>
             <file id="file-3">
               <name>OrionEp7_003.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_003.mp3</pathurl>
@@ -196,7 +196,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>241</end>
+              <end>251</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -215,7 +215,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>241</end>
+              <end>251</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -236,15 +236,15 @@
           <clipitem id="clipitem-4">
             <name>OrionEp7_004.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>240</duration>
+            <duration>295</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>672</start>
-            <end>912</end>
+            <start>1165</start>
+            <end>1460</end>
             <in>0</in>
-            <out>240</out>
+            <out>295</out>
             <file id="file-4">
               <name>OrionEp7_004.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_004.mp3</pathurl>
@@ -269,7 +269,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>240</end>
+              <end>295</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -288,7 +288,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>240</end>
+              <end>295</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -309,15 +309,15 @@
           <clipitem id="clipitem-5">
             <name>OrionEp7_005.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>896</duration>
+            <duration>307</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>912</start>
-            <end>1808</end>
+            <start>1460</start>
+            <end>1767</end>
             <in>0</in>
-            <out>896</out>
+            <out>307</out>
             <file id="file-5">
               <name>OrionEp7_005.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_005.mp3</pathurl>
@@ -342,7 +342,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>896</end>
+              <end>307</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -361,7 +361,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>896</end>
+              <end>307</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -382,15 +382,15 @@
           <clipitem id="clipitem-6">
             <name>OrionEp7_006.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>216</duration>
+            <duration>269</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>1898</start>
-            <end>2114</end>
+            <start>1767</start>
+            <end>2036</end>
             <in>0</in>
-            <out>216</out>
+            <out>269</out>
             <file id="file-6">
               <name>OrionEp7_006.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_006.mp3</pathurl>
@@ -415,7 +415,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>216</end>
+              <end>269</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -434,7 +434,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>216</end>
+              <end>269</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -455,15 +455,15 @@
           <clipitem id="clipitem-7">
             <name>OrionEp7_007.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>131</duration>
+            <duration>286</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>2114</start>
-            <end>2245</end>
+            <start>2036</start>
+            <end>2322</end>
             <in>0</in>
-            <out>131</out>
+            <out>286</out>
             <file id="file-7">
               <name>OrionEp7_007.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_007.mp3</pathurl>
@@ -488,7 +488,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>131</end>
+              <end>286</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -507,7 +507,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>131</end>
+              <end>286</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -528,15 +528,15 @@
           <clipitem id="clipitem-8">
             <name>OrionEp7_008.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>273</duration>
+            <duration>283</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>2245</start>
-            <end>2518</end>
+            <start>2322</start>
+            <end>2605</end>
             <in>0</in>
-            <out>273</out>
+            <out>283</out>
             <file id="file-8">
               <name>OrionEp7_008.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_008.mp3</pathurl>
@@ -561,7 +561,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>273</end>
+              <end>283</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -580,7 +580,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>273</end>
+              <end>283</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -601,15 +601,15 @@
           <clipitem id="clipitem-9">
             <name>OrionEp7_009.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>123</duration>
+            <duration>257</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>2518</start>
-            <end>2641</end>
+            <start>2665</start>
+            <end>2922</end>
             <in>0</in>
-            <out>123</out>
+            <out>257</out>
             <file id="file-9">
               <name>OrionEp7_009.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_009.mp3</pathurl>
@@ -634,7 +634,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>123</end>
+              <end>257</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -653,7 +653,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>123</end>
+              <end>257</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -674,15 +674,15 @@
           <clipitem id="clipitem-10">
             <name>OrionEp7_010.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>125</duration>
+            <duration>490</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>2641</start>
-            <end>2766</end>
+            <start>2922</start>
+            <end>3412</end>
             <in>0</in>
-            <out>125</out>
+            <out>490</out>
             <file id="file-10">
               <name>OrionEp7_010.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_010.mp3</pathurl>
@@ -707,7 +707,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>125</end>
+              <end>490</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -726,7 +726,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>125</end>
+              <end>490</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -747,15 +747,15 @@
           <clipitem id="clipitem-11">
             <name>OrionEp7_011.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>391</duration>
+            <duration>232</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>2766</start>
-            <end>3157</end>
+            <start>3412</start>
+            <end>3644</end>
             <in>0</in>
-            <out>391</out>
+            <out>232</out>
             <file id="file-11">
               <name>OrionEp7_011.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_011.mp3</pathurl>
@@ -780,7 +780,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>391</end>
+              <end>232</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -799,7 +799,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>391</end>
+              <end>232</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -820,15 +820,15 @@
           <clipitem id="clipitem-12">
             <name>OrionEp7_012.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>274</duration>
+            <duration>377</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>3247</start>
-            <end>3521</end>
+            <start>3644</start>
+            <end>4021</end>
             <in>0</in>
-            <out>274</out>
+            <out>377</out>
             <file id="file-12">
               <name>OrionEp7_012.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_012.mp3</pathurl>
@@ -853,7 +853,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>274</end>
+              <end>377</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -872,7 +872,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>274</end>
+              <end>377</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -893,15 +893,15 @@
           <clipitem id="clipitem-13">
             <name>OrionEp7_013.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>440</duration>
+            <duration>517</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>3521</start>
-            <end>3961</end>
+            <start>4021</start>
+            <end>4538</end>
             <in>0</in>
-            <out>440</out>
+            <out>517</out>
             <file id="file-13">
               <name>OrionEp7_013.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_013.mp3</pathurl>
@@ -926,7 +926,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>440</end>
+              <end>517</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -945,7 +945,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>440</end>
+              <end>517</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -966,15 +966,15 @@
           <clipitem id="clipitem-14">
             <name>OrionEp7_014.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>439</duration>
+            <duration>387</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>3961</start>
-            <end>4400</end>
+            <start>4538</start>
+            <end>4925</end>
             <in>0</in>
-            <out>439</out>
+            <out>387</out>
             <file id="file-14">
               <name>OrionEp7_014.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_014.mp3</pathurl>
@@ -999,7 +999,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>439</end>
+              <end>387</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -1018,7 +1018,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>439</end>
+              <end>387</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -1039,15 +1039,15 @@
           <clipitem id="clipitem-15">
             <name>OrionEp7_015.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>514</duration>
+            <duration>369</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>4400</start>
-            <end>4914</end>
+            <start>4925</start>
+            <end>5294</end>
             <in>0</in>
-            <out>514</out>
+            <out>369</out>
             <file id="file-15">
               <name>OrionEp7_015.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_015.mp3</pathurl>
@@ -1072,7 +1072,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>514</end>
+              <end>369</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -1091,7 +1091,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>514</end>
+              <end>369</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -1112,15 +1112,15 @@
           <clipitem id="clipitem-16">
             <name>OrionEp7_016.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>281</duration>
+            <duration>69</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>4914</start>
-            <end>5195</end>
+            <start>5354</start>
+            <end>5423</end>
             <in>0</in>
-            <out>281</out>
+            <out>69</out>
             <file id="file-16">
               <name>OrionEp7_016.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_016.mp3</pathurl>
@@ -1145,7 +1145,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>281</end>
+              <end>69</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -1164,7 +1164,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>281</end>
+              <end>69</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -1185,15 +1185,15 @@
           <clipitem id="clipitem-17">
             <name>OrionEp7_017.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>319</duration>
+            <duration>315</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>5195</start>
-            <end>5514</end>
+            <start>5423</start>
+            <end>5738</end>
             <in>0</in>
-            <out>319</out>
+            <out>315</out>
             <file id="file-17">
               <name>OrionEp7_017.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_017.mp3</pathurl>
@@ -1218,7 +1218,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>319</end>
+              <end>315</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -1237,7 +1237,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>319</end>
+              <end>315</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -1258,15 +1258,15 @@
           <clipitem id="clipitem-18">
             <name>OrionEp7_018.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>455</duration>
+            <duration>242</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>5514</start>
-            <end>5969</end>
+            <start>5738</start>
+            <end>5980</end>
             <in>0</in>
-            <out>455</out>
+            <out>242</out>
             <file id="file-18">
               <name>OrionEp7_018.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_018.mp3</pathurl>
@@ -1291,7 +1291,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>455</end>
+              <end>242</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -1310,7 +1310,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>455</end>
+              <end>242</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -1331,15 +1331,15 @@
           <clipitem id="clipitem-19">
             <name>OrionEp7_019.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>468</duration>
+            <duration>229</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>5969</start>
-            <end>6437</end>
+            <start>5980</start>
+            <end>6209</end>
             <in>0</in>
-            <out>468</out>
+            <out>229</out>
             <file id="file-19">
               <name>OrionEp7_019.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_019.mp3</pathurl>
@@ -1364,7 +1364,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>468</end>
+              <end>229</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -1383,7 +1383,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>468</end>
+              <end>229</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -1404,15 +1404,15 @@
           <clipitem id="clipitem-20">
             <name>OrionEp7_020.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>352</duration>
+            <duration>565</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>6527</start>
-            <end>6879</end>
+            <start>6209</start>
+            <end>6774</end>
             <in>0</in>
-            <out>352</out>
+            <out>565</out>
             <file id="file-20">
               <name>OrionEp7_020.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_020.mp3</pathurl>
@@ -1437,7 +1437,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>352</end>
+              <end>565</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -1456,7 +1456,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>352</end>
+              <end>565</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -1477,15 +1477,15 @@
           <clipitem id="clipitem-21">
             <name>OrionEp7_021.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>133</duration>
+            <duration>222</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>6879</start>
-            <end>7012</end>
+            <start>6774</start>
+            <end>6996</end>
             <in>0</in>
-            <out>133</out>
+            <out>222</out>
             <file id="file-21">
               <name>OrionEp7_021.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_021.mp3</pathurl>
@@ -1510,7 +1510,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>133</end>
+              <end>222</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -1529,7 +1529,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>133</end>
+              <end>222</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -1550,15 +1550,15 @@
           <clipitem id="clipitem-22">
             <name>OrionEp7_022.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>236</duration>
+            <duration>245</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>7012</start>
-            <end>7248</end>
+            <start>6996</start>
+            <end>7241</end>
             <in>0</in>
-            <out>236</out>
+            <out>245</out>
             <file id="file-22">
               <name>OrionEp7_022.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_022.mp3</pathurl>
@@ -1583,7 +1583,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>236</end>
+              <end>245</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -1602,7 +1602,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>236</end>
+              <end>245</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -1623,15 +1623,15 @@
           <clipitem id="clipitem-23">
             <name>OrionEp7_023.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>447</duration>
+            <duration>422</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>7248</start>
-            <end>7695</end>
+            <start>7241</start>
+            <end>7663</end>
             <in>0</in>
-            <out>447</out>
+            <out>422</out>
             <file id="file-23">
               <name>OrionEp7_023.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_023.mp3</pathurl>
@@ -1656,7 +1656,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>447</end>
+              <end>422</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -1675,7 +1675,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>447</end>
+              <end>422</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -1696,15 +1696,15 @@
           <clipitem id="clipitem-24">
             <name>OrionEp7_024.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>478</duration>
+            <duration>275</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>7695</start>
-            <end>8173</end>
+            <start>7663</start>
+            <end>7938</end>
             <in>0</in>
-            <out>478</out>
+            <out>275</out>
             <file id="file-24">
               <name>OrionEp7_024.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_024.mp3</pathurl>
@@ -1729,7 +1729,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>478</end>
+              <end>275</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -1748,7 +1748,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>478</end>
+              <end>275</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -1769,15 +1769,15 @@
           <clipitem id="clipitem-25">
             <name>OrionEp7_025.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>241</duration>
+            <duration>78</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>8173</start>
-            <end>8414</end>
+            <start>7938</start>
+            <end>8016</end>
             <in>0</in>
-            <out>241</out>
+            <out>78</out>
             <file id="file-25">
               <name>OrionEp7_025.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_025.mp3</pathurl>
@@ -1802,7 +1802,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>241</end>
+              <end>78</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -1821,7 +1821,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>241</end>
+              <end>78</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -1842,15 +1842,15 @@
           <clipitem id="clipitem-26">
             <name>OrionEp7_026.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>208</duration>
+            <duration>342</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>8414</start>
-            <end>8622</end>
+            <start>8016</start>
+            <end>8358</end>
             <in>0</in>
-            <out>208</out>
+            <out>342</out>
             <file id="file-26">
               <name>OrionEp7_026.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_026.mp3</pathurl>
@@ -1875,7 +1875,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>208</end>
+              <end>342</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -1894,7 +1894,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>208</end>
+              <end>342</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -1915,15 +1915,15 @@
           <clipitem id="clipitem-27">
             <name>OrionEp7_027.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>313</duration>
+            <duration>219</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>8622</start>
-            <end>8935</end>
+            <start>8358</start>
+            <end>8577</end>
             <in>0</in>
-            <out>313</out>
+            <out>219</out>
             <file id="file-27">
               <name>OrionEp7_027.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_027.mp3</pathurl>
@@ -1948,7 +1948,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>313</end>
+              <end>219</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -1967,7 +1967,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>313</end>
+              <end>219</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -1988,15 +1988,15 @@
           <clipitem id="clipitem-28">
             <name>OrionEp7_028.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>108</duration>
+            <duration>308</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>8935</start>
-            <end>9043</end>
+            <start>8577</start>
+            <end>8885</end>
             <in>0</in>
-            <out>108</out>
+            <out>308</out>
             <file id="file-28">
               <name>OrionEp7_028.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_028.mp3</pathurl>
@@ -2021,7 +2021,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>108</end>
+              <end>308</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -2040,7 +2040,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>108</end>
+              <end>308</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -2061,15 +2061,15 @@
           <clipitem id="clipitem-29">
             <name>OrionEp7_029.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>270</duration>
+            <duration>475</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>9133</start>
-            <end>9403</end>
+            <start>8885</start>
+            <end>9360</end>
             <in>0</in>
-            <out>270</out>
+            <out>475</out>
             <file id="file-29">
               <name>OrionEp7_029.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_029.mp3</pathurl>
@@ -2094,7 +2094,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>270</end>
+              <end>475</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -2113,7 +2113,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>270</end>
+              <end>475</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -2134,15 +2134,15 @@
           <clipitem id="clipitem-30">
             <name>OrionEp7_030.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>355</duration>
+            <duration>275</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>9403</start>
-            <end>9758</end>
+            <start>9360</start>
+            <end>9635</end>
             <in>0</in>
-            <out>355</out>
+            <out>275</out>
             <file id="file-30">
               <name>OrionEp7_030.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_030.mp3</pathurl>
@@ -2167,7 +2167,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>355</end>
+              <end>275</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -2186,7 +2186,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>355</end>
+              <end>275</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -2207,15 +2207,15 @@
           <clipitem id="clipitem-31">
             <name>OrionEp7_031.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>442</duration>
+            <duration>250</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>9758</start>
-            <end>10200</end>
+            <start>9635</start>
+            <end>9885</end>
             <in>0</in>
-            <out>442</out>
+            <out>250</out>
             <file id="file-31">
               <name>OrionEp7_031.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_031.mp3</pathurl>
@@ -2240,7 +2240,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>442</end>
+              <end>250</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -2259,7 +2259,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>442</end>
+              <end>250</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -2280,15 +2280,15 @@
           <clipitem id="clipitem-32">
             <name>OrionEp7_032.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>376</duration>
+            <duration>180</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>10200</start>
-            <end>10576</end>
+            <start>9945</start>
+            <end>10125</end>
             <in>0</in>
-            <out>376</out>
+            <out>180</out>
             <file id="file-32">
               <name>OrionEp7_032.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_032.mp3</pathurl>
@@ -2313,7 +2313,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>376</end>
+              <end>180</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -2332,7 +2332,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>376</end>
+              <end>180</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -2353,15 +2353,15 @@
           <clipitem id="clipitem-33">
             <name>OrionEp7_033.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>599</duration>
+            <duration>306</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>10576</start>
-            <end>11175</end>
+            <start>10125</start>
+            <end>10431</end>
             <in>0</in>
-            <out>599</out>
+            <out>306</out>
             <file id="file-33">
               <name>OrionEp7_033.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_033.mp3</pathurl>
@@ -2386,7 +2386,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>599</end>
+              <end>306</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -2405,7 +2405,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>599</end>
+              <end>306</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -2426,15 +2426,15 @@
           <clipitem id="clipitem-34">
             <name>OrionEp7_034.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>314</duration>
+            <duration>92</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>11175</start>
-            <end>11489</end>
+            <start>10431</start>
+            <end>10523</end>
             <in>0</in>
-            <out>314</out>
+            <out>92</out>
             <file id="file-34">
               <name>OrionEp7_034.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_034.mp3</pathurl>
@@ -2459,7 +2459,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>314</end>
+              <end>92</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -2478,7 +2478,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>314</end>
+              <end>92</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -2499,15 +2499,15 @@
           <clipitem id="clipitem-35">
             <name>OrionEp7_035.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>261</duration>
+            <duration>245</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>11579</start>
-            <end>11840</end>
+            <start>10523</start>
+            <end>10768</end>
             <in>0</in>
-            <out>261</out>
+            <out>245</out>
             <file id="file-35">
               <name>OrionEp7_035.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_035.mp3</pathurl>
@@ -2532,7 +2532,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>261</end>
+              <end>245</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -2551,7 +2551,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>261</end>
+              <end>245</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -2572,15 +2572,15 @@
           <clipitem id="clipitem-36">
             <name>OrionEp7_036.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>434</duration>
+            <duration>217</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>11840</start>
-            <end>12274</end>
+            <start>10768</start>
+            <end>10985</end>
             <in>0</in>
-            <out>434</out>
+            <out>217</out>
             <file id="file-36">
               <name>OrionEp7_036.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_036.mp3</pathurl>
@@ -2605,7 +2605,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>434</end>
+              <end>217</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -2624,7 +2624,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>434</end>
+              <end>217</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -2645,15 +2645,15 @@
           <clipitem id="clipitem-37">
             <name>OrionEp7_037.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>308</duration>
+            <duration>226</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>12274</start>
-            <end>12582</end>
+            <start>10985</start>
+            <end>11211</end>
             <in>0</in>
-            <out>308</out>
+            <out>226</out>
             <file id="file-37">
               <name>OrionEp7_037.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_037.mp3</pathurl>
@@ -2678,7 +2678,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>308</end>
+              <end>226</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -2697,7 +2697,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>308</end>
+              <end>226</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -2718,15 +2718,15 @@
           <clipitem id="clipitem-38">
             <name>OrionEp7_038.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>365</duration>
+            <duration>228</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>12582</start>
-            <end>12947</end>
+            <start>11211</start>
+            <end>11439</end>
             <in>0</in>
-            <out>365</out>
+            <out>228</out>
             <file id="file-38">
               <name>OrionEp7_038.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_038.mp3</pathurl>
@@ -2751,7 +2751,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>365</end>
+              <end>228</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -2770,7 +2770,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>365</end>
+              <end>228</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -2791,15 +2791,15 @@
           <clipitem id="clipitem-39">
             <name>OrionEp7_039.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>292</duration>
+            <duration>220</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>12947</start>
-            <end>13239</end>
+            <start>11439</start>
+            <end>11659</end>
             <in>0</in>
-            <out>292</out>
+            <out>220</out>
             <file id="file-39">
               <name>OrionEp7_039.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_039.mp3</pathurl>
@@ -2824,7 +2824,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>292</end>
+              <end>220</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -2843,7 +2843,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>292</end>
+              <end>220</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -2864,15 +2864,15 @@
           <clipitem id="clipitem-40">
             <name>OrionEp7_040.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>215</duration>
+            <duration>254</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>13239</start>
-            <end>13454</end>
+            <start>11659</start>
+            <end>11913</end>
             <in>0</in>
-            <out>215</out>
+            <out>254</out>
             <file id="file-40">
               <name>OrionEp7_040.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_040.mp3</pathurl>
@@ -2897,7 +2897,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>215</end>
+              <end>254</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -2916,7 +2916,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>215</end>
+              <end>254</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -2937,15 +2937,15 @@
           <clipitem id="clipitem-41">
             <name>OrionEp7_041.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>228</duration>
+            <duration>221</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>13544</start>
-            <end>13772</end>
+            <start>11913</start>
+            <end>12134</end>
             <in>0</in>
-            <out>228</out>
+            <out>221</out>
             <file id="file-41">
               <name>OrionEp7_041.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_041.mp3</pathurl>
@@ -2970,7 +2970,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>228</end>
+              <end>221</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -2989,7 +2989,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>228</end>
+              <end>221</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -3010,15 +3010,15 @@
           <clipitem id="clipitem-42">
             <name>OrionEp7_042.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>326</duration>
+            <duration>321</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>13772</start>
-            <end>14098</end>
+            <start>12134</start>
+            <end>12455</end>
             <in>0</in>
-            <out>326</out>
+            <out>321</out>
             <file id="file-42">
               <name>OrionEp7_042.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_042.mp3</pathurl>
@@ -3043,7 +3043,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>326</end>
+              <end>321</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -3062,7 +3062,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>326</end>
+              <end>321</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -3083,15 +3083,15 @@
           <clipitem id="clipitem-43">
             <name>OrionEp7_043.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>181</duration>
+            <duration>65</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>14098</start>
-            <end>14279</end>
+            <start>12455</start>
+            <end>12520</end>
             <in>0</in>
-            <out>181</out>
+            <out>65</out>
             <file id="file-43">
               <name>OrionEp7_043.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_043.mp3</pathurl>
@@ -3116,7 +3116,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>181</end>
+              <end>65</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -3135,7 +3135,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>181</end>
+              <end>65</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -3156,15 +3156,15 @@
           <clipitem id="clipitem-44">
             <name>OrionEp7_044.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>427</duration>
+            <duration>307</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>14279</start>
-            <end>14706</end>
+            <start>12520</start>
+            <end>12827</end>
             <in>0</in>
-            <out>427</out>
+            <out>307</out>
             <file id="file-44">
               <name>OrionEp7_044.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_044.mp3</pathurl>
@@ -3189,7 +3189,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>427</end>
+              <end>307</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -3208,7 +3208,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>427</end>
+              <end>307</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -3229,15 +3229,15 @@
           <clipitem id="clipitem-45">
             <name>OrionEp7_045.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>148</duration>
+            <duration>70</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>14706</start>
-            <end>14854</end>
+            <start>12827</start>
+            <end>12897</end>
             <in>0</in>
-            <out>148</out>
+            <out>70</out>
             <file id="file-45">
               <name>OrionEp7_045.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_045.mp3</pathurl>
@@ -3262,7 +3262,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>148</end>
+              <end>70</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -3281,7 +3281,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>148</end>
+              <end>70</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -3302,15 +3302,15 @@
           <clipitem id="clipitem-46">
             <name>OrionEp7_046.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>357</duration>
+            <duration>242</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>14854</start>
-            <end>15211</end>
+            <start>12897</start>
+            <end>13139</end>
             <in>0</in>
-            <out>357</out>
+            <out>242</out>
             <file id="file-46">
               <name>OrionEp7_046.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_046.mp3</pathurl>
@@ -3335,7 +3335,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>357</end>
+              <end>242</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -3354,7 +3354,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>357</end>
+              <end>242</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -3375,15 +3375,15 @@
           <clipitem id="clipitem-47">
             <name>OrionEp7_047.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>158</duration>
+            <duration>309</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>15211</start>
-            <end>15369</end>
+            <start>13139</start>
+            <end>13448</end>
             <in>0</in>
-            <out>158</out>
+            <out>309</out>
             <file id="file-47">
               <name>OrionEp7_047.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_047.mp3</pathurl>
@@ -3408,7 +3408,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>158</end>
+              <end>309</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -3427,7 +3427,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>158</end>
+              <end>309</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -3448,15 +3448,15 @@
           <clipitem id="clipitem-48">
             <name>OrionEp7_048.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>419</duration>
+            <duration>170</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>15369</start>
-            <end>15788</end>
+            <start>13508</start>
+            <end>13678</end>
             <in>0</in>
-            <out>419</out>
+            <out>170</out>
             <file id="file-48">
               <name>OrionEp7_048.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_048.mp3</pathurl>
@@ -3481,7 +3481,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>419</end>
+              <end>170</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -3500,7 +3500,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>419</end>
+              <end>170</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -3521,15 +3521,15 @@
           <clipitem id="clipitem-49">
             <name>OrionEp7_049.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>239</duration>
+            <duration>240</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>15878</start>
-            <end>16117</end>
+            <start>13678</start>
+            <end>13918</end>
             <in>0</in>
-            <out>239</out>
+            <out>240</out>
             <file id="file-49">
               <name>OrionEp7_049.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_049.mp3</pathurl>
@@ -3554,7 +3554,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>239</end>
+              <end>240</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -3573,7 +3573,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>239</end>
+              <end>240</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -3594,15 +3594,15 @@
           <clipitem id="clipitem-50">
             <name>OrionEp7_050.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>259</duration>
+            <duration>265</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>16117</start>
-            <end>16376</end>
+            <start>13918</start>
+            <end>14183</end>
             <in>0</in>
-            <out>259</out>
+            <out>265</out>
             <file id="file-50">
               <name>OrionEp7_050.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_050.mp3</pathurl>
@@ -3627,7 +3627,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>259</end>
+              <end>265</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -3646,7 +3646,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>259</end>
+              <end>265</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -3667,15 +3667,15 @@
           <clipitem id="clipitem-51">
             <name>OrionEp7_051.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>196</duration>
+            <duration>238</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>16376</start>
-            <end>16572</end>
+            <start>14183</start>
+            <end>14421</end>
             <in>0</in>
-            <out>196</out>
+            <out>238</out>
             <file id="file-51">
               <name>OrionEp7_051.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_051.mp3</pathurl>
@@ -3700,7 +3700,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>196</end>
+              <end>238</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -3719,7 +3719,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>196</end>
+              <end>238</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -3740,15 +3740,15 @@
           <clipitem id="clipitem-52">
             <name>OrionEp7_052.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>137</duration>
+            <duration>322</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>16572</start>
-            <end>16709</end>
+            <start>14421</start>
+            <end>14743</end>
             <in>0</in>
-            <out>137</out>
+            <out>322</out>
             <file id="file-52">
               <name>OrionEp7_052.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_052.mp3</pathurl>
@@ -3773,7 +3773,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>137</end>
+              <end>322</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -3792,7 +3792,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>137</end>
+              <end>322</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -3813,15 +3813,15 @@
           <clipitem id="clipitem-53">
             <name>OrionEp7_053.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>370</duration>
+            <duration>422</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>16709</start>
-            <end>17079</end>
+            <start>14743</start>
+            <end>15165</end>
             <in>0</in>
-            <out>370</out>
+            <out>422</out>
             <file id="file-53">
               <name>OrionEp7_053.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_053.mp3</pathurl>
@@ -3846,7 +3846,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>370</end>
+              <end>422</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -3865,7 +3865,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>370</end>
+              <end>422</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -3886,15 +3886,15 @@
           <clipitem id="clipitem-54">
             <name>OrionEp7_054.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>222</duration>
+            <duration>344</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>17169</start>
-            <end>17391</end>
+            <start>15165</start>
+            <end>15509</end>
             <in>0</in>
-            <out>222</out>
+            <out>344</out>
             <file id="file-54">
               <name>OrionEp7_054.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_054.mp3</pathurl>
@@ -3919,7 +3919,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>222</end>
+              <end>344</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -3938,7 +3938,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>222</end>
+              <end>344</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -3959,15 +3959,15 @@
           <clipitem id="clipitem-55">
             <name>OrionEp7_055.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>198</duration>
+            <duration>253</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>17391</start>
-            <end>17589</end>
+            <start>15509</start>
+            <end>15762</end>
             <in>0</in>
-            <out>198</out>
+            <out>253</out>
             <file id="file-55">
               <name>OrionEp7_055.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_055.mp3</pathurl>
@@ -3992,7 +3992,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>198</end>
+              <end>253</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -4011,7 +4011,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>198</end>
+              <end>253</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -4032,15 +4032,15 @@
           <clipitem id="clipitem-56">
             <name>OrionEp7_056.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>218</duration>
+            <duration>258</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>17589</start>
-            <end>17807</end>
+            <start>15762</start>
+            <end>16020</end>
             <in>0</in>
-            <out>218</out>
+            <out>258</out>
             <file id="file-56">
               <name>OrionEp7_056.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_056.mp3</pathurl>
@@ -4065,7 +4065,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>218</end>
+              <end>258</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -4084,7 +4084,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>218</end>
+              <end>258</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -4105,15 +4105,15 @@
           <clipitem id="clipitem-57">
             <name>OrionEp7_057.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>165</duration>
+            <duration>252</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>17807</start>
-            <end>17972</end>
+            <start>16020</start>
+            <end>16272</end>
             <in>0</in>
-            <out>165</out>
+            <out>252</out>
             <file id="file-57">
               <name>OrionEp7_057.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_057.mp3</pathurl>
@@ -4138,7 +4138,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>165</end>
+              <end>252</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -4157,7 +4157,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>165</end>
+              <end>252</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -4178,15 +4178,15 @@
           <clipitem id="clipitem-58">
             <name>OrionEp7_058.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>127</duration>
+            <duration>347</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>17972</start>
-            <end>18099</end>
+            <start>16272</start>
+            <end>16619</end>
             <in>0</in>
-            <out>127</out>
+            <out>347</out>
             <file id="file-58">
               <name>OrionEp7_058.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_058.mp3</pathurl>
@@ -4211,7 +4211,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>127</end>
+              <end>347</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -4230,7 +4230,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>127</end>
+              <end>347</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>
@@ -4251,15 +4251,15 @@
           <clipitem id="clipitem-59">
             <name>OrionEp7_059.mp3</name>
             <enabled>TRUE</enabled>
-            <duration>149</duration>
+            <duration>27</duration>
             <rate>
               <timebase>30</timebase>
               <ntsc>TRUE</ntsc>
             </rate>
-            <start>18099</start>
-            <end>18248</end>
+            <start>16619</start>
+            <end>16646</end>
             <in>0</in>
-            <out>149</out>
+            <out>27</out>
             <file id="file-59">
               <name>OrionEp7_059.mp3</name>
               <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_059.mp3</pathurl>
@@ -4284,7 +4284,7 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>149</end>
+              <end>27</end>
               <effect>
                 <name>Audio Levels</name>
                 <effectid>audiolevels</effectid>
@@ -4303,7 +4303,2927 @@
             <filter>
               <enabled>TRUE</enabled>
               <start>0</start>
-              <end>149</end>
+              <end>27</end>
+              <effect>
+                <name>Audio Pan</name>
+                <effectid>audiopan</effectid>
+                <effecttype>audiopan</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiopan</effectcategory>
+                <parameter>
+                  <name>Pan</name>
+                  <parameterid>pan</parameterid>
+                  <value>0</value>
+                  <valuemin>-1</valuemin>
+                  <valuemax>1</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <comments/>
+          </clipitem>
+          <clipitem id="clipitem-60">
+            <name>OrionEp7_060.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>406</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>16646</start>
+            <end>17052</end>
+            <in>0</in>
+            <out>406</out>
+            <file id="file-60">
+              <name>OrionEp7_060.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_060.mp3</pathurl>
+              <rate>
+                <timebase>24000</timebase>
+                <ntsc>FALSE</ntsc>
+              </rate>
+              <media>
+                <audio>
+                  <channelcount>1</channelcount>
+                  <samplecharacteristics>
+                    <samplerate>24000</samplerate>
+                    <samplesize>16</samplesize>
+                  </samplecharacteristics>
+                </audio>
+              </media>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>406</end>
+              <effect>
+                <name>Audio Levels</name>
+                <effectid>audiolevels</effectid>
+                <effecttype>audiolevels</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiolevels</effectcategory>
+                <parameter>
+                  <name>Level</name>
+                  <parameterid>level</parameterid>
+                  <value>1</value>
+                  <valuemin>0</valuemin>
+                  <valuemax>3.98109</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>406</end>
+              <effect>
+                <name>Audio Pan</name>
+                <effectid>audiopan</effectid>
+                <effecttype>audiopan</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiopan</effectcategory>
+                <parameter>
+                  <name>Pan</name>
+                  <parameterid>pan</parameterid>
+                  <value>0</value>
+                  <valuemin>-1</valuemin>
+                  <valuemax>1</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <comments/>
+          </clipitem>
+          <clipitem id="clipitem-61">
+            <name>OrionEp7_061.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>86</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>17112</start>
+            <end>17198</end>
+            <in>0</in>
+            <out>86</out>
+            <file id="file-61">
+              <name>OrionEp7_061.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_061.mp3</pathurl>
+              <rate>
+                <timebase>24000</timebase>
+                <ntsc>FALSE</ntsc>
+              </rate>
+              <media>
+                <audio>
+                  <channelcount>1</channelcount>
+                  <samplecharacteristics>
+                    <samplerate>24000</samplerate>
+                    <samplesize>16</samplesize>
+                  </samplecharacteristics>
+                </audio>
+              </media>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>86</end>
+              <effect>
+                <name>Audio Levels</name>
+                <effectid>audiolevels</effectid>
+                <effecttype>audiolevels</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiolevels</effectcategory>
+                <parameter>
+                  <name>Level</name>
+                  <parameterid>level</parameterid>
+                  <value>1</value>
+                  <valuemin>0</valuemin>
+                  <valuemax>3.98109</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>86</end>
+              <effect>
+                <name>Audio Pan</name>
+                <effectid>audiopan</effectid>
+                <effecttype>audiopan</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiopan</effectcategory>
+                <parameter>
+                  <name>Pan</name>
+                  <parameterid>pan</parameterid>
+                  <value>0</value>
+                  <valuemin>-1</valuemin>
+                  <valuemax>1</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <comments/>
+          </clipitem>
+          <clipitem id="clipitem-62">
+            <name>OrionEp7_062.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>321</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>17198</start>
+            <end>17519</end>
+            <in>0</in>
+            <out>321</out>
+            <file id="file-62">
+              <name>OrionEp7_062.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_062.mp3</pathurl>
+              <rate>
+                <timebase>24000</timebase>
+                <ntsc>FALSE</ntsc>
+              </rate>
+              <media>
+                <audio>
+                  <channelcount>1</channelcount>
+                  <samplecharacteristics>
+                    <samplerate>24000</samplerate>
+                    <samplesize>16</samplesize>
+                  </samplecharacteristics>
+                </audio>
+              </media>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>321</end>
+              <effect>
+                <name>Audio Levels</name>
+                <effectid>audiolevels</effectid>
+                <effecttype>audiolevels</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiolevels</effectcategory>
+                <parameter>
+                  <name>Level</name>
+                  <parameterid>level</parameterid>
+                  <value>1</value>
+                  <valuemin>0</valuemin>
+                  <valuemax>3.98109</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>321</end>
+              <effect>
+                <name>Audio Pan</name>
+                <effectid>audiopan</effectid>
+                <effecttype>audiopan</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiopan</effectcategory>
+                <parameter>
+                  <name>Pan</name>
+                  <parameterid>pan</parameterid>
+                  <value>0</value>
+                  <valuemin>-1</valuemin>
+                  <valuemax>1</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <comments/>
+          </clipitem>
+          <clipitem id="clipitem-63">
+            <name>OrionEp7_063.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>265</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>17519</start>
+            <end>17784</end>
+            <in>0</in>
+            <out>265</out>
+            <file id="file-63">
+              <name>OrionEp7_063.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_063.mp3</pathurl>
+              <rate>
+                <timebase>24000</timebase>
+                <ntsc>FALSE</ntsc>
+              </rate>
+              <media>
+                <audio>
+                  <channelcount>1</channelcount>
+                  <samplecharacteristics>
+                    <samplerate>24000</samplerate>
+                    <samplesize>16</samplesize>
+                  </samplecharacteristics>
+                </audio>
+              </media>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>265</end>
+              <effect>
+                <name>Audio Levels</name>
+                <effectid>audiolevels</effectid>
+                <effecttype>audiolevels</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiolevels</effectcategory>
+                <parameter>
+                  <name>Level</name>
+                  <parameterid>level</parameterid>
+                  <value>1</value>
+                  <valuemin>0</valuemin>
+                  <valuemax>3.98109</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>265</end>
+              <effect>
+                <name>Audio Pan</name>
+                <effectid>audiopan</effectid>
+                <effecttype>audiopan</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiopan</effectcategory>
+                <parameter>
+                  <name>Pan</name>
+                  <parameterid>pan</parameterid>
+                  <value>0</value>
+                  <valuemin>-1</valuemin>
+                  <valuemax>1</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <comments/>
+          </clipitem>
+          <clipitem id="clipitem-64">
+            <name>OrionEp7_064.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>257</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>17784</start>
+            <end>18041</end>
+            <in>0</in>
+            <out>257</out>
+            <file id="file-64">
+              <name>OrionEp7_064.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_064.mp3</pathurl>
+              <rate>
+                <timebase>24000</timebase>
+                <ntsc>FALSE</ntsc>
+              </rate>
+              <media>
+                <audio>
+                  <channelcount>1</channelcount>
+                  <samplecharacteristics>
+                    <samplerate>24000</samplerate>
+                    <samplesize>16</samplesize>
+                  </samplecharacteristics>
+                </audio>
+              </media>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>257</end>
+              <effect>
+                <name>Audio Levels</name>
+                <effectid>audiolevels</effectid>
+                <effecttype>audiolevels</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiolevels</effectcategory>
+                <parameter>
+                  <name>Level</name>
+                  <parameterid>level</parameterid>
+                  <value>1</value>
+                  <valuemin>0</valuemin>
+                  <valuemax>3.98109</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>257</end>
+              <effect>
+                <name>Audio Pan</name>
+                <effectid>audiopan</effectid>
+                <effecttype>audiopan</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiopan</effectcategory>
+                <parameter>
+                  <name>Pan</name>
+                  <parameterid>pan</parameterid>
+                  <value>0</value>
+                  <valuemin>-1</valuemin>
+                  <valuemax>1</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <comments/>
+          </clipitem>
+          <clipitem id="clipitem-65">
+            <name>OrionEp7_065.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>296</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>18041</start>
+            <end>18337</end>
+            <in>0</in>
+            <out>296</out>
+            <file id="file-65">
+              <name>OrionEp7_065.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_065.mp3</pathurl>
+              <rate>
+                <timebase>24000</timebase>
+                <ntsc>FALSE</ntsc>
+              </rate>
+              <media>
+                <audio>
+                  <channelcount>1</channelcount>
+                  <samplecharacteristics>
+                    <samplerate>24000</samplerate>
+                    <samplesize>16</samplesize>
+                  </samplecharacteristics>
+                </audio>
+              </media>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>296</end>
+              <effect>
+                <name>Audio Levels</name>
+                <effectid>audiolevels</effectid>
+                <effecttype>audiolevels</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiolevels</effectcategory>
+                <parameter>
+                  <name>Level</name>
+                  <parameterid>level</parameterid>
+                  <value>1</value>
+                  <valuemin>0</valuemin>
+                  <valuemax>3.98109</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>296</end>
+              <effect>
+                <name>Audio Pan</name>
+                <effectid>audiopan</effectid>
+                <effecttype>audiopan</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiopan</effectcategory>
+                <parameter>
+                  <name>Pan</name>
+                  <parameterid>pan</parameterid>
+                  <value>0</value>
+                  <valuemin>-1</valuemin>
+                  <valuemax>1</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <comments/>
+          </clipitem>
+          <clipitem id="clipitem-66">
+            <name>OrionEp7_066.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>292</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>18337</start>
+            <end>18629</end>
+            <in>0</in>
+            <out>292</out>
+            <file id="file-66">
+              <name>OrionEp7_066.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_066.mp3</pathurl>
+              <rate>
+                <timebase>24000</timebase>
+                <ntsc>FALSE</ntsc>
+              </rate>
+              <media>
+                <audio>
+                  <channelcount>1</channelcount>
+                  <samplecharacteristics>
+                    <samplerate>24000</samplerate>
+                    <samplesize>16</samplesize>
+                  </samplecharacteristics>
+                </audio>
+              </media>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>292</end>
+              <effect>
+                <name>Audio Levels</name>
+                <effectid>audiolevels</effectid>
+                <effecttype>audiolevels</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiolevels</effectcategory>
+                <parameter>
+                  <name>Level</name>
+                  <parameterid>level</parameterid>
+                  <value>1</value>
+                  <valuemin>0</valuemin>
+                  <valuemax>3.98109</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>292</end>
+              <effect>
+                <name>Audio Pan</name>
+                <effectid>audiopan</effectid>
+                <effecttype>audiopan</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiopan</effectcategory>
+                <parameter>
+                  <name>Pan</name>
+                  <parameterid>pan</parameterid>
+                  <value>0</value>
+                  <valuemin>-1</valuemin>
+                  <valuemax>1</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <comments/>
+          </clipitem>
+          <clipitem id="clipitem-67">
+            <name>OrionEp7_067.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>253</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>18629</start>
+            <end>18882</end>
+            <in>0</in>
+            <out>253</out>
+            <file id="file-67">
+              <name>OrionEp7_067.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_067.mp3</pathurl>
+              <rate>
+                <timebase>24000</timebase>
+                <ntsc>FALSE</ntsc>
+              </rate>
+              <media>
+                <audio>
+                  <channelcount>1</channelcount>
+                  <samplecharacteristics>
+                    <samplerate>24000</samplerate>
+                    <samplesize>16</samplesize>
+                  </samplecharacteristics>
+                </audio>
+              </media>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>253</end>
+              <effect>
+                <name>Audio Levels</name>
+                <effectid>audiolevels</effectid>
+                <effecttype>audiolevels</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiolevels</effectcategory>
+                <parameter>
+                  <name>Level</name>
+                  <parameterid>level</parameterid>
+                  <value>1</value>
+                  <valuemin>0</valuemin>
+                  <valuemax>3.98109</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>253</end>
+              <effect>
+                <name>Audio Pan</name>
+                <effectid>audiopan</effectid>
+                <effecttype>audiopan</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiopan</effectcategory>
+                <parameter>
+                  <name>Pan</name>
+                  <parameterid>pan</parameterid>
+                  <value>0</value>
+                  <valuemin>-1</valuemin>
+                  <valuemax>1</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <comments/>
+          </clipitem>
+          <clipitem id="clipitem-68">
+            <name>OrionEp7_068.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>285</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>18882</start>
+            <end>19167</end>
+            <in>0</in>
+            <out>285</out>
+            <file id="file-68">
+              <name>OrionEp7_068.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_068.mp3</pathurl>
+              <rate>
+                <timebase>24000</timebase>
+                <ntsc>FALSE</ntsc>
+              </rate>
+              <media>
+                <audio>
+                  <channelcount>1</channelcount>
+                  <samplecharacteristics>
+                    <samplerate>24000</samplerate>
+                    <samplesize>16</samplesize>
+                  </samplecharacteristics>
+                </audio>
+              </media>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>285</end>
+              <effect>
+                <name>Audio Levels</name>
+                <effectid>audiolevels</effectid>
+                <effecttype>audiolevels</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiolevels</effectcategory>
+                <parameter>
+                  <name>Level</name>
+                  <parameterid>level</parameterid>
+                  <value>1</value>
+                  <valuemin>0</valuemin>
+                  <valuemax>3.98109</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>285</end>
+              <effect>
+                <name>Audio Pan</name>
+                <effectid>audiopan</effectid>
+                <effecttype>audiopan</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiopan</effectcategory>
+                <parameter>
+                  <name>Pan</name>
+                  <parameterid>pan</parameterid>
+                  <value>0</value>
+                  <valuemin>-1</valuemin>
+                  <valuemax>1</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <comments/>
+          </clipitem>
+          <clipitem id="clipitem-69">
+            <name>OrionEp7_069.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>320</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>19167</start>
+            <end>19487</end>
+            <in>0</in>
+            <out>320</out>
+            <file id="file-69">
+              <name>OrionEp7_069.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_069.mp3</pathurl>
+              <rate>
+                <timebase>24000</timebase>
+                <ntsc>FALSE</ntsc>
+              </rate>
+              <media>
+                <audio>
+                  <channelcount>1</channelcount>
+                  <samplecharacteristics>
+                    <samplerate>24000</samplerate>
+                    <samplesize>16</samplesize>
+                  </samplecharacteristics>
+                </audio>
+              </media>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>320</end>
+              <effect>
+                <name>Audio Levels</name>
+                <effectid>audiolevels</effectid>
+                <effecttype>audiolevels</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiolevels</effectcategory>
+                <parameter>
+                  <name>Level</name>
+                  <parameterid>level</parameterid>
+                  <value>1</value>
+                  <valuemin>0</valuemin>
+                  <valuemax>3.98109</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>320</end>
+              <effect>
+                <name>Audio Pan</name>
+                <effectid>audiopan</effectid>
+                <effecttype>audiopan</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiopan</effectcategory>
+                <parameter>
+                  <name>Pan</name>
+                  <parameterid>pan</parameterid>
+                  <value>0</value>
+                  <valuemin>-1</valuemin>
+                  <valuemax>1</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <comments/>
+          </clipitem>
+          <clipitem id="clipitem-70">
+            <name>OrionEp7_070.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>342</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>19487</start>
+            <end>19829</end>
+            <in>0</in>
+            <out>342</out>
+            <file id="file-70">
+              <name>OrionEp7_070.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_070.mp3</pathurl>
+              <rate>
+                <timebase>24000</timebase>
+                <ntsc>FALSE</ntsc>
+              </rate>
+              <media>
+                <audio>
+                  <channelcount>1</channelcount>
+                  <samplecharacteristics>
+                    <samplerate>24000</samplerate>
+                    <samplesize>16</samplesize>
+                  </samplecharacteristics>
+                </audio>
+              </media>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>342</end>
+              <effect>
+                <name>Audio Levels</name>
+                <effectid>audiolevels</effectid>
+                <effecttype>audiolevels</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiolevels</effectcategory>
+                <parameter>
+                  <name>Level</name>
+                  <parameterid>level</parameterid>
+                  <value>1</value>
+                  <valuemin>0</valuemin>
+                  <valuemax>3.98109</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>342</end>
+              <effect>
+                <name>Audio Pan</name>
+                <effectid>audiopan</effectid>
+                <effecttype>audiopan</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiopan</effectcategory>
+                <parameter>
+                  <name>Pan</name>
+                  <parameterid>pan</parameterid>
+                  <value>0</value>
+                  <valuemin>-1</valuemin>
+                  <valuemax>1</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <comments/>
+          </clipitem>
+          <clipitem id="clipitem-71">
+            <name>OrionEp7_071.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>196</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>19829</start>
+            <end>20025</end>
+            <in>0</in>
+            <out>196</out>
+            <file id="file-71">
+              <name>OrionEp7_071.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_071.mp3</pathurl>
+              <rate>
+                <timebase>24000</timebase>
+                <ntsc>FALSE</ntsc>
+              </rate>
+              <media>
+                <audio>
+                  <channelcount>1</channelcount>
+                  <samplecharacteristics>
+                    <samplerate>24000</samplerate>
+                    <samplesize>16</samplesize>
+                  </samplecharacteristics>
+                </audio>
+              </media>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>196</end>
+              <effect>
+                <name>Audio Levels</name>
+                <effectid>audiolevels</effectid>
+                <effecttype>audiolevels</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiolevels</effectcategory>
+                <parameter>
+                  <name>Level</name>
+                  <parameterid>level</parameterid>
+                  <value>1</value>
+                  <valuemin>0</valuemin>
+                  <valuemax>3.98109</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>196</end>
+              <effect>
+                <name>Audio Pan</name>
+                <effectid>audiopan</effectid>
+                <effecttype>audiopan</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiopan</effectcategory>
+                <parameter>
+                  <name>Pan</name>
+                  <parameterid>pan</parameterid>
+                  <value>0</value>
+                  <valuemin>-1</valuemin>
+                  <valuemax>1</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <comments/>
+          </clipitem>
+          <clipitem id="clipitem-72">
+            <name>OrionEp7_072.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>238</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>20025</start>
+            <end>20263</end>
+            <in>0</in>
+            <out>238</out>
+            <file id="file-72">
+              <name>OrionEp7_072.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_072.mp3</pathurl>
+              <rate>
+                <timebase>24000</timebase>
+                <ntsc>FALSE</ntsc>
+              </rate>
+              <media>
+                <audio>
+                  <channelcount>1</channelcount>
+                  <samplecharacteristics>
+                    <samplerate>24000</samplerate>
+                    <samplesize>16</samplesize>
+                  </samplecharacteristics>
+                </audio>
+              </media>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>238</end>
+              <effect>
+                <name>Audio Levels</name>
+                <effectid>audiolevels</effectid>
+                <effecttype>audiolevels</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiolevels</effectcategory>
+                <parameter>
+                  <name>Level</name>
+                  <parameterid>level</parameterid>
+                  <value>1</value>
+                  <valuemin>0</valuemin>
+                  <valuemax>3.98109</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>238</end>
+              <effect>
+                <name>Audio Pan</name>
+                <effectid>audiopan</effectid>
+                <effecttype>audiopan</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiopan</effectcategory>
+                <parameter>
+                  <name>Pan</name>
+                  <parameterid>pan</parameterid>
+                  <value>0</value>
+                  <valuemin>-1</valuemin>
+                  <valuemax>1</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <comments/>
+          </clipitem>
+          <clipitem id="clipitem-73">
+            <name>OrionEp7_073.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>71</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>20323</start>
+            <end>20394</end>
+            <in>0</in>
+            <out>71</out>
+            <file id="file-73">
+              <name>OrionEp7_073.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_073.mp3</pathurl>
+              <rate>
+                <timebase>24000</timebase>
+                <ntsc>FALSE</ntsc>
+              </rate>
+              <media>
+                <audio>
+                  <channelcount>1</channelcount>
+                  <samplecharacteristics>
+                    <samplerate>24000</samplerate>
+                    <samplesize>16</samplesize>
+                  </samplecharacteristics>
+                </audio>
+              </media>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>71</end>
+              <effect>
+                <name>Audio Levels</name>
+                <effectid>audiolevels</effectid>
+                <effecttype>audiolevels</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiolevels</effectcategory>
+                <parameter>
+                  <name>Level</name>
+                  <parameterid>level</parameterid>
+                  <value>1</value>
+                  <valuemin>0</valuemin>
+                  <valuemax>3.98109</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>71</end>
+              <effect>
+                <name>Audio Pan</name>
+                <effectid>audiopan</effectid>
+                <effecttype>audiopan</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiopan</effectcategory>
+                <parameter>
+                  <name>Pan</name>
+                  <parameterid>pan</parameterid>
+                  <value>0</value>
+                  <valuemin>-1</valuemin>
+                  <valuemax>1</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <comments/>
+          </clipitem>
+          <clipitem id="clipitem-74">
+            <name>OrionEp7_074.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>309</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>20394</start>
+            <end>20703</end>
+            <in>0</in>
+            <out>309</out>
+            <file id="file-74">
+              <name>OrionEp7_074.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_074.mp3</pathurl>
+              <rate>
+                <timebase>24000</timebase>
+                <ntsc>FALSE</ntsc>
+              </rate>
+              <media>
+                <audio>
+                  <channelcount>1</channelcount>
+                  <samplecharacteristics>
+                    <samplerate>24000</samplerate>
+                    <samplesize>16</samplesize>
+                  </samplecharacteristics>
+                </audio>
+              </media>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>309</end>
+              <effect>
+                <name>Audio Levels</name>
+                <effectid>audiolevels</effectid>
+                <effecttype>audiolevels</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiolevels</effectcategory>
+                <parameter>
+                  <name>Level</name>
+                  <parameterid>level</parameterid>
+                  <value>1</value>
+                  <valuemin>0</valuemin>
+                  <valuemax>3.98109</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>309</end>
+              <effect>
+                <name>Audio Pan</name>
+                <effectid>audiopan</effectid>
+                <effecttype>audiopan</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiopan</effectcategory>
+                <parameter>
+                  <name>Pan</name>
+                  <parameterid>pan</parameterid>
+                  <value>0</value>
+                  <valuemin>-1</valuemin>
+                  <valuemax>1</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <comments/>
+          </clipitem>
+          <clipitem id="clipitem-75">
+            <name>OrionEp7_075.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>239</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>20703</start>
+            <end>20942</end>
+            <in>0</in>
+            <out>239</out>
+            <file id="file-75">
+              <name>OrionEp7_075.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_075.mp3</pathurl>
+              <rate>
+                <timebase>24000</timebase>
+                <ntsc>FALSE</ntsc>
+              </rate>
+              <media>
+                <audio>
+                  <channelcount>1</channelcount>
+                  <samplecharacteristics>
+                    <samplerate>24000</samplerate>
+                    <samplesize>16</samplesize>
+                  </samplecharacteristics>
+                </audio>
+              </media>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>239</end>
+              <effect>
+                <name>Audio Levels</name>
+                <effectid>audiolevels</effectid>
+                <effecttype>audiolevels</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiolevels</effectcategory>
+                <parameter>
+                  <name>Level</name>
+                  <parameterid>level</parameterid>
+                  <value>1</value>
+                  <valuemin>0</valuemin>
+                  <valuemax>3.98109</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>239</end>
+              <effect>
+                <name>Audio Pan</name>
+                <effectid>audiopan</effectid>
+                <effecttype>audiopan</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiopan</effectcategory>
+                <parameter>
+                  <name>Pan</name>
+                  <parameterid>pan</parameterid>
+                  <value>0</value>
+                  <valuemin>-1</valuemin>
+                  <valuemax>1</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <comments/>
+          </clipitem>
+          <clipitem id="clipitem-76">
+            <name>OrionEp7_076.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>319</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>20942</start>
+            <end>21261</end>
+            <in>0</in>
+            <out>319</out>
+            <file id="file-76">
+              <name>OrionEp7_076.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_076.mp3</pathurl>
+              <rate>
+                <timebase>24000</timebase>
+                <ntsc>FALSE</ntsc>
+              </rate>
+              <media>
+                <audio>
+                  <channelcount>1</channelcount>
+                  <samplecharacteristics>
+                    <samplerate>24000</samplerate>
+                    <samplesize>16</samplesize>
+                  </samplecharacteristics>
+                </audio>
+              </media>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>319</end>
+              <effect>
+                <name>Audio Levels</name>
+                <effectid>audiolevels</effectid>
+                <effecttype>audiolevels</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiolevels</effectcategory>
+                <parameter>
+                  <name>Level</name>
+                  <parameterid>level</parameterid>
+                  <value>1</value>
+                  <valuemin>0</valuemin>
+                  <valuemax>3.98109</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>319</end>
+              <effect>
+                <name>Audio Pan</name>
+                <effectid>audiopan</effectid>
+                <effecttype>audiopan</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiopan</effectcategory>
+                <parameter>
+                  <name>Pan</name>
+                  <parameterid>pan</parameterid>
+                  <value>0</value>
+                  <valuemin>-1</valuemin>
+                  <valuemax>1</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <comments/>
+          </clipitem>
+          <clipitem id="clipitem-77">
+            <name>OrionEp7_077.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>282</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>21261</start>
+            <end>21543</end>
+            <in>0</in>
+            <out>282</out>
+            <file id="file-77">
+              <name>OrionEp7_077.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_077.mp3</pathurl>
+              <rate>
+                <timebase>24000</timebase>
+                <ntsc>FALSE</ntsc>
+              </rate>
+              <media>
+                <audio>
+                  <channelcount>1</channelcount>
+                  <samplecharacteristics>
+                    <samplerate>24000</samplerate>
+                    <samplesize>16</samplesize>
+                  </samplecharacteristics>
+                </audio>
+              </media>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>282</end>
+              <effect>
+                <name>Audio Levels</name>
+                <effectid>audiolevels</effectid>
+                <effecttype>audiolevels</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiolevels</effectcategory>
+                <parameter>
+                  <name>Level</name>
+                  <parameterid>level</parameterid>
+                  <value>1</value>
+                  <valuemin>0</valuemin>
+                  <valuemax>3.98109</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>282</end>
+              <effect>
+                <name>Audio Pan</name>
+                <effectid>audiopan</effectid>
+                <effecttype>audiopan</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiopan</effectcategory>
+                <parameter>
+                  <name>Pan</name>
+                  <parameterid>pan</parameterid>
+                  <value>0</value>
+                  <valuemin>-1</valuemin>
+                  <valuemax>1</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <comments/>
+          </clipitem>
+          <clipitem id="clipitem-78">
+            <name>OrionEp7_078.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>252</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>21543</start>
+            <end>21795</end>
+            <in>0</in>
+            <out>252</out>
+            <file id="file-78">
+              <name>OrionEp7_078.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_078.mp3</pathurl>
+              <rate>
+                <timebase>24000</timebase>
+                <ntsc>FALSE</ntsc>
+              </rate>
+              <media>
+                <audio>
+                  <channelcount>1</channelcount>
+                  <samplecharacteristics>
+                    <samplerate>24000</samplerate>
+                    <samplesize>16</samplesize>
+                  </samplecharacteristics>
+                </audio>
+              </media>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>252</end>
+              <effect>
+                <name>Audio Levels</name>
+                <effectid>audiolevels</effectid>
+                <effecttype>audiolevels</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiolevels</effectcategory>
+                <parameter>
+                  <name>Level</name>
+                  <parameterid>level</parameterid>
+                  <value>1</value>
+                  <valuemin>0</valuemin>
+                  <valuemax>3.98109</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>252</end>
+              <effect>
+                <name>Audio Pan</name>
+                <effectid>audiopan</effectid>
+                <effecttype>audiopan</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiopan</effectcategory>
+                <parameter>
+                  <name>Pan</name>
+                  <parameterid>pan</parameterid>
+                  <value>0</value>
+                  <valuemin>-1</valuemin>
+                  <valuemax>1</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <comments/>
+          </clipitem>
+          <clipitem id="clipitem-79">
+            <name>OrionEp7_079.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>281</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>21795</start>
+            <end>22076</end>
+            <in>0</in>
+            <out>281</out>
+            <file id="file-79">
+              <name>OrionEp7_079.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_079.mp3</pathurl>
+              <rate>
+                <timebase>24000</timebase>
+                <ntsc>FALSE</ntsc>
+              </rate>
+              <media>
+                <audio>
+                  <channelcount>1</channelcount>
+                  <samplecharacteristics>
+                    <samplerate>24000</samplerate>
+                    <samplesize>16</samplesize>
+                  </samplecharacteristics>
+                </audio>
+              </media>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>281</end>
+              <effect>
+                <name>Audio Levels</name>
+                <effectid>audiolevels</effectid>
+                <effecttype>audiolevels</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiolevels</effectcategory>
+                <parameter>
+                  <name>Level</name>
+                  <parameterid>level</parameterid>
+                  <value>1</value>
+                  <valuemin>0</valuemin>
+                  <valuemax>3.98109</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>281</end>
+              <effect>
+                <name>Audio Pan</name>
+                <effectid>audiopan</effectid>
+                <effecttype>audiopan</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiopan</effectcategory>
+                <parameter>
+                  <name>Pan</name>
+                  <parameterid>pan</parameterid>
+                  <value>0</value>
+                  <valuemin>-1</valuemin>
+                  <valuemax>1</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <comments/>
+          </clipitem>
+          <clipitem id="clipitem-80">
+            <name>OrionEp7_080.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>63</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>22076</start>
+            <end>22139</end>
+            <in>0</in>
+            <out>63</out>
+            <file id="file-80">
+              <name>OrionEp7_080.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_080.mp3</pathurl>
+              <rate>
+                <timebase>24000</timebase>
+                <ntsc>FALSE</ntsc>
+              </rate>
+              <media>
+                <audio>
+                  <channelcount>1</channelcount>
+                  <samplecharacteristics>
+                    <samplerate>24000</samplerate>
+                    <samplesize>16</samplesize>
+                  </samplecharacteristics>
+                </audio>
+              </media>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>63</end>
+              <effect>
+                <name>Audio Levels</name>
+                <effectid>audiolevels</effectid>
+                <effecttype>audiolevels</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiolevels</effectcategory>
+                <parameter>
+                  <name>Level</name>
+                  <parameterid>level</parameterid>
+                  <value>1</value>
+                  <valuemin>0</valuemin>
+                  <valuemax>3.98109</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>63</end>
+              <effect>
+                <name>Audio Pan</name>
+                <effectid>audiopan</effectid>
+                <effecttype>audiopan</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiopan</effectcategory>
+                <parameter>
+                  <name>Pan</name>
+                  <parameterid>pan</parameterid>
+                  <value>0</value>
+                  <valuemin>-1</valuemin>
+                  <valuemax>1</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <comments/>
+          </clipitem>
+          <clipitem id="clipitem-81">
+            <name>OrionEp7_081.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>391</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>22139</start>
+            <end>22530</end>
+            <in>0</in>
+            <out>391</out>
+            <file id="file-81">
+              <name>OrionEp7_081.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_081.mp3</pathurl>
+              <rate>
+                <timebase>24000</timebase>
+                <ntsc>FALSE</ntsc>
+              </rate>
+              <media>
+                <audio>
+                  <channelcount>1</channelcount>
+                  <samplecharacteristics>
+                    <samplerate>24000</samplerate>
+                    <samplesize>16</samplesize>
+                  </samplecharacteristics>
+                </audio>
+              </media>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>391</end>
+              <effect>
+                <name>Audio Levels</name>
+                <effectid>audiolevels</effectid>
+                <effecttype>audiolevels</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiolevels</effectcategory>
+                <parameter>
+                  <name>Level</name>
+                  <parameterid>level</parameterid>
+                  <value>1</value>
+                  <valuemin>0</valuemin>
+                  <valuemax>3.98109</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>391</end>
+              <effect>
+                <name>Audio Pan</name>
+                <effectid>audiopan</effectid>
+                <effecttype>audiopan</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiopan</effectcategory>
+                <parameter>
+                  <name>Pan</name>
+                  <parameterid>pan</parameterid>
+                  <value>0</value>
+                  <valuemin>-1</valuemin>
+                  <valuemax>1</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <comments/>
+          </clipitem>
+          <clipitem id="clipitem-82">
+            <name>OrionEp7_082.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>370</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>22530</start>
+            <end>22900</end>
+            <in>0</in>
+            <out>370</out>
+            <file id="file-82">
+              <name>OrionEp7_082.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_082.mp3</pathurl>
+              <rate>
+                <timebase>24000</timebase>
+                <ntsc>FALSE</ntsc>
+              </rate>
+              <media>
+                <audio>
+                  <channelcount>1</channelcount>
+                  <samplecharacteristics>
+                    <samplerate>24000</samplerate>
+                    <samplesize>16</samplesize>
+                  </samplecharacteristics>
+                </audio>
+              </media>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>370</end>
+              <effect>
+                <name>Audio Levels</name>
+                <effectid>audiolevels</effectid>
+                <effecttype>audiolevels</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiolevels</effectcategory>
+                <parameter>
+                  <name>Level</name>
+                  <parameterid>level</parameterid>
+                  <value>1</value>
+                  <valuemin>0</valuemin>
+                  <valuemax>3.98109</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>370</end>
+              <effect>
+                <name>Audio Pan</name>
+                <effectid>audiopan</effectid>
+                <effecttype>audiopan</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiopan</effectcategory>
+                <parameter>
+                  <name>Pan</name>
+                  <parameterid>pan</parameterid>
+                  <value>0</value>
+                  <valuemin>-1</valuemin>
+                  <valuemax>1</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <comments/>
+          </clipitem>
+          <clipitem id="clipitem-83">
+            <name>OrionEp7_083.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>88</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>22900</start>
+            <end>22988</end>
+            <in>0</in>
+            <out>88</out>
+            <file id="file-83">
+              <name>OrionEp7_083.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_083.mp3</pathurl>
+              <rate>
+                <timebase>24000</timebase>
+                <ntsc>FALSE</ntsc>
+              </rate>
+              <media>
+                <audio>
+                  <channelcount>1</channelcount>
+                  <samplecharacteristics>
+                    <samplerate>24000</samplerate>
+                    <samplesize>16</samplesize>
+                  </samplecharacteristics>
+                </audio>
+              </media>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>88</end>
+              <effect>
+                <name>Audio Levels</name>
+                <effectid>audiolevels</effectid>
+                <effecttype>audiolevels</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiolevels</effectcategory>
+                <parameter>
+                  <name>Level</name>
+                  <parameterid>level</parameterid>
+                  <value>1</value>
+                  <valuemin>0</valuemin>
+                  <valuemax>3.98109</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>88</end>
+              <effect>
+                <name>Audio Pan</name>
+                <effectid>audiopan</effectid>
+                <effecttype>audiopan</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiopan</effectcategory>
+                <parameter>
+                  <name>Pan</name>
+                  <parameterid>pan</parameterid>
+                  <value>0</value>
+                  <valuemin>-1</valuemin>
+                  <valuemax>1</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <comments/>
+          </clipitem>
+          <clipitem id="clipitem-84">
+            <name>OrionEp7_084.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>404</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>22988</start>
+            <end>23392</end>
+            <in>0</in>
+            <out>404</out>
+            <file id="file-84">
+              <name>OrionEp7_084.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_084.mp3</pathurl>
+              <rate>
+                <timebase>24000</timebase>
+                <ntsc>FALSE</ntsc>
+              </rate>
+              <media>
+                <audio>
+                  <channelcount>1</channelcount>
+                  <samplecharacteristics>
+                    <samplerate>24000</samplerate>
+                    <samplesize>16</samplesize>
+                  </samplecharacteristics>
+                </audio>
+              </media>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>404</end>
+              <effect>
+                <name>Audio Levels</name>
+                <effectid>audiolevels</effectid>
+                <effecttype>audiolevels</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiolevels</effectcategory>
+                <parameter>
+                  <name>Level</name>
+                  <parameterid>level</parameterid>
+                  <value>1</value>
+                  <valuemin>0</valuemin>
+                  <valuemax>3.98109</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>404</end>
+              <effect>
+                <name>Audio Pan</name>
+                <effectid>audiopan</effectid>
+                <effecttype>audiopan</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiopan</effectcategory>
+                <parameter>
+                  <name>Pan</name>
+                  <parameterid>pan</parameterid>
+                  <value>0</value>
+                  <valuemin>-1</valuemin>
+                  <valuemax>1</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <comments/>
+          </clipitem>
+          <clipitem id="clipitem-85">
+            <name>OrionEp7_085.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>220</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>23392</start>
+            <end>23612</end>
+            <in>0</in>
+            <out>220</out>
+            <file id="file-85">
+              <name>OrionEp7_085.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_085.mp3</pathurl>
+              <rate>
+                <timebase>24000</timebase>
+                <ntsc>FALSE</ntsc>
+              </rate>
+              <media>
+                <audio>
+                  <channelcount>1</channelcount>
+                  <samplecharacteristics>
+                    <samplerate>24000</samplerate>
+                    <samplesize>16</samplesize>
+                  </samplecharacteristics>
+                </audio>
+              </media>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>220</end>
+              <effect>
+                <name>Audio Levels</name>
+                <effectid>audiolevels</effectid>
+                <effecttype>audiolevels</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiolevels</effectcategory>
+                <parameter>
+                  <name>Level</name>
+                  <parameterid>level</parameterid>
+                  <value>1</value>
+                  <valuemin>0</valuemin>
+                  <valuemax>3.98109</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>220</end>
+              <effect>
+                <name>Audio Pan</name>
+                <effectid>audiopan</effectid>
+                <effecttype>audiopan</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiopan</effectcategory>
+                <parameter>
+                  <name>Pan</name>
+                  <parameterid>pan</parameterid>
+                  <value>0</value>
+                  <valuemin>-1</valuemin>
+                  <valuemax>1</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <comments/>
+          </clipitem>
+          <clipitem id="clipitem-86">
+            <name>OrionEp7_086.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>424</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>23672</start>
+            <end>24096</end>
+            <in>0</in>
+            <out>424</out>
+            <file id="file-86">
+              <name>OrionEp7_086.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_086.mp3</pathurl>
+              <rate>
+                <timebase>24000</timebase>
+                <ntsc>FALSE</ntsc>
+              </rate>
+              <media>
+                <audio>
+                  <channelcount>1</channelcount>
+                  <samplecharacteristics>
+                    <samplerate>24000</samplerate>
+                    <samplesize>16</samplesize>
+                  </samplecharacteristics>
+                </audio>
+              </media>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>424</end>
+              <effect>
+                <name>Audio Levels</name>
+                <effectid>audiolevels</effectid>
+                <effecttype>audiolevels</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiolevels</effectcategory>
+                <parameter>
+                  <name>Level</name>
+                  <parameterid>level</parameterid>
+                  <value>1</value>
+                  <valuemin>0</valuemin>
+                  <valuemax>3.98109</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>424</end>
+              <effect>
+                <name>Audio Pan</name>
+                <effectid>audiopan</effectid>
+                <effecttype>audiopan</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiopan</effectcategory>
+                <parameter>
+                  <name>Pan</name>
+                  <parameterid>pan</parameterid>
+                  <value>0</value>
+                  <valuemin>-1</valuemin>
+                  <valuemax>1</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <comments/>
+          </clipitem>
+          <clipitem id="clipitem-87">
+            <name>OrionEp7_087.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>206</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>24096</start>
+            <end>24302</end>
+            <in>0</in>
+            <out>206</out>
+            <file id="file-87">
+              <name>OrionEp7_087.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_087.mp3</pathurl>
+              <rate>
+                <timebase>24000</timebase>
+                <ntsc>FALSE</ntsc>
+              </rate>
+              <media>
+                <audio>
+                  <channelcount>1</channelcount>
+                  <samplecharacteristics>
+                    <samplerate>24000</samplerate>
+                    <samplesize>16</samplesize>
+                  </samplecharacteristics>
+                </audio>
+              </media>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>206</end>
+              <effect>
+                <name>Audio Levels</name>
+                <effectid>audiolevels</effectid>
+                <effecttype>audiolevels</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiolevels</effectcategory>
+                <parameter>
+                  <name>Level</name>
+                  <parameterid>level</parameterid>
+                  <value>1</value>
+                  <valuemin>0</valuemin>
+                  <valuemax>3.98109</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>206</end>
+              <effect>
+                <name>Audio Pan</name>
+                <effectid>audiopan</effectid>
+                <effecttype>audiopan</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiopan</effectcategory>
+                <parameter>
+                  <name>Pan</name>
+                  <parameterid>pan</parameterid>
+                  <value>0</value>
+                  <valuemin>-1</valuemin>
+                  <valuemax>1</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <comments/>
+          </clipitem>
+          <clipitem id="clipitem-88">
+            <name>OrionEp7_088.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>386</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>24302</start>
+            <end>24688</end>
+            <in>0</in>
+            <out>386</out>
+            <file id="file-88">
+              <name>OrionEp7_088.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_088.mp3</pathurl>
+              <rate>
+                <timebase>24000</timebase>
+                <ntsc>FALSE</ntsc>
+              </rate>
+              <media>
+                <audio>
+                  <channelcount>1</channelcount>
+                  <samplecharacteristics>
+                    <samplerate>24000</samplerate>
+                    <samplesize>16</samplesize>
+                  </samplecharacteristics>
+                </audio>
+              </media>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>386</end>
+              <effect>
+                <name>Audio Levels</name>
+                <effectid>audiolevels</effectid>
+                <effecttype>audiolevels</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiolevels</effectcategory>
+                <parameter>
+                  <name>Level</name>
+                  <parameterid>level</parameterid>
+                  <value>1</value>
+                  <valuemin>0</valuemin>
+                  <valuemax>3.98109</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>386</end>
+              <effect>
+                <name>Audio Pan</name>
+                <effectid>audiopan</effectid>
+                <effecttype>audiopan</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiopan</effectcategory>
+                <parameter>
+                  <name>Pan</name>
+                  <parameterid>pan</parameterid>
+                  <value>0</value>
+                  <valuemin>-1</valuemin>
+                  <valuemax>1</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <comments/>
+          </clipitem>
+          <clipitem id="clipitem-89">
+            <name>OrionEp7_089.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>204</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>24688</start>
+            <end>24892</end>
+            <in>0</in>
+            <out>204</out>
+            <file id="file-89">
+              <name>OrionEp7_089.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_089.mp3</pathurl>
+              <rate>
+                <timebase>24000</timebase>
+                <ntsc>FALSE</ntsc>
+              </rate>
+              <media>
+                <audio>
+                  <channelcount>1</channelcount>
+                  <samplecharacteristics>
+                    <samplerate>24000</samplerate>
+                    <samplesize>16</samplesize>
+                  </samplecharacteristics>
+                </audio>
+              </media>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>204</end>
+              <effect>
+                <name>Audio Levels</name>
+                <effectid>audiolevels</effectid>
+                <effecttype>audiolevels</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiolevels</effectcategory>
+                <parameter>
+                  <name>Level</name>
+                  <parameterid>level</parameterid>
+                  <value>1</value>
+                  <valuemin>0</valuemin>
+                  <valuemax>3.98109</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>204</end>
+              <effect>
+                <name>Audio Pan</name>
+                <effectid>audiopan</effectid>
+                <effecttype>audiopan</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiopan</effectcategory>
+                <parameter>
+                  <name>Pan</name>
+                  <parameterid>pan</parameterid>
+                  <value>0</value>
+                  <valuemin>-1</valuemin>
+                  <valuemax>1</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <comments/>
+          </clipitem>
+          <clipitem id="clipitem-90">
+            <name>OrionEp7_090.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>314</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>24892</start>
+            <end>25206</end>
+            <in>0</in>
+            <out>314</out>
+            <file id="file-90">
+              <name>OrionEp7_090.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_090.mp3</pathurl>
+              <rate>
+                <timebase>24000</timebase>
+                <ntsc>FALSE</ntsc>
+              </rate>
+              <media>
+                <audio>
+                  <channelcount>1</channelcount>
+                  <samplecharacteristics>
+                    <samplerate>24000</samplerate>
+                    <samplesize>16</samplesize>
+                  </samplecharacteristics>
+                </audio>
+              </media>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>314</end>
+              <effect>
+                <name>Audio Levels</name>
+                <effectid>audiolevels</effectid>
+                <effecttype>audiolevels</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiolevels</effectcategory>
+                <parameter>
+                  <name>Level</name>
+                  <parameterid>level</parameterid>
+                  <value>1</value>
+                  <valuemin>0</valuemin>
+                  <valuemax>3.98109</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>314</end>
+              <effect>
+                <name>Audio Pan</name>
+                <effectid>audiopan</effectid>
+                <effecttype>audiopan</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiopan</effectcategory>
+                <parameter>
+                  <name>Pan</name>
+                  <parameterid>pan</parameterid>
+                  <value>0</value>
+                  <valuemin>-1</valuemin>
+                  <valuemax>1</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <comments/>
+          </clipitem>
+          <clipitem id="clipitem-91">
+            <name>OrionEp7_091.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>275</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>25206</start>
+            <end>25481</end>
+            <in>0</in>
+            <out>275</out>
+            <file id="file-91">
+              <name>OrionEp7_091.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_091.mp3</pathurl>
+              <rate>
+                <timebase>24000</timebase>
+                <ntsc>FALSE</ntsc>
+              </rate>
+              <media>
+                <audio>
+                  <channelcount>1</channelcount>
+                  <samplecharacteristics>
+                    <samplerate>24000</samplerate>
+                    <samplesize>16</samplesize>
+                  </samplecharacteristics>
+                </audio>
+              </media>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>275</end>
+              <effect>
+                <name>Audio Levels</name>
+                <effectid>audiolevels</effectid>
+                <effecttype>audiolevels</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiolevels</effectcategory>
+                <parameter>
+                  <name>Level</name>
+                  <parameterid>level</parameterid>
+                  <value>1</value>
+                  <valuemin>0</valuemin>
+                  <valuemax>3.98109</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>275</end>
+              <effect>
+                <name>Audio Pan</name>
+                <effectid>audiopan</effectid>
+                <effecttype>audiopan</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiopan</effectcategory>
+                <parameter>
+                  <name>Pan</name>
+                  <parameterid>pan</parameterid>
+                  <value>0</value>
+                  <valuemin>-1</valuemin>
+                  <valuemax>1</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <comments/>
+          </clipitem>
+          <clipitem id="clipitem-92">
+            <name>OrionEp7_092.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>354</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>25481</start>
+            <end>25835</end>
+            <in>0</in>
+            <out>354</out>
+            <file id="file-92">
+              <name>OrionEp7_092.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_092.mp3</pathurl>
+              <rate>
+                <timebase>24000</timebase>
+                <ntsc>FALSE</ntsc>
+              </rate>
+              <media>
+                <audio>
+                  <channelcount>1</channelcount>
+                  <samplecharacteristics>
+                    <samplerate>24000</samplerate>
+                    <samplesize>16</samplesize>
+                  </samplecharacteristics>
+                </audio>
+              </media>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>354</end>
+              <effect>
+                <name>Audio Levels</name>
+                <effectid>audiolevels</effectid>
+                <effecttype>audiolevels</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiolevels</effectcategory>
+                <parameter>
+                  <name>Level</name>
+                  <parameterid>level</parameterid>
+                  <value>1</value>
+                  <valuemin>0</valuemin>
+                  <valuemax>3.98109</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>354</end>
+              <effect>
+                <name>Audio Pan</name>
+                <effectid>audiopan</effectid>
+                <effecttype>audiopan</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiopan</effectcategory>
+                <parameter>
+                  <name>Pan</name>
+                  <parameterid>pan</parameterid>
+                  <value>0</value>
+                  <valuemin>-1</valuemin>
+                  <valuemax>1</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <comments/>
+          </clipitem>
+          <clipitem id="clipitem-93">
+            <name>OrionEp7_093.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>214</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>25895</start>
+            <end>26109</end>
+            <in>0</in>
+            <out>214</out>
+            <file id="file-93">
+              <name>OrionEp7_093.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_093.mp3</pathurl>
+              <rate>
+                <timebase>24000</timebase>
+                <ntsc>FALSE</ntsc>
+              </rate>
+              <media>
+                <audio>
+                  <channelcount>1</channelcount>
+                  <samplecharacteristics>
+                    <samplerate>24000</samplerate>
+                    <samplesize>16</samplesize>
+                  </samplecharacteristics>
+                </audio>
+              </media>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>214</end>
+              <effect>
+                <name>Audio Levels</name>
+                <effectid>audiolevels</effectid>
+                <effecttype>audiolevels</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiolevels</effectcategory>
+                <parameter>
+                  <name>Level</name>
+                  <parameterid>level</parameterid>
+                  <value>1</value>
+                  <valuemin>0</valuemin>
+                  <valuemax>3.98109</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>214</end>
+              <effect>
+                <name>Audio Pan</name>
+                <effectid>audiopan</effectid>
+                <effecttype>audiopan</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiopan</effectcategory>
+                <parameter>
+                  <name>Pan</name>
+                  <parameterid>pan</parameterid>
+                  <value>0</value>
+                  <valuemin>-1</valuemin>
+                  <valuemax>1</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <comments/>
+          </clipitem>
+          <clipitem id="clipitem-94">
+            <name>OrionEp7_094.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>208</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>26109</start>
+            <end>26317</end>
+            <in>0</in>
+            <out>208</out>
+            <file id="file-94">
+              <name>OrionEp7_094.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_094.mp3</pathurl>
+              <rate>
+                <timebase>24000</timebase>
+                <ntsc>FALSE</ntsc>
+              </rate>
+              <media>
+                <audio>
+                  <channelcount>1</channelcount>
+                  <samplecharacteristics>
+                    <samplerate>24000</samplerate>
+                    <samplesize>16</samplesize>
+                  </samplecharacteristics>
+                </audio>
+              </media>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>208</end>
+              <effect>
+                <name>Audio Levels</name>
+                <effectid>audiolevels</effectid>
+                <effecttype>audiolevels</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiolevels</effectcategory>
+                <parameter>
+                  <name>Level</name>
+                  <parameterid>level</parameterid>
+                  <value>1</value>
+                  <valuemin>0</valuemin>
+                  <valuemax>3.98109</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>208</end>
+              <effect>
+                <name>Audio Pan</name>
+                <effectid>audiopan</effectid>
+                <effecttype>audiopan</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiopan</effectcategory>
+                <parameter>
+                  <name>Pan</name>
+                  <parameterid>pan</parameterid>
+                  <value>0</value>
+                  <valuemin>-1</valuemin>
+                  <valuemax>1</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <comments/>
+          </clipitem>
+          <clipitem id="clipitem-95">
+            <name>OrionEp7_095.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>414</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>26317</start>
+            <end>26731</end>
+            <in>0</in>
+            <out>414</out>
+            <file id="file-95">
+              <name>OrionEp7_095.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_095.mp3</pathurl>
+              <rate>
+                <timebase>24000</timebase>
+                <ntsc>FALSE</ntsc>
+              </rate>
+              <media>
+                <audio>
+                  <channelcount>1</channelcount>
+                  <samplecharacteristics>
+                    <samplerate>24000</samplerate>
+                    <samplesize>16</samplesize>
+                  </samplecharacteristics>
+                </audio>
+              </media>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>414</end>
+              <effect>
+                <name>Audio Levels</name>
+                <effectid>audiolevels</effectid>
+                <effecttype>audiolevels</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiolevels</effectcategory>
+                <parameter>
+                  <name>Level</name>
+                  <parameterid>level</parameterid>
+                  <value>1</value>
+                  <valuemin>0</valuemin>
+                  <valuemax>3.98109</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>414</end>
+              <effect>
+                <name>Audio Pan</name>
+                <effectid>audiopan</effectid>
+                <effecttype>audiopan</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiopan</effectcategory>
+                <parameter>
+                  <name>Pan</name>
+                  <parameterid>pan</parameterid>
+                  <value>0</value>
+                  <valuemin>-1</valuemin>
+                  <valuemax>1</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <comments/>
+          </clipitem>
+          <clipitem id="clipitem-96">
+            <name>OrionEp7_096.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>213</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>26731</start>
+            <end>26944</end>
+            <in>0</in>
+            <out>213</out>
+            <file id="file-96">
+              <name>OrionEp7_096.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_096.mp3</pathurl>
+              <rate>
+                <timebase>24000</timebase>
+                <ntsc>FALSE</ntsc>
+              </rate>
+              <media>
+                <audio>
+                  <channelcount>1</channelcount>
+                  <samplecharacteristics>
+                    <samplerate>24000</samplerate>
+                    <samplesize>16</samplesize>
+                  </samplecharacteristics>
+                </audio>
+              </media>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>213</end>
+              <effect>
+                <name>Audio Levels</name>
+                <effectid>audiolevels</effectid>
+                <effecttype>audiolevels</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiolevels</effectcategory>
+                <parameter>
+                  <name>Level</name>
+                  <parameterid>level</parameterid>
+                  <value>1</value>
+                  <valuemin>0</valuemin>
+                  <valuemax>3.98109</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>213</end>
+              <effect>
+                <name>Audio Pan</name>
+                <effectid>audiopan</effectid>
+                <effecttype>audiopan</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiopan</effectcategory>
+                <parameter>
+                  <name>Pan</name>
+                  <parameterid>pan</parameterid>
+                  <value>0</value>
+                  <valuemin>-1</valuemin>
+                  <valuemax>1</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <comments/>
+          </clipitem>
+          <clipitem id="clipitem-97">
+            <name>OrionEp7_097.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>232</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>26944</start>
+            <end>27176</end>
+            <in>0</in>
+            <out>232</out>
+            <file id="file-97">
+              <name>OrionEp7_097.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_097.mp3</pathurl>
+              <rate>
+                <timebase>24000</timebase>
+                <ntsc>FALSE</ntsc>
+              </rate>
+              <media>
+                <audio>
+                  <channelcount>1</channelcount>
+                  <samplecharacteristics>
+                    <samplerate>24000</samplerate>
+                    <samplesize>16</samplesize>
+                  </samplecharacteristics>
+                </audio>
+              </media>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>232</end>
+              <effect>
+                <name>Audio Levels</name>
+                <effectid>audiolevels</effectid>
+                <effecttype>audiolevels</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiolevels</effectcategory>
+                <parameter>
+                  <name>Level</name>
+                  <parameterid>level</parameterid>
+                  <value>1</value>
+                  <valuemin>0</valuemin>
+                  <valuemax>3.98109</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>232</end>
+              <effect>
+                <name>Audio Pan</name>
+                <effectid>audiopan</effectid>
+                <effecttype>audiopan</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiopan</effectcategory>
+                <parameter>
+                  <name>Pan</name>
+                  <parameterid>pan</parameterid>
+                  <value>0</value>
+                  <valuemin>-1</valuemin>
+                  <valuemax>1</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <comments/>
+          </clipitem>
+          <clipitem id="clipitem-98">
+            <name>OrionEp7_098.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>188</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>27176</start>
+            <end>27364</end>
+            <in>0</in>
+            <out>188</out>
+            <file id="file-98">
+              <name>OrionEp7_098.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_098.mp3</pathurl>
+              <rate>
+                <timebase>24000</timebase>
+                <ntsc>FALSE</ntsc>
+              </rate>
+              <media>
+                <audio>
+                  <channelcount>1</channelcount>
+                  <samplecharacteristics>
+                    <samplerate>24000</samplerate>
+                    <samplesize>16</samplesize>
+                  </samplecharacteristics>
+                </audio>
+              </media>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>188</end>
+              <effect>
+                <name>Audio Levels</name>
+                <effectid>audiolevels</effectid>
+                <effecttype>audiolevels</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiolevels</effectcategory>
+                <parameter>
+                  <name>Level</name>
+                  <parameterid>level</parameterid>
+                  <value>1</value>
+                  <valuemin>0</valuemin>
+                  <valuemax>3.98109</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>188</end>
+              <effect>
+                <name>Audio Pan</name>
+                <effectid>audiopan</effectid>
+                <effecttype>audiopan</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiopan</effectcategory>
+                <parameter>
+                  <name>Pan</name>
+                  <parameterid>pan</parameterid>
+                  <value>0</value>
+                  <valuemin>-1</valuemin>
+                  <valuemax>1</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <comments/>
+          </clipitem>
+          <clipitem id="clipitem-99">
+            <name>OrionEp7_099.mp3</name>
+            <enabled>TRUE</enabled>
+            <duration>224</duration>
+            <rate>
+              <timebase>30</timebase>
+              <ntsc>TRUE</ntsc>
+            </rate>
+            <start>27424</start>
+            <end>27648</end>
+            <in>0</in>
+            <out>224</out>
+            <file id="file-99">
+              <name>OrionEp7_099.mp3</name>
+              <pathurl>file:///Users/hiroshikodera/repos/_active/tools/davinciauto/projects/OrionEp7/output/audio/OrionEp7_099.mp3</pathurl>
+              <rate>
+                <timebase>24000</timebase>
+                <ntsc>FALSE</ntsc>
+              </rate>
+              <media>
+                <audio>
+                  <channelcount>1</channelcount>
+                  <samplecharacteristics>
+                    <samplerate>24000</samplerate>
+                    <samplesize>16</samplesize>
+                  </samplecharacteristics>
+                </audio>
+              </media>
+            </file>
+            <sourcetrack>
+              <mediatype>audio</mediatype>
+              <trackindex>1</trackindex>
+            </sourcetrack>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>224</end>
+              <effect>
+                <name>Audio Levels</name>
+                <effectid>audiolevels</effectid>
+                <effecttype>audiolevels</effecttype>
+                <mediatype>audio</mediatype>
+                <effectcategory>audiolevels</effectcategory>
+                <parameter>
+                  <name>Level</name>
+                  <parameterid>level</parameterid>
+                  <value>1</value>
+                  <valuemin>0</valuemin>
+                  <valuemax>3.98109</valuemax>
+                </parameter>
+              </effect>
+            </filter>
+            <filter>
+              <enabled>TRUE</enabled>
+              <start>0</start>
+              <end>224</end>
               <effect>
                 <name>Audio Pan</name>
                 <effectid>audiopan</effectid>

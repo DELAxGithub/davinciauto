@@ -84,3 +84,5 @@ pacing:
 google_tts:
   use_ssml: true
   break_ms: 600
+  replacements:
+    "【注": ""  # drop annotation markers like 【注2】
