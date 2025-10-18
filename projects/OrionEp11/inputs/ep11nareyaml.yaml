@@ -1,0 +1,426 @@
+gemini_tts:
+  segments:
+    - speaker: ナレーター
+      voice: kore
+      text: "専門を深めるべきか？視野を広げるべきか？"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "キャリアプランの迷いは、優柔不断なのか、それとも時代の要請なのか？"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "ようこそ、<break time=\"400ms\"/>オリオンの会議室へ。<break time=\"700ms\"/>今夜のテーマは「スペシャリストかゼネラリストか」。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "古今東西の<sub alias=\"えいち\">叡智</sub>を星座のように結び、<break time=\"600ms\"/>現代の悩みに新しい視座を見つける8分間。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "今夜の星々<break time=\"1500ms\"/>モナリザを描きながら飛行機械を設計した万能人、"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "獅子と狐の使い分けを説いた策略家、<break time=\"600ms\"/>「角が立つ」と嘆いた文豪、"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "そして六角形に無限のバリエーションを見せる雪の結晶が、"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "深さと広さを螺旋状に深めていく物語を紡ぎ始めます。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "人事評価の季節。<break time=\"700ms\"/>上司との面談。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: 上司
+      voice: charon
+      text: "君はどっちを目指すんだ？<break time=\"700ms\"/>技術のスペシャリスト？<break time=\"700ms\"/>それともマネジメント？"
+      style_prompt: "Speak like a friendly male colleague gently checking in, warm and approachable."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "答えに詰まります。<break time=\"700ms\"/>プログラミングも好き、<break time=\"600ms\"/>でもプロジェクト全体を見るのも楽しい。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "同期の山田は、<break time=\"600ms\"/>機械学習一筋。<break time=\"700ms\"/>国際学会で発表するレベル。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "同期の佐藤は、<break time=\"600ms\"/>営業から企画、<break time=\"600ms\"/>開発まで何でもこなす。<break time=\"700ms\"/>どちらも評価されている。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: 内なる声
+      voice: aoede
+      text: "私は<break time=\"900ms\"/>中途半端なのかもしれない。"
+      style_prompt: "Deliver with gentle acceptance and inner peace, as a calming inner voice."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "T型人材、<break time=\"600ms\"/>π型人材、<break time=\"600ms\"/>最近では「くし型人材」なんて言葉も。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "キャリアの「型」は増える一方で、<break time=\"600ms\"/>自分の型が見えなくなっていく。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "<sub alias=\"じゅうごせいき\">15世紀</sub>のフィレンツェ。<break time=\"700ms\"/>一人の男が、<break time=\"600ms\"/>人類史上最も多才な人物として活躍していました。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "レオナルド・ダ・ヴィンチ。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "モナリザを描いた画家？<break time=\"700ms\"/>最後の晩餐の作者？<break time=\"700ms\"/>いいえ、<break time=\"600ms\"/>それは彼のほんの一面に過ぎません。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "解剖学者として多数の人体を解剖し詳細な解剖図を残し、"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "工学者として飛行機械を設計、<break time=\"600ms\"/>建築家として理想都市を構想、<break time=\"600ms\"/>音楽家として竪琴を演奏<break time=\"1500ms\"/>"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "ダヴィンチにとって知は分断されていませんでした。<break time=\"700ms\"/>彼はこう書いています<break time=\"1500ms\"/>"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "<break time=\"120ms\"/>われらのあらゆる知は、<break time=\"600ms\"/>感覚からはじまる。<break time=\"30ms\"/>"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "観察が絵画を深め、<break time=\"600ms\"/>絵画の眼差しが工学や解剖を導いたのです。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "<break time=\"120ms\"/>経験は誤らない。<break time=\"700ms\"/>誤るのは、<break time=\"600ms\"/>それを解釈する私たちの判断である。<break time=\"30ms\"/>"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "完成を焦るのではなく、<break time=\"600ms\"/>観察と検証を重ねる態度が、<break time=\"600ms\"/>分野を越えて螺旋状に広がっていきました。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "その姿勢ゆえか、<break time=\"600ms\"/>ダヴィンチは生涯に未完の大作をいくつも抱えたまま、<break time=\"600ms\"/>観察と実験を続けました。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "万能の天才であっても、<break time=\"600ms\"/>すべてを同時に極め切ることはできない。<break time=\"700ms\"/>それが彼のやり方でした。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "同じ<sub alias=\"るねさんす\">ルネサンス</sub>期、<break time=\"600ms\"/>フィレンツェの政治家<sub alias=\"まきゃべり\">マキャヴェリ</sub>は、<break time=\"600ms\"/>別の視点を提供します。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "彼は、<break time=\"600ms\"/>理想の指導者について独特の比喩を用いました。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: マキャヴェリ
+      voice: charon
+      text: "<break time=\"120ms\"/>君主は狐にも獅子にもならねばならない。<break time=\"700ms\"/>獅子は罠を見抜けず、<break time=\"600ms\"/>狐は狼を追い払えないからだ。<break time=\"30ms\"/>"
+      style_prompt: "Deliver with cold analytical intelligence, as a strategist observing human nature."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "獅子の力と狐の知恵<break time=\"1500ms\"/>"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "<sub alias=\"まきゃべり\">マキャヴェリ</sub>はこの比喩で、<break time=\"600ms\"/>力と策略、<break time=\"600ms\"/>専門性と柔軟性の両面の必要性を説いたとされます。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "深さと広さは、<break time=\"600ms\"/>固定的な属性ではなく、<break time=\"600ms\"/>「どちらか」ではなく「使い分け」という戦略的に選択するモードなのです。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "明治の日本。<break time=\"700ms\"/>夏目漱石は『草枕』の冒頭で、<break time=\"600ms\"/>人生の難しさを詩的に表現しました。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "<break time=\"120ms\"/>智に働けば角が立つ。<break time=\"700ms\"/>情に棹させば流される。<break time=\"700ms\"/>意地を通せば窮屈だ。<break time=\"30ms\"/>"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "専門性を追求すれば視野が狭まる。<break time=\"700ms\"/>幅広く学べば深みがなくなる。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "このジレンマを、<break time=\"600ms\"/>漱石は人生の本質として受け入れました。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "興味深いのは、<break time=\"600ms\"/>漱石自身のキャリアです。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "英文学者として出発し、<break time=\"600ms\"/>小説家となり、<break time=\"600ms\"/>漢詩も詠み、<break time=\"600ms\"/>絵も描いた。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "しかし彼は「万能」を目指したのではない。<break time=\"700ms\"/>それぞれの時期に、<break time=\"600ms\"/>それぞれの表現を必要としたのです。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "時を遡り、<break time=\"600ms\"/>古代中国へ。<break time=\"700ms\"/>孔子は、<break time=\"600ms\"/>理想の人物像についてこう語りました。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "<break time=\"120ms\"/>君子は器ならず。<break time=\"30ms\"/>"
+      style_prompt: "Speak in a steady, composed voice with quiet strength, as though quoting a timeless principle with deep respect."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "器は、<break time=\"600ms\"/>特定の用途に特化した道具。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "しかし君子<break time=\"1500ms\"/>真の人間は、<break time=\"600ms\"/>一つの機能に固定されてはならない、<break time=\"600ms\"/>と。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "興味深いことに、<break time=\"600ms\"/>孔子自身も多彩な顔を持っていました。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "教育者、<break time=\"600ms\"/>政治家、<break time=\"600ms\"/>音楽理論家、<break time=\"600ms\"/>そして『詩経』の編纂者。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "でも彼は「万能」を誇ったわけではありません。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "<break time=\"120ms\"/>吾れ十有五にして学に志す。<break time=\"700ms\"/>三十にして立つ。<break time=\"700ms\"/>四十にして惑わず<break time=\"900ms\"/><break time=\"30ms\"/>"
+      style_prompt: "Speak in a steady, composed voice with quiet strength, as though quoting a timeless principle with deep respect."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "人生の各段階で、<break time=\"600ms\"/>深めるべきものが変わることを、<break time=\"600ms\"/>自らの経験として語ったのです。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "さらに荘子は、<break time=\"600ms\"/>「無用の用」という逆説的な智慧を残しました。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "大木は材木にならないから切られない。<break time=\"700ms\"/>役に立たないことが、<break time=\"600ms\"/>かえって生き延びる道になる。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "専門性という「有用」に固執すると、<break time=\"600ms\"/>かえって可能性を狭める。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "一見「無用」な広がりの中に、<break time=\"600ms\"/>思いがけない「用」が生まれる<break time=\"1500ms\"/>"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "東洋の賢者たちは、<break time=\"600ms\"/>そんな逆説を見抜いていたのです。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "意外な分野から、<break time=\"600ms\"/>この問いに光を当ててみましょう。<break time=\"700ms\"/>結晶学です。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "雪の結晶を思い浮かべてください。<break time=\"700ms\"/>どの結晶も六角形という基本構造を持ちながら、<break time=\"600ms\"/>一つとして同じ形はありません。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "物理学者の中谷宇吉郎は、<break time=\"600ms\"/>人工雪の研究でこれを解明しました。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "温度と湿度のわずかな違いが、<break time=\"600ms\"/>針状、<break time=\"600ms\"/>板状、<break time=\"600ms\"/>樹枝状<break time=\"900ms\"/>全く異なる形を生み出す。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "同じH₂Oという「専門性」を持ちながら、<break time=\"600ms\"/>環境との対話で無限のバリエーションを生む。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "深い本質と、<break time=\"600ms\"/>表現の多様性の共存<break time=\"1500ms\"/>自然界は、<break time=\"600ms\"/>二者択一ではない答えを静かに示しています。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "認知科学者のロバート・ルート=バーンスタインの研究が興味深い示唆を与えます。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "ノーベル賞受賞者を調査したところ、<break time=\"600ms\"/>一般の科学者と比べて、"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "芸術的趣味を持つ割合が著しく高かったのです。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "音楽を演奏する人は2倍、<break time=\"600ms\"/>絵を描く人は7倍、<break time=\"600ms\"/>詩を書く人は12倍<break time=\"1500ms\"/>"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "専門を極めた人ほど、<break time=\"600ms\"/>専門外の活動を大切にしていた。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "脳は、<break time=\"600ms\"/>異なる領域を行き来することで、<break time=\"600ms\"/>新しいパターンを発見するのかもしれません。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "では、<break time=\"600ms\"/>私たちはどう考えればいいのでしょうか。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "次のプロジェクトで、<break time=\"600ms\"/>あなたは狐になれるでしょうか？"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "全体を俯瞰し、<break time=\"600ms\"/>獅子である専門家たちを束ねる。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "あるいは今は、<break time=\"600ms\"/>獅子として一点突破する時期かもしれません。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "漱石の言う「角が立つ」は避けられない。<break time=\"700ms\"/>でも、<break time=\"600ms\"/>その摩擦の中にこそ、<break time=\"600ms\"/>新しいものが生まれる。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "雪の結晶のように、<break time=\"600ms\"/>あなたの核となる専門性は変わらなくていい。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "ただ、<break time=\"600ms\"/>環境に応じて、<break time=\"600ms\"/>その表現を変えていけばいい。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "次の人事面談。<break time=\"700ms\"/>上司の質問に、<break time=\"600ms\"/>今度は迷いません。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: 若手社員
+      voice: aoede
+      text: "<break time=\"120ms\"/>今は機械学習を深めます。<break time=\"700ms\"/>でも、<break time=\"600ms\"/>それはゴールではなく、<break time=\"600ms\"/>次への入り口だと思っています。<break time=\"30ms\"/>"
+      style_prompt: "Sound like a slightly nervous but earnest young professional trying to respond politely."
+      
+    - speaker: 上司
+      voice: charon
+      text: "<break time=\"120ms\"/>なるほど、<break time=\"600ms\"/>君なりの成長戦略があるんだね。<break time=\"30ms\"/>"
+      style_prompt: "Speak like a friendly male colleague gently checking in, warm and approachable."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "スペシャリストかゼネラリストか<break time=\"1500ms\"/>その問い自体が間違っていたのかもしれません。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "人生は長い。<break time=\"700ms\"/>時期によって深め、<break time=\"600ms\"/>時期によって広げる。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "螺旋階段のように、<break time=\"600ms\"/>上昇しながら視野を広げていく。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "夜空を見上げると、<break time=\"600ms\"/><sub alias=\"おりおん\">オリオン</sub>座が輝いています。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "三つ星は、<break time=\"600ms\"/>それぞれ異なる恒星。<break time=\"700ms\"/>でも地球から見ると、<break time=\"600ms\"/>美しい直線を描く。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "今は点在する、<break time=\"600ms\"/>あなたの知識や経験も、<break time=\"600ms\"/>いつか一つの星座を描くでしょう。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "知識の星座は、<break time=\"600ms\"/>見る人によって違う物語を紡ぎます。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "明日手に取る本が、<break time=\"600ms\"/>専門書でも教養書でも、<break time=\"600ms\"/>あなたの星座の新しい星になる。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."

@@ -14,7 +14,14 @@
       "mcp__ide__executeCode",
       "Bash(git commit:*)",
       "Read(/Library/Application Support/Blackmagic Design/DaVinci Resolve/Fusion/Scripts/Edit/**)",
-      "Bash(git fetch:*)"
+      "Bash(git fetch:*)",
+      "Bash(python3:*)",
+      "Bash(ls:*)",
+      "Bash(find:*)",
+      "Bash(python3.11:*)",
+      "Bash(ffprobe:*)",
+      "Bash(awk:*)",
+      "Bash(env PYTHONPATH=/Users/hiroshikodera/repos/_active/tools/davinciauto/prototype/orion-v2/pipeline python:*)"
     ],
     "deny": [],
     "ask": []

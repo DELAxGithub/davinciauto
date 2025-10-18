@@ -1,0 +1,80 @@
+pronunciation_hints:
+  マキャヴェリ: まきゃヴぇり
+  π型: ぱいがた
+  くし型: くしがた
+  螺旋: らせん
+
+google_tts:
+  use_ssml: true
+  break_ms: 600
+  default_break_ms: 600
+  custom_breaks:
+    "——": 1500
+    "、": 600
+    "。": 700
+    "？": 800
+    "！": 800
+    scene_transition: 3000
+  replacements:
+    "...": "……"
+    "..": "……"
+    "…": "……"
+    "-": "——"
+    "—": "——"
+    "【": "（"
+    "】": "）"
+    "『": "「"
+    "』": "」"
+    ":": "："
+  gemini_dialogue:
+    enabled: false
+    allow_narration: true
+    rewrite_enabled: false
+    tts_model: gemini-2.5-flash-preview-tts
+    request_delay_sec: 5
+    voice_name: kore
+    voice_overrides:
+      ナレーター: kore
+      上司: charon
+      内なる声: aoede
+      若手社員: aoede
+      マキャヴェリ: charon
+    base_instruction: >-
+      Deliver the following Japanese narration or dialogue with natural pacing,
+      clear articulation, and gentle warmth suited for an educational audio program.
+      Preserve the original wording and do not add commentary.
+    style_prompts:
+      default: >-
+        Deliver the line with conversational, lifelike cadence suitable for
+        contemporary storytelling.
+      ナレーター: >-
+        Speak with intellectual depth and documentary-style narration, calm and authoritative.
+      上司: >-
+        Speak like a friendly male colleague gently checking in, warm and approachable.
+      内なる声: >-
+        Deliver with gentle acceptance and inner peace, as a calming inner voice.
+      若手社員: >-
+        Sound like a slightly nervous but earnest young professional trying to respond politely.
+      マキャヴェリ: >-
+        Deliver with strategic confidence, as a seasoned advisor sharing a timeless lesson.
+  voices:
+    ナレーター:
+      name: ja-JP-Neural2-C
+      speaking_rate: 0.95
+      pitch: 0.0
+    上司:
+      name: ja-JP-Neural2-D
+      speaking_rate: 0.96
+      pitch: -0.5
+    内なる声:
+      name: ja-JP-Wavenet-A
+      speaking_rate: 1.0
+      pitch: 1.5
+    若手社員:
+      name: ja-JP-Wavenet-A
+      speaking_rate: 1.02
+      pitch: 2.0
+    マキャヴェリ:
+      name: ja-JP-Neural2-D
+      speaking_rate: 0.95
+      pitch: -0.3

@@ -1,0 +1,21 @@
+google_tts:
+  gemini_dialogue:
+    enabled: true
+    allow_narration: true
+    rewrite_enabled: false
+    tts_model: gemini-2.5-flash-preview-tts
+    voice_name: kore
+    voice_overrides:
+      ナレーター: kore
+    base_instruction: >-
+      Speak the provided Japanese narration with natural pacing and warmth,
+      suitable for an educational documentary. Preserve the original wording
+      and do not add commentary.
+    request_delay_sec: 6
+    style_prompts:
+      default: >-
+        Deliver the line with conversational, lifelike cadence suitable for
+        contemporary storytelling.
+      ナレーター: >-
+        Narrate with a calm, insightful tone that remains engaging and human,
+        varying emphasis subtly to keep the listener involved.

@@ -4,7 +4,9 @@ from __future__ import annotations
 import base64
 import logging
 import os
+import re
 import subprocess
+import time
 from pathlib import Path
 from typing import Any, Dict, Optional
 
@@ -26,7 +28,7 @@ class OrionTTSGenerator:
         hints = config.get("pronunciation_hints")
         if isinstance(hints, dict):
             self.pronunciation_hints = hints
-        self.client = texttospeech.TextToSpeechClient()
+        self._google_client: texttospeech.TextToSpeechClient | None = None
         raw_root = config.get("raw") if isinstance(config.get("raw"), dict) else {}
         google_raw = raw_root.get("google_tts", {}) if isinstance(raw_root, dict) else {}
         if not google_raw and isinstance(config.get("google_tts"), dict):
@@ -36,6 +38,12 @@ class OrionTTSGenerator:
             settings = google_raw.get("gemini_dialogue")
             if isinstance(settings, dict):
                 self._gemini_settings = settings
+        self._request_delay_sec = 0.0
+        if self._gemini_settings:
+            try:
+                self._request_delay_sec = float(self._gemini_settings.get("request_delay_sec", 0.0))
+            except (TypeError, ValueError):
+                self._request_delay_sec = 0.0
         self._gemini_client = None
 
     def generate(
@@ -47,6 +55,8 @@ class OrionTTSGenerator:
         *,
         scene: str | None = None,
         prev_scene: str | None = None,
+        gemini_voice: str | None = None,
+        gemini_style_prompt: str | None = None,
     ) -> bool:
         """Generate an MP3 file for the supplied segment."""
 
@@ -55,9 +65,24 @@ class OrionTTSGenerator:
             if self._should_rewrite_dialogue(character):
                 adjusted_text = self._rewrite_with_gemini(text, character, scene)
 
-            if self._should_use_gemini_tts(character):
-                if self._synthesize_with_gemini_tts(adjusted_text, character, scene, output_path, segment_no):
+            use_gemini = self._should_use_gemini_tts(character)
+            require_gemini = use_gemini or bool(gemini_voice or gemini_style_prompt)
+            if not use_gemini and (gemini_voice or gemini_style_prompt):
+                use_gemini = self._should_use_gemini(character)
+
+            if use_gemini:
+                if self._synthesize_with_gemini_tts(
+                    adjusted_text,
+                    character,
+                    scene,
+                    output_path,
+                    segment_no,
+                    voice_override=gemini_voice,
+                    style_override=gemini_style_prompt,
+                ):
                     return True
+                if require_gemini:
+                    return False
 
             ssml = build_ssml(
                 adjusted_text,
@@ -73,7 +98,8 @@ class OrionTTSGenerator:
             audio_config = self._get_audio_config(character)
 
             synthesis_input = texttospeech.SynthesisInput(ssml=ssml)
-            response = self.client.synthesize_speech(
+            client = self._ensure_google_client()
+            response = client.synthesize_speech(
                 input=synthesis_input,
                 voice=voice_params,
                 audio_config=audio_config,
@@ -129,7 +155,13 @@ class OrionTTSGenerator:
             return False
         if not self._gemini_settings.get("enabled"):
             return False
-        if character in {"", None, "ナレーター"}:
+        if character in {"", None}:
+            return False
+        narrator_aliases = {"ナレーター", "ナレーション", "Narrator"}
+        if (
+            character in narrator_aliases
+            and not bool(self._gemini_settings.get("allow_narration"))
+        ):
             return False
         self._ensure_env_var("GEMINI_API_KEY")
         if not os.getenv("GEMINI_API_KEY"):
@@ -238,6 +270,9 @@ class OrionTTSGenerator:
         scene: Optional[str],
         output_path: Path,
         segment_no: Optional[int],
+        *,
+        voice_override: Optional[str] = None,
+        style_override: Optional[str] = None,
     ) -> bool:
         try:
             self._ensure_gemini_client()
@@ -250,35 +285,79 @@ class OrionTTSGenerator:
             or os.getenv("GEMINI_TTS_MODEL")
             or "gemini-2.5-flash-preview-tts"
         )
-        voice_name = self._pick_gemini_voice(character)
+        voice_name = voice_override or self._pick_gemini_voice(character)
 
         annotated_text = self._annotate_text_for_gemini(text)
-        prompt = self._build_gemini_prompt(character, scene, annotated_text)
+        prompt = self._build_gemini_prompt(
+            character,
+            scene,
+            annotated_text,
+            custom_style=style_override,
+        )
 
-        try:
-            response = self._gemini_client.models.generate_content(
-                model=tts_model,
-                contents=prompt,
-                config={
-                    "response_modalities": ["AUDIO"],
-                    "speech_config": {
-                        "voice_config": {
-                            "prebuilt_voice_config": {"voice_name": voice_name}
-                        }
+        attempts = 0
+        max_attempts = 5
+        response = None
+        parts = []
+        while attempts < max_attempts:
+            attempts += 1
+            try:
+                response = self._gemini_client.models.generate_content(
+                    model=tts_model,
+                    contents=prompt,
+                    config={
+                        "response_modalities": ["AUDIO"],
+                        "speech_config": {
+                            "voice_config": {
+                                "prebuilt_voice_config": {"voice_name": voice_name}
+                            }
+                        },
                     },
-                },
+                )
+            except Exception as exc:  # pragma: no cover - defensive
+                if self._is_rate_limit_error(exc):
+                    message = str(exc)
+                    retry_delay = self._extract_retry_delay_seconds(exc)
+                    if retry_delay is None:
+                        if "per_day" in message or "per day" in message:
+                            retry_delay = 60.0
+                        else:
+                            retry_delay = min(5.0 * attempts, 15.0)
+                    logger.info(
+                        "Gemini TTS quota exceeded for %s; retrying in %.1fs (attempt %d/%d)",
+                        character,
+                        retry_delay,
+                        attempts,
+                        max_attempts,
+                    )
+                    time.sleep(retry_delay)
+                    continue
+                logger.warning("Gemini TTS request failed for %s: %s", character, exc)
+                return False
+
+            if response is None:
+                continue
+
+            parts = (
+                response.candidates[0].content.parts
+                if response.candidates and response.candidates[0].content
+                else []
             )
-        except Exception as exc:
-            logger.warning("Gemini TTS request failed for %s: %s", character, exc)
+            if parts:
+                break
+            if attempts < max_attempts:
+                logger.warning(
+                    "Gemini TTS returned no audio for %s; retrying (%d/%d)",
+                    character,
+                    attempts,
+                    max_attempts,
+                )
+                time.sleep(1.0)
+                continue
+            logger.warning("Gemini TTS returned no audio for %s", character)
             return False
 
-        parts = (
-            response.candidates[0].content.parts
-            if response.candidates and response.candidates[0].content
-            else []
-        )
         if not parts:
-            logger.warning("Gemini TTS returned no audio for %s", character)
             return False
 
         inline_data = getattr(parts[0], "inline_data", None)
@@ -296,6 +375,8 @@ class OrionTTSGenerator:
 
         display_no = f"[{segment_no:03d}] " if segment_no is not None else ""
         logger.info("%s%s (Gemini TTS) -> %s", display_no, character, output_path.name)
+        if self._request_delay_sec > 0:
+            time.sleep(self._request_delay_sec)
         return True
 
     def _annotate_text_for_gemini(self, text: str) -> str:
@@ -305,6 +386,36 @@ class OrionTTSGenerator:
                 annotated = annotated.replace(term, f"{term}（{reading}）")
         return annotated
 
+    @staticmethod
+    def _is_rate_limit_error(exc: Exception) -> bool:
+        message = str(exc)
+        if "RESOURCE_EXHAUSTED" in message or "429" in message:
+            return True
+        errors = getattr(exc, "errors", None)
+        if errors:
+            for item in errors:
+                reason = getattr(item, "reason", "")
+                if reason and "rate" in reason.lower():
+                    return True
+        return False
+
+    @staticmethod
+    def _extract_retry_delay_seconds(exc: Exception) -> Optional[float]:
+        retry_delay = getattr(exc, "retry_delay", None)
+        if retry_delay:
+            try:
+                return float(retry_delay)
+            except (TypeError, ValueError):
+                pass
+        message = str(exc)
+        match = re.search(r"retryDelay['\"]?:\\s*'?([0-9.]+)s", message)
+        if match:
+            try:
+                return float(match.group(1))
+            except (TypeError, ValueError):
+                return None
+        return None
+
     def _pick_gemini_voice(self, character: str) -> str:
         overrides = self._gemini_settings.get("voice_overrides", {})
         if isinstance(overrides, dict):
@@ -313,13 +424,20 @@ class OrionTTSGenerator:
                 return voice
         return self._gemini_settings.get("voice_name", "kore")
 
-    def _build_gemini_prompt(self, character: str, scene: Optional[str], text: str) -> str:
+    def _build_gemini_prompt(
+        self,
+        character: str,
+        scene: Optional[str],
+        text: str,
+        *,
+        custom_style: Optional[str] = None,
+    ) -> str:
         base_instruction = self._gemini_settings.get("base_instruction", "").strip()
         style_prompts = self._gemini_settings.get("style_prompts", {})
         style_prompt = ""
         if isinstance(style_prompts, dict):
             style_prompt = style_prompts.get(character) or style_prompts.get("default", "")
-        lines = [item for item in [base_instruction, style_prompt] if item]
+        lines = [item for item in [base_instruction, style_prompt, custom_style] if item]
         if scene:
             lines.append(f"Scene context: {scene}")
         lines.append(text.strip())
@@ -357,4 +475,9 @@ class OrionTTSGenerator:
                     _, value = line.split("=", 1)
                     os.environ[name] = value.strip()
                     return
+
+    def _ensure_google_client(self) -> texttospeech.TextToSpeechClient:
+        if self._google_client is None:
+            self._google_client = texttospeech.TextToSpeechClient()
+        return self._google_client
 REPO_ROOT = Path(__file__).resolve().parents[1]

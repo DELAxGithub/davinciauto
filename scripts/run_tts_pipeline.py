@@ -18,7 +18,9 @@ import subprocess
 import sys
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Dict, Iterable, List, Optional
+from typing import Any, Dict, Iterable, List, Optional
+
+import yaml
 from xml.dom import minidom
 import xml.etree.ElementTree as ET
 
@@ -33,6 +35,7 @@ if str(SCRIPT_DIR) not in sys.path:
 
 from tts_config_loader import load_merged_tts_config  # type: ignore  # noqa: E402
 from orion_tts_generator import OrionTTSGenerator  # type: ignore  # noqa: E402
+from srt_merge import align_srt_files, merge_srt_files  # type: ignore  # noqa: E402
 
 
 @dataclass
@@ -47,6 +50,8 @@ class PipelineContext:
     script_csv: Path
     input_srt: Optional[Path]
     output_srt: Optional[Path]
+    merged_srt: Optional[Path]
+    final_srt: Optional[Path]
     timeline_csv: Optional[Path]
     timeline_xml: Optional[Path]
     export_xml: Optional[Path]
@@ -81,6 +86,8 @@ class Segment:
     start_frame: int = 0
     end_frame: int = 0
     sample_rate: int = 0
+    gemini_voice: Optional[str] = None
+    gemini_style_prompt: Optional[str] = None
 
 
 PAUSE_PATTERN = re.compile(r"\(間([0-9.]+)\)")
@@ -200,13 +207,82 @@ def parse_script(ctx: PipelineContext) -> List[Segment]:
 
     dialogue_pattern = re.compile(r"([^：]+)：")
 
-    for raw_line in text.splitlines():
+    lines_iter = iter(text.splitlines())
+    for raw_line in lines_iter:
         line = raw_line.strip()
         if not line:
             continue
+        if re.fullmatch(r"-+", line) or re.fullmatch(r"[ー~〜━‐－─—―]+", line):
+            # Skip Markdown or decorative horizontal rules (e.g., --- or ーーーー)
+            continue
+        if line.startswith("【"):
+            bracket_match = re.match(r"^【([^】]+)】\s*(.*)$", line)
+            if bracket_match:
+                tag, remainder = bracket_match.groups()
+                tag = (tag or "").strip()
+                remainder = (remainder or "").strip(" 。．.　")
+                is_scene_heading = bool(re.search(r"\d", tag)) or "scene" in tag.lower()
+                if is_scene_heading:
+                    if remainder:
+                        current_scene = remainder
+                    elif tag:
+                        current_scene = tag
+            continue
         if line.startswith("#"):
+            heading = line.lstrip("#").strip()
+            if heading and any(keyword in heading for keyword in ("使用上の注意", "Gemini TTS全編版")):
+                # Skip remaining sections such as usage notes / appendix blocks.
+                break
             if line.startswith("##"):
-                current_scene = line.lstrip("#").strip()
+                current_scene = heading
+            continue
+        if line.startswith("```yaml"):
+            yaml_lines: List[str] = []
+            for block_line in lines_iter:
+                if block_line.strip().startswith("```"):
+                    break
+                yaml_lines.append(block_line)
+            yaml_text = "\n".join(yaml_lines)
+            yaml_entries = _parse_yaml_entries(yaml_text)
+            for entry in yaml_entries:
+                if entry.get("scene"):
+                    scene_name = entry["scene"].strip()
+                    if scene_name:
+                        current_scene = scene_name
+                speaker_label = entry.get("speaker", "ナレーター")
+                speaker_core = speaker_label.split("（", 1)[0].strip()
+                base_speaker = normalize_speaker_label(speaker_core or "ナレーター")
+                role = "NA" if base_speaker == "ナレーター" else "DL"
+
+                for chunk in entry.get("segments", []):
+                    clean_text = convert_pauses_to_text(chunk, auto_finalize=True).strip()
+                    if not clean_text:
+                        continue
+
+                    lead_in = 0.0
+                    if segments and current_scene and current_scene != prev_scene:
+                        lead_in = ctx.scene_lead_in_sec
+
+                    subtitle_lines = [ln.strip() for ln in chunk.splitlines() if ln.strip()]
+                    segment = Segment(
+                        index=index,
+                        segment_id=f"No.{index:03d}",
+                        raw_speaker=speaker_label,
+                        character=base_speaker,
+                        role=role,
+                        voice_direction=entry.get("voice_direction")
+                        or entry.get("gemini_style_prompt"),
+                        text=clean_text,
+                        raw_text=chunk,
+                        subtitle_lines=subtitle_lines or [clean_text],
+                        scene=current_scene,
+                        lead_in_pause_sec=lead_in,
+                        gemini_voice=entry.get("gemini_voice"),
+                        gemini_style_prompt=entry.get("gemini_style_prompt"),
+                    )
+                    segments.append(segment)
+                    index += 1
+                    prev_scene = current_scene
             continue
 
         matches = list(dialogue_pattern.finditer(line))
@@ -255,6 +331,215 @@ def parse_script(ctx: PipelineContext) -> List[Segment]:
     return segments
 
 
+def _parse_yaml_entries(yaml_text: str) -> List[Dict[str, Any]]:
+    entries: List[Dict[str, Any]] = []
+    if not yaml_text or not yaml_text.strip():
+        return entries
+
+    try:
+        loaded = yaml.safe_load(yaml_text)
+    except yaml.YAMLError:
+        return _parse_yaml_entries_fallback(yaml_text)
+
+    if loaded is None:
+        return entries
+
+    def handle(node: Any, scene_name: str | None = None) -> None:
+        if isinstance(node, dict):
+            if isinstance(node.get("scenes"), list):
+                for scene in node["scenes"]:
+                    if isinstance(scene, dict):
+                        handle(scene, scene_name=scene.get("name") or scene_name)
+                return
+
+            if isinstance(node.get("segments"), list):
+                for segment in node["segments"]:
+                    handle(segment, scene_name=scene_name)
+                return
+
+            segments: List[str] = []
+            text_value = node.get("text")
+            if isinstance(text_value, list):
+                segments.extend(str(element).strip() for element in text_value if str(element).strip())
+            elif isinstance(text_value, str) and text_value.strip():
+                raw = text_value.strip("\n")
+                for chunk in re.split(r"\n\s*\n", raw):
+                    chunk = chunk.strip()
+                    if chunk:
+                        segments.append(chunk)
+
+            if not segments:
+                ssml_value = node.get("ssml")
+                if isinstance(ssml_value, str) and ssml_value.strip():
+                    segments = [_ssml_to_text(ssml_value)]
+
+            if not segments:
+                return
+
+            entry: Dict[str, Any] = {
+                "speaker": node.get("speaker", "ナレーター"),
+                "segments": segments,
+            }
+
+            for key in ("gemini_voice", "voice", "voice_direction", "emotion"):
+                value = node.get(key)
+                if isinstance(value, str) and value.strip():
+                    if key == "voice":
+                        entry["gemini_voice"] = value.strip()
+                    elif key == "emotion":
+                        entry["voice_direction"] = value.strip()
+                    else:
+                        entry[key] = value.strip()
+
+            style_prompt = node.get("style_prompt") or node.get("gemini_style_prompt")
+            if isinstance(style_prompt, str) and style_prompt.strip():
+                entry["gemini_style_prompt"] = style_prompt.strip()
+
+            if scene_name:
+                entry["scene"] = scene_name
+
+            entries.append(entry)
+
+        elif isinstance(node, list):
+            for sub in node:
+                handle(sub, scene_name=scene_name)
+
+    handle(loaded)
+    return entries
+
+
+def _parse_yaml_entries_fallback(yaml_text: str) -> List[Dict[str, Any]]:
+    entries: List[Dict[str, Any]] = []
+    current: Dict[str, Any] | None = None
+    pending_lines: List[str] = []
+    text_mode = False
+
+    def finalize_text(target: Dict[str, Any]) -> None:
+        nonlocal pending_lines
+        if not pending_lines:
+            return
+        joined = "\n".join(pending_lines).strip()
+        pending_lines = []
+        if not joined:
+            return
+        for chunk in re.split(r"\n\s*\n", joined):
+            chunk = chunk.strip()
+            if chunk:
+                target.setdefault("segments", []).append(chunk)
+
+    def finalize_entry() -> None:
+        nonlocal current, text_mode
+        if not current:
+            return
+        if text_mode:
+            finalize_text(current)
+        text_mode = False
+        if not current.get("segments"):
+            current = None
+            return
+        current.setdefault("speaker", "ナレーター")
+        entries.append(current)  # type: ignore[arg-type]
+        current = None
+
+    def assign_key_value(target: Dict[str, Any], key: str, value: str) -> None:
+        cleaned = value.strip()
+        if cleaned and cleaned[0] in {'"', "'"} and cleaned[-1:] == cleaned[0]:
+            cleaned = cleaned[1:-1]
+        if key == "text":
+            target.setdefault("segments", []).append(cleaned.strip())
+        else:
+            target[key] = cleaned.strip()
+
+    for raw_line in yaml_text.splitlines():
+        line = raw_line.rstrip("\n")
+        stripped = line.strip()
+
+        if not stripped or stripped.startswith("#"):
+            if text_mode and not stripped:
+                pending_lines.append("")
+            continue
+
+        if stripped.startswith("- "):
+            finalize_entry()
+            current = {"segments": []}
+            pending_lines = []
+            text_mode = False
+            remainder = stripped[2:].strip()
+            if remainder:
+                if ":" in remainder:
+                    key, value = remainder.split(":", 1)
+                    key = key.strip()
+                    value = value.strip()
+                    if key == "text" and value in {"|", ">", ""}:
+                        text_mode = True
+                        pending_lines = []
+                    elif key == "text":
+                        assign_key_value(current, key, value)
+                    else:
+                        assign_key_value(current, key, value)
+            continue
+
+        if current is None:
+            continue
+
+        if ":" in stripped and not stripped.startswith(('"', "'")):
+            key, value = stripped.split(":", 1)
+            key = key.strip()
+            value = value.strip()
+            if key == "text" and value in {"|", ">", ""}:
+                if text_mode:
+                    finalize_text(current)
+                text_mode = True
+                pending_lines = []
+            elif key == "text":
+                if text_mode:
+                    finalize_text(current)
+                    text_mode = False
+                assign_key_value(current, key, value)
+            else:
+                if text_mode:
+                    finalize_text(current)
+                    text_mode = False
+                assign_key_value(current, key, value)
+        else:
+            if text_mode:
+                pending_lines.append(stripped)
+            else:
+                if current.setdefault("segments", []):
+                    current["segments"][-1] += " " + stripped
+                else:
+                    current.setdefault("segments", []).append(stripped)
+
+    finalize_entry()
+    return entries
+
+
+_SSML_TAG_RE = re.compile(r"<[^>]+>")
+_SSML_BREAK_RE = re.compile(r"<break[^>]*>", re.IGNORECASE)
+_SSML_SUB_RE = re.compile(r"<sub alias=\"([^\"]+)\">(.*?)</sub>", re.IGNORECASE)
+
+
+def _ssml_to_text(ssml: str) -> str:
+    text = ssml
+    text = re.sub(r"</?speak>", "", text, flags=re.IGNORECASE)
+
+    def replace_sub(match: re.Match[str]) -> str:
+        alias = match.group(1).strip()
+        inner = match.group(2).strip()
+        if inner and alias:
+            return f"{inner}（{alias}）"
+        return inner or alias
+
+    text = _SSML_SUB_RE.sub(replace_sub, text)
+    text = _SSML_BREAK_RE.sub(" 、", text)
+    text = _SSML_TAG_RE.sub("", text)
+    text = re.sub(r"\s+", " ", text)
+    text = text.replace(" 、", "、").replace(" 。", "。")
+    text = re.sub(r"、、+", "、", text)
+    text = re.sub(r"。。+", "。", text)
+    return text.strip()
+
+
 def synthesize_segments(ctx: PipelineContext, segments: List[Segment]) -> None:
     ensure_tts_config_env(ctx)
     config_dict = load_merged_tts_config(ctx.project)
@@ -280,6 +565,20 @@ def synthesize_segments(ctx: PipelineContext, segments: List[Segment]) -> None:
 
         text = script_texts.get(segment.index) or segment.raw_text or segment.text
 
+        if output_path.exists():
+            duration, sample_rate = probe_audio_metadata(output_path)
+            segment.filename = output_name
+            segment.audio_path = output_path
+            segment.duration_sec = duration
+            segment.duration_frames = max(1, int(round(duration * ctx.fps)))
+            segment.sample_rate = sample_rate
+            prev_scene = segment.scene
+            print(
+                f"[{segment.index:03d}] {segment.segment_id} ({segment.character}) : "
+                f"{duration:.2f}s -> {relpath(output_path)} (cached)"
+            )
+            continue
+
         success = generator.generate(
             text=text,
             character=segment.character,
@@ -287,6 +586,8 @@ def synthesize_segments(ctx: PipelineContext, segments: List[Segment]) -> None:
             segment_no=segment.index,
             scene=segment.scene,
             prev_scene=prev_scene,
+            gemini_voice=segment.gemini_voice,
+            gemini_style_prompt=segment.gemini_style_prompt,
         )
 
         if not success:
@@ -572,19 +873,30 @@ def create_context(args: argparse.Namespace) -> PipelineContext:
         ]
         script_csv = find_default_file(inputs_dir, csv_candidates, "*_script.csv")
 
-    input_srt = Path(args.input_srt) if args.input_srt else None
+    if args.input_srt:
+        input_srt = Path(args.input_srt)
+    else:
+        srt_candidates = [
+            f"{args.project}.srt",
+            f"{args.project.lower()}.srt",
+            f"{snake}.srt",
+        ]
+        try:
+            input_srt = find_default_file(inputs_dir, srt_candidates, "*.srt")
+        except FileNotFoundError:
+            input_srt = None
 
     if args.output_srt:
         output_srt = Path(args.output_srt)
     else:
-        srt_candidates = [
-            f"{args.project.lower()}timecode.srt",
-            f"{snake}_timecode.srt",
-        ]
-        try:
-            output_srt = find_default_file(exports_dir, srt_candidates, "*timecode*.srt")
-        except FileNotFoundError:
-            output_srt = exports_dir / f"{snake}_timecode.srt"
+        output_srt = output_root / f"{args.sample_name or args.project}_timecode.srt"
+
+    if args.merged_srt:
+        merged_srt = Path(args.merged_srt)
+    else:
+        merged_srt = exports_dir / f"{snake}_merged.srt"
+
+    final_srt = Path(args.final_srt) if args.final_srt else None
 
     if args.timeline_csv:
         timeline_csv = Path(args.timeline_csv)
@@ -622,6 +934,8 @@ def create_context(args: argparse.Namespace) -> PipelineContext:
         script_csv=script_csv,
         input_srt=input_srt,
         output_srt=output_srt,
+        merged_srt=merged_srt,
+        final_srt=final_srt,
         timeline_csv=timeline_csv,
         timeline_xml=timeline_xml,
         export_xml=export_xml,
@@ -640,6 +954,8 @@ def main(argv: Optional[List[str]] = None) -> None:
     parser.add_argument("--script-csv", help="Path to the narration CSV")
     parser.add_argument("--input-srt", help="Optional source SRT for future processing")
     parser.add_argument("--output-srt", help="Destination SRT path")
+    parser.add_argument("--merged-srt", help="Destination merged SRT path")
+    parser.add_argument("--final-srt", help="Destination aligned SRT path")
     parser.add_argument("--timeline-csv", help="Destination timeline CSV path")
     parser.add_argument("--timeline-xml", help="Destination XML path inside output/")
     parser.add_argument("--export-xml", help="Destination XML path inside exports/")
@@ -672,6 +988,18 @@ def main(argv: Optional[List[str]] = None) -> None:
         build_xml(ctx, segments)
     if not args.skip_srt:
         write_srt(ctx, segments)
+        if ctx.input_srt and ctx.output_srt and ctx.merged_srt:
+            try:
+                merge_srt_files(ctx.input_srt, ctx.output_srt, ctx.merged_srt, strategy="balanced")
+                print(f"Merged SRT: {relpath(ctx.merged_srt)}")
+            except Exception as exc:  # pragma: no cover - defensive
+                print(f"[WARN] Failed to merge SRT ({exc})")
+        if ctx.input_srt and ctx.output_srt and ctx.final_srt:
+            try:
+                align_srt_files(ctx.input_srt, ctx.output_srt, ctx.final_srt)
+                print(f"Aligned SRT: {relpath(ctx.final_srt)}")
+            except Exception as exc:  # pragma: no cover - defensive
+                print(f"[WARN] Failed to align SRT ({exc})")
 
 
 if __name__ == "__main__":

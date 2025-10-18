@@ -1,0 +1,90 @@
+pronunciation_hints:
+  瞑想: めいそう
+  般若心経: はんにゃしんぎょう
+  鈴木大拙: すずきだいせつ
+  ハイゼンベルク: はいぜんべるく
+  ボルヘス: ぼるへす
+
+google_tts:
+  use_ssml: true
+  break_ms: 600
+  default_break_ms: 600
+  custom_breaks:
+    "——": 1500
+    "、": 600
+    "。": 700
+    "？": 800
+    "！": 800
+    scene_transition: 3000
+  replacements:
+    "...": "……"
+    "..": "……"
+    "…": "……"
+    "-": "——"
+    "—": "——"
+    "【": "（"
+    "】": "）"
+    "『": "「"
+    "』": "」"
+    ":": "："
+  gemini_dialogue:
+    enabled: true
+    allow_narration: true
+    rewrite_enabled: false
+    tts_model: gemini-2.5-flash-preview-tts
+    voice_name: kore
+    request_delay_sec: 5
+    voice_overrides:
+      ナレーター: kore
+      人事部長: gacrux
+      同僚: aoede
+      般若心経: kore
+      弟子: kore
+      鈴木大拙: kore
+      ハイゼンベルク: kore
+      ボルヘス: kore
+      内なる声: aoede
+    base_instruction: >-
+      Deliver the following Japanese narration or dialogue with natural pacing,
+      clear articulation, and gentle warmth suited for an educational audio program.
+      Preserve the original wording and do not add commentary.
+    style_prompts:
+      default: >-
+        Deliver the line with conversational, lifelike cadence suitable for
+        contemporary storytelling.
+      ナレーター: >-
+        Narrate with a calm, insightful tone that remains engaging and human,
+        varying emphasis subtly to keep the listener involved.
+      人事部長: >-
+        Deliver in a calm, senior male voice with quiet authority and subtle concern.
+      同僚: >-
+        Sound like a slightly nervous but earnest young professional trying to respond politely.
+      般若心経: >-
+        Speak in a steady, composed voice with quiet strength, as though quoting a timeless principle with deep respect.
+      弟子: >-
+        Deliver with earnest curiosity and a hint of spiritual seeking.
+      鈴木大拙: >-
+        Speak with intellectual depth and contemplative concern, as a scholar grappling with translation.
+      ハイゼンベルク: >-
+        Deliver with scientific precision and philosophical wonder, as someone who has made a profound discovery.
+      ボルヘス: >-
+        Speak with literary elegance and quiet contemplation, as a storyteller revealing a profound truth.
+      内なる声: >-
+        Deliver with gentle acceptance and inner peace, as a calming inner voice.
+  voices:
+    ナレーター:
+      name: ja-JP-Neural2-C
+      speaking_rate: 0.95
+      pitch: 0.0
+    人事部長:
+      name: ja-JP-Neural2-D
+      speaking_rate: 0.95
+      pitch: -0.5
+    同僚:
+      name: ja-JP-Wavenet-A
+      speaking_rate: 1.05
+      pitch: 2.0
+    内なる声:
+      name: ja-JP-Wavenet-A
+      speaking_rate: 1.0
+      pitch: 1.5

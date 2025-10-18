@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+*.pyo
+*.mp3
+.cache/
+.eggs/
+build/
+dist/
+.python-version
+.idea/
+.vscode/

@@ -11,8 +11,10 @@ Output:
 from __future__ import annotations
 
 import csv
+import json
 import os
 import pathlib
+import subprocess
 import sys
 import urllib.parse
 import xml.etree.ElementTree as ET
@@ -31,6 +33,27 @@ def file_url(path: pathlib.Path) -> str:
         # Windows: drive letter with colon needs special handling
         return 'file:///' + urllib.parse.quote(str(p).replace('\\', '/'))
     return 'file://' + urllib.parse.quote(str(p))
+
+
+def probe_audio(path: pathlib.Path) -> tuple[float, int]:
+    """Get duration (sec) and sample rate for an audio file via ffprobe."""
+    cmd = [
+        "ffprobe",
+        "-v",
+        "error",
+        "-select_streams",
+        "a:0",
+        "-show_entries",
+        "stream=sample_rate:format=duration",
+        "-of",
+        "json",
+        str(path),
+    ]
+    result = subprocess.run(cmd, capture_output=True, text=True, check=True)
+    data = json.loads(result.stdout)
+    duration = float(data["format"]["duration"])
+    sample_rate = int(data["streams"][0]["sample_rate"])
+    return duration, sample_rate
 
 
 def build_xml(rows: list[dict[str, str]], name: str) -> ET.ElementTree:
@@ -54,6 +77,7 @@ def build_xml(rows: list[dict[str, str]], name: str) -> ET.ElementTree:
     track = ET.SubElement(audio, 'track')
 
     next_clip_id = 1
+    next_file_id = 1
     for r in rows:
         fpath = pathlib.Path(r['filename'])
         start_sec = float(r['start_sec'] or '0')
@@ -62,6 +86,15 @@ def build_xml(rows: list[dict[str, str]], name: str) -> ET.ElementTree:
         dur_f = max(1, sec_to_frames(dur_sec))
         end_f = start_f + dur_f
         total_end_frames = max(total_end_frames, end_f)
+
+        # Probe audio metadata once so in/out and sample rate match actual file
+        try:
+            _, sample_rate = probe_audio(fpath)
+        except Exception as exc:  # pragma: no cover - defensive
+            raise RuntimeError(f"Failed to probe audio metadata for {fpath}") from exc
+
+        in_samples = 0
+        out_samples = max(1, int(round(dur_sec * sample_rate)))
 
         clipitem = ET.SubElement(track, 'clipitem')
         clipitem.set('id', f'clipitem-{next_clip_id}')
@@ -78,23 +111,24 @@ def build_xml(rows: list[dict[str, str]], name: str) -> ET.ElementTree:
         ET.SubElement(clipitem, 'start').text = str(start_f)
         ET.SubElement(clipitem, 'end').text = str(end_f)
         # Source in/out
-        ET.SubElement(clipitem, 'in').text = '0'
-        ET.SubElement(clipitem, 'out').text = str(dur_f)
+        ET.SubElement(clipitem, 'in').text = str(in_samples)
+        ET.SubElement(clipitem, 'out').text = str(out_samples)
         # File reference
         file_elem = ET.SubElement(clipitem, 'file')
-        file_elem.set('id', f'file-{next_clip_id}')
+        file_elem.set('id', f'file-{next_file_id}')
+        next_file_id += 1
         ET.SubElement(file_elem, 'name').text = fpath.name
         ET.SubElement(file_elem, 'pathurl').text = file_url(fpath)
 
         # Source audio metadata (explicit sample rate/channel count avoids speed issues)
         f_rate = ET.SubElement(file_elem, 'rate')
-        ET.SubElement(f_rate, 'timebase').text = '44100'
+        ET.SubElement(f_rate, 'timebase').text = str(sample_rate)
         ET.SubElement(f_rate, 'ntsc').text = 'FALSE'
         media = ET.SubElement(file_elem, 'media')
         audio_media = ET.SubElement(media, 'audio')
         ET.SubElement(audio_media, 'channelcount').text = '1'
         sample = ET.SubElement(audio_media, 'samplecharacteristics')
-        ET.SubElement(sample, 'samplerate').text = '44100'
+        ET.SubElement(sample, 'samplerate').text = str(sample_rate)
         ET.SubElement(sample, 'samplesize').text = '16'
 
         # audio sourcetrack mapping

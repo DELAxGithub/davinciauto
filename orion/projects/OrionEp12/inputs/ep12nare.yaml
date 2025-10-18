@@ -1,0 +1,406 @@
+gemini_tts:
+  segments:
+    - speaker: ナレーター
+      voice: kore
+      text: "今日の瞑想スコア85点という通知に、違和感を感じたことはありませんか？"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "この数値化は、進歩の証なのか、それとも本質からの逸脱なのか？"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "ようこそ、<sub alias='おりおん'>オリオン</sub>の会議室へ。今夜のテーマは「瞑想アプリの違和感」。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "今夜結ぶ星々——呼吸を数えることすら否定した古代の瞑想者、<break time='600ms'/>"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "禅を英語で説明しようと苦悩した伝道師、<break time='400ms'/>電子を観測した瞬間に何かが変わると気づいた物理学者、<break time='600ms'/>"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "そして二度と同じページに開けない無限の本を描いた詩人が、<break time='400ms'/>測れないものの価値を問う物語を紡ぎ始めます。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "月曜日の朝、<break time='400ms'/>全社ミーティング。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: 部長
+      voice: gacrux
+      text: "ウェルビーイング向上施策として、<break time='400ms'/>全社員にマインドフルネスアプリを配布します。"
+      style_prompt: "Deliver in a calm, senior male voice with quiet authority and subtle concern."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "年間利用料<sub alias='じゅうにまんえん'>12万円</sub>。<break time='400ms'/>瞑想時間、<break time='400ms'/>心拍変動、<break time='400ms'/>ストレスレベルを自動測定。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "AIコーチが最適な瞑想法を提案してくれる。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: 若手社員
+      voice: aoede
+      text: "瞑想まで、<break time='400ms'/>ノルマになるの……？"
+      style_prompt: "Sound like a slightly nervous but earnest young professional trying to respond politely."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "スマホ画面には今週の瞑想時間ランキング。<break time='400ms'/>部署対抗の瞑想チャレンジ。<break time='400ms'/>マインドフル・マンデーの義務化。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "瞑想は心を休めるはずなのに、<break time='400ms'/>なぜか新しいタスクが増えただけのような——"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "帰り道、<break time='400ms'/>ふと思います。<break time='400ms'/>瞑想って、<break time='400ms'/>もともとこういうものだったっけ？"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "<sub alias='きげんぜんごひゃくねん'>紀元前500年</sub>、<break time='400ms'/>インド。<break time='400ms'/>菩提樹の下で悟りを開いた釈迦。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "その教えは、<break time='400ms'/>後に般若心経として結晶化されました。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: 般若心経
+      voice: kore
+      text: "色即是空、<break time='600ms'/>空即是色。"
+      style_prompt: "Speak in a steady, composed voice with quiet strength, as though quoting a timeless principle with deep respect."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "形あるものは実体がなく、<break time='400ms'/>実体のないものが形となって現れる。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "ここで大切なのは「空」の意味。<break time='400ms'/>それは「何もない」ではなく、<break time='400ms'/>「執着がない」状態のこと。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "釈迦の弟子たちは、<break time='400ms'/>繰り返し尋ねました。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: 弟子
+      voice: kore
+      text: "どれくらい瞑想すれば、<break time='400ms'/>悟りに達しますか？"
+      style_prompt: "Deliver with earnest curiosity and a hint of spiritual seeking."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "釈迦は、<break time='400ms'/>黙して答えなかった。<break time='400ms'/>なぜなら、<break time='400ms'/>「どれくらい」と問うた瞬間、<break time='400ms'/>それは執着になるから。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "成果を求めた瞬間、<break time='400ms'/>瞑想は修行ではなく取引になってしまう。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "さらに釈迦は、<break time='400ms'/>呼吸を数えることすら否定したと伝えられています。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "「一、<break time='400ms'/>二、<break time='400ms'/>三……」と数えれば、<break time='400ms'/>それは計測。<break time='400ms'/>計測は達成と未達成を生み、<break time='400ms'/>執着を芽生えさせる。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "アプリが「今日の瞑想：<sub alias='はちじゅうごてん'>85点</sub>」と表示する時、<break time='400ms'/>それはもう執着を生んでいる。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "釈迦が拒んだのは、<break time='400ms'/>まさにこの「測定」だったのです。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "<sub alias='せんきゅうひゃくねんだいしょとう'>1900年代初頭</sub>、<break time='400ms'/>アメリカ。<break time='400ms'/>ひとりの日本人が、<break time='400ms'/>禅を英語で説明しようと格闘していました。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "<sub alias='すずきだいせつ'>鈴木大拙</sub>です。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: 鈴木大拙
+      voice: kore
+      text: "禅は、<break time='400ms'/>自分の本性を見抜く術だ。"
+      style_prompt: "Speak with intellectual depth and contemplative concern, as a scholar grappling with translation."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "でも、<break time='400ms'/>彼は深いジレンマに直面していました。<break time='400ms'/>禅には「不立文字」という言葉があります。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "言葉では伝えられない。<break time='400ms'/>体験するしかない。<break time='400ms'/>でも、<break time='400ms'/>英語で本を書いている。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "それでも彼は書き続けた。<break time='400ms'/>伝えなければ、<break time='400ms'/>禅は消えてしまうかもしれないから。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "ただ、<break time='400ms'/>彼は恐れていました。<break time='400ms'/>「ゼン」が西洋で一人歩きし、<break time='600ms'/>"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "「ストレス軽減の技法」や「生産性向上のツール」になることを。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "効果はあった。<break time='400ms'/>多くの人が救われた。<break time='400ms'/>でも、<break time='400ms'/>何かが変わってしまった。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "目的のための手段になった瞬間、<break time='400ms'/>禅は禅でなくなる。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "言葉にした瞬間、<break time='400ms'/>何かが逃げる。<break time='400ms'/>測定した瞬間、<break time='400ms'/>何かが変わる。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "彼の葛藤は、<break time='400ms'/>現代のアプリが直面している問題そのものです。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "どうやって伝えるのか。<break time='400ms'/>でも、<break time='400ms'/>伝えた瞬間に変質してしまう——"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "<sub alias='せんきゅうひゃくにじゅうななねん'>1927年</sub>、<break time='400ms'/>ドイツ。<break time='400ms'/>物理学者ヴェルナー・<sub alias='はいぜんべるく'>ハイゼンベルク</sub>は、<break time='400ms'/>驚くべき発見をしました。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "電子の位置を正確に測ろうとすると、<break time='400ms'/>その運動量が不確定になる。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "これは測定技術の問題ではなく、<break time='400ms'/>自然の根本的な性質だったのです。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ハイゼンベルク
+      voice: kore
+      text: "我々は自然そのものではなく、<break time='400ms'/>自然への我々の問いかけに対する答えを見ているのだ。"
+      style_prompt: "Deliver with scientific precision and philosophical wonder, as someone who has made a profound discovery."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "観測という行為が、<break time='400ms'/>観測対象を変えてしまう。<break time='400ms'/>瞑想アプリが心拍数や脳波を測定する時、<break time='600ms'/>"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "あなたは「測定されている瞑想」をしている。<break time='400ms'/>それは、<break time='400ms'/>もう純粋な瞑想ではないかもしれません。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "「今、<break time='400ms'/>心拍数が下がっているかな」<break time='600ms'/>「今日は何点取れるかな」"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "測定を意識した瞬間、<break time='400ms'/>釈迦が警告した「執着」が生まれる。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "<sub alias='すずきだいせつ'>鈴木大拙</sub>が恐れた「手段化」が起きる。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "興味深いことに、<break time='400ms'/><sub alias='はいぜんべるく'>ハイゼンベルク</sub>は晩年、<break time='400ms'/>東洋哲学に深い関心を示しました。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "西洋の最先端物理学が、<break time='400ms'/><sub alias='にせんごひゃくねん'>2500年</sub>前の釈迦の直観と出会った瞬間。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "「測れないものがある」<break time='600ms'/>「測ろうとすると、<break time='400ms'/>何かが変わる」"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "量子力学と般若心経が、<break time='400ms'/>遠い時空を超えて、<break time='400ms'/>共鳴し始めたのです。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "<sub alias='せんきゅうひゃくななじゅうごねん'>1975年</sub>、<break time='400ms'/>アルゼンチンの作家ホルヘ・ルイス・<sub alias='ぼるへす'>ボルヘス</sub>は、<break time='400ms'/>奇妙な短編を発表しました。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "『砂の本』。<break time='400ms'/>主人公は、<break time='400ms'/>無限のページを持つ本を手に入れます。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "どのページも、<break time='400ms'/>二度と開けない。<break time='400ms'/>しおりを挟んでも、<break time='400ms'/>次に開くと違うページになっている。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ボルヘス
+      voice: kore
+      text: "無限は、<break time='400ms'/>人間が最も恐れ、<break time='400ms'/>最も惹かれるものだ。"
+      style_prompt: "Speak with literary elegance and quiet contemplation, as a storyteller revealing a profound truth."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "主人公は記録しようとします。<break time='400ms'/>でも、<break time='400ms'/>無駄でした。<break time='400ms'/>本は変化し続ける。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "これは、<break time='400ms'/>瞑想の本質を描いているのかもしれません。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "あなたの瞑想アプリは、<break time='400ms'/>すべての瞑想を記録します。<break time='400ms'/>日付、<break time='400ms'/>時間、<break time='400ms'/>スコア。<break time='400ms'/>グラフで進捗を表示します。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "でも、<break time='400ms'/>昨日の<sub alias='さんぷんかん'>3分間</sub>と、<break time='400ms'/>今日の<sub alias='さんぷんかん'>3分間</sub>。<break time='400ms'/>本当に「比較可能」なのでしょうか？"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "瞑想は、<break time='400ms'/>砂の本のページのようなもの。<break time='400ms'/>毎回、<break time='400ms'/>まったく新しい。<break time='400ms'/>二度と同じ瞬間は訪れない。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "記録した瞬間、<break time='400ms'/>それは「生きた体験」から「死んだデータ」になる。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "<sub alias='ぼるへす'>ボルヘス</sub>の主人公は、<break time='400ms'/>最後に決断します。<break time='400ms'/>本を手放すことに。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "無限を所有しようとすることの愚かさに、<break time='400ms'/>ようやく気づいて。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "それは、<break time='400ms'/>アプリを削除しろという意味ではありません。<break time='400ms'/>「今、<break time='400ms'/>この瞬間」だけを見ること。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "履歴を振り返らず、<break time='400ms'/>スコアを追わず。<break time='400ms'/>ただ、<break time='400ms'/>今開いているページだけを。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "では、<break time='400ms'/>どうすればいいのでしょう。<break time='400ms'/>般若心経が説くのは、<break time='400ms'/>執着を捨てること。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "アプリを捨てるのではなく、<break time='400ms'/>アプリへの執着を捨てること。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "<sub alias='すずきだいせつ'>鈴木大拙</sub>が苦心して伝えたかったのは、<break time='400ms'/>形式ではなく本質。<break time='400ms'/>アプリがあってもなくても、<break time='400ms'/>禅は禅。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "<sub alias='はいぜんべるく'>ハイゼンベルク</sub>が教えてくれたのは、<break time='400ms'/>測定の限界。<break time='400ms'/>でも、<break time='400ms'/>限界を知った上で測定することは、<break time='400ms'/>できる。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "<sub alias='ぼるへす'>ボルヘス</sub>が描いたのは、<break time='400ms'/>所有を手放す勇気。<break time='400ms'/>記録を見返さず、<break time='400ms'/>今だけを見る。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "次の昼休み。<break time='400ms'/>瞑想ルームには行かず、<break time='400ms'/>屋上へ。<break time='400ms'/>アプリは起動しません。<break time='400ms'/>測定もしません。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "都会の喧騒を眺めながら、<break time='400ms'/>ただ座る。<break time='400ms'/><sub alias='さんぷん'>3分</sub>で終わってもいい。<break time='400ms'/>雑念があってもいい。<break time='400ms'/>眠くなってもいい。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "<sub alias='はちじゅうごてん'>85点</sub>でも、<break time='400ms'/><sub alias='にじゅってん'>20点</sub>でも、<break time='400ms'/>そもそも点数がなくても。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: 内なる声
+      voice: aoede
+      text: "何も起きない。<break time='400ms'/>それでいい。"
+      style_prompt: "Deliver with gentle acceptance and inner peace, as a calming inner voice."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "夜空を見上げると、<break time='400ms'/><sub alias='おりおん'>オリオン</sub>座が輝いています。<break time='400ms'/>測れないものがある。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "測ろうとすると、<break time='400ms'/>何かが変わる。<break time='400ms'/>でも、<break time='400ms'/>それでいい。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "知識の星座は、<break time='400ms'/>見る人によって違う物語を紡ぎます。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "明日、<break time='400ms'/>スマホの通知音が鳴る時、<break time='400ms'/>一度立ち止まってみてください。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: "数字を見る前に、<break time='400ms'/>今の呼吸を感じてみる。<break time='400ms'/>それも、<break time='400ms'/>瞑想の始まり。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."

@@ -1,0 +1,125 @@
+pronunciation_hints:
+  アリストテレス: ありすとてれす
+  ヘクシス: へくしす
+  守破離: しゅはり
+  クロノタイプ: くろのたいぷ
+  ミシェル・フーコー: みしぇる・ふーこー
+  規律訓練: きりつくんれん
+  体内時計: たいないどけい
+  ニコマコス倫理学: にこまこすりんりがく
+  フクロウ型: ふくろうがた
+  ヒバリ型: ひばりがた
+  朝活: あさかつ
+
+google_tts:
+  use_ssml: true
+  break_ms: 450
+  default_break_ms: 450
+  segment_gap_ms: 250
+  custom_breaks:
+    "——": 1200
+    "ーー": 1200
+    "−−": 1200
+    "--": 1200
+    "、": 500
+    "，": 500
+    "。": 650
+    "．": 650
+    "？": 700
+    "！": 700
+    "：": 400
+    "...": 900
+    "……": 900
+    ",": 400
+    ".": 650
+    "?": 700
+    "!": 700
+  quote_breaks:
+    open_ms: 120
+    close_ms: 40
+  replacements:
+    "...": "……"
+    "..": "……"
+    "…": "……"
+    "-": "——"
+    "—": "——"
+    "【": "（"
+    "】": "）"
+    ":": "："
+    "朝活": "あさかつ"
+  gemini_dialogue:
+    enabled: true
+    rewrite_enabled: false
+    rewrite_model: gemini-2.5-pro
+    tts_model: gemini-2.5-flash-preview-tts
+    voice_name: kore
+    voice_overrides:
+      同僚A: charon
+      上司: gacrux
+      あなた: aoede
+      内なる声: aoede
+      アリストテレス: kore
+      道元: kore
+      ミシェル・フーコー『監獄の誕生』: kore
+    base_instruction: >-
+      Deliver the following Japanese dialogue in a natural, emotionally
+      expressive manner suited for spoken performance. Preserve meaning and key
+      terminology without adding commentary.
+    style_prompts:
+      default: >-
+        Speak with a contemporary, conversational cadence that feels lifelike
+        and grounded.
+      同僚A: >-
+        Sound like a friendly male colleague proudly sharing his routine,
+        upbeat and slightly boastful.
+      あなた: >-
+        Begin a touch uncertain yet polite, then allow a note of relief and
+        self-acceptance to emerge.
+      上司: >-
+        Use a calm, senior male tone with quiet authority, as if stating an
+        obvious fact.
+      内なる声: >-
+        Deliver as an internal affirmation—soft, steady, and newly confident.
+      アリストテレス: >-
+        Speak with thoughtful gravitas, like a philosopher guiding attentive
+        students through timeless wisdom.
+      道元: >-
+        Use a serene, meditative male voice with deliberate pacing, embodying
+        Zen clarity.
+      ミシェル・フーコー『監獄の誕生』: >-
+        Deliver with incisive intellectual sharpness, revealing hidden
+        mechanisms of power.
+  voices:
+    ナレーター:
+      name: ja-JP-Neural2-C
+      speaking_rate: 0.97
+      pitch: 0.0
+      description: "落ち着いた知的な男性声"
+    同僚A:
+      name: ja-JP-Neural2-D
+      speaking_rate: 1.05
+      pitch: 1.2
+      description: "自信満々で朗らかな男性声"
+    あなた:
+      name: ja-JP-Wavenet-A
+      speaking_rate: 1.06
+      pitch: 2.0
+      description: "等身大の若い女性声"
+    上司:
+      name: ja-JP-Neural2-B
+      speaking_rate: 0.92
+      pitch: -1.0
+      description: "落ち着いた低めの男性声"
+    内なる声:
+      name: ja-JP-Wavenet-A
+      speaking_rate: 1.02
+      pitch: 1.5
+      description: "穏やかに自信を取り戻した内声"
+
+style_prompts:
+  google:
+    ナレーター: "思索的で温かい語り口、落ち着いたドキュメンタリー調"
+    同僚A: "誇らしげに朝活を語るフレンドリーな同僚"
+    あなた: "最初は自信なさげ、後半は安心感のある口調"
+    上司: "静かに断定する落ち着いた男性声"
+    内なる声: "心の中で静かに確信を深める声"
