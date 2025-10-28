@@ -15,6 +15,20 @@ Orion Pipeline v2 は、スクリプトから DaVinci Resolve 用XMLまでを自
 
 ## クイックスタート
 
+### 0. 脚本から下準備（フェーズ0）
+
+```bash
+# プロンプト生成（generated/ 以下に下書きを出力）
+PYTHONPATH=pipeline python pipeline/core.py --project OrionEp13 --generate-inputs
+```
+
+`projects/OrionEp13/generated/` に出力されるプロンプトを Sonnet 4.5 で処理し、
+レビュー後に `--apply-generated-inputs` を付けて再実行すると `inputs/` へコピーされます。
+
+```bash
+PYTHONPATH=pipeline python pipeline/core.py --project OrionEp13 --generate-inputs --apply-generated-inputs
+```
+
 ### 1. 新しいエピソードの作成
 
 ```bash
@@ -67,6 +81,9 @@ prototype/orion-v2/
         │   ├── ep13nare.md
         │   ├── ep13nare.yaml
         │   └── orinonep13.md
+        ├── generated/          # フェーズ0のプロンプト・下書き
+        │   ├── prompts/
+        │   └── status.json
         ├── output/
         │   ├── audio/
         │   ├── OrionEp13_timecode.srt
@@ -100,6 +117,10 @@ gemini_tts:
 
 ### `orinonep{N}.md` - オリジナル脚本
 見出しマーカー（`【HH:MM-HH:MM】セクション名`）で章立てを定義。
+
+### `generated/` 以下のファイル
+フェーズ0で生成されるプロンプトと下書き。レビュー後に `--apply-generated-inputs`
+で `inputs/` へコピーします。
 
 ---
 
@@ -224,8 +245,22 @@ core.py
 ## 関連ドキュメント
 
 - [WORKFLOW.md](WORKFLOW.md) - 完全ワークフローガイド
+- [SRT_TIMECODE_REGENERATION.md](SRT_TIMECODE_REGENERATION.md) - SRTタイムコード再生成手順
 - [引き継ぎ.md](../../引き継ぎ.md) - プロジェクト全体の引き継ぎ資料
 
 ---
 
-**最終更新**: 2025-10-17
+## SRTタイムコード再生成
+
+音声ファイルに基づいて正確なタイムコード付きSRTを生成：
+
+```bash
+# リポジトリルートで実行
+python regenerate_srt_timecode.py OrionEp15
+```
+
+詳細は [SRT_TIMECODE_REGENERATION.md](SRT_TIMECODE_REGENERATION.md) を参照してください。
+
+---
+
+**最終更新**: 2025-10-24

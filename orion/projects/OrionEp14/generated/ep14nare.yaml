@@ -1,0 +1,281 @@
+gemini_tts:
+  segments:
+    - speaker: ナレーター
+      voice: kore
+      text: <break time="120ms"/>「好きを仕事に」——<break time="600ms"/>その言葉の響きは、<break time="600ms"/>いつからか重荷になっていませんか？<break time="30ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: 情熱は力の源なのか、<break time="600ms"/>それとも巧妙な搾取の入り口なのか？<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: ようこそ、<break time="600ms"/>オリオンの会議室へ。<break time="800ms"/>今夜のテーマは<break time="120ms"/>「『好き』の搾取」<break time="30ms"/>。<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: 古今東西の<sub alias="えいち">叡智</sub>を星座のように結び、<break time="600ms"/>現代の悩みに新しい視座を見つける8分間。<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: 今夜結ぶ星々——<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: 仁義と浩然の気を説いた古代中国の賢者、<break time="600ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: お金ではない報酬を分析したフランスの社会学者、<break time="600ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: 価格と価値の皮肉を語った<sub alias="じゅうきゅうせいき">19世紀</sub>の作家、<break time="600ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: そして宿主を操る寄生菌の恐るべき生態が、<break time="600ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: <break time="120ms"/>「やりがい」<break time="30ms"/>という甘い毒の正体を暴き始めます。<break time="3000ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: ゲーム開発会社。<break time="800ms"/>リリース前の徹夜、<break time="600ms"/>積み上がるピザ箱。<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: CEO
+      voice: charon
+      text: <break time="120ms"/>これは『Labor of Love』だ。<break time="800ms"/>世界を変えるアートだ！<break time="30ms"/>
+      style_prompt: "Speak with passionate energy and conviction, as a charismatic CEO rallying the team."
+
+    - speaker: ナレーター
+      voice: kore
+      text: 歓声の中、<break time="600ms"/>主人公だけが給与明細の数字と、<break time="600ms"/>削れていく心身を見つめる。<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: ——<break time="120ms"/>"好き"<break time="30ms"/>は、<break time="600ms"/>どこで<break time="120ms"/>"代償"<break time="30ms"/>にすり替わるのか。<break time="3000ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: なぜ、<break time="600ms"/>私たちは<break time="120ms"/>「やりがいのある仕事」<break time="30ms"/>でお金の話をすることに、<break time="600ms"/>ためらいを覚えてしまうのでしょうか。<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: <sub alias="きげんぜんよんせいき">紀元前4世紀</sub>、<break time="600ms"/>中国の思想家・<sub alias="もうし">孟子</sub>は、<break time="600ms"/>梁の恵王にこう語りました。<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: 孟子
+      voice: kore
+      text: <break time="120ms"/>王、<break time="600ms"/>何ぞ必ずしも利を曰わんや。<break time="800ms"/>亦た仁義あるのみ<break time="30ms"/>
+      style_prompt: "Speak quietly and calmly, with ancient wisdom and gentle authority, as a Chinese philosopher."
+
+    - speaker: ナレーター
+      voice: kore
+      text: <break time="120ms"/>「仁義」<break time="30ms"/>——正しい道——から始めよという教え。<break time="800ms"/>これが現代では<break time="120ms"/>「情熱的な仕事に携わる者が、<break time="600ms"/>金銭的な対価を口にすることは、<break time="600ms"/>さもしいことだ」<break time="30ms"/>という無言の圧力に変わってしまった。<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: でも<sub alias="もうし">孟子</sub>は、<break time="600ms"/>もう一つ重要なことを語っています。<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: 孟子
+      voice: kore
+      text: <break time="120ms"/>我、<break time="600ms"/>善く吾が浩然の気を養う<break time="30ms"/>
+      style_prompt: "Speak with strength and power, as a philosopher declaring a principle of life force."
+
+    - speaker: ナレーター
+      voice: kore
+      text: <break time="120ms"/>「浩然の気」<break time="30ms"/>——正しく養えば天地に満ちる、<break time="600ms"/>尽きることのない生命力。<break time="800ms"/>まるで私たちの<break time="120ms"/>「情熱」<break time="30ms"/>そのもの。<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: しかし<sub alias="もうし">孟子</sub>は警告します。<break time="800ms"/>この気は、<break time="600ms"/>害されれば萎えてしまう。<break time="800ms"/>過重労働、<break time="600ms"/>不当な扱い——<break time="600ms"/>これらはすべて、<break time="600ms"/>内なる<break time="120ms"/>「浩然の気」<break time="30ms"/>を蝕む毒。<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: 適正な休息や報酬を求めることは、<break time="600ms"/>創造の源泉である<break time="120ms"/>「浩然の気」<break time="30ms"/>を守るための、<break time="600ms"/>まっとうな<break time="120ms"/>「義」<break time="30ms"/>なのです。<break time="3000ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: <sub alias="にじゅっせいき">20世紀</sub>フランスの社会学者ピエール・ブルデューは、<break time="600ms"/>この構造を鋭く分析しました。<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: 彼は、<break time="600ms"/>報酬には<break time="120ms"/>「経済資本」<break time="30ms"/>だけでなく<break time="120ms"/>「象徴資本」<break time="30ms"/>——名声、<break time="600ms"/>経験、<break time="600ms"/>やりがい——が存在すると言います。<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: クリエイティブ業界などでは、<break time="600ms"/>この象徴資本が経済資本の代わりとして機能します。<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: <break time="120ms"/>「給料は低いが、<break time="600ms"/>有名監督のもとで働ける」<break time="30ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: <break time="120ms"/>「薄給でも、<break time="600ms"/>社会貢献の誇りがある」<break time="30ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: 経営者はこの象徴資本を巧みに分配し、<break time="600ms"/>低賃金を正当化する。<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: 労働者も象徴資本のために低賃金を受け入れる。<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: この共犯関係が<break time="120ms"/>「好き」<break time="30ms"/>の搾取を維持するのです。<break time="3000ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: この矛盾を、<break time="600ms"/><sub alias="じゅうきゅうせいき">19世紀</sub>の作家オスカー・ワイルドは皮肉たっぷりに語りました。<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: 『ドリアン・グレイの肖像』で、<break time="600ms"/>ロード・ヘンリーはこう言います。<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ワイルド
+      voice: charon
+      text: <break time="120ms"/>今や人々は、<break time="600ms"/>あらゆるものの価格を知っているが、<break time="800ms"/>何ひとつその価値を知らない<break time="30ms"/>
+      style_prompt: "Speak with irony and wit, as Oscar Wilde's cynical character Lord Henry."
+
+    - speaker: ナレーター
+      voice: kore
+      text: 芸術家自身が経済を語ることを恥じる。<break time="800ms"/>その隙間に搾取が入り込む。<break time="800ms"/>ワイルド自身、<break time="600ms"/>才能を持ちながら経済的に苦しみ、<break time="600ms"/>最後は破産して獄中で死んだ。<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: <break time="120ms"/>「好き」<break time="30ms"/>を仕事にする者が金銭を語ることをタブー視する文化——<break time="800ms"/>それこそが、<break time="600ms"/>搾取の温床なのです。<break time="3000ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: この搾取構造は、<break time="600ms"/>自然界のある現象と不気味なほど似ています。<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: アリに寄生する菌類。<break time="800ms"/>菌に操られたアリは、<break time="600ms"/>胞子を飛ばすのに都合の良い高い場所へと登り、<break time="600ms"/>そこで絶命する。<break time="800ms"/>その亡骸から菌は繁殖します。<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: これは、<break time="600ms"/>やりがい搾取の鮮烈なメタファーです。<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: 組織の<break time="120ms"/>「ミッション」<break time="30ms"/>という寄生菌が、<break time="600ms"/>従業員の<break time="120ms"/>「情熱」<break time="30ms"/>を乗っ取る。<break time="800ms"/>操られた従業員は、<break time="600ms"/>健康と生活を犠牲にして組織の成長のために働く。<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: そして、<break time="600ms"/>その自己犠牲は<break time="120ms"/>「美しい献身」<break time="30ms"/>として外部から賞賛される。<break time="800ms"/>まさに寄生の完成形です。<break time="3000ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: では、<break time="600ms"/>どうすれば寄生されずに<break time="120ms"/>「好き」<break time="30ms"/>を仕事にし続けられるのか。<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: まず、<break time="600ms"/><sub alias="もうし">孟子</sub>の教えを捉え直すこと。<break time="800ms"/><break time="120ms"/>「浩然の気」<break time="30ms"/>を養い続けることは、<break time="600ms"/>持続可能な創造を守る<break time="120ms"/>「義」<break time="30ms"/>です。<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: 次に、<break time="600ms"/>ブルデューの罠に気づくこと。<break time="800ms"/>象徴資本は価値あるものですが、<break time="600ms"/>経済資本の代替品にはなり得ません。<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: ワイルドの皮肉を忘れないこと。<break time="800ms"/>価格と価値、<break time="600ms"/>両方を見極める目を持つこと。<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: 最後に、<break time="600ms"/>寄生菌のメタファーを忘れないこと。<break time="800ms"/>健全な共生か、<break time="600ms"/>一方的な寄生か——<break time="600ms"/>その境界線を見極める必要があります。<break time="3000ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: 例のゲーム開発会社。<break time="800ms"/>主人公は同僚たちと対話の場を持ちました。<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: 主人公
+      voice: aoede
+      text: <break time="120ms"/>私たちはこのゲームが大好き。<break time="800ms"/>だからこそ最高の形で届けたい。<break time="30ms"/>
+      style_prompt: "Speak quietly and sincerely, with determination and care for the craft."
+
+    - speaker: 主人公
+      voice: aoede
+      text: <break time="120ms"/>そのために、<break time="600ms"/>適正なスケジュール、<break time="600ms"/>賃金、<break time="600ms"/>クレジットが必要です。<break time="30ms"/>
+      style_prompt: "Speak quietly and sincerely, with determination and care for the craft."
+
+    - speaker: 主人公
+      voice: aoede
+      text: <break time="120ms"/>それは『次の作品も最高にする』という義のための条件です。<break time="30ms"/>
+      style_prompt: "Speak quietly and sincerely, with determination and care for the craft."
+
+    - speaker: ナレーター
+      voice: kore
+      text: 彼らは<break time="120ms"/>「最高の作品を作り続ける」<break time="30ms"/>という共通の<break time="120ms"/>「義」<break time="30ms"/>のために、<break time="600ms"/>労働環境の改善という<break time="120ms"/>「利」<break time="30ms"/>が必要だと提案したのです。<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: 搾取される客体から、<break time="600ms"/>未来を創る主体へと変わる瞬間でした。<break time="3000ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: 夜空を見上げると、<break time="600ms"/>オリオン座が輝いています。<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: 古代の教え、<break time="600ms"/>近代の分析、<break time="600ms"/>芸術家の皮肉、<break time="600ms"/>自然界の警告——<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: すべてが示すのは、<break time="600ms"/>情熱と搾取の境界線を見極める知恵の必要性。<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: 知識の星座は、<break time="600ms"/>見る人によって違う物語を紡ぎます。
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."

@@ -44,7 +44,7 @@ validation:
   text_similarity_min: 0.95    # テキスト類似度最小値
   timecode_continuity: true    # タイムコード連続性チェック
 
-  fail_fast: true              # エラー時即座に停止
+  fail_fast: false             # エラー時即座に停止（入力SRTタイムコードは再生成されるため）
 
 # TTS設定
 tts:
@@ -52,6 +52,15 @@ tts:
   request_delay_sec: 5
   timeout_sec: 30
   retry_count: 3
+
+# Google TTS with Gemini設定
+google_tts:
+  gemini_dialogue:
+    enabled: true
+    allow_narration: true
+    rewrite_enabled: false  # テキストの書き直しを無効化（そのまま読み上げる）
+    tts_model: "gemini-2.5-flash-preview-tts"
+    voice_name: "kore"
 
 # デバッグ設定
 debug:

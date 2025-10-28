@@ -81,6 +81,10 @@ class TimelineSegment:
     audio_in_offset_sec: float = 0.0  # Offset into audio file to start playback
     audio_out_offset_sec: float = 0.0  # Offset into audio file to end playback (0 = use full duration)
 
+    # Narration content
+    speaker: str = ""  # Speaker name (e.g., "ナレーター", "主人公")
+    text: str = ""  # Original narration text
+
     def start_timecode(self, fps: float) -> str:
         """Convert start time to NTSC timecode format.
 
@@ -222,6 +226,14 @@ class TimelineCalculator:
             start_time = current_time
             end_time = current_time + audio_seg.duration_sec
 
+            # Get speaker and text from narration segments if available
+            speaker = ""
+            text = ""
+            if narration_segments and i < len(narration_segments):
+                nare_seg = narration_segments[i]
+                speaker = getattr(nare_seg, 'speaker', '')
+                text = getattr(nare_seg, 'text', '')
+
             timeline_seg = TimelineSegment(
                 index=audio_seg.index,
                 audio_filename=audio_seg.filename,
@@ -229,7 +241,9 @@ class TimelineCalculator:
                 start_time_sec=start_time,
                 end_time_sec=end_time,
                 is_scene_start=is_scene_start,
-                scene_lead_in_sec=lead_in
+                scene_lead_in_sec=lead_in,
+                speaker=speaker,
+                text=text
             )
 
             timeline_segments.append(timeline_seg)

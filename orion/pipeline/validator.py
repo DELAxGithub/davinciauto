@@ -194,7 +194,7 @@ def validate_project_structure(project_dir: Path) -> ValidationResult:
 
     # Check for narration source
     md_files = list(inputs_dir.glob("*nare*.md")) + list(inputs_dir.glob("orionon*.md"))
-    yaml_files = list(inputs_dir.glob("*nareyaml*.yaml"))
+    yaml_files = list(inputs_dir.glob("*nareyaml*.yaml")) + list(inputs_dir.glob("*nare*.yaml"))
 
     if not md_files and not yaml_files:
         errors.append("No narration source found (*.md or *nareyaml*.yaml)")
@@ -211,19 +211,21 @@ def validate_project_structure(project_dir: Path) -> ValidationResult:
 def validate_output_consistency(
     source_srt: Path,
     output_srt: Path,
-    tolerance: float = 0.05
+    tolerance: float = 0.05,
+    similarity_min: float = 0.95
 ) -> ValidationResult:
     """Validate output SRT consistency against source.
 
     Checks:
     - Entry count match (within tolerance)
-    - Text similarity (>95%)
+    - Text similarity (configurable threshold)
     - Timecode continuity
 
     Args:
         source_srt: Original subtitle file
         output_srt: Pipeline output subtitle file
         tolerance: Acceptable entry count difference ratio
+        similarity_min: Minimum acceptable text similarity ratio
 
     Returns:
         ValidationResult
@@ -267,19 +269,77 @@ def validate_output_consistency(
 
     similarity = text_similarity(source_text, output_text)
 
-    if similarity < 0.95:
+    if similarity < similarity_min:
         errors.append(
-            f"Low text similarity: {similarity:.2%} (expected >95%)"
+            f"Low text similarity: {similarity:.2%} (expected ≥{similarity_min:.0%})"
         )
-    elif similarity < 0.98:
-        warnings.append(
-            f"Moderate text similarity: {similarity:.2%}"
-        )
+    else:
+        warning_threshold = min(similarity_min + 0.02, 0.99)
+        if similarity < warning_threshold:
+            warnings.append(
+                f"Moderate text similarity: {similarity:.2%}"
+            )
 
     # Check output continuity
     is_continuous, continuity_errors = validate_srt_continuity(output_subs)
     if not is_continuous:
         errors.extend(continuity_errors)
+
+    is_valid = len(errors) == 0
+    return ValidationResult(is_valid, errors, warnings)
+
+
+def validate_timeline_alignment(
+    timeline_segments,
+    audio_segments,
+    duration_tolerance: float = 0.05
+) -> ValidationResult:
+    """Validate alignment between timeline segments and audio segments."""
+
+    errors: List[str] = []
+    warnings: List[str] = []
+
+    if not timeline_segments:
+        errors.append("No timeline segments available")
+        return ValidationResult(False, errors, warnings)
+
+    if not audio_segments:
+        errors.append("No audio segments available for timeline validation")
+        return ValidationResult(False, errors, warnings)
+
+    if len(timeline_segments) != len(audio_segments):
+        errors.append(
+            f"Segment count mismatch: timeline={len(timeline_segments)} audio={len(audio_segments)}"
+        )
+
+    previous_end = None
+
+    for idx, (timeline_seg, audio_seg) in enumerate(zip(timeline_segments, audio_segments), start=1):
+        if timeline_seg.end_time_sec < timeline_seg.start_time_sec:
+            errors.append(
+                f"Timeline segment {idx}: end time before start time"
+            )
+
+        if previous_end is not None and timeline_seg.start_time_sec < previous_end - 1e-3:
+            errors.append(
+                f"Timeline segment {idx}: overlaps previous segment"
+            )
+
+        expected_duration = getattr(audio_seg, "duration_sec", None)
+        actual_duration = timeline_seg.end_time_sec - timeline_seg.start_time_sec
+        if expected_duration is not None and abs(actual_duration - expected_duration) > duration_tolerance:
+            warnings.append(
+                f"Timeline segment {idx}: duration mismatch (timeline={actual_duration:.2f}s audio={expected_duration:.2f}s)"
+            )
+
+        audio_filename = getattr(audio_seg, "filename", None)
+        timeline_filename = getattr(timeline_seg, "audio_filename", None)
+        if audio_filename and timeline_filename and audio_filename != timeline_filename:
+            warnings.append(
+                f"Timeline segment {idx}: filename mismatch ({timeline_filename} vs {audio_filename})"
+            )
+
+        previous_end = timeline_seg.end_time_sec
 
     is_valid = len(errors) == 0
     return ValidationResult(is_valid, errors, warnings)
@@ -352,10 +412,12 @@ def validate_pipeline_run(
     if output_dir.exists():
         output_srt_files = list(output_dir.glob("*timecode.srt"))
         if output_srt_files and srt_files:
+            validation_cfg = config.get("validation", {}) if isinstance(config, dict) else {}
             results["output_consistency"] = validate_output_consistency(
                 srt_files[0],
                 output_srt_files[0],
-                tolerance=config.get("validation", {}).get("entry_count_tolerance", 0.05)
+                tolerance=validation_cfg.get("entry_count_tolerance", 0.05),
+                similarity_min=validation_cfg.get("text_similarity_min", 0.95),
             )
 
     return results

@@ -1,0 +1,242 @@
+gemini_tts:
+  segments:
+  - speaker: ナレーター
+    voice: kore
+    text: 「好きを仕事に」——その言葉の響きは、いつからか重荷になっていませんか？
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 情熱は力の源なのか、それとも巧妙な搾取の入り口なのか？
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: ようこそ、オリオンの会議室へ。今夜のテーマは「『好き』の搾取」。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 古今東西の叡智を星座のように結び、現代の悩みに新しい視座を見つける8分間。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 今夜結ぶ星々——
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 仁義と浩然の気を説いた古代中国の賢者、
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: お金ではない報酬を分析したフランスの社会学者、
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 価格と価値の皮肉を語った19世紀の作家、
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: そして宿主を操る寄生菌の恐るべき生態が、
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 「やりがい」という甘い毒の正体を暴き始めます。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: ゲーム開発会社。リリース前の徹夜、積み上がるピザ箱。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.
+  - speaker: CEO
+    voice: gacrux
+    text: 「これは『Labor of Love』だ。世界を変えるアートだ！」
+    style_prompt: Speak with enthusiasm and charismatic leadership, inspiring and energetic.
+  - speaker: ナレーター
+    voice: kore
+    text: 歓声の中、主人公だけが給与明細の数字と、削れていく心身を見つめる。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: ——「好き」は、どこで「代償」にすり替わるのか。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: なぜ、私たちは「やりがいのある仕事」でお金の話をすることに、ためらいを覚えてしまうのでしょうか。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 紀元前4世紀、中国の思想家・孟子は、梁の恵王にこう語りました。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.
+  - speaker: 孟子
+    voice: gacrux
+    text: 「王、何ぞ必ずしも利を曰わんや。亦た仁義あるのみ」
+    style_prompt: Speak with wisdom and philosophical depth, measured and contemplative.
+  - speaker: ナレーター
+    voice: kore
+    text: 【テロップ】『孟子』梁恵王篇
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 「仁義」——正しい道——から始めよという教え。これが現代では「情熱的な仕事に携わる者が、金銭的な対価を口にすることは、さもしいことだ」という無言の圧力に変わってしまった。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: でも孟子は、もう一つ重要なことを語っています。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.
+  - speaker: 孟子
+    voice: gacrux
+    text: 「我、善く吾が浩然の気を養う」
+    style_prompt: Speak with wisdom and philosophical depth, measured and contemplative.
+  - speaker: ナレーター
+    voice: kore
+    text: 【テロップ】浩然の気：尽きない生命力
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 「浩然の気」——正しく養えば天地に満ちる、尽きることのない生命力。まるで私たちの「情熱」そのもの。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: しかし孟子は警告します。この気は、害されれば萎えてしまう。過重労働、不当な扱い——これらはすべて、内なる「浩然の気」を蝕む毒。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 適正な休息や報酬を求めることは、創造の源泉である「浩然の気」を守るための、まっとうな「義」なのです。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 20世紀フランスの社会学者ピエール・ブルデューは、この構造を鋭く分析しました。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 【テロップ】ピエール・ブルデュー：フランスの社会学者
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 彼は、報酬には「経済資本」だけでなく「象徴資本」——名声、経験、やりがい——が存在すると言います。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: クリエイティブ業界などでは、この象徴資本が経済資本の代わりとして機能します。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 「給料は低いが、有名監督のもとで働ける」
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 「薄給でも、社会貢献の誇りがある」
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 経営者はこの象徴資本を巧みに分配し、低賃金を正当化する。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 労働者も象徴資本のために低賃金を受け入れる。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: この共犯関係が「好き」の搾取を維持するのです。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: この矛盾を、19世紀の作家オスカー・ワイルドは皮肉たっぷりに語りました。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 『ドリアン・グレイの肖像』で、ロード・ヘンリーはこう言います。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.
+  - speaker: ワイルド
+    voice: gacrux
+    text: 「今や人々は、あらゆるものの価格を知っているが、何ひとつその価値を知らない」
+    style_prompt: Speak with wit and irony, elegant and sardonic.
+  - speaker: ナレーター
+    voice: kore
+    text: 【テロップ】『ドリアン・グレイの肖像』（1890年）
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 芸術家自身が経済を語ることを恥じる。その隙間に搾取が入り込む。ワイルド自身、才能を持ちながら経済的に苦しみ、最後は破産して獄中で死んだ。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 「好き」を仕事にする者が金銭を語ることをタブー視する文化——それこそが、搾取の温床なのです。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: この搾取構造は、自然界のある現象と不気味なほど似ています。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: アリに寄生する菌類。菌に操られたアリは、胞子を飛ばすのに都合の良い高い場所へと登り、そこで絶命する。その亡骸から菌は繁殖します。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 【テロップ】寄生生物学
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: これは、やりがい搾取の鮮烈なメタファーです。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 組織の「ミッション」という寄生菌が、従業員の「情熱」を乗っ取る。操られた従業員は、健康と生活を犠牲にして組織の成長のために働く。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: そして、その自己犠牲は「美しい献身」として外部から賞賛される。まさに寄生の完成形です。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: では、どうすれば寄生されずに「好き」を仕事にし続けられるのか。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: まず、孟子の教えを捉え直すこと。「浩然の気」を養い続けることは、持続可能な創造を守る「義」です。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 次に、ブルデューの罠に気づくこと。象徴資本は価値あるものですが、経済資本の代替品にはなり得ません。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: ワイルドの皮肉を忘れないこと。価格と価値、両方を見極める目を持つこと。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 最後に、寄生菌のメタファーを忘れないこと。健全な共生か、一方的な寄生か——その境界線を見極める必要があります。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 例のゲーム開発会社。主人公は同僚たちと対話の場を持ちました。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.
+  - speaker: 主人公
+    voice: charon
+    text: 「私たちはこのゲームが大好き。だからこそ最高の形で届けたい。そのために、適正なスケジュール、賃金、クレジットが必要です。それは『次の作品も最高にする』という義のための条件です。」
+    style_prompt: Speak with quiet determination and conviction, gentle but firm.
+  - speaker: ナレーター
+    voice: kore
+    text: 彼らは「最高の作品を作り続ける」という共通の「義」のために、労働環境の改善という「利」が必要だと提案したのです。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 搾取される客体から、未来を創る主体へと変わる瞬間でした。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 夜空を見上げると、オリオン座が輝いています。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 古代の教え、近代の分析、芸術家の皮肉、自然界の警告——
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: すべてが示すのは、情熱と搾取の境界線を見極める知恵の必要性。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 知識の星座は、見る人によって違う物語を紡ぎます。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: あなたの「好き」が、誰かの燃料ではなく、あなた自身の人生を照らす持続可能な光でありますように。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm and authoritative.

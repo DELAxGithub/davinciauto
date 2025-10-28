@@ -915,7 +915,10 @@ def create_context(args: argparse.Namespace) -> PipelineContext:
 
     sample_name = args.sample_name or args.project
 
-    config_paths: List[Path] = [REPO_ROOT / "experiments/tts_config/global.yaml"]
+    config_paths: List[Path] = [REPO_ROOT / "orion/config/global.yaml"]
+    legacy_config = REPO_ROOT / "experiments/tts_config/global.yaml"
+    if legacy_config.exists():
+        config_paths.append(legacy_config)
     if args.tts_config:
         config_paths.extend(Path(p) for p in args.tts_config)
     else:

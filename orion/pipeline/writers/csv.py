@@ -43,7 +43,9 @@ def write_timeline_csv(
                 "end_timecode",
                 "duration_frames",
                 "is_scene_start",
-                "scene_lead_in_sec"
+                "scene_lead_in_sec",
+                "speaker",
+                "text"
             ])
 
             # Data rows
@@ -56,7 +58,9 @@ def write_timeline_csv(
                     seg.end_timecode(fps),
                     seg.duration_frames(fps),
                     "YES" if seg.is_scene_start else "NO",
-                    f"{seg.scene_lead_in_sec:.2f}"
+                    f"{seg.scene_lead_in_sec:.2f}",
+                    seg.speaker,
+                    seg.text
                 ])
 
         return True

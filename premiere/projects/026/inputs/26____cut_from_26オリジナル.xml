@@ -1,0 +1,5838 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xmeml>
+<xmeml version="4">
+	<sequence id="sequence-2" TL.SQAudioVisibleBase="0" TL.SQVideoVisibleBase="0" TL.SQVisibleBaseTime="0" TL.SQAVDividerPosition="0.5" TL.SQHideShyTracks="0" TL.SQHeaderWidth="204" Monitor.ProgramZoomOut="1296131880960000" Monitor.ProgramZoomIn="0" TL.SQTimePerPixel="6.7326564344746167" MZ.EditLine="126032578560000" MZ.Sequence.PreviewFrameSizeHeight="1080" MZ.Sequence.PreviewFrameSizeWidth="1920" MZ.Sequence.AudioTimeDisplayFormat="200" MZ.Sequence.PreviewRenderingClassID="1061109567" MZ.Sequence.PreviewRenderingPresetCodec="1634755443" MZ.Sequence.PreviewRenderingPresetPath="EncoderPresets/SequencePreview/795454d9-d3c2-429d-9474-923ab13b7018/QuickTime.epr" MZ.Sequence.PreviewUseMaxRenderQuality="false" MZ.Sequence.PreviewUseMaxBitDepth="false" MZ.Sequence.EditingModeGUID="795454d9-d3c2-429d-9474-923ab13b7018" MZ.Sequence.VideoTimeDisplayFormat="101" MZ.WorkOutPoint="2597059584000000" MZ.WorkInPoint="0" explodedTracks="true">
+		<uuid>494b1c65-4443-4344-b188-f6f2e2b2773b</uuid>
+		<duration>102444</duration>
+		<rate>
+			<timebase>25</timebase>
+			<ntsc>FALSE</ntsc>
+		</rate>
+		<name>26____cut</name>
+		<media>
+			<video>
+				<format>
+					
+					
+					<samplecharacteristics>
+						
+						
+						<rate>
+							
+							
+							<timebase>25</timebase>
+							
+							
+							<ntsc>FALSE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<codec>
+							
+							
+							<name>Apple ProRes 422</name>
+							
+							
+							<appspecificdata>
+								
+								
+								<appname>Final Cut Pro</appname>
+								
+								
+								<appmanufacturer>Apple Inc.</appmanufacturer>
+								
+								
+								<appversion>7.0</appversion>
+								
+								
+								<data>
+									
+									
+									<qtcodec>
+										
+										
+										<codecname>Apple ProRes 422</codecname>
+										
+										
+										<codectypename>Apple ProRes 422</codectypename>
+										
+										
+										<codectypecode>apcn</codectypecode>
+										
+										
+										<codecvendorcode>appl</codecvendorcode>
+										
+										
+										<spatialquality>1024</spatialquality>
+										
+										
+										<temporalquality>0</temporalquality>
+										
+										
+										<keyframerate>0</keyframerate>
+										
+										
+										<datarate>0</datarate>
+										
+									
+									</qtcodec>
+									
+								
+								</data>
+								
+							
+							</appspecificdata>
+							
+						
+						</codec>
+						
+						
+						<width>1920</width>
+						
+						
+						<height>1080</height>
+						
+						
+						<anamorphic>FALSE</anamorphic>
+						
+						
+						<pixelaspectratio>square</pixelaspectratio>
+						
+						
+						<fielddominance>upper</fielddominance>
+						
+						
+						<colordepth>24</colordepth>
+						
+					
+					</samplecharacteristics>
+					
+				
+				</format>
+				<track TL.SQTrackShy="0" TL.SQTrackExpandedHeight="41" TL.SQTrackExpanded="0" MZ.TrackTargeted="1">
+					
+					
+					<enabled>TRUE</enabled>
+					
+					
+					<locked>FALSE</locked>
+					
+				
+				</track>
+				<track TL.SQTrackShy="0" TL.SQTrackExpandedHeight="41" TL.SQTrackExpanded="0" MZ.TrackTargeted="0">
+					
+					
+					<enabled>TRUE</enabled>
+					
+					
+					<locked>FALSE</locked>
+					
+				
+				</track>
+				<track TL.SQTrackShy="0" TL.SQTrackExpandedHeight="41" TL.SQTrackExpanded="0" MZ.TrackTargeted="0">
+					
+					
+					<enabled>TRUE</enabled>
+					
+					
+					<locked>FALSE</locked>
+					
+				
+				</track>
+			</video>
+			<audio>
+				<numOutputChannels>2</numOutputChannels>
+				
+				
+				<format>
+					
+					
+					<samplecharacteristics>
+						
+						
+						<depth>16</depth>
+						
+						
+						<samplerate>48000</samplerate>
+						
+					
+					</samplecharacteristics>
+					
+				
+				</format>
+				
+				
+				<outputs>
+					
+					
+					<group>
+						
+						
+						<index>1</index>
+						
+						
+						<numchannels>1</numchannels>
+						
+						
+						<downmix>0</downmix>
+						
+						
+						<channel>
+							
+							
+							<index>1</index>
+							
+						
+						</channel>
+						
+					
+					</group>
+					
+					
+					<group>
+						
+						
+						<index>2</index>
+						
+						
+						<numchannels>1</numchannels>
+						
+						
+						<downmix>0</downmix>
+						
+						
+						<channel>
+							
+							
+							<index>2</index>
+							
+						
+						</channel>
+						
+					
+					</group>
+					
+				
+				</outputs>
+				
+				
+				<track TL.SQTrackAudioKeyframeStyle="0" TL.SQTrackShy="0" TL.SQTrackExpandedHeight="41" TL.SQTrackExpanded="0" MZ.TrackTargeted="1" PannerCurrentValue="0.5" PannerIsInverted="true" PannerStartKeyframe="-91445760000000000,0.5,0,0,0,0,0,0" PannerName="Balance" currentExplodedTrackIndex="0" totalExplodedTrackCount="1" premiereTrackType="Stereo">
+					<clipitem id="clipitem-5" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-3</masterclipid>
+						
+						
+						<name>251015_130803_Tr1.WAV</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>127800</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>149</start>
+						
+						
+						<end>1351</end>
+						
+						
+						<in>2400</in>
+						
+						
+						<out>3602</out>
+						
+						
+						<pproTicksIn>20341601280000</pproTicksIn>
+						
+						
+						<pproTicksOut>30529353254400</pproTicksOut>
+						
+						
+						<file id="file-3">
+							<name>251015_130803_Tr1.WAV</name>
+							<pathurl>file://localhost/Volumes/P-40/Dropbox/%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8/01_%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8%e7%b4%a0%e6%9d%90/025_%e6%9d%b1%e7%95%91%e6%b1%9f%e9%96%93/026_main/ZOOM/251015_130803/251015_130803_Tr1.WAV</pathurl>
+							<rate>
+								
+								
+								<timebase>25</timebase>
+								
+								
+								<ntsc>FALSE</ntsc>
+								
+							
+							</rate>
+							<duration>127800</duration>
+							<timecode>
+								
+								
+								<rate>
+									
+									
+									<timebase>25</timebase>
+									
+									
+									<ntsc>FALSE</ntsc>
+									
+								
+								</rate>
+								
+								
+								<string>13:08:03:00</string>
+								
+								
+								<frame>1182075</frame>
+								
+								
+								<displayformat>NDF</displayformat>
+								
+							
+							</timecode>
+							<media>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>1</sourcechannel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+							
+							</media>
+						</file>
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<logginginfo>
+							
+							
+							<description/>
+							
+							
+							<scene/>
+							
+							
+							<shottake/>
+							
+							
+							<lognote/>
+							
+							
+							<good/>
+							
+							
+							<originalvideofilename/>
+							
+							
+							<originalaudiofilename/>
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut/>
+							
+							
+							<lut1/>
+							
+							
+							<asc_sop/>
+							
+							
+							<asc_sat/>
+							
+							
+							<lut2/>
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Violet</label2>
+							
+						
+						</labels>
+						
+					
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-6" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-3</masterclipid>
+						
+						
+						<name>251015_130803_Tr1.WAV</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>127800</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>1951</start>
+						
+						
+						<end>3553</end>
+						
+						
+						<in>8813</in>
+						
+						
+						<out>10415</out>
+						
+						
+						<pproTicksIn>74696055033600</pproTicksIn>
+						
+						
+						<pproTicksOut>88274073888000</pproTicksOut>
+						
+						
+						<file id="file-3">
+							</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<logginginfo>
+							
+							
+							<description/>
+							
+							
+							<scene/>
+							
+							
+							<shottake/>
+							
+							
+							<lognote/>
+							
+							
+							<good/>
+							
+							
+							<originalvideofilename/>
+							
+							
+							<originalaudiofilename/>
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut/>
+							
+							
+							<lut1/>
+							
+							
+							<asc_sop/>
+							
+							
+							<asc_sat/>
+							
+							
+							<lut2/>
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Rose</label2>
+							
+						
+						</labels>
+						
+					
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-7" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-3</masterclipid>
+						
+						
+						<name>251015_130803_Tr1.WAV</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>127800</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>4153</start>
+						
+						
+						<end>9374</end>
+						
+						
+						<in>14328</in>
+						
+						
+						<out>19549</out>
+						
+						
+						<pproTicksIn>121439359641600</pproTicksIn>
+						
+						
+						<pproTicksOut>165690818092800</pproTicksOut>
+						
+						
+						<file id="file-3">
+							</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<logginginfo>
+							
+							
+							<description/>
+							
+							
+							<scene/>
+							
+							
+							<shottake/>
+							
+							
+							<lognote/>
+							
+							
+							<good/>
+							
+							
+							<originalvideofilename/>
+							
+							
+							<originalaudiofilename/>
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut/>
+							
+							
+							<lut1/>
+							
+							
+							<asc_sop/>
+							
+							
+							<asc_sat/>
+							
+							
+							<lut2/>
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Mango</label2>
+							
+						
+						</labels>
+						
+					
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-8" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-3</masterclipid>
+						
+						
+						<name>251015_130803_Tr1.WAV</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>127800</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>9974</start>
+						
+						
+						<end>14467</end>
+						
+						
+						<in>21176</in>
+						
+						
+						<out>25669</out>
+						
+						
+						<pproTicksIn>179480728627200</pproTicksIn>
+						
+						
+						<pproTicksOut>217561901356800</pproTicksOut>
+						
+						
+						<file id="file-3">
+							</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<logginginfo>
+							
+							
+							<description/>
+							
+							
+							<scene/>
+							
+							
+							<shottake/>
+							
+							
+							<lognote/>
+							
+							
+							<good/>
+							
+							
+							<originalvideofilename/>
+							
+							
+							<originalaudiofilename/>
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut/>
+							
+							
+							<lut1/>
+							
+							
+							<asc_sop/>
+							
+							
+							<asc_sat/>
+							
+							
+							<lut2/>
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Teal</label2>
+							
+						
+						</labels>
+						
+					
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-9" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-3</masterclipid>
+						
+						
+						<name>251015_130803_Tr1.WAV</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>127800</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>15067</start>
+						
+						
+						<end>16473</end>
+						
+						
+						<in>29285</in>
+						
+						
+						<out>30691</out>
+						
+						
+						<pproTicksIn>248209913952000</pproTicksIn>
+						
+						
+						<pproTicksOut>260126702035200</pproTicksOut>
+						
+						
+						<file id="file-3">
+							</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<logginginfo>
+							
+							
+							<description/>
+							
+							
+							<scene/>
+							
+							
+							<shottake/>
+							
+							
+							<lognote/>
+							
+							
+							<good/>
+							
+							
+							<originalvideofilename/>
+							
+							
+							<originalaudiofilename/>
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut/>
+							
+							
+							<lut1/>
+							
+							
+							<asc_sop/>
+							
+							
+							<asc_sat/>
+							
+							
+							<lut2/>
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Purple</label2>
+							
+						
+						</labels>
+						
+					
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-10" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-3</masterclipid>
+						
+						
+						<name>251015_130803_Tr1.WAV</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>127800</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>17073</start>
+						
+						
+						<end>21100</end>
+						
+						
+						<in>35851</in>
+						
+						
+						<out>39878</out>
+						
+						
+						<pproTicksIn>303861144787200</pproTicksIn>
+						
+						
+						<pproTicksOut>337992656601600</pproTicksOut>
+						
+						
+						<file id="file-3">
+							</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<logginginfo>
+							
+							
+							<description/>
+							
+							
+							<scene/>
+							
+							
+							<shottake/>
+							
+							
+							<lognote/>
+							
+							
+							<good/>
+							
+							
+							<originalvideofilename/>
+							
+							
+							<originalaudiofilename/>
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut/>
+							
+							
+							<lut1/>
+							
+							
+							<asc_sop/>
+							
+							
+							<asc_sat/>
+							
+							
+							<lut2/>
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Brown</label2>
+							
+						
+						</labels>
+						
+					
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-11" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-3</masterclipid>
+						
+						
+						<name>251015_130803_Tr1.WAV</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>127800</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>21700</start>
+						
+						
+						<end>24212</end>
+						
+						
+						<in>39880</in>
+						
+						
+						<out>42392</out>
+						
+						
+						<pproTicksIn>338009607936000</pproTicksIn>
+						
+						
+						<pproTicksOut>359300483942400</pproTicksOut>
+						
+						
+						<file id="file-3">
+							</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<logginginfo>
+							
+							
+							<description/>
+							
+							
+							<scene/>
+							
+							
+							<shottake/>
+							
+							
+							<lognote/>
+							
+							
+							<good/>
+							
+							
+							<originalvideofilename/>
+							
+							
+							<originalaudiofilename/>
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut/>
+							
+							
+							<lut1/>
+							
+							
+							<asc_sop/>
+							
+							
+							<asc_sat/>
+							
+							
+							<lut2/>
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Iris</label2>
+							
+						
+						</labels>
+						
+					
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-12" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-3</masterclipid>
+						
+						
+						<name>251015_130803_Tr1.WAV</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>127800</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>24812</start>
+						
+						
+						<end>27050</end>
+						
+						
+						<in>49035</in>
+						
+						
+						<out>51273</out>
+						
+						
+						<pproTicksIn>415604341152000</pproTicksIn>
+						
+						
+						<pproTicksOut>434572884345600</pproTicksOut>
+						
+						
+						<file id="file-3">
+							</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<logginginfo>
+							
+							
+							<description/>
+							
+							
+							<scene/>
+							
+							
+							<shottake/>
+							
+							
+							<lognote/>
+							
+							
+							<good/>
+							
+							
+							<originalvideofilename/>
+							
+							
+							<originalaudiofilename/>
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut/>
+							
+							
+							<lut1/>
+							
+							
+							<asc_sop/>
+							
+							
+							<asc_sat/>
+							
+							
+							<lut2/>
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Magenta</label2>
+							
+						
+						</labels>
+						
+					
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-13" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-3</masterclipid>
+						
+						
+						<name>251015_130803_Tr1.WAV</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>127800</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>27650</start>
+						
+						
+						<end>30183</end>
+						
+						
+						<in>53863</in>
+						
+						
+						<out>56396</out>
+						
+						
+						<pproTicksIn>456524862393600</pproTicksIn>
+						
+						
+						<pproTicksOut>477993727411200</pproTicksOut>
+						
+						
+						<file id="file-3">
+							</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<logginginfo>
+							
+							
+							<description/>
+							
+							
+							<scene/>
+							
+							
+							<shottake/>
+							
+							
+							<lognote/>
+							
+							
+							<good/>
+							
+							
+							<originalvideofilename/>
+							
+							
+							<originalaudiofilename/>
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut/>
+							
+							
+							<lut1/>
+							
+							
+							<asc_sop/>
+							
+							
+							<asc_sat/>
+							
+							
+							<lut2/>
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Yellow</label2>
+							
+						
+						</labels>
+						
+					
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-14" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-3</masterclipid>
+						
+						
+						<name>251015_130803_Tr1.WAV</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>127800</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>30783</start>
+						
+						
+						<end>33816</end>
+						
+						
+						<in>56398</in>
+						
+						
+						<out>59431</out>
+						
+						
+						<pproTicksIn>478010678745600</pproTicksIn>
+						
+						
+						<pproTicksOut>503717377363200</pproTicksOut>
+						
+						
+						<file id="file-3">
+							</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<logginginfo>
+							
+							
+							<description/>
+							
+							
+							<scene/>
+							
+							
+							<shottake/>
+							
+							
+							<lognote/>
+							
+							
+							<good/>
+							
+							
+							<originalvideofilename/>
+							
+							
+							<originalaudiofilename/>
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut/>
+							
+							
+							<lut1/>
+							
+							
+							<asc_sop/>
+							
+							
+							<asc_sat/>
+							
+							
+							<lut2/>
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Violet</label2>
+							
+						
+						</labels>
+						
+					
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-15" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-3</masterclipid>
+						
+						
+						<name>251015_130803_Tr1.WAV</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>127800</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>34416</start>
+						
+						
+						<end>38379</end>
+						
+						
+						<in>59431</in>
+						
+						
+						<out>63394</out>
+						
+						
+						<pproTicksIn>503717377363200</pproTicksIn>
+						
+						
+						<pproTicksOut>537306446476799</pproTicksOut>
+						
+						
+						<file id="file-3">
+							</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<logginginfo>
+							
+							
+							<description/>
+							
+							
+							<scene/>
+							
+							
+							<shottake/>
+							
+							
+							<lognote/>
+							
+							
+							<good/>
+							
+							
+							<originalvideofilename/>
+							
+							
+							<originalaudiofilename/>
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut/>
+							
+							
+							<lut1/>
+							
+							
+							<asc_sop/>
+							
+							
+							<asc_sat/>
+							
+							
+							<lut2/>
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Rose</label2>
+							
+						
+						</labels>
+						
+					
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-16" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-3</masterclipid>
+						
+						
+						<name>251015_130803_Tr1.WAV</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>127800</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>38979</start>
+						
+						
+						<end>46109</end>
+						
+						
+						<in>63396</in>
+						
+						
+						<out>70526</out>
+						
+						
+						<pproTicksIn>537323397811200</pproTicksIn>
+						
+						
+						<pproTicksOut>597754904947200</pproTicksOut>
+						
+						
+						<file id="file-3">
+							</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<logginginfo>
+							
+							
+							<description/>
+							
+							
+							<scene/>
+							
+							
+							<shottake/>
+							
+							
+							<lognote/>
+							
+							
+							<good/>
+							
+							
+							<originalvideofilename/>
+							
+							
+							<originalaudiofilename/>
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut/>
+							
+							
+							<lut1/>
+							
+							
+							<asc_sop/>
+							
+							
+							<asc_sat/>
+							
+							
+							<lut2/>
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Caribbean</label2>
+							
+						
+						</labels>
+						
+					
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-17" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-3</masterclipid>
+						
+						
+						<name>251015_130803_Tr1.WAV</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>127800</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>46709</start>
+						
+						
+						<end>50789</end>
+						
+						
+						<in>74697</in>
+						
+						
+						<out>78777</out>
+						
+						
+						<pproTicksIn>633106912838400</pproTicksIn>
+						
+						
+						<pproTicksOut>667687635014400</pproTicksOut>
+						
+						
+						<file id="file-3">
+							</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<logginginfo>
+							
+							
+							<description/>
+							
+							
+							<scene/>
+							
+							
+							<shottake/>
+							
+							
+							<lognote/>
+							
+							
+							<good/>
+							
+							
+							<originalvideofilename/>
+							
+							
+							<originalaudiofilename/>
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut/>
+							
+							
+							<lut1/>
+							
+							
+							<asc_sop/>
+							
+							
+							<asc_sat/>
+							
+							
+							<lut2/>
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Blue</label2>
+							
+						
+						</labels>
+						
+					
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-18" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-3</masterclipid>
+						
+						
+						<name>251015_130803_Tr1.WAV</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>127800</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>51389</start>
+						
+						
+						<end>56479</end>
+						
+						
+						<in>78782</in>
+						
+						
+						<out>83872</out>
+						
+						
+						<pproTicksIn>667730013350400</pproTicksIn>
+						
+						
+						<pproTicksOut>710871159398400</pproTicksOut>
+						
+						
+						<file id="file-3">
+							</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<logginginfo>
+							
+							
+							<description/>
+							
+							
+							<scene/>
+							
+							
+							<shottake/>
+							
+							
+							<lognote/>
+							
+							
+							<good/>
+							
+							
+							<originalvideofilename/>
+							
+							
+							<originalaudiofilename/>
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut/>
+							
+							
+							<lut1/>
+							
+							
+							<asc_sop/>
+							
+							
+							<asc_sat/>
+							
+							
+							<lut2/>
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Forest</label2>
+							
+						
+						</labels>
+						
+					
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-19" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-3</masterclipid>
+						
+						
+						<name>251015_130803_Tr1.WAV</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>127800</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>57079</start>
+						
+						
+						<end>60183</end>
+						
+						
+						<in>83878</in>
+						
+						
+						<out>86982</out>
+						
+						
+						<pproTicksIn>710922013401600</pproTicksIn>
+						
+						
+						<pproTicksOut>737230484390400</pproTicksOut>
+						
+						
+						<file id="file-3">
+							</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<logginginfo>
+							
+							
+							<description/>
+							
+							
+							<scene/>
+							
+							
+							<shottake/>
+							
+							
+							<lognote/>
+							
+							
+							<good/>
+							
+							
+							<originalvideofilename/>
+							
+							
+							<originalaudiofilename/>
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut/>
+							
+							
+							<lut1/>
+							
+							
+							<asc_sop/>
+							
+							
+							<asc_sat/>
+							
+							
+							<lut2/>
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Tan</label2>
+							
+						
+						</labels>
+						
+					
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-20" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-3</masterclipid>
+						
+						
+						<name>251015_130803_Tr1.WAV</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>127800</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>60783</start>
+						
+						
+						<end>69696</end>
+						
+						
+						<in>87036</in>
+						
+						
+						<out>95949</out>
+						
+						
+						<pproTicksIn>737688170419200</pproTicksIn>
+						
+						
+						<pproTicksOut>813231792172800</pproTicksOut>
+						
+						
+						<file id="file-3">
+							</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<logginginfo>
+							
+							
+							<description/>
+							
+							
+							<scene/>
+							
+							
+							<shottake/>
+							
+							
+							<lognote/>
+							
+							
+							<good/>
+							
+							
+							<originalvideofilename/>
+							
+							
+							<originalaudiofilename/>
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut/>
+							
+							
+							<lut1/>
+							
+							
+							<asc_sop/>
+							
+							
+							<asc_sat/>
+							
+							
+							<lut2/>
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Lavender</label2>
+							
+						
+						</labels>
+						
+					
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-21" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-3</masterclipid>
+						
+						
+						<name>251015_130803_Tr1.WAV</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>127800</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>70296</start>
+						
+						
+						<end>71095</end>
+						
+						
+						<in>95951</in>
+						
+						
+						<out>96750</out>
+						
+						
+						<pproTicksIn>813248743507200</pproTicksIn>
+						
+						
+						<pproTicksOut>820020801600000</pproTicksOut>
+						
+						
+						<file id="file-3">
+							</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<logginginfo>
+							
+							
+							<description/>
+							
+							
+							<scene/>
+							
+							
+							<shottake/>
+							
+							
+							<lognote/>
+							
+							
+							<good/>
+							
+							
+							<originalvideofilename/>
+							
+							
+							<originalaudiofilename/>
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut/>
+							
+							
+							<lut1/>
+							
+							
+							<asc_sop/>
+							
+							
+							<asc_sat/>
+							
+							
+							<lut2/>
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Caribbean</label2>
+							
+						
+						</labels>
+						
+					
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-22" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-3</masterclipid>
+						
+						
+						<name>251015_130803_Tr1.WAV</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>127800</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>71695</start>
+						
+						
+						<end>83411</end>
+						
+						
+						<in>96752</in>
+						
+						
+						<out>108468</out>
+						
+						
+						<pproTicksIn>820037752934400</pproTicksIn>
+						
+						
+						<pproTicksOut>919338669849600</pproTicksOut>
+						
+						
+						<file id="file-3">
+							</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<logginginfo>
+							
+							
+							<description/>
+							
+							
+							<scene/>
+							
+							
+							<shottake/>
+							
+							
+							<lognote/>
+							
+							
+							<good/>
+							
+							
+							<originalvideofilename/>
+							
+							
+							<originalaudiofilename/>
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut/>
+							
+							
+							<lut1/>
+							
+							
+							<asc_sop/>
+							
+							
+							<asc_sat/>
+							
+							
+							<lut2/>
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Lavender</label2>
+							
+						
+						</labels>
+						
+					
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-23" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-3</masterclipid>
+						
+						
+						<name>251015_130803_Tr1.WAV</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>127800</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>84011</start>
+						
+						
+						<end>89109</end>
+						
+						
+						<in>119747</in>
+						
+						
+						<out>124845</out>
+						
+						
+						<pproTicksIn>1014935720198400</pproTicksIn>
+						
+						
+						<pproTicksOut>1058144671584000</pproTicksOut>
+						
+						
+						<file id="file-3">
+							</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<logginginfo>
+							
+							
+							<description/>
+							
+							
+							<scene/>
+							
+							
+							<shottake/>
+							
+							
+							<lognote/>
+							
+							
+							<good/>
+							
+							
+							<originalvideofilename/>
+							
+							
+							<originalaudiofilename/>
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut/>
+							
+							
+							<lut1/>
+							
+							
+							<asc_sop/>
+							
+							
+							<asc_sat/>
+							
+							
+							<lut2/>
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Yellow</label2>
+							
+						
+						</labels>
+						
+					
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-24" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-3</masterclipid>
+						
+						
+						<name>251015_130803_Tr1.WAV</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>127800</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>89709</start>
+						
+						
+						<end>91197</end>
+						
+						
+						<in>126394</in>
+						
+						
+						<out>127882</out>
+						
+						
+						<pproTicksIn>1071273480076800</pproTicksIn>
+						
+						
+						<pproTicksOut>1083885272870400</pproTicksOut>
+						
+						
+						<file id="file-3">
+							</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<logginginfo>
+							
+							
+							<description/>
+							
+							
+							<scene/>
+							
+							
+							<shottake/>
+							
+							
+							<lognote/>
+							
+							
+							<good/>
+							
+							
+							<originalvideofilename/>
+							
+							
+							<originalaudiofilename/>
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut/>
+							
+							
+							<lut1/>
+							
+							
+							<asc_sop/>
+							
+							
+							<asc_sat/>
+							
+							
+							<lut2/>
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Mango</label2>
+							
+						
+						</labels>
+						
+					
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-25" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-3</masterclipid>
+						
+						
+						<name>251015_130803_Tr1.WAV</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>127800</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>91797</start>
+						
+						
+						<end>98364</end>
+						
+						
+						<in>127884</in>
+						
+						
+						<out>134451</out>
+						
+						
+						<pproTicksIn>1083902224204799</pproTicksIn>
+						
+						
+						<pproTicksOut>1139561930707200</pproTicksOut>
+						
+						
+						<file id="file-3">
+							</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<logginginfo>
+							
+							
+							<description/>
+							
+							
+							<scene/>
+							
+							
+							<shottake/>
+							
+							
+							<lognote/>
+							
+							
+							<good/>
+							
+							
+							<originalvideofilename/>
+							
+							
+							<originalaudiofilename/>
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut/>
+							
+							
+							<lut1/>
+							
+							
+							<asc_sop/>
+							
+							
+							<asc_sat/>
+							
+							
+							<lut2/>
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Rose</label2>
+							
+						
+						</labels>
+						
+					
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-26" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-3</masterclipid>
+						
+						
+						<name>251015_130803_Tr1.WAV</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>127800</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>98964</start>
+						
+						
+						<end>102444</end>
+						
+						
+						<in>134453</in>
+						
+						
+						<out>137933</out>
+						
+						
+						<pproTicksIn>1139578882041600</pproTicksIn>
+						
+						
+						<pproTicksOut>1169074203897600</pproTicksOut>
+						
+						
+						<file id="file-3">
+							</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<logginginfo>
+							
+							
+							<description/>
+							
+							
+							<scene/>
+							
+							
+							<shottake/>
+							
+							
+							<lognote/>
+							
+							
+							<good/>
+							
+							
+							<originalvideofilename/>
+							
+							
+							<originalaudiofilename/>
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut/>
+							
+							
+							<lut1/>
+							
+							
+							<asc_sop/>
+							
+							
+							<asc_sat/>
+							
+							
+							<lut2/>
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Violet</label2>
+							
+						
+						</labels>
+						
+					
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<enabled>TRUE</enabled>
+					<locked>FALSE</locked>
+					<outputchannelindex>1</outputchannelindex>
+				</track>
+				<track TL.SQTrackAudioKeyframeStyle="0" TL.SQTrackShy="0" TL.SQTrackExpandedHeight="41" TL.SQTrackExpanded="0" MZ.TrackTargeted="1" PannerCurrentValue="0.5" PannerIsInverted="true" PannerStartKeyframe="-91445760000000000,0.5,0,0,0,0,0,0" PannerName="Balance" currentExplodedTrackIndex="0" totalExplodedTrackCount="1" premiereTrackType="Stereo">
+					<clipitem id="clipitem-27" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-4</masterclipid>
+						
+						
+						<name>251015_130803_Tr3.wav</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>127800</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>149</start>
+						
+						
+						<end>1351</end>
+						
+						
+						<in>2400</in>
+						
+						
+						<out>3602</out>
+						
+						
+						<pproTicksIn>20341601280000</pproTicksIn>
+						
+						
+						<pproTicksOut>30529353254400</pproTicksOut>
+						
+						
+						<file id="file-4">
+							<name>251015_130803_Tr3.wav</name>
+							<pathurl>file://localhost/Volumes/P-40/Dropbox/%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8/01_%e3%83%95%e3%82%9a%e3%83%a9%e3%83%83%e3%81%a8%e7%b4%a0%e6%9d%90/025_%e6%9d%b1%e7%95%91%e6%b1%9f%e9%96%93/026_main/ZOOM/251015_130803/251015_130803_Tr3.wav</pathurl>
+							<rate>
+								
+								
+								<timebase>25</timebase>
+								
+								
+								<ntsc>FALSE</ntsc>
+								
+							
+							</rate>
+							<duration>127800</duration>
+							<timecode>
+								
+								
+								<rate>
+									
+									
+									<timebase>25</timebase>
+									
+									
+									<ntsc>FALSE</ntsc>
+									
+								
+								</rate>
+								
+								
+								<string>13:08:03:00</string>
+								
+								
+								<frame>1182075</frame>
+								
+								
+								<displayformat>NDF</displayformat>
+								
+							
+							</timecode>
+							<media>
+								
+								
+								<audio>
+									
+									
+									<samplecharacteristics>
+										
+										
+										<depth>16</depth>
+										
+										
+										<samplerate>48000</samplerate>
+										
+									
+									</samplecharacteristics>
+									
+									
+									<channelcount>1</channelcount>
+									
+									
+									<audiochannel>
+										
+										
+										<sourcechannel>1</sourcechannel>
+										
+									
+									</audiochannel>
+									
+								
+								</audio>
+								
+							
+							</media>
+						</file>
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<logginginfo>
+							
+							
+							<description/>
+							
+							
+							<scene/>
+							
+							
+							<shottake/>
+							
+							
+							<lognote/>
+							
+							
+							<good/>
+							
+							
+							<originalvideofilename/>
+							
+							
+							<originalaudiofilename/>
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut/>
+							
+							
+							<lut1/>
+							
+							
+							<asc_sop/>
+							
+							
+							<asc_sat/>
+							
+							
+							<lut2/>
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Violet</label2>
+							
+						
+						</labels>
+						
+					
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-28" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-4</masterclipid>
+						
+						
+						<name>251015_130803_Tr3.wav</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>127800</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>1951</start>
+						
+						
+						<end>3553</end>
+						
+						
+						<in>8813</in>
+						
+						
+						<out>10415</out>
+						
+						
+						<pproTicksIn>74696055033600</pproTicksIn>
+						
+						
+						<pproTicksOut>88274073888000</pproTicksOut>
+						
+						
+						<file id="file-4">
+							</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<logginginfo>
+							
+							
+							<description/>
+							
+							
+							<scene/>
+							
+							
+							<shottake/>
+							
+							
+							<lognote/>
+							
+							
+							<good/>
+							
+							
+							<originalvideofilename/>
+							
+							
+							<originalaudiofilename/>
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut/>
+							
+							
+							<lut1/>
+							
+							
+							<asc_sop/>
+							
+							
+							<asc_sat/>
+							
+							
+							<lut2/>
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Rose</label2>
+							
+						
+						</labels>
+						
+					
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-29" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-4</masterclipid>
+						
+						
+						<name>251015_130803_Tr3.wav</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>127800</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>4153</start>
+						
+						
+						<end>9374</end>
+						
+						
+						<in>14328</in>
+						
+						
+						<out>19549</out>
+						
+						
+						<pproTicksIn>121439359641600</pproTicksIn>
+						
+						
+						<pproTicksOut>165690818092800</pproTicksOut>
+						
+						
+						<file id="file-4">
+							</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<logginginfo>
+							
+							
+							<description/>
+							
+							
+							<scene/>
+							
+							
+							<shottake/>
+							
+							
+							<lognote/>
+							
+							
+							<good/>
+							
+							
+							<originalvideofilename/>
+							
+							
+							<originalaudiofilename/>
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut/>
+							
+							
+							<lut1/>
+							
+							
+							<asc_sop/>
+							
+							
+							<asc_sat/>
+							
+							
+							<lut2/>
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Mango</label2>
+							
+						
+						</labels>
+						
+					
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-30" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-4</masterclipid>
+						
+						
+						<name>251015_130803_Tr3.wav</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>127800</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>9974</start>
+						
+						
+						<end>14467</end>
+						
+						
+						<in>21176</in>
+						
+						
+						<out>25669</out>
+						
+						
+						<pproTicksIn>179480728627200</pproTicksIn>
+						
+						
+						<pproTicksOut>217561901356800</pproTicksOut>
+						
+						
+						<file id="file-4">
+							</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<logginginfo>
+							
+							
+							<description/>
+							
+							
+							<scene/>
+							
+							
+							<shottake/>
+							
+							
+							<lognote/>
+							
+							
+							<good/>
+							
+							
+							<originalvideofilename/>
+							
+							
+							<originalaudiofilename/>
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut/>
+							
+							
+							<lut1/>
+							
+							
+							<asc_sop/>
+							
+							
+							<asc_sat/>
+							
+							
+							<lut2/>
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Teal</label2>
+							
+						
+						</labels>
+						
+					
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-31" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-4</masterclipid>
+						
+						
+						<name>251015_130803_Tr3.wav</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>127800</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>15067</start>
+						
+						
+						<end>16473</end>
+						
+						
+						<in>29285</in>
+						
+						
+						<out>30691</out>
+						
+						
+						<pproTicksIn>248209913952000</pproTicksIn>
+						
+						
+						<pproTicksOut>260126702035200</pproTicksOut>
+						
+						
+						<file id="file-4">
+							</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<logginginfo>
+							
+							
+							<description/>
+							
+							
+							<scene/>
+							
+							
+							<shottake/>
+							
+							
+							<lognote/>
+							
+							
+							<good/>
+							
+							
+							<originalvideofilename/>
+							
+							
+							<originalaudiofilename/>
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut/>
+							
+							
+							<lut1/>
+							
+							
+							<asc_sop/>
+							
+							
+							<asc_sat/>
+							
+							
+							<lut2/>
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Purple</label2>
+							
+						
+						</labels>
+						
+					
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-32" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-4</masterclipid>
+						
+						
+						<name>251015_130803_Tr3.wav</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>127800</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>17073</start>
+						
+						
+						<end>21100</end>
+						
+						
+						<in>35851</in>
+						
+						
+						<out>39878</out>
+						
+						
+						<pproTicksIn>303861144787200</pproTicksIn>
+						
+						
+						<pproTicksOut>337992656601600</pproTicksOut>
+						
+						
+						<file id="file-4">
+							</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<logginginfo>
+							
+							
+							<description/>
+							
+							
+							<scene/>
+							
+							
+							<shottake/>
+							
+							
+							<lognote/>
+							
+							
+							<good/>
+							
+							
+							<originalvideofilename/>
+							
+							
+							<originalaudiofilename/>
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut/>
+							
+							
+							<lut1/>
+							
+							
+							<asc_sop/>
+							
+							
+							<asc_sat/>
+							
+							
+							<lut2/>
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Brown</label2>
+							
+						
+						</labels>
+						
+					
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-33" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-4</masterclipid>
+						
+						
+						<name>251015_130803_Tr3.wav</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>127800</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>21700</start>
+						
+						
+						<end>24212</end>
+						
+						
+						<in>39880</in>
+						
+						
+						<out>42392</out>
+						
+						
+						<pproTicksIn>338009607936000</pproTicksIn>
+						
+						
+						<pproTicksOut>359300483942400</pproTicksOut>
+						
+						
+						<file id="file-4">
+							</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<logginginfo>
+							
+							
+							<description/>
+							
+							
+							<scene/>
+							
+							
+							<shottake/>
+							
+							
+							<lognote/>
+							
+							
+							<good/>
+							
+							
+							<originalvideofilename/>
+							
+							
+							<originalaudiofilename/>
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut/>
+							
+							
+							<lut1/>
+							
+							
+							<asc_sop/>
+							
+							
+							<asc_sat/>
+							
+							
+							<lut2/>
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Iris</label2>
+							
+						
+						</labels>
+						
+					
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-34" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-4</masterclipid>
+						
+						
+						<name>251015_130803_Tr3.wav</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>127800</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>24812</start>
+						
+						
+						<end>27050</end>
+						
+						
+						<in>49035</in>
+						
+						
+						<out>51273</out>
+						
+						
+						<pproTicksIn>415604341152000</pproTicksIn>
+						
+						
+						<pproTicksOut>434572884345600</pproTicksOut>
+						
+						
+						<file id="file-4">
+							</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<logginginfo>
+							
+							
+							<description/>
+							
+							
+							<scene/>
+							
+							
+							<shottake/>
+							
+							
+							<lognote/>
+							
+							
+							<good/>
+							
+							
+							<originalvideofilename/>
+							
+							
+							<originalaudiofilename/>
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut/>
+							
+							
+							<lut1/>
+							
+							
+							<asc_sop/>
+							
+							
+							<asc_sat/>
+							
+							
+							<lut2/>
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Magenta</label2>
+							
+						
+						</labels>
+						
+					
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-35" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-4</masterclipid>
+						
+						
+						<name>251015_130803_Tr3.wav</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>127800</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>27650</start>
+						
+						
+						<end>30183</end>
+						
+						
+						<in>53863</in>
+						
+						
+						<out>56396</out>
+						
+						
+						<pproTicksIn>456524862393600</pproTicksIn>
+						
+						
+						<pproTicksOut>477993727411200</pproTicksOut>
+						
+						
+						<file id="file-4">
+							</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<logginginfo>
+							
+							
+							<description/>
+							
+							
+							<scene/>
+							
+							
+							<shottake/>
+							
+							
+							<lognote/>
+							
+							
+							<good/>
+							
+							
+							<originalvideofilename/>
+							
+							
+							<originalaudiofilename/>
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut/>
+							
+							
+							<lut1/>
+							
+							
+							<asc_sop/>
+							
+							
+							<asc_sat/>
+							
+							
+							<lut2/>
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Yellow</label2>
+							
+						
+						</labels>
+						
+					
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-36" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-4</masterclipid>
+						
+						
+						<name>251015_130803_Tr3.wav</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>127800</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>30783</start>
+						
+						
+						<end>33816</end>
+						
+						
+						<in>56398</in>
+						
+						
+						<out>59431</out>
+						
+						
+						<pproTicksIn>478010678745600</pproTicksIn>
+						
+						
+						<pproTicksOut>503717377363200</pproTicksOut>
+						
+						
+						<file id="file-4">
+							</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<logginginfo>
+							
+							
+							<description/>
+							
+							
+							<scene/>
+							
+							
+							<shottake/>
+							
+							
+							<lognote/>
+							
+							
+							<good/>
+							
+							
+							<originalvideofilename/>
+							
+							
+							<originalaudiofilename/>
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut/>
+							
+							
+							<lut1/>
+							
+							
+							<asc_sop/>
+							
+							
+							<asc_sat/>
+							
+							
+							<lut2/>
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Violet</label2>
+							
+						
+						</labels>
+						
+					
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-37" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-4</masterclipid>
+						
+						
+						<name>251015_130803_Tr3.wav</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>127800</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>34416</start>
+						
+						
+						<end>38379</end>
+						
+						
+						<in>59431</in>
+						
+						
+						<out>63394</out>
+						
+						
+						<pproTicksIn>503717377363200</pproTicksIn>
+						
+						
+						<pproTicksOut>537306446476799</pproTicksOut>
+						
+						
+						<file id="file-4">
+							</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<logginginfo>
+							
+							
+							<description/>
+							
+							
+							<scene/>
+							
+							
+							<shottake/>
+							
+							
+							<lognote/>
+							
+							
+							<good/>
+							
+							
+							<originalvideofilename/>
+							
+							
+							<originalaudiofilename/>
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut/>
+							
+							
+							<lut1/>
+							
+							
+							<asc_sop/>
+							
+							
+							<asc_sat/>
+							
+							
+							<lut2/>
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Rose</label2>
+							
+						
+						</labels>
+						
+					
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-38" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-4</masterclipid>
+						
+						
+						<name>251015_130803_Tr3.wav</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>127800</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>38979</start>
+						
+						
+						<end>46109</end>
+						
+						
+						<in>63396</in>
+						
+						
+						<out>70526</out>
+						
+						
+						<pproTicksIn>537323397811200</pproTicksIn>
+						
+						
+						<pproTicksOut>597754904947200</pproTicksOut>
+						
+						
+						<file id="file-4">
+							</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<logginginfo>
+							
+							
+							<description/>
+							
+							
+							<scene/>
+							
+							
+							<shottake/>
+							
+							
+							<lognote/>
+							
+							
+							<good/>
+							
+							
+							<originalvideofilename/>
+							
+							
+							<originalaudiofilename/>
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut/>
+							
+							
+							<lut1/>
+							
+							
+							<asc_sop/>
+							
+							
+							<asc_sat/>
+							
+							
+							<lut2/>
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Caribbean</label2>
+							
+						
+						</labels>
+						
+					
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-39" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-4</masterclipid>
+						
+						
+						<name>251015_130803_Tr3.wav</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>127800</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>46709</start>
+						
+						
+						<end>50789</end>
+						
+						
+						<in>74697</in>
+						
+						
+						<out>78777</out>
+						
+						
+						<pproTicksIn>633106912838400</pproTicksIn>
+						
+						
+						<pproTicksOut>667687635014400</pproTicksOut>
+						
+						
+						<file id="file-4">
+							</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<logginginfo>
+							
+							
+							<description/>
+							
+							
+							<scene/>
+							
+							
+							<shottake/>
+							
+							
+							<lognote/>
+							
+							
+							<good/>
+							
+							
+							<originalvideofilename/>
+							
+							
+							<originalaudiofilename/>
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut/>
+							
+							
+							<lut1/>
+							
+							
+							<asc_sop/>
+							
+							
+							<asc_sat/>
+							
+							
+							<lut2/>
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Blue</label2>
+							
+						
+						</labels>
+						
+					
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-40" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-4</masterclipid>
+						
+						
+						<name>251015_130803_Tr3.wav</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>127800</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>51389</start>
+						
+						
+						<end>56479</end>
+						
+						
+						<in>78782</in>
+						
+						
+						<out>83872</out>
+						
+						
+						<pproTicksIn>667730013350400</pproTicksIn>
+						
+						
+						<pproTicksOut>710871159398400</pproTicksOut>
+						
+						
+						<file id="file-4">
+							</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<logginginfo>
+							
+							
+							<description/>
+							
+							
+							<scene/>
+							
+							
+							<shottake/>
+							
+							
+							<lognote/>
+							
+							
+							<good/>
+							
+							
+							<originalvideofilename/>
+							
+							
+							<originalaudiofilename/>
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut/>
+							
+							
+							<lut1/>
+							
+							
+							<asc_sop/>
+							
+							
+							<asc_sat/>
+							
+							
+							<lut2/>
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Forest</label2>
+							
+						
+						</labels>
+						
+					
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-41" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-4</masterclipid>
+						
+						
+						<name>251015_130803_Tr3.wav</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>127800</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>57079</start>
+						
+						
+						<end>60183</end>
+						
+						
+						<in>83878</in>
+						
+						
+						<out>86982</out>
+						
+						
+						<pproTicksIn>710922013401600</pproTicksIn>
+						
+						
+						<pproTicksOut>737230484390400</pproTicksOut>
+						
+						
+						<file id="file-4">
+							</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<logginginfo>
+							
+							
+							<description/>
+							
+							
+							<scene/>
+							
+							
+							<shottake/>
+							
+							
+							<lognote/>
+							
+							
+							<good/>
+							
+							
+							<originalvideofilename/>
+							
+							
+							<originalaudiofilename/>
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut/>
+							
+							
+							<lut1/>
+							
+							
+							<asc_sop/>
+							
+							
+							<asc_sat/>
+							
+							
+							<lut2/>
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Tan</label2>
+							
+						
+						</labels>
+						
+					
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-42" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-4</masterclipid>
+						
+						
+						<name>251015_130803_Tr3.wav</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>127800</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>60783</start>
+						
+						
+						<end>69696</end>
+						
+						
+						<in>87036</in>
+						
+						
+						<out>95949</out>
+						
+						
+						<pproTicksIn>737688170419200</pproTicksIn>
+						
+						
+						<pproTicksOut>813231792172800</pproTicksOut>
+						
+						
+						<file id="file-4">
+							</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<logginginfo>
+							
+							
+							<description/>
+							
+							
+							<scene/>
+							
+							
+							<shottake/>
+							
+							
+							<lognote/>
+							
+							
+							<good/>
+							
+							
+							<originalvideofilename/>
+							
+							
+							<originalaudiofilename/>
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut/>
+							
+							
+							<lut1/>
+							
+							
+							<asc_sop/>
+							
+							
+							<asc_sat/>
+							
+							
+							<lut2/>
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Lavender</label2>
+							
+						
+						</labels>
+						
+					
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-43" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-4</masterclipid>
+						
+						
+						<name>251015_130803_Tr3.wav</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>127800</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>70296</start>
+						
+						
+						<end>71095</end>
+						
+						
+						<in>95951</in>
+						
+						
+						<out>96750</out>
+						
+						
+						<pproTicksIn>813248743507200</pproTicksIn>
+						
+						
+						<pproTicksOut>820020801600000</pproTicksOut>
+						
+						
+						<file id="file-4">
+							</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<logginginfo>
+							
+							
+							<description/>
+							
+							
+							<scene/>
+							
+							
+							<shottake/>
+							
+							
+							<lognote/>
+							
+							
+							<good/>
+							
+							
+							<originalvideofilename/>
+							
+							
+							<originalaudiofilename/>
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut/>
+							
+							
+							<lut1/>
+							
+							
+							<asc_sop/>
+							
+							
+							<asc_sat/>
+							
+							
+							<lut2/>
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Caribbean</label2>
+							
+						
+						</labels>
+						
+					
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-44" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-4</masterclipid>
+						
+						
+						<name>251015_130803_Tr3.wav</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>127800</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>71695</start>
+						
+						
+						<end>83411</end>
+						
+						
+						<in>96752</in>
+						
+						
+						<out>108468</out>
+						
+						
+						<pproTicksIn>820037752934400</pproTicksIn>
+						
+						
+						<pproTicksOut>919338669849600</pproTicksOut>
+						
+						
+						<file id="file-4">
+							</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<logginginfo>
+							
+							
+							<description/>
+							
+							
+							<scene/>
+							
+							
+							<shottake/>
+							
+							
+							<lognote/>
+							
+							
+							<good/>
+							
+							
+							<originalvideofilename/>
+							
+							
+							<originalaudiofilename/>
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut/>
+							
+							
+							<lut1/>
+							
+							
+							<asc_sop/>
+							
+							
+							<asc_sat/>
+							
+							
+							<lut2/>
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Lavender</label2>
+							
+						
+						</labels>
+						
+					
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-45" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-4</masterclipid>
+						
+						
+						<name>251015_130803_Tr3.wav</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>127800</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>84011</start>
+						
+						
+						<end>89109</end>
+						
+						
+						<in>119747</in>
+						
+						
+						<out>124845</out>
+						
+						
+						<pproTicksIn>1014935720198400</pproTicksIn>
+						
+						
+						<pproTicksOut>1058144671584000</pproTicksOut>
+						
+						
+						<file id="file-4">
+							</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<logginginfo>
+							
+							
+							<description/>
+							
+							
+							<scene/>
+							
+							
+							<shottake/>
+							
+							
+							<lognote/>
+							
+							
+							<good/>
+							
+							
+							<originalvideofilename/>
+							
+							
+							<originalaudiofilename/>
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut/>
+							
+							
+							<lut1/>
+							
+							
+							<asc_sop/>
+							
+							
+							<asc_sat/>
+							
+							
+							<lut2/>
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Yellow</label2>
+							
+						
+						</labels>
+						
+					
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-46" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-4</masterclipid>
+						
+						
+						<name>251015_130803_Tr3.wav</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>127800</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>89709</start>
+						
+						
+						<end>91197</end>
+						
+						
+						<in>126394</in>
+						
+						
+						<out>127882</out>
+						
+						
+						<pproTicksIn>1071273480076800</pproTicksIn>
+						
+						
+						<pproTicksOut>1083885272870400</pproTicksOut>
+						
+						
+						<file id="file-4">
+							</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<logginginfo>
+							
+							
+							<description/>
+							
+							
+							<scene/>
+							
+							
+							<shottake/>
+							
+							
+							<lognote/>
+							
+							
+							<good/>
+							
+							
+							<originalvideofilename/>
+							
+							
+							<originalaudiofilename/>
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut/>
+							
+							
+							<lut1/>
+							
+							
+							<asc_sop/>
+							
+							
+							<asc_sat/>
+							
+							
+							<lut2/>
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Mango</label2>
+							
+						
+						</labels>
+						
+					
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-47" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-4</masterclipid>
+						
+						
+						<name>251015_130803_Tr3.wav</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>127800</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>91797</start>
+						
+						
+						<end>98364</end>
+						
+						
+						<in>127884</in>
+						
+						
+						<out>134451</out>
+						
+						
+						<pproTicksIn>1083902224204799</pproTicksIn>
+						
+						
+						<pproTicksOut>1139561930707200</pproTicksOut>
+						
+						
+						<file id="file-4">
+							</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<logginginfo>
+							
+							
+							<description/>
+							
+							
+							<scene/>
+							
+							
+							<shottake/>
+							
+							
+							<lognote/>
+							
+							
+							<good/>
+							
+							
+							<originalvideofilename/>
+							
+							
+							<originalaudiofilename/>
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut/>
+							
+							
+							<lut1/>
+							
+							
+							<asc_sop/>
+							
+							
+							<asc_sat/>
+							
+							
+							<lut2/>
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Rose</label2>
+							
+						
+						</labels>
+						
+					
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<clipitem id="clipitem-48" premiereChannelType="mono">
+						
+						
+						<masterclipid>masterclip-4</masterclipid>
+						
+						
+						<name>251015_130803_Tr3.wav</name>
+						
+						
+						<enabled>TRUE</enabled>
+						
+						
+						<duration>127800</duration>
+						
+						
+						<rate>
+							
+							
+							<timebase>30</timebase>
+							
+							
+							<ntsc>TRUE</ntsc>
+							
+						
+						</rate>
+						
+						
+						<start>98964</start>
+						
+						
+						<end>102444</end>
+						
+						
+						<in>134453</in>
+						
+						
+						<out>137933</out>
+						
+						
+						<pproTicksIn>1139578882041600</pproTicksIn>
+						
+						
+						<pproTicksOut>1169074203897600</pproTicksOut>
+						
+						
+						<file id="file-4">
+							</file>
+						
+						
+						<sourcetrack>
+							
+							
+							<mediatype>audio</mediatype>
+							
+							
+							<trackindex>1</trackindex>
+							
+						
+						</sourcetrack>
+						
+						
+						<logginginfo>
+							
+							
+							<description/>
+							
+							
+							<scene/>
+							
+							
+							<shottake/>
+							
+							
+							<lognote/>
+							
+							
+							<good/>
+							
+							
+							<originalvideofilename/>
+							
+							
+							<originalaudiofilename/>
+							
+						
+						</logginginfo>
+						
+						
+						<colorinfo>
+							
+							
+							<lut/>
+							
+							
+							<lut1/>
+							
+							
+							<asc_sop/>
+							
+							
+							<asc_sat/>
+							
+							
+							<lut2/>
+							
+						
+						</colorinfo>
+						
+						
+						<labels>
+							
+							
+							<label2>Violet</label2>
+							
+						
+						</labels>
+						
+					
+						<sourcetrack>
+							<mediatype>audio</mediatype>
+							<trackindex>1</trackindex>
+						</sourcetrack>
+					</clipitem>
+					<enabled>TRUE</enabled>
+					<locked>FALSE</locked>
+					<outputchannelindex>2</outputchannelindex>
+				</track>
+				<track TL.SQTrackAudioKeyframeStyle="0" TL.SQTrackShy="0" TL.SQTrackExpandedHeight="41" TL.SQTrackExpanded="0" MZ.TrackTargeted="1" PannerCurrentValue="0.5" PannerIsInverted="true" PannerStartKeyframe="-91445760000000000,0.5,0,0,0,0,0,0" PannerName="Balance" currentExplodedTrackIndex="0" totalExplodedTrackCount="2" premiereTrackType="Stereo">
+					
+					
+					<enabled>TRUE</enabled>
+					
+					
+					<locked>FALSE</locked>
+					
+					
+					<outputchannelindex>1</outputchannelindex>
+					
+				
+				</track>
+				<track TL.SQTrackAudioKeyframeStyle="0" TL.SQTrackShy="0" TL.SQTrackExpandedHeight="41" TL.SQTrackExpanded="0" MZ.TrackTargeted="1" PannerCurrentValue="0.5" PannerIsInverted="true" PannerStartKeyframe="-91445760000000000,0.5,0,0,0,0,0,0" PannerName="Balance" currentExplodedTrackIndex="1" totalExplodedTrackCount="2" premiereTrackType="Stereo">
+					
+					
+					<enabled>TRUE</enabled>
+					
+					
+					<locked>FALSE</locked>
+					
+					
+					<outputchannelindex>2</outputchannelindex>
+					
+				
+				</track>
+				<track TL.SQTrackAudioKeyframeStyle="0" TL.SQTrackShy="0" TL.SQTrackExpandedHeight="41" TL.SQTrackExpanded="0" MZ.TrackTargeted="1" PannerCurrentValue="0.5" PannerIsInverted="true" PannerStartKeyframe="-91445760000000000,0.5,0,0,0,0,0,0" PannerName="Balance" currentExplodedTrackIndex="0" totalExplodedTrackCount="2" premiereTrackType="Stereo">
+					
+					
+					<enabled>TRUE</enabled>
+					
+					
+					<locked>FALSE</locked>
+					
+					
+					<outputchannelindex>1</outputchannelindex>
+					
+				
+				</track>
+				<track TL.SQTrackAudioKeyframeStyle="0" TL.SQTrackShy="0" TL.SQTrackExpandedHeight="41" TL.SQTrackExpanded="0" MZ.TrackTargeted="1" PannerCurrentValue="0.5" PannerIsInverted="true" PannerStartKeyframe="-91445760000000000,0.5,0,0,0,0,0,0" PannerName="Balance" currentExplodedTrackIndex="1" totalExplodedTrackCount="2" premiereTrackType="Stereo">
+					
+					
+					<enabled>TRUE</enabled>
+					
+					
+					<locked>FALSE</locked>
+					
+					
+					<outputchannelindex>2</outputchannelindex>
+					
+				
+				</track>
+			</audio>
+		</media>
+	</sequence>
+</xmeml>

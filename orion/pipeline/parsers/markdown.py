@@ -11,6 +11,8 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import List, Optional
 
+import yaml
+
 
 @dataclass
 class NarrationSegment:
@@ -124,6 +126,55 @@ def parse_narration_file(path: Path) -> List[NarrationSegment]:
         return parse_narration_markdown(content)
     except ValueError as e:
         raise ValueError(f"Failed to parse {path.name}: {e}")
+
+
+def parse_narration_yaml(path: Path) -> List[NarrationSegment]:
+    """Parse narration YAML (ep{N}nare.yaml) into segments.
+
+    Args:
+        path: Path to YAML file
+
+    Returns:
+        List of NarrationSegment objects
+    """
+    if not path.exists():
+        raise FileNotFoundError(f"Narration YAML not found: {path}")
+
+    try:
+        data = yaml.safe_load(path.read_text(encoding="utf-8"))
+    except yaml.YAMLError as exc:
+        raise ValueError(f"Failed to parse YAML: {path}") from exc
+
+    segments_data = (
+        data.get("gemini_tts", {}).get("segments", [])
+        if isinstance(data, dict)
+        else []
+    )
+
+    if not segments_data:
+        raise ValueError(f"No segments found in narration YAML: {path.name}")
+
+    segments: List[NarrationSegment] = []
+
+    for index, entry in enumerate(segments_data, start=1):
+        if not isinstance(entry, dict):
+            raise ValueError(f"Invalid YAML segment #{index} in {path.name}")
+
+        text = entry.get("text")
+        if not text or not str(text).strip():
+            raise ValueError(f"Segment #{index} has empty text in {path.name}")
+
+        speaker = entry.get("speaker") or "ナレーター"
+
+        segments.append(
+            NarrationSegment(
+                index=index,
+                text=str(text).strip(),
+                speaker=str(speaker)
+            )
+        )
+
+    return segments
 
 
 def parse_script_section_markers(script_path: Path) -> List[int]:

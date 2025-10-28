@@ -110,12 +110,14 @@ def _save_mp3(pcm_data: bytes, output_path: Path) -> None:
 
 def synthesize_segments(segment_ids: Iterable[int], *, output_dir: Path, csv_path: Path) -> None:
     if not os.getenv("TTS_CONFIG_PATHS"):
-        os.environ["TTS_CONFIG_PATHS"] = ",".join(
-            [
-                "experiments/tts_config/global.yaml",
-                "projects/OrionEp7/inputs/orionep7_tts.yaml",
-            ]
-        )
+        default_paths = [
+            "orion/config/global.yaml",
+            "projects/OrionEp7/inputs/orionep7_tts.yaml",
+        ]
+        legacy_path = Path("experiments/tts_config/global.yaml")
+        if legacy_path.exists():
+            default_paths.insert(1, "experiments/tts_config/global.yaml")
+        os.environ["TTS_CONFIG_PATHS"] = ",".join(default_paths)
     config = load_tts_config()
     raw_config = config.raw.get("google_tts", {}) if isinstance(config.raw, dict) else {}
     gemini_settings = raw_config.get("gemini_dialogue", {}) if isinstance(raw_config, dict) else {}

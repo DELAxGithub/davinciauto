@@ -1,0 +1,352 @@
+gemini_tts:
+  segments:
+  - speaker: ナレーター
+    voice: kore
+    text: MBA取得後、かえって決断できなくなったという経験はありませんか？
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 知識は光なのか、それとも新たな闇を生むのか？
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: ようこそ、オリオンの会議室へ。今夜のテーマは「知れば知るほど分からない」。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 古今東西の叡智を星座のように結び、現代の悩みに新しい視座を見つける8分間。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 今夜結ぶ星々——
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 毎日同じ時刻に散歩しながら人間理性の限界を証明した哲学者、
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 命がけで天竺から持ち帰った「すべては識に過ぎない」という教え、
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: そして専門家ほど予測を外すことを実証したノーベル賞心理学者が、
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 知識が増えるほど深まる謎という逆説の物語を紡ぎ始めます。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 月曜日の経営会議。新規事業への投資判断。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: 部長
+    voice: gacrux
+    text: 「山田さん、MBAの知見を活かした分析をお願いします」
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 3週間の徹夜。100ページの資料。でも——
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: 山田
+    voice: charon
+    text: 「データを分析すればするほど...リスクも機会も、両方見えてきて...」
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 以前なら直感で「GO」と言えた。でも今は、知っていることが多すぎて、かえって霧の中。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 隣の部署の後輩は、さっさと決めて進んでいる。知識が少ない方が、むしろ前に進めるなんて。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 18世紀のドイツ、ケーニヒスベルク。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 毎日同じ時刻に散歩をする哲学者、イマヌエル・カント。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 町の人々は彼の散歩で時計を合わせたという。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 「私の心を満たす二つのもの——上なる星空と、内なる道徳法則。」
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 彼は気づいた。どんなに天文学が発達しても、私たちは「人間の目」を通してしか星空を見られない。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 『純粋理性批判』での結論は衝撃的でした。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 「私は知識を停止せねばならなかった——信仰に余地を与えるために。」
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: （原文）“Ich mußte also das Wissen aufheben, um zum Glauben Platz zu bekommen.”
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 【テロップ】カント『純粋理性批判』第2版序文 Bxxx（1787）
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 私たちが知りうるのは「現象」だけ。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 「物自体」——ものそのものの姿は、永遠に不可知。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: このコーヒーカップも、人間には茶色に、コウモリには超音波で、蛇には赤外線でまったく違う姿に「見えて」いる。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: では、どれが「本当の」姿なのか？
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 「理性を制限して、信仰に余地を与えた」
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 知識の限界を知ることこそが、真の知恵の始まりだと。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 時を同じくして、まったく違う場所でも、似た洞察が深められていました。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 7世紀、玄奘三蔵は、砂漠を越え、雪山を登り、盗賊に襲われながらも、17年かけてインドから仏典を持ち帰りました。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: その中核にあったのが「唯識」——ただ識のみ、という教え。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: 玄奘
+    voice: gacrux
+    text: 「山河大地、日月星辰、すべては阿頼耶識より生ず」
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 私たちが「現実」と呼ぶものは、すべて意識が作り出した表象に過ぎない。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 外界そのものは、誰も直接知ることはできない。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 驚くべきことに、これはカントの「現象と物自体」とほぼ同じ構造。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 西洋は論理の果てに、東洋は瞑想の深みで、それぞれ同じ真理にたどり着いていたのです。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 20世紀後半、行動経済学の創始者ともされる
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 行動経済学の創始者ともされる心理学者ダニエル・カーネマンが衝撃的な実験を行いました。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 投資のプロ25人と素人25人に、同じ企業データで株価予測をしてもらう。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 結果は？ 専門家の的中率47%、素人45%。統計的に有意な差なし。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: しかも専門家たちは自分の予測に78%の確信を持っていました。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: カーネマン
+    voice: gacrux
+    text: 「知識は予測精度を上げない。むしろ根拠のない自信を生む」
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: これを「知識の呪い」と名付け、ノーベル賞を受賞。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 100の変数を知っていれば、どんな結論も「論理的に」導けてしまう罠。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: では、どうすればいいのか。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: カントも玄奘も、知識を捨てろとは言いません。ただ、その限界を自覚せよと。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 完璧な地図はない。でも、地図が不完全だと知っている方が、柔軟に修正できる。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 興味深いことに、シリコンバレーの成功企業の多くが「リーン・スタートアップ」という手法を採用しています。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 最小限の仮説で始めて、素早く学習し、軌道修正する。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: これはまさに、知識の不完全性を前提とした経営哲学。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: MBAで学んだフレームワークも、市場分析の手法も、無駄ではありません。た
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: だ、それらを「仮説」として扱えるかどうか。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: カーネマンは言います。「自信度60%くらいがちょうどいい」と。確信しすぎず、かといって諦めもしない。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: その絶妙なバランスの中に、真の知性が宿る。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 次の経営会議。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: 山田
+    voice: charon
+    text: 「分析の限界を認めた上で、小さく始めて、学びながら進むことを提案します。最初の3ヶ月はテスト期間として」
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: 部長
+    voice: gacrux
+    text: 「知らないことを知っている、か...」
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: 山田
+    voice: charon
+    text: 「はい。だからこそ、市場の声に耳を傾けながら、柔軟に方向を変えられます」
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 不確実性を前提にした新しい経営。それは敗北ではなく、誠実さの表れ。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: むしろ、すべてを知っているふりをする方が、危険な賭けなのかもしれません。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: ことを提案します」
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 不確実性を前提にした新しい経営。それは敗北ではなく、誠実さの表れ。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 夜空を見上げると、オリオン座が輝いています。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 18世紀のドイツ、7世紀の中国、20世紀のイスラエル。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 時代も場所も違う知の探求者たちが、同じ真理を指し示している。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 知識の星座は、見る人によって違う物語を紡ぎます。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 明日、また膨大なデータと向き合う時、「分からない」ことは恥ではなく、
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.
+  - speaker: ナレーター
+    voice: kore
+    text: 人間であることの証だと思い出してください。
+    style_prompt: Speak with intellectual depth and documentary-style narration, calm
+      and authoritative.

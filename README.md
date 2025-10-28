@@ -32,8 +32,13 @@ davinciauto/
 │   ├── WORKFLOW.md             # 完全マニュアル
 │   └── README.md               # パイプライン詳細
 │
-├── projects/                   # プロジェクトデータ（全エピソード）
-│   ├── OrionEp12/              # EP12（ゴールデンリファレンス）
+├── premiere/                   # Premiere オートカット一式
+│   ├── nle_autoedit/           # CSV→FCPXML コアロジックと仕様
+│   ├── projects/               # エピソード別素材
+│   └── tools/                  # Google Sheets / Python ツール
+│
+├── projects/                   # Orion パイプラインの旧配置（整理中）
+│   ├── OrionEp12/
 │   ├── OrionEp13/
 │   └── ...
 │

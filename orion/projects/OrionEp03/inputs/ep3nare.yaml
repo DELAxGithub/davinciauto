@@ -1,0 +1,337 @@
+gemini_tts:
+  segments:
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        炎上プロジェクトの<sub alias="しゅらば">修羅場</sub>で なぜか静かにコーヒーを飲んでいる上司を見たことはありませんか？<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        その揺るがない強さは 諦めなのか それとも戦略なのか？<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        ようこそ オリオンの会議室へ<break time="600ms"/> 今夜のテーマは<break time="120ms"/>「<break time="30ms"/>動じない力<break time="30ms"/>」<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        古今東西の<sub alias="えいち">叡智</sub>を星座のように結び 現代の悩みに新しい視座を見つける<sub alias="はっぷん">8分</sub>間<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        今夜結ぶ星々——<break time="3000ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        戦場で日記を書き続けた皇帝哲学者<break time="600ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        <break time="120ms"/>「<break time="30ms"/>水のように柔らかく しかし岩をも穿つ<break time="30ms"/>」<break time="120ms"/>と説いた東洋の賢者<break time="600ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        感情に振り回されない理性の鎧を説いた古代の哲学派<break time="600ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        そして病床で<break time="120ms"/>「<break time="30ms"/>すべてを愛せ<break time="30ms"/>」<break time="120ms"/>と微笑んだ孤独な思想家が<break time="600ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        嵐の中でも揺るがない心の物語を紡ぎ始めます<break time="3000ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        納期まであと<sub alias="みっか">3日</sub><break time="600ms"/> 仕様変更 バグ クライアントからの無理難題<break time="600ms"/> まさに炎上プロジェクトの真っ只中<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        でも ふと気づいたんです<break time="600ms"/> 部長だけが なぜか落ち着いている<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: 部長
+      voice: gacrux
+      text: >
+        まあ 座って<break time="800ms"/>
+      style_prompt: "Speak calmly and with quiet confidence, like a seasoned manager who has seen it all."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        嵐の中で揺るがない岩のように ただ静かにコーヒーを飲んでいる<break time="600ms"/> その姿を見て 私は思い出しました<break time="600ms"/> 部長のデスクにいつも置かれている あの古びた文庫本のことを<break time="3000ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        時は<sub alias="にせんねんまえ">2000年前</sub> ローマ帝国<break time="600ms"/> 当時最大級の版図を誇る帝国の頂点に 一人の哲学者皇帝がいました<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        マルクス・アウレリウス・アントニヌス<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        昼は蛮族との戦い 疫病への対処 元老院との駆け引き<break time="600ms"/> 夜はテントの中で ろうそくの灯りを頼りに日記を書く<break time="600ms"/> 後に<break time="120ms"/>『<break time="30ms"/>自省録<break time="30ms"/>』<break time="120ms"/>と呼ばれることになる 自分自身との対話<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: マルクス・アウレリウス
+      voice: gacrux
+      text: >
+        私たちがコントロールできるのは 自分の心だけだ<break time="600ms"/> 外的な出来事ではない<break time="800ms"/>
+      style_prompt: "Speak with serene wisdom and philosophical gravitas, as if writing in a tent on the battlefield."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        戦場で書かれたこの言葉が なぜ現代のオフィスで甦るのでしょうか<break time="3000ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        <sub alias="きげんぜんさんせいき">紀元前3世紀</sub>のアテネ<break time="600ms"/> 石柱の並ぶ回廊では ストア派の哲学者たちが静かに語り合っていました<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        <break time="120ms"/>「<break time="30ms"/>ストイック<break time="30ms"/>」<break time="120ms"/>の語源となったその思想が向き合っていたのは 一つの問いです<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        <break time="120ms"/>「<break time="30ms"/>何が自分の力の及ぶ範囲で 何がそうでないか<break time="30ms"/>」<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        私たちは日々 コントロールできないことに心を乱されています<break time="600ms"/> 上司の機嫌 クライアントの要求 市場の変動 他人の評価<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        でも 本当にコントロールできるものは何でしょう？<break time="600ms"/> それは 自分の判断 自分の選択 自分の行動<break time="600ms"/> ただそれだけ<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        ストア派の哲学者たちは 外的な嵐に内的な静けさで応じる技術を磨きました<break time="600ms"/> 彼らはこの境地を<break time="120ms"/>「<break time="30ms"/>アパテイア<break time="30ms"/>」<break time="120ms"/>と呼びました<break time="600ms"/> それは無感動ではなく 揺るがない内なる平静です<break time="3000ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        興味深いことに 地球の反対側でも これと響き合う<sub alias="ちえ">智慧</sub>が生まれていました<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        古代インド <sub alias="きげんぜんよんせいき">紀元前4世紀</sub>から<sub alias="きげんごよんせいき">紀元後4世紀</sub>頃に成立したとされる<break time="120ms"/>『<break time="30ms"/>バガヴァッド・ギーター<break time="30ms"/>』<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        戦場で戦うことを躊躇する王子アルジュナに クリシュナ神が説いた教え<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: クリシュナ
+      voice: kore
+      text: >
+        汝の職務は行為そのものにあり 決してその結果にはない<break time="600ms"/> 行為の結果を動機としてはならない<break time="800ms"/>
+      style_prompt: "Speak with divine wisdom and calm authority, as if imparting sacred knowledge."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        これは無責任ではありません<break time="600ms"/> 結果への執着が かえって最善の行動を妨げるという洞察です<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        全力を尽くしながら 結果には執着しない<break time="600ms"/> この<break time="120ms"/>「<break time="30ms"/>カルマ・ヨーガ<break time="30ms"/>」<break time="120ms"/>の教えは ストア派の思想と美しく共鳴します<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        どちらも 自分がコントロールできること——つまり自分の行為——に集中し コントロールできない結果は 宇宙の摂理に委ねる<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        西洋の理性と東洋の献身<break time="600ms"/> アプローチは違えど 揺るがない内なる平静への道を示しています<break time="3000ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        そして<sub alias="にじゅういっせいき">21世紀</sub><break time="600ms"/> 最新の脳科学が 古代の<sub alias="ちえ">智慧</sub>を証明し始めました<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        エフエムアールアイで脳を観察すると 興味深いことがわかります<break time="600ms"/> コントロールできないことを<break time="120ms"/>「<break time="30ms"/>できない<break time="30ms"/>」<break time="120ms"/>と認識した瞬間 前頭前皮質の過剰な活動が収まり 扁桃体の興奮も鎮まっていく<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        認知的再評価<break time="600ms"/> 現代心理学が名付けたこの現象は まさにストア派が<sub alias="にせんねんまえ">2000年前</sub>に実践していたことでした<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        でも ここで重要な問いが生まれます<break time="600ms"/> <break time="120ms"/>「<break time="30ms"/>受け入れる<break time="30ms"/>」<break time="120ms"/>と<break time="120ms"/>「<break time="30ms"/>諦める<break time="30ms"/>」<break time="120ms"/>は どう違うのでしょうか？<break time="3000ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        <sub alias="じゅうきゅうせいき">19世紀</sub>のドイツ<break time="600ms"/> 激しい頭痛に苦しみながら アルプスの山小屋で思索を続ける一人の哲学者がいました<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        フリードリヒ・ニーチェは生涯 病気と貧困に苦しめられました<break time="600ms"/> 愛する人との関係に苦しみ 同時代の人々には十分に理解されず 晩年は精神的な病に苦しみました<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        でも その苦しみの中で 彼は驚くべき思想に辿り着きました<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ニーチェ
+      voice: gacrux
+      text: >
+        運命愛——私の公式はこうだ<break time="600ms"/> 人生から何も取り去ろうとせず 必然を愛することだ<break time="800ms"/>
+      style_prompt: "Speak with passionate conviction and fierce affirmation of life, despite suffering."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        彼はこれを<break time="120ms"/>「<break time="30ms"/>アモール・ファーティ<break time="30ms"/>」<break time="120ms"/>と名付けました<break time="600ms"/> 起こったことを単に受け入れるのではなく それを愛する<break time="600ms"/> 苦しみさえも 私たちを作る大切な要素として抱きしめる<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        これはストア派の静かな受容を さらに一歩進めた思想でした<break time="600ms"/> 諦めではなく 究極の肯定です<break time="3000ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        あの部長の静けさの秘密が 少しずつ見えてきました<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        彼は諦めているのではない<break time="600ms"/> 彼は 自分にできることと できないことの境界線を 正確に知っている<break time="600ms"/> そして——もしかしたら この炎上プロジェクトさえも チームを鍛える機会として 密かに愛しているのかもしれない<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        これは逃避ではなく 戦略的な<sub alias="ちえ">智慧</sub><break time="600ms"/> 限られたエネルギーを 最も効果的な場所に集中させながら 起こる全てを成長の糧にする技術<break time="3000ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        プロジェクトは なんとか納期に間に合いました<break time="600ms"/> 完璧ではなかったけれど 私たちにできる最善を尽くした<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        疲れ切った顔の中に ある種の充実感が漂っています<break time="600ms"/> それは単に仕事を終えた安堵感とは違う もっと深いところから湧き上がる静かな満足感でした<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: マルクス・アウレリウス
+      voice: gacrux
+      text: >
+        未来に心を乱されるな<break time="600ms"/> 今日を生き抜いている理性が 未来にも通じる<break time="800ms"/>
+      style_prompt: "Speak with serene wisdom and philosophical gravitas, as if writing in a tent on the battlefield."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        <sub alias="にせんねんまえ">2000年前</sub> ドナウ河畔の陣営で 疫病と蛮族に囲まれながら書かれた言葉<break time="600ms"/> それが今 東京のオフィスビルで 私たちの心に響いています<break time="3000ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        夜空を見上げると オリオン座が輝いています<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        古代ギリシャ 中国 ローマ——時代を超えて 同じ星を指差している<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        変えられないものを受け入れる勇気 変えられるものを変える知恵 その違いを見分ける明晰さ<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        どんな時代の知恵も 今この瞬間のあなたのために輝いている<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        知識の星座は 見る人によって違う物語を紡ぎます<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        明日もまた困難が待っているでしょう<break time="600ms"/> でも今度は <sub alias="にせんねんぶん">2000年分</sub>の<sub alias="ちえ">智慧</sub>を道連れに
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."

@@ -7,7 +7,8 @@
 - backend: FastAPI エンドポイント、MCP 連携、Azure Speech ベースのTTS API
 - gui_steps: 既存 GUI（統合 UI、ステップ別 GUI）
 - minivt_pipeline: 旧パイプライン（utils/clients 資産）
-- projects: 各種ユーティリティ（autocut 等）、プロジェクト単位の素材
+- premiere: Premiere オートカット（CSV→FCPXML）関連一式
+- projects: Orion 系エピソード素材（将来的に `orion/projects` へ集約予定）
 - prompts: LLM プロンプト
 - docs: ドキュメント（本ファイル含む）
 - scripts: 補助スクリプト（repo_tree など）
@@ -41,8 +42,9 @@ gui_steps/
   step*_*.py         # ステップ別 GUI
 minivt_pipeline/
   src/               # 旧パイプライン、utils/clients
-projects/
-  autocut/           # CSV/XML カッター、Premiere/Resolve 支援
+premiere/
+  nle_autoedit/      # CSV→FCPXML コアロジックと仕様
+  projects/          # Premiere オートカット用エピソード素材
 prompts/
 docs/
 scripts/

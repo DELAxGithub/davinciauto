@@ -14,15 +14,20 @@ import sys
 from pathlib import Path
 
 import yaml
+from dotenv import load_dotenv
 
+# Load .env from repository root (davinciauto/)
 REPO_ROOT = Path(__file__).resolve().parent
-SCRIPTS_DIR = REPO_ROOT.parent / "scripts"
-EXPERIMENTS_DIR = REPO_ROOT.parent / "experiments"
+ENV_FILE = REPO_ROOT.parent / ".env"
+if ENV_FILE.exists():
+    load_dotenv(ENV_FILE, override=True)  # Override existing env vars
 
-# Add to path
-for path in [SCRIPTS_DIR, EXPERIMENTS_DIR]:
-    if str(path) not in sys.path:
-        sys.path.insert(0, str(path))
+PIPELINE_DIR = REPO_ROOT / "pipeline"
+ENGINES_DIR = PIPELINE_DIR / "engines"
+
+# Add pipeline/engines to path
+if str(ENGINES_DIR) not in sys.path:
+    sys.path.insert(0, str(ENGINES_DIR))
 
 from tts_config_loader import load_merged_tts_config  # type: ignore  # noqa: E402
 from orion_tts_generator import OrionTTSGenerator  # type: ignore  # noqa: E402
@@ -31,8 +36,32 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(me
 logger = logging.getLogger(__name__)
 
 
+def load_md_segments(md_path: Path, limit: int | None = None) -> list[str]:
+    """Load plain text lines from MD file.
+
+    Args:
+        md_path: Path to MD file (e.g., ep1nare.md)
+        limit: Maximum number of lines to load (None = all)
+
+    Returns:
+        List of plain text strings (1 line = 1 segment)
+    """
+    with md_path.open(encoding="utf-8") as f:
+        lines = [line.strip() for line in f if line.strip()]
+
+    logger.info("Total lines in MD: %d", len(lines))
+
+    if limit and limit < len(lines):
+        logger.info("Loading first %d lines (limit specified)", limit)
+        lines = lines[:limit]
+    else:
+        logger.info("Loading all %d lines", len(lines))
+
+    return lines
+
+
 def load_yaml_segments(yaml_path: Path, limit: int | None = None) -> list[dict]:
-    """Load segments from YAML file.
+    """Load segments from YAML file (complete with SSML and settings).
 
     Args:
         yaml_path: Path to YAML file (e.g., ep12nare.yaml)
@@ -56,6 +85,82 @@ def load_yaml_segments(yaml_path: Path, limit: int | None = None) -> list[dict]:
 
     logger.info("Loading all %d segments", len(segments))
     return segments
+
+
+def extract_ssml_tags(yaml_text: str) -> dict[str, str]:
+    """Extract SSML tags from YAML text.
+
+    Args:
+        yaml_text: Text from YAML containing SSML tags
+
+    Returns:
+        Dictionary mapping positions to SSML tags
+        Example: {0: '<break time="1500ms"/>', 10: '<sub alias="おりおん">'}
+    """
+    import re
+
+    # Find <sub> tags
+    sub_pattern = r'<sub alias=[\'"]([^\'"]+)[\'"]>([^<]+)</sub>'
+    # Find <break> tags
+    break_pattern = r'<break time=[\'"]([^\'"]+)[\'"]/>'
+
+    tags = {}
+    for match in re.finditer(sub_pattern, yaml_text):
+        tags[match.start()] = (match.group(0), match.group(2))  # (full tag, content)
+
+    for match in re.finditer(break_pattern, yaml_text):
+        tags[match.start()] = (match.group(0), None)
+
+    return tags
+
+
+def merge_md_yaml_segments(
+    md_lines: list[str],
+    yaml_segments: list[dict]
+) -> list[dict]:
+    """Merge MD text content with YAML formatting instructions.
+
+    Strategy:
+    - MD provides the clean text content (like HTML)
+    - YAML provides voice settings, SSML tags, style prompts (like CSS)
+
+    Args:
+        md_lines: Plain text lines from MD file
+        yaml_segments: Complete segments from YAML with SSML and settings
+
+    Returns:
+        List of merged segments with MD text + YAML formatting
+    """
+    if len(md_lines) != len(yaml_segments):
+        logger.warning(
+            "MD lines (%d) and YAML segments (%d) count mismatch",
+            len(md_lines), len(yaml_segments)
+        )
+        logger.warning("Using YAML segments as-is (no merge)")
+        return yaml_segments
+
+    merged = []
+    for md_text, yaml_seg in zip(md_lines, yaml_segments):
+        # Extract SSML tags from YAML text
+        yaml_text = yaml_seg.get("text", "")
+
+        # Use MD text as base, but apply YAML's SSML formatting if present
+        # Strategy: If YAML has SSML tags, use YAML text (with tags)
+        #           Otherwise, use clean MD text
+        has_ssml = "<" in yaml_text and ">" in yaml_text
+
+        final_text = yaml_text if has_ssml else md_text
+
+        merged.append({
+            "speaker": yaml_seg.get("speaker", "ナレーター"),
+            "voice": yaml_seg.get("voice", "kore"),
+            "text": final_text,
+            "style_prompt": yaml_seg.get("style_prompt", ""),
+            "scene": yaml_seg.get("scene")
+        })
+
+    logger.info("✅ Merged %d segments (MD text + YAML formatting)", len(merged))
+    return merged
 
 
 def generate_tts_for_episode(
@@ -84,12 +189,9 @@ def generate_tts_for_episode(
         logger.error("  mkdir -p %s/{inputs,output/audio,exports}", project_dir)
         return
 
-    # Input YAML file
+    # Input files
+    md_path = project_dir / "inputs" / f"ep{episode_num}nare.md"
     yaml_path = project_dir / "inputs" / f"ep{episode_num}nare.yaml"
-    if not yaml_path.exists():
-        logger.error("YAML file not found: %s", yaml_path)
-        logger.error("Expected format: ep{N}nare.yaml")
-        return
 
     # Load TTS configuration
     try:
@@ -100,11 +202,48 @@ def generate_tts_for_episode(
         logger.info("Using default configuration")
         config = None
 
-    # Load YAML segments
-    try:
-        segments = load_yaml_segments(yaml_path, limit=limit)
-    except Exception as exc:
-        logger.error("Failed to load YAML segments: %s", exc)
+    # Load segments with MD+YAML merge strategy
+    segments = None
+
+    # Strategy 1: MD + YAML merge (HTML+CSS approach)
+    if md_path.exists() and yaml_path.exists():
+        logger.info("📄 Found both MD and YAML files - merging")
+        logger.info("   MD (content):  %s", md_path.name)
+        logger.info("   YAML (format): %s", yaml_path.name)
+        try:
+            md_lines = load_md_segments(md_path, limit=limit)
+            yaml_segments = load_yaml_segments(yaml_path, limit=limit)
+            segments = merge_md_yaml_segments(md_lines, yaml_segments)
+        except Exception as exc:
+            logger.error("Failed to merge MD+YAML: %s", exc)
+
+    # Strategy 2: MD only (plain text, default settings)
+    if segments is None and md_path.exists():
+        logger.info("📄 Using MD file only (plain text): %s", md_path.name)
+        try:
+            md_lines = load_md_segments(md_path, limit=limit)
+            segments = []
+            for line in md_lines:
+                segments.append({
+                    "speaker": "ナレーター",
+                    "voice": "kore",
+                    "text": line,
+                    "style_prompt": "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+                })
+        except Exception as exc:
+            logger.error("Failed to load MD segments: %s", exc)
+
+    # Strategy 3: YAML only (complete with SSML)
+    if segments is None and yaml_path.exists():
+        logger.info("📄 Using YAML file only (complete with SSML): %s", yaml_path.name)
+        try:
+            segments = load_yaml_segments(yaml_path, limit=limit)
+        except Exception as exc:
+            logger.error("Failed to load YAML segments: %s", exc)
+
+    if segments is None:
+        logger.error("No valid input file found")
+        logger.error("Expected: ep{N}nare.md and/or ep{N}nare.yaml")
         return
 
     # Setup output directory
@@ -138,6 +277,15 @@ def generate_tts_for_episode(
 
         # Output filename
         output_file = output_dir / f"{episode_name}_{segment_no:03d}.mp3"
+
+        # Skip if file already exists
+        if output_file.exists():
+            file_size = output_file.stat().st_size / 1024  # KB
+            logger.info("")
+            logger.info("[%03d/%03d] ⏭️  Skipping (already exists): %s (%.1f KB)",
+                       segment_no, len(segments), output_file.name, file_size)
+            success += 1
+            continue
 
         logger.info("")
         logger.info("[%03d/%03d] Generating: %s", segment_no, len(segments), output_file.name)

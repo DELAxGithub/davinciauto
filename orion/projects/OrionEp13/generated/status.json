@@ -1,0 +1,11 @@
+{
+  "project": "OrionEp13",
+  "prompt_profile": "default",
+  "prompts": {
+    "srt": "generated/prompts/srt_prompt.md",
+    "nare": "generated/prompts/nare_prompt.md",
+    "yaml": "generated/prompts/yaml_prompt.md"
+  },
+  "applied_inputs": false,
+  "updated_at": "2025-10-21T16:45:10"
+}

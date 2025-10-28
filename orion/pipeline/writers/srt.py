@@ -6,9 +6,10 @@ to the original source SRT subtitles.
 """
 from __future__ import annotations
 
+import math
 import re
 from pathlib import Path
-from typing import List, Set
+from typing import List, Optional, Set
 from difflib import SequenceMatcher
 
 # Timeline framerate (NTSC drop-frame approximation used across pipeline)
@@ -69,12 +70,74 @@ def text_similarity(a: str, b: str) -> float:
     """Calculate text similarity ratio (0.0 to 1.0)."""
     return SequenceMatcher(None, a, b).ratio()
 
+def _segment_durations(timeline_segments: List) -> List[float]:
+    """Return per-segment durations in seconds (never negative)."""
+    durations: List[float] = []
+    for segment in timeline_segments:
+        duration = max(0.0, segment.end_time_sec - segment.start_time_sec)
+        durations.append(duration)
+    return durations
+
+
+def _distribute_counts_by_duration(
+    total_items: int,
+    durations: List[float]
+) -> List[int]:
+    """Distribute item counts across buckets proportionally to duration.
+
+    Ensures each bucket with non-zero duration gets at least 1 item when possible.
+    Uses largest remainder method on the remaining pool.
+    """
+    bucket_count = len(durations)
+    if bucket_count == 0 or total_items <= 0:
+        return [0] * bucket_count
+
+    total_duration = sum(durations)
+    if total_duration <= 0:
+        # Fallback to even distribution when durations are zero
+        durations = [1.0] * bucket_count
+        total_duration = float(bucket_count)
+
+    counts = [0] * bucket_count
+
+    if total_items >= bucket_count:
+        # Give each bucket at least one item to avoid gaps
+        counts = [1] * bucket_count
+        remaining = total_items - bucket_count
+    else:
+        # Fewer items than buckets: allocate to longest durations
+        sorted_indices = sorted(range(bucket_count), key=lambda idx: durations[idx], reverse=True)
+        for i in range(total_items):
+            counts[sorted_indices[i]] += 1
+        return counts
+
+    weights = [duration / total_duration for duration in durations]
+    raw_extra = [weight * remaining for weight in weights]
+    extra_floor = [math.floor(value) for value in raw_extra]
+
+    counts = [base + extra for base, extra in zip(counts, extra_floor)]
+    assigned = sum(counts)
+    leftovers = total_items - assigned
+
+    if leftovers > 0:
+        remainders = [
+            (raw_extra[idx] - extra_floor[idx], idx)
+            for idx in range(bucket_count)
+        ]
+        remainders.sort(reverse=True)
+        for i in range(leftovers):
+            _, idx = remainders[i]
+            counts[idx] += 1
+
+    return counts
+
 
 def write_timecode_srt(
     output_path: Path,
     source_subtitles: List,  # List[Subtitle]
     timeline_segments: List,  # List[TimelineSegment]
     nare_script_path: Path = None,
+    nare_segments: Optional[List] = None,  # List[NarrationSegment]
     encoding: str = "utf-8"
 ) -> bool:
     """Write timecode SRT file.
@@ -109,7 +172,11 @@ def write_timecode_srt(
     nare_lines = []
     nare_normalized = []
 
-    if nare_script_path and nare_script_path.exists():
+    if nare_segments:
+        nare_lines = [getattr(seg, "text", str(seg)) for seg in nare_segments]
+        nare_normalized = [normalize_text(line) for line in nare_lines]
+        print(f"  → Loaded {len(nare_lines)} Nare lines from narration segments")
+    elif nare_script_path and nare_script_path.exists():
         nare_content = nare_script_path.read_text(encoding='utf-8').strip()
         nare_lines = nare_content.split('\n')
         nare_normalized = [normalize_text(line) for line in nare_lines]
@@ -173,14 +240,57 @@ def write_timecode_srt(
 
             remaining_subs = total_subs - sub_idx
 
+    # Ensure all subtitles are assigned by falling back to duration-based distribution
+    segment_count = min(len(timeline_segments), len(nare_to_srt))
+    segment_durations = _segment_durations(timeline_segments[:segment_count])
+
+    desired_counts = _distribute_counts_by_duration(total_subs, segment_durations)
+    text_matched = len(used_srt)
+    if text_matched and text_matched != total_subs:
+        print(f"  ⚠️ Text match covered {text_matched}/{total_subs} subtitles; switching to sequential duration mapping")
+    elif text_matched == 0:
+        print(f"  ⚠️ No reliable text matches; using sequential duration mapping")
+
+    segment_to_srt: List[List[int]] = [[] for _ in range(segment_count)]
+    cursor = 0
+
+    for seg_idx, desired in enumerate(desired_counts):
+        if cursor >= total_subs:
+            break
+
+        take = max(0, min(desired, total_subs - cursor))
+
+        if take == 0 and (total_subs - cursor) > 0:
+            # Ensure we keep progressing when subtitles remain
+            take = min(1, total_subs - cursor)
+
+        if take:
+            indices = list(range(cursor, cursor + take))
+            segment_to_srt[seg_idx].extend(indices)
+            cursor += take
+
+    if cursor < total_subs and segment_to_srt:
+        # Assign any leftover subtitles to the final segment
+        remaining_indices = list(range(cursor, total_subs))
+        segment_to_srt[-1].extend(remaining_indices)
+        cursor = total_subs
+
+    if cursor < total_subs:
+        print(f"  ⚠️ Unable to allocate {total_subs - cursor} subtitles; please review inputs")
+        return False
+
+    # Fill in any empty mapping lists to keep downstream logic simple
+    if not segment_to_srt:
+        segment_to_srt = [[] for _ in range(total_clips)]
+
     # Generate aligned SRT
     output_lines = []
     cue_number = 1
 
     try:
-        for nare_idx in range(min(len(nare_to_srt), total_clips)):
+        for nare_idx in range(min(len(segment_to_srt), total_clips)):
             segment = timeline_segments[nare_idx]
-            srt_indices = nare_to_srt[nare_idx]
+            srt_indices = segment_to_srt[nare_idx]
 
             if not srt_indices:
                 continue
@@ -230,6 +340,7 @@ def write_merged_srt(
     source_subtitles: List,  # List[Subtitle]
     timeline_segments: List,  # List[TimelineSegment]
     nare_script_path: Path = None,
+    nare_segments: Optional[List] = None,
     encoding: str = "utf-8"
 ) -> bool:
     """Write merged SRT file (for exports/).
@@ -247,7 +358,14 @@ def write_merged_srt(
     Returns:
         True if successful, False otherwise
     """
-    return write_timecode_srt(output_path, source_subtitles, timeline_segments, nare_script_path, encoding)
+    return write_timecode_srt(
+        output_path,
+        source_subtitles,
+        timeline_segments,
+        nare_script_path,
+        nare_segments=nare_segments,
+        encoding=encoding
+    )
 
 
 if __name__ == "__main__":

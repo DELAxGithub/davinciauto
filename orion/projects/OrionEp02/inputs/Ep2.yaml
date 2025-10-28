@@ -1,0 +1,417 @@
+gemini_tts:
+  tts_model: gemini-2.5-flash-preview-tts
+  segments:
+    - speaker: ナレーター
+      voice: kore
+      text: "リモートワークの実家も、久々のオフィスも、どこか居心地が悪いと感じたことはありませんか？"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "「どこにも属せない」感覚は、喪失なのか、それとも解放なのか？"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "ようこそ、<break time='400ms'/>オリオンの会議室へ。今夜のテーマは「帰れない私たち」。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "<sub alias='こきんとうざい'>古今東西</sub>の<sub alias='えいち'>叡智</sub>を星座のように結び、<break time='400ms'/>現代の悩みに新しい視座を見つける8分間。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "今夜結ぶ星々——<break time='1500ms'/>故郷を目指して10年海を漂った英雄、<break time='600ms'/>"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "「家への執着こそ苦しみの源」と説いた覚者、<break time='600ms'/>"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "望郷の念を病気として診断した<sub alias='じゅうきゅうせいき'>19世紀</sub>の医師たち、<break time='600ms'/>"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "そして<sub alias='まどれーぬ'>マドレーヌ</sub>の香りから失われた時を探し求めた小説家が、<break time='600ms'/>"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "どこにも属せない自由と不安の間で揺れる物語を紡ぎ始めます。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "都心のカフェ。ノートPCを開く人々。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "「今日はどこで仕事する？」——<break time='1500ms'/>この問いが日常になった時代。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: 同僚A
+      voice: charon
+      text: "オフィス来る？<break time='400ms'/>それともリモート？"
+      style_prompt: "Speak like a friendly male colleague gently checking in, warm and approachable."
+      
+    - speaker: あなた
+      voice: aoede
+      text: "どっちでもいいって言うけど……<break time='900ms'/>どっちも違う気がする"
+      style_prompt: "Sound like a slightly nervous but earnest young professional trying to respond politely."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "私たちは自由を手に入れたはずなのに、<break time='400ms'/>なぜか漂流している気がする。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "帰る場所はあるのに、<break time='400ms'/>本当の居場所がない。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "<sub alias='きげんぜんはっせいき'>紀元前8世紀</sub>、<break time='400ms'/>古代ギリシャ。盲目の詩人ホメロスが語る、<break time='400ms'/>ある英雄の物語。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "オデュッセウス。トロイア戦争の英雄は、<break time='400ms'/>故郷イタケへの帰路で10年もの歳月を費やしました。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "嵐、<break time='400ms'/>怪物、<break time='400ms'/>魔女。次々と現れる障害。でも、<break time='400ms'/>本当にそれは「障害」だったのでしょうか？"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "美しい女神カリュプソの島で7年。魔女キルケーの館で1年。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "オデュッセウスは、<break time='400ms'/>なぜそんなに長く留まったのか。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: オデュッセウス
+      voice: charon
+      text: "私は故郷を恋い慕う。だが、<break time='400ms'/>この冒険もまた、<break time='400ms'/>私の一部となった"
+      style_prompt: "Deliver with cold analytical intelligence, as a strategist observing human nature."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "帰りたい。でも、<break time='400ms'/>帰りたくない。この矛盾した感情を、<break time='400ms'/>ホメロスは2700年前に描いていました。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "冒険の中で、<break time='400ms'/>オデュッセウスは変わってしまった。もう、<break time='400ms'/>出発した時の自分ではない。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "そして故郷イタケも、<break time='400ms'/>10年の間に変わっているはずです。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "ついに帰還を果たした時、<break time='400ms'/>妻のペーネロペーは彼を認識できませんでした。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "彼もまた、<break time='400ms'/>成長した息子テレマコスを見て戸惑います。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "帰ってきたのに、<break time='400ms'/>帰ってきていない。場所には戻れても、<break time='400ms'/>時間は戻せない。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "地球の反対側、<break time='400ms'/>古代インドでも、<break time='400ms'/>似た洞察が生まれていました。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: 釈迦
+      voice: kore
+      text: "諸行は無常なり。これ生滅の法なり"
+      style_prompt: "Speak in a steady, composed voice with quiet strength, as though quoting a timeless principle with deep respect."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "<sub alias='きげんぜんごせいき'>紀元前5世紀</sub>、<break time='400ms'/>釈迦は「諸行無常」を説いたとされます。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "すべては流転し、<break time='400ms'/>同じものは二度とないという教えです。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "仏教の「無常観」は、<break time='400ms'/>執着からの解放を説きます。「元に戻る」という幻想を手放すこと。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "それが苦しみから逃れる道だと。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "すべてのものは移り変わり、<break time='400ms'/>永遠に同じ状態に留まるものは何一つない——<break time='1500ms'/>"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "この真理を受け入れることから、<break time='400ms'/>真の安らぎが生まれると説いたのです。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "興味深いことに、<break time='400ms'/>古代ギリシャでも、<break time='400ms'/>似た洞察が生まれていました。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "<sub alias='きげんぜんろくせいき'>紀元前6世紀</sub>の哲学者ヘラクレイトスは「万物流転」を説きました。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ヘラクレイトス
+      voice: charon
+      text: "同じ川に二度入ることはできない。川も変わり、<break time='400ms'/>入る者も変わる"
+      style_prompt: "Deliver with cold analytical intelligence, as a strategist observing human nature."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "西の哲学者と東の覚者。時代も場所も異なる二人が、<break time='400ms'/>それぞれの方法で同じ真理に辿り着いていた。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "人は誰も、<break time='400ms'/>同じ場所に帰ることはできない。なぜなら、<break time='400ms'/>場所も自分も、<break time='400ms'/>常に変化し続けているから。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "釈迦は瞑想を通じてこの真理を体得し、<break time='400ms'/>ヘラクレイトスは理性的な観察からこの結論に至った。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "アプローチは違えど、<break time='400ms'/>両者が見つめていたのは、<break time='400ms'/>変化こそが世界の本質だという、<break time='400ms'/>深遠な事実だったのです。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "<sub alias='じゅうななせいき'>17世紀</sub>のスイス。若い傭兵たちが、<break time='400ms'/>故郷を離れて原因不明の病に倒れていたと記録されています。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "医師ヨハネス・ホーファーは、<break time='400ms'/>この症状に「ノスタルジア」という名前を付けます。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "ギリシャ語の「nostos（帰郷）」と「algos（痛み）」を組み合わせた造語でした。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "当時は本当の「病気」として扱われ、<break time='400ms'/>処方箋は「故郷への帰還」でした。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "でも<sub alias='じゅうきゅうせいき'>19世紀</sub>になると、<break time='400ms'/>精神科医たちは気づきます。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "患者が恋い慕っているのは、<break time='400ms'/>実在する故郷ではなく、<break time='400ms'/>記憶の中の理想化された故郷だと。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "<sub alias='にじゅっせいき'>20世紀</sub>、<break time='400ms'/>マルセル・プルーストは『失われた時を求めて』で、<break time='400ms'/>この感覚を文学に昇華させました。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "紅茶に浸した<sub alias='まどれーぬ'>マドレーヌ</sub>の香りが呼び起こす、<break time='400ms'/>幼少期の記憶。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "でもそれは、<break time='400ms'/>過去そのものではなく、<break time='400ms'/>現在の意識が再構築した過去でした。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "帰りたい場所がある。でも、<break time='400ms'/>そこが本当に存在したのか、<break time='400ms'/>自信が持てない——<break time='1500ms'/>"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "そんな感覚に、<break time='400ms'/>覚えがある人もいるかもしれません。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "脳科学の研究によれば、<break time='400ms'/>懐かしい風景を見たとき、<break time='600ms'/>"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "記憶を司る海馬と、<break time='400ms'/>現在の認知を担う前頭前皮質が同時に反応するといいます。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "つまり、<break time='400ms'/>私たちが「帰りたい」と思う場所は、<break time='400ms'/>記憶と今の私が交差する、<break time='400ms'/>その瞬間にだけ立ち上がる風景なのかもしれません。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "カナダの地理学者エドワード・レルフは語ります。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "「場所とは、<break time='400ms'/>物理的な点ではなく、<break time='400ms'/>意味の集積である」と。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "帰りたい場所とは、<break time='400ms'/>座標で示せる地図上の点ではなく、<break time='400ms'/>記憶と感情が織りなす心象風景なのかもしれません。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "自由と引き換えに、<break time='400ms'/>私たちは居場所の輪郭を失いかけている。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "でもその輪郭は、<break time='400ms'/>もしかしたら新しい形で、<break time='400ms'/>描き直すことができるのかもしれません。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "では、<break time='400ms'/>どこにも属せない感覚とどう向き合えばいいのでしょうか。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "オデュッセウスの物語が教えてくれるのは、<break time='400ms'/>「帰還」ではなく「再会」という視点です。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "変わってしまった自分と、<break time='400ms'/>変わってしまった場所が、<break time='400ms'/>新しく出会い直す。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "それは「元に戻る」ことではなく、<break time='400ms'/>「新しく始める」こと。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "仏教の無常観は、<break time='400ms'/>変化を嘆くのではなく、<break time='400ms'/>変化そのものを人生の本質として受け入れることを説きます。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "場所論が示すのは、<break time='400ms'/>物理的な場所に縛られない、<break time='400ms'/>新しい帰属の形。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "それは特定の座標ではなく、<break time='400ms'/>人との関係性の中に見出される「居場所」。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "週2日のオフィス出社も、<break time='400ms'/>実家でのリモートワークも、<break time='400ms'/>カフェでのノマドワークも——<break time='1500ms'/>それぞれが「仮の宿」。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "でも、<break time='400ms'/>その仮の宿を転々としながら、<break time='400ms'/>私たちは新しい物語を紡いでいく。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "月曜日の朝。今日はオフィス出社の日。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "エレベーターで会った同僚と、<break time='400ms'/>ちょっとした会話。それは以前とは違うけれど、<break time='400ms'/>悪くない。むしろ、<break time='400ms'/>新鮮な発見がある。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "デスクに座って、<break time='400ms'/>ノートPCを開く。画面に映るのは、<break time='400ms'/>先週実家で作業していたファイル。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "場所は変わっても、<break time='400ms'/>仕事は続いている。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: 内なる声
+      voice: aoede
+      text: "ここも、<break time='400ms'/>あそこも、<break time='400ms'/>全部が私の場所"
+      style_prompt: "Deliver with gentle acceptance and inner peace, as a calming inner voice."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "完全な帰属はもうないかもしれない。でも、<break time='400ms'/>部分的な帰属をいくつも持つことはできる。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "それは不安定さではなく、<break time='400ms'/>しなやかさかもしれない。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "夜空を見上げると、<break time='400ms'/><sub alias='おりおん'>オリオン</sub>座が輝いています。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "3000年前の船乗りも、<break time='400ms'/>この同じ星を見ていました。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "オデュッセウスの10年は回り道ではなく、<break time='400ms'/>「帰る」ために必要な変容の時間。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "現代の私たちの「漂流」も、<break time='400ms'/>新しい帰属の形を見つけるための必要な旅。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "知識の星座は、<break time='400ms'/>見る人によって違う物語を紡ぎます。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+      
+    - speaker: ナレーター
+      voice: kore
+      text: "どこにいても、<break time='400ms'/>星はいつも、<break time='400ms'/>あなたの居場所を照らしています。"
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."

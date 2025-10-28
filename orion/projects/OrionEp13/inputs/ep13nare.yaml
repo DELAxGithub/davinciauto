@@ -1,0 +1,457 @@
+gemini_tts:
+  segments:
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        日々の仕事が 山頂に着くことのない岩のように感じられることはありませんか？<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        この虚しさは あなたの努力が足りないから？それとも その岩が持つ<break time="120ms"/>「<break time="30ms"/>本当の重さ<break time="30ms"/>」<break time="120ms"/>を見過ごしているから？<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        ようこそ オリオンの会議室へ<break time="600ms"/> 今夜のテーマは<break time="120ms"/>「<break time="30ms"/>舞台裏の成就学<break time="30ms"/>」<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        古今東西の<sub alias="えいち">叡智</sub>を星座のように結び 現代の悩みに新しい視座を見つける<sub alias="はっぷん">8分</sub>間<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        今夜結ぶのは こんな星座<break time="3000ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        戦国時代の中国で 役に立たない木の価値を見出した思想家<break time="600ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        <sub alias="しょうわ">昭和</sub>初期の日本で 光ではなく影の美を讃えた文豪<break time="600ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        冷戦下の研究所で 情報の消去にエネルギーが要ることを証明した物理学者<break time="600ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        そして カナダの森で 木々が地下で助け合っていることを発見した生態学者<break time="600ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        バラバラの星々が ひとつの物語を紡ぎ始めます<break time="3000ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        夕方 オフィス<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: 上司
+      voice: charon
+      text: >
+        この段取りも裏で頼む！ほんと助かる<break time="600ms"/>
+      style_prompt: "Speak with casual workplace tone, slightly rushed and grateful."
+
+    - speaker: 同僚
+      voice: aoede
+      text: >
+        <sub alias="ねまわし">根回し</sub> 神でした<break time="800ms"/>
+      style_prompt: "Speak with admiration and casual workplace tone."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        気づけば 自分のToDoは後回し<break time="600ms"/> チェックマークは埋まるのに 達成感は灯らない<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        この感覚 どこかで聞いたことがありませんか？<break time="3000ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        ギリシャ神話に シーシュポスという王がいました<break time="600ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        神々を欺いた罰として 彼は巨大な岩を山頂まで押し上げることを命じられます<break time="600ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        しかし 頂上に届く直前 岩は毎回ころがり落ちてしまう<break time="600ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        彼は永遠に 同じ労働を繰り返すしかありません<break time="600ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        <break time="120ms"/>「<break time="30ms"/>達成されることのない空しい労働<break time="30ms"/>」<break time="120ms"/>の象徴として語られてきたこの神話<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        でも 本当にそうでしょうか？<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        成果は 表に現れたものだけか<break time="600ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        支える行為は なぜ物語になりにくいのか<break time="600ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        そして——シーシュポスの岩は 本当に<break time="120ms"/>「<break time="30ms"/>無意味<break time="30ms"/>」<break time="120ms"/>だったのでしょうか？<break time="3000ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        主役になれない どこか中途半端な自分<break time="600ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        でも そんな<break time="120ms"/>「<break time="30ms"/>役に立たない<break time="30ms"/>」<break time="120ms"/>ことが 実はチームを救っているとしたら？<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        <sub alias="きげんぜんよんせいき">紀元前4世紀</sub> 戦乱の中国<break time="600ms"/> 思想家・荘子は こんな話を残しました<break time="600ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        ある大木は 材木として使えないほど曲がっていたため 誰も切り倒しませんでした<break time="600ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        そのおかげで何百年も生き延び 人々に木陰を与え 森の主となったのです<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        一見 何もしない<break time="120ms"/>「<break time="30ms"/>余白<break time="30ms"/>」<break time="120ms"/>こそが 実は全体を支えている<break time="600ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        この思想は また異なる文脈で育まれた 日本の美意識とも響き合います<break time="600ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        シーシュポスの岩も もしかしたら 世界の秩序を保つ<break time="120ms"/>「<break time="30ms"/>無用の用<break time="30ms"/>」<break time="120ms"/>だったのかもしれません<break time="3000ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        最近 オフィスの蛍光灯が眩しく感じませんか？<break time="600ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        明るければ明るいほど なぜか心が落ち着かなくなる<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        <sub alias="せんきゅうひゃくさんじゅうさんねん">1933年</sub> 近代化に揺れる日本<break time="600ms"/> 文豪・谷崎潤一郎は 失われゆく美の秘密を書き留めました<break time="600ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: 谷崎潤一郎
+      voice: gacrux
+      text: >
+        美は物体にあるのではなく 物体と物体との作り出す<sub alias="いんえい">陰翳</sub>のあや 明暗にある<break time="800ms"/>
+      style_prompt: "Speak with literary elegance and contemplative tone, as if reflecting on aesthetics."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        影があるからこそ 光がある<break time="600ms"/> 脇役の存在こそが主役を支える<break time="600ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        谷崎が語るこの美意識は 荘子の<break time="120ms"/>「<break time="30ms"/>無用の用<break time="30ms"/>」<break time="120ms"/>と同じ方向を向いています<break time="3000ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        部屋の片付けは 散らかすのと同じくらい疲れる<break time="600ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        当たり前のようですが 実はこれ 物理学の法則に裏付けられた感覚です<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        <sub alias="せんきゅうひゃくろくじゅういちねん">1961年</sub> IBM研究所<break time="600ms"/> 物理学者ロルフ・ランダウアーは 驚くべき発見をしました<break time="600ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        情報を<break time="120ms"/>「<break time="30ms"/>消去<break time="30ms"/>」<break time="120ms"/>する行為には 必ずエネルギー つまり<break time="120ms"/>「<break time="30ms"/>熱<break time="30ms"/>」<break time="120ms"/>が必要だと<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        秩序を作るには エネルギーが要る<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        シーシュポスが岩を押し上げる——その見えない労働は 世界の情報を整頓し続ける 根源的な仕事だったのかもしれません<break time="600ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        この物理法則は 驚くべきことに 生命のネットワークにも息づいています<break time="3000ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        チームの誰かが困っている時 Slackでそっと資料を送ってあげる<break time="600ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        そんな小さな親切が 実は森全体を救うほどの力を持っているとしたら？<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        <sub alias="せんきゅうひゃくきゅうじゅうななねん">1997年</sub> カナダの森<break time="600ms"/> 生態学者スザンヌ・シマードは 木々の秘密を発見しました<break time="600ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        森の木々は 地中で<break time="120ms"/>「<break time="30ms"/><sub alias="きんこん">菌根</sub><break time="30ms"/>」<break time="120ms"/>という菌類のネットワークで繋がり 栄養を分け合っている<break time="600ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        森の見えない地下では 膨大なエネルギーが<break time="120ms"/>「<break time="30ms"/>整頓<break time="30ms"/>」<break time="120ms"/>と<break time="120ms"/>「<break time="30ms"/>分配<break time="30ms"/>」<break time="120ms"/>のために使われている<break time="600ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        ランダウアーの原理が示す物理法則が 生命のシステムとして息づいているのです<break time="3000ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        ここで 今夜の星々が響き合い始めます<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        荘子の<break time="120ms"/>「<break time="30ms"/>無用の用<break time="30ms"/>」<break time="120ms"/>と谷崎の<break time="120ms"/>「<break time="30ms"/><sub alias="いんえい">陰翳</sub><break time="30ms"/>」<break time="120ms"/>——どちらも 主役ではないものが持つ 静かな力を見つめていました<break time="600ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        役に立たない大木が森を守り 光ではなく影が美を生む<break time="600ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        そして ランダウアーの原理と<sub alias="きんこん">菌根</sub>ネットワークは 見えない場所でのエネルギーの移動を 科学の言葉で証明しました<break time="600ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        情報を整える<break time="120ms"/>「<break time="30ms"/>熱<break time="30ms"/>」<break time="120ms"/> 栄養を分け合う<break time="120ms"/>「<break time="30ms"/>菌糸<break time="30ms"/>」<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        古代中国の思想家も <sub alias="しょうわ">昭和</sub>の文豪も 現代の科学者も——同じものを見ていたのかもしれません<break time="600ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        世界の秩序は 光の当たらない場所で 静かに支えられているのだ と<break time="3000ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        今日からできる<break time="120ms"/>「<break time="30ms"/>舞台裏の成就設計<break time="30ms"/>」<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        未然の成果ログ<break time="600ms"/> あなたの調整で<break time="120ms"/>「<break time="30ms"/>起きなかったトラブル<break time="30ms"/>」<break time="120ms"/>や<break time="120ms"/>「<break time="30ms"/>短縮できた待ち時間<break time="30ms"/>」<break time="120ms"/>を一行で記録しましょう<break time="600ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        それは 何もない<break time="120ms"/>「<break time="30ms"/>ゼロ<break time="30ms"/>」<break time="120ms"/>ではなく 守られた<break time="120ms"/>「<break time="30ms"/>プラス<break time="30ms"/>」<break time="120ms"/>です<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        タスクの二層化<break time="600ms"/> タスクを<break time="120ms"/>「<break time="30ms"/>表の成果（アウトプット）<break time="30ms"/>」<break time="120ms"/>と<break time="120ms"/>「<break time="30ms"/>裏の整頓（リファクタリングなど）<break time="30ms"/>」<break time="120ms"/>に分け 後者にもしっかり工数を見積もりましょう<break time="600ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        <break time="120ms"/>「<break time="30ms"/>片付けの熱<break time="30ms"/>」<break time="120ms"/>を予算に入れるのです<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        結節点の可視化<break time="600ms"/> あなたが部署や人事を繋いだなら 議事録の末尾に<break time="120ms"/>「<break time="30ms"/>結線担当<break time="30ms"/>」<break time="120ms"/>として名前を残しましょう<break time="600ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        森の<sub alias="きんこん">菌根</sub>のように あなたの働きを記録に残すのです<break time="3000ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        金曜日の夕方<break time="600ms"/> 主人公は チームの週報に一行を書き加えていました<break time="600ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        <break time="120ms"/>「<break time="30ms"/>今週の舞台裏：〇〇機能の仕様について AさんとBさんの認識齟齬を手戻り前に解消（推定0.5人日の工数削減）<break time="30ms"/>」<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        自分の仕事を 自ら物語にした瞬間<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        チェックマークの色は先週と同じ緑色<break time="600ms"/> しかし その一つ一つが 誰かを支え 森全体を豊かにした<break time="120ms"/>「<break time="30ms"/><sub alias="きんこん">菌根</sub><break time="30ms"/>」<break time="120ms"/>の働きに見えてきました<break time="600ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        胸の空白に 静かな達成感が灯ります<break time="3000ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        夜空を見上げると オリオン座が輝いています<break time="600ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        神話の中で シーシュポスに課せられたのは 無意味な苦行のように思えました<break time="600ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        しかし 今日の星座を巡った私たちは知っています<break time="600ms"/> 彼の岩は ただの罰ではなかったのだと<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        知識の星座は 見る人によって違う物語を紡ぎます<break time="800ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        あなたの見えない仕事もまた 誰かの世界を支え 整え 繋いでいる<break time="600ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."
+
+    - speaker: ナレーター
+      voice: kore
+      text: >
+        その岩には あなただけの意味が 確かに宿っているのです<break time="3000ms"/>
+      style_prompt: "Speak with intellectual depth and documentary-style narration, calm and authoritative."

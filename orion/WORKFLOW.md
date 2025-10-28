@@ -24,16 +24,55 @@ GOOGLE_APPLICATION_CREDENTIALS=/path/to/google-credentials.json  # オプショ�
 ## ワークフロー全体像
 
 ```
+0. 脚本プリプロセス（LLMプロンプト生成とレビュー）
+   ↓
 1. プロジェクト準備
    ↓
-2. 入力ファイル作成（スクリプト・字幕・TTS設定）
+2. 入力ファイル作成（脚本→字幕/ナレ原稿/SSML設定）
    ↓
-3. TTS音声生成（Gemini）
+3. TTS音声生成（Gemini または既存音声再利用）
    ↓
 4. パイプライン実行（タイムライン計算・出力生成）
    ↓
 5. DaVinci Resolve インポート
+   ↓
+6. 出力検証とレビュー
 ```
+
+---
+
+## Phase 0: 脚本プリプロセス（LLM）
+
+### 0.1 プロンプト生成
+
+脚本MDから字幕・ナレーション・Gemini TTS YAML を準備するためのプロンプトを自動生成します。
+
+```bash
+PYTHONPATH=pipeline python pipeline/core.py --project OrionEp{N} --generate-inputs
+```
+
+- `generated/prompts/` に `srt_prompt.md`・`nare_prompt.md`・`yaml_prompt.md` が出力されます。
+- `generated/status.json` には使用したプロンプトプロファイルとファイルパスが記録されます。
+
+### 0.2 LLM処理とレビュー
+
+1. 生成されたプロンプトを Sonnet 4.5 などの LLM に投入し、以下のドラフトを作成します。
+   - `teleop_raw.srt`（タイムコードなし字幕）
+   - `nare.md`（プレーンテキストのナレーション原稿）
+   - `nare.yaml`（Gemini TTS 用 SSML 指示付き設定）
+2. 出力ファイルを `projects/OrionEp{N}/generated/` 直下に保存し、内容をチェックします。
+
+### 0.3 inputs/ への反映
+
+レビュー済みのドラフトを本入力にコピーします。既存ファイルを上書きする場合は `--force-regenerate` を併用してください。
+
+```bash
+PYTHONPATH=pipeline python pipeline/core.py \\
+  --project OrionEp{N} \\
+  --generate-inputs --apply-generated-inputs [--force-regenerate]
+```
+
+これで `inputs/` に `ep{N}.srt` / `ep{N}nare.md` / `ep{N}nare.yaml` が揃い、フェーズ1以降へ進めます。
 
 ---
 
@@ -326,6 +365,45 @@ PYTHONPATH=pipeline python pipeline/core.py --project OrionEp12
 1. `output/OrionEp12_timecode.srt` を手動インポート
 2. タイムラインに配置
 3. タイミング確認
+
+---
+
+## Phase 6: 出力検証 & レビュー
+
+フェーズ6では、パイプラインが生成した成果物を自動検証し、問題があれば即座にレポートします。
+
+### 6.1 自動検証の内容
+
+- **SRT整合性**（`validate_output_consistency`）
+  - エントリ件数差：`config/validation.entry_count_tolerance`（既定 5%）以内か
+  - テキスト類似度：`validation.text_similarity_min`（既定 0.95）以上か
+  - 出力SRTの時間連続性（重複・非単調）
+- **音声ファイルの網羅**（`validate_audio_files`）
+  - ナレーション原稿の全セグメントに対して `output/audio/` に MP3 が揃っているか
+- **タイムライン整合性**（`validate_timeline_alignment`）
+  - タイムライン区間がスタート < エンド、重複なし
+  - タイムライン長と音声長の差が ±0.05 秒（既定 `duration_tolerance`）以内
+  - タイムラインで参照しているファイル名が音声ファイルと一致しているか
+- **ファイル存在チェック**
+  - `OrionEp{N}_timeline.csv` / `OrionEp{N}_timeline.xml` / `orionep{n}_merged.srt` が存在するか
+
+検証結果はフェーズ6のログで PASS/FAIL として表示され、全項目が成功した場合のみパイプラインの最終メッセージが ✅ になります。
+
+### 6.2 失敗時の対応
+
+- **SRT不一致**: 原稿と字幕の差分を確認し、必要に応じて LLM 生成や手動修正をやり直す。
+- **音声不足**: `generate_tts.py` の再実行、もしくは不足分の再生成を行う。
+- **タイムライン警告**: `output/` の CSV XML にズレがないか確認し、必要ならナレーション長を調整して再実行。
+
+### 6.3 検証のみ実行する
+
+生成物を再利用して検証だけ行いたい場合は、以下のコマンドでフェーズ6（＋入力検証）を単体で実行できます。
+
+```bash
+PYTHONPATH=pipeline python pipeline/core.py --project OrionEp{N} --validate-only
+```
+
+`--report` を付けると詳細レポート（`validate_pipeline_run` ベース）が出力されます。
 
 ---
 

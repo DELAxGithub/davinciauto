@@ -127,12 +127,21 @@ docs/
 └── README.md                   # ドキュメント概要
 ```
 
+### 📁 Premiere オートカット (`/premiere/`)
+```
+premiere/
+├── nle_autoedit/               # CSV→FCPXML コアロジックと仕様
+└── projects/                   # エピソード別素材（022, 024, young01 など）
+```
+
 ### 📁 プロジェクト管理 (`/projects/`)
 ```
 projects/
-└── autocut/
-    └── autocut_progress.md     # 自動カット機能開発進捗
-    
+├── OrionEp12/
+├── OrionEp13/
+└── ...                         # Orion パイプラインの旧配置
+```
+
 ### 📁 実験・持ち込み素材 (`/experiments/`)
 ```
 experiments/
@@ -142,19 +151,18 @@ experiments/
 └── scratch/              # 試行コードや一時出力
 ```
 
-### 🧰 ツールセット (`/tools/`)
+### 🧰 ツールセット (`/premiere/tools/`)
 ```
-tools/
-├── resolve_auto_tagging/
-│   ├── README.md                     # Resolve向けAIタグ生成セット
-│   ├── run_auto_tagging.py           # LLMでKeywordsを付与
-│   └── create_smart_bins_poc.py      # Smart Bin 自動生成PoC
+premiere/tools/
 └── autocut/
     ├── README.md
     ├── csv_premiere.js
     ├── csv_xml_cutter.py
-    ├── docs/
     └── merge_two_csvs.py
+
+premiere/docs/
+├── autocut_progress.md
+└── episodes.md
 ```
 ```
 
@@ -268,7 +276,7 @@ python debug_split.py
 ### 🔧 開発者向け
 - **[docs/API.md](docs/API.md)** - API仕様・関数リファレンス
 - **[CLAUDE.md](CLAUDE.md)** - Claude Code開発ガイド
-- **[projects/autocut/autocut_progress.md](projects/autocut/autocut_progress.md)** - 開発進捗
+- **[premiere/docs/autocut_progress.md](premiere/docs/autocut_progress.md)** - 開発進捗
  - **[docs/NAMING.md](docs/NAMING.md)** - Resolve連携のフォルダ命名
  - **[docs/MAPPING.md](docs/MAPPING.md)** - RowData ↔ LineItem 変換方針
 
