@@ -193,8 +193,15 @@ def load_graphic_templates(template_path):
     return templates
 
 
-def create_cut_xml_from_template(csv_file_path, template_xml_path, graphic_template_path=None):
-    """Create cut XML using template XML structure and CSV timecodes"""
+def create_cut_xml_from_template(csv_file_path, template_xml_path, graphic_template_path=None, source_offset_frames=0):
+    """Create cut XML using template XML structure and CSV timecodes
+
+    Args:
+        source_offset_frames: オフセット（フレーム数）。タイムライン00:00:00:00が素材の
+                              先頭から何フレーム目に対応するかを指定。
+                              例: タイムライン0が素材の12:23:21:02で、素材の本当のスタートが
+                              12:17:27:13の場合、その差分のフレーム数を指定。
+    """
     
     # Extract audio files from template XML
     audio_files = extract_audio_files_from_xml(template_xml_path)
@@ -226,14 +233,26 @@ def create_cut_xml_from_template(csv_file_path, template_xml_path, graphic_templ
     duration = ET.SubElement(sequence, 'duration')
     duration.text = '15155'
     
-    # Copy rate from template
+    # Copy rate from template and extract fps for timecode conversion
     template_rate = template_sequence.find('rate')
+    timeline_fps = TIMELINE_FPS  # default
     if template_rate is not None:
         rate = ET.SubElement(sequence, 'rate')
         for child in template_rate:
             new_child = ET.SubElement(rate, child.tag)
             new_child.text = child.text
-    
+        # Extract actual fps from template
+        timebase_elem = template_rate.find('timebase')
+        ntsc_elem = template_rate.find('ntsc')
+        if timebase_elem is not None and timebase_elem.text:
+            base_fps = int(timebase_elem.text)
+            is_ntsc = ntsc_elem is not None and ntsc_elem.text and ntsc_elem.text.upper() == 'TRUE'
+            if is_ntsc:
+                timeline_fps = base_fps * 1000 / 1001
+            else:
+                timeline_fps = base_fps
+            print(f"テンプレートFPS: {timeline_fps} ({'NTSC' if is_ntsc else 'non-NTSC'})")
+
     # Name
     name_elem = ET.SubElement(sequence, 'name')
     name_elem.text = f"{os.path.splitext(os.path.basename(csv_file_path))[0]}_cut"
@@ -284,8 +303,8 @@ def create_cut_xml_from_template(csv_file_path, template_xml_path, graphic_templ
                 # Gap duration from in/out
                 if not out_point:
                     continue
-                start_frames = timecode_to_frames(in_point)
-                end_frames = timecode_to_frames(out_point)
+                start_frames = timecode_to_frames(in_point, timeline_fps)
+                end_frames = timecode_to_frames(out_point, timeline_fps)
                 if end_frames <= start_frames:
                     continue
                 segments.append({
@@ -301,8 +320,8 @@ def create_cut_xml_from_template(csv_file_path, template_xml_path, graphic_templ
                 continue
             
             # Convert timecodes to frames
-            in_frames = timecode_to_frames(in_point)
-            out_frames = timecode_to_frames(out_point)
+            in_frames = timecode_to_frames(in_point, timeline_fps)
+            out_frames = timecode_to_frames(out_point, timeline_fps)
             
             if in_frames >= out_frames:
                 continue
@@ -548,13 +567,15 @@ def create_cut_xml_from_template(csv_file_path, template_xml_path, graphic_templ
             end_frame_on_timeline = timeline_position + duration_frames
             ensure(clipitem, 'end').text = str(end_frame_on_timeline)
 
-            # In and out of source media
-            ensure(clipitem, 'in').text = str(start_frames)
-            ensure(clipitem, 'out').text = str(end_frames)
+            # In and out of source media (apply source offset if provided)
+            source_in = start_frames + source_offset_frames
+            source_out = end_frames + source_offset_frames
+            ensure(clipitem, 'in').text = str(source_in)
+            ensure(clipitem, 'out').text = str(source_out)
 
-            # Premiere Pro ticks
-            ensure(clipitem, 'pproTicksIn').text = str(frames_to_ppro_ticks(start_frames))
-            ensure(clipitem, 'pproTicksOut').text = str(frames_to_ppro_ticks(end_frames))
+            # Premiere Pro ticks (also with offset)
+            ensure(clipitem, 'pproTicksIn').text = str(frames_to_ppro_ticks(source_in, timeline_fps))
+            ensure(clipitem, 'pproTicksOut').text = str(frames_to_ppro_ticks(source_out, timeline_fps))
             
             # File reference
             existing_files = clipitem.findall('file')
@@ -682,11 +703,11 @@ def create_cut_xml_from_template(csv_file_path, template_xml_path, graphic_templ
                     ppin = clipitem.find('pproTicksIn')
                     if ppin is None:
                         ppin = ET.SubElement(clipitem, 'pproTicksIn')
-                    ppin.text = str(frames_to_ppro_ticks(0))
+                    ppin.text = str(frames_to_ppro_ticks(0, timeline_fps))
                     ppout = clipitem.find('pproTicksOut')
                     if ppout is None:
                         ppout = ET.SubElement(clipitem, 'pproTicksOut')
-                    ppout.text = str(frames_to_ppro_ticks(dur))
+                    ppout.text = str(frames_to_ppro_ticks(dur, timeline_fps))
                     eff = clipitem.find('filter/effect')
                     if eff is not None:
                         name_elem = eff.find('name')
@@ -795,21 +816,42 @@ def prompt_for_files():
     return csv_file, template_xml_file, graphic_template_path
 
 
+def parse_offset_arg(arg):
+    """Parse offset argument - can be frame count or timecode (HH:MM:SS:FF)"""
+    if ':' in arg:
+        # It's a timecode - convert to frames at 24fps (will be recalculated if needed)
+        return timecode_to_frames(arg, 24)
+    else:
+        return int(arg)
+
+
 def main():
     graphic_template = None
+    source_offset = 0
     # Check if command line arguments are provided
     if len(sys.argv) >= 3:
         # Command line mode
         csv_file = sys.argv[1]
         template_xml_file = sys.argv[2]
         graphic_template = None
-        if len(sys.argv) >= 4:
-            graphic_template = sys.argv[3]
-        
+
+        # Parse optional arguments
+        i = 3
+        while i < len(sys.argv):
+            arg = sys.argv[i]
+            if arg.startswith('--offset='):
+                source_offset = parse_offset_arg(arg.split('=', 1)[1])
+            elif arg == '--offset' and i + 1 < len(sys.argv):
+                source_offset = parse_offset_arg(sys.argv[i + 1])
+                i += 1
+            elif not graphic_template and not arg.startswith('--'):
+                graphic_template = arg
+            i += 1
+
         if not os.path.exists(csv_file):
             print(f"Error: CSV file '{csv_file}' not found")
             sys.exit(1)
-        
+
         if not os.path.exists(template_xml_file):
             print(f"Error: Template XML file '{template_xml_file}' not found")
             sys.exit(1)
@@ -834,9 +876,12 @@ def main():
             if not csv_file or not template_xml_file:
                 sys.exit(1)
     
+    if source_offset:
+        print(f"ソースオフセット: {source_offset} フレーム")
+
     try:
         # Generate XML
-        xml_root = create_cut_xml_from_template(csv_file, template_xml_file, graphic_template)
+        xml_root = create_cut_xml_from_template(csv_file, template_xml_file, graphic_template, source_offset)
         
         if xml_root is None:
             sys.exit(1)

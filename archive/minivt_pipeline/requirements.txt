@@ -1,5 +1,0 @@
-python-dotenv
-pydantic>=2.7
-requests
-pydub
-openai>=1.0.0

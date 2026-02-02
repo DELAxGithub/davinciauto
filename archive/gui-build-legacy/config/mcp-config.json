@@ -1,4 +1,0 @@
-{
-  "mcpServers": {},
-  "instructions": "Azure Speech Service が標準TTSとなったため、ElevenLabs MCP 設定は廃止されました。必要な場合は独自に MCP サーバーを追加してください。"
-}
