@@ -1,0 +1,12 @@
+project_id: jal-kumojo-shosai-pilot
+title: 雲上書斎｜パイロット版
+project_dir: .
+script: inputs/script.md
+fps: 24
+target_duration_sec: 160
+pronunciation_rules: inputs/pronunciation_rules.csv
+
+resolve:
+  project: JAL
+  timeline: JAL_雲上書斎_Pilot_v001
+  bin_name: JAL_雲上書斎_Pilot

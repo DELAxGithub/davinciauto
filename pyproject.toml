@@ -18,6 +18,7 @@ classifiers = [
 ]
 dependencies = [
   "pydub",
+  "PyYAML",
   "python-dotenv",
   "requests",
 ]
@@ -51,7 +52,7 @@ include-package-data = true
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["davinciauto_core*", "davinciauto_cli*", "backend*", "core*"]
+include = ["davinciauto_core*", "davinciauto_cli*", "backend*", "core*", "video_pipeline*"]
 exclude = ["tests", "experiments", "tools", "output", "projects"]
 
 [tool.setuptools.package-data]

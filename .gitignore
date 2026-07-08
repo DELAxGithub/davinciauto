@@ -13,6 +13,8 @@ output/
 !/terop/output/
 !/terop/output/**
 projects/*/output/
+projects/*/*/outputs/
+projects/*/*/deliverables/
 .out/
 dist/
 *.edl
@@ -38,6 +40,7 @@ final_*.py
 *.tmp
 *.temp
 *.log
+tmp/
 
 # Archive (kept in git but ignored for new additions)
 # archive/

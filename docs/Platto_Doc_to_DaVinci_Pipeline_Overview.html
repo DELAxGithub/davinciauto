@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>台本駆動 DaVinci編集自動化 | Platto Workflow</title>
+  <style>
+    :root {
+      --ink: #111827;
+      --muted: #5b6773;
+      --paper: #ffffff;
+      --soft: #f5f7fa;
+      --line: #dce3ea;
+      --green: #087f5b;
+      --blue: #1d4ed8;
+      --cyan: #0e7490;
+      --orange: #c25a00;
+      --red: #b42318;
+      --violet: #6d28d9;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", "YuGothic", "Noto Sans JP", sans-serif;
+      line-height: 1.75;
+    }
+
+    .wrap {
+      width: min(1140px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    header {
+      background: #eef6f3;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      gap: 36px;
+      align-items: center;
+      padding: 58px 0 48px;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--green);
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: .06em;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(34px, 4.6vw, 60px);
+      line-height: 1.13;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      margin: 20px 0 0;
+      max-width: 780px;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .hero-panel {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--paper);
+      padding: 20px;
+      box-shadow: 0 14px 32px rgba(17, 24, 39, .08);
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .metric {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+      background: var(--soft);
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 26px;
+      line-height: 1.2;
+      color: var(--blue);
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    main section {
+      padding: 48px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    h2 {
+      margin: 0 0 18px;
+      font-size: 30px;
+      line-height: 1.32;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      line-height: 1.4;
+    }
+
+    p {
+      margin: 0 0 14px;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .three-col {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper);
+      padding: 18px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 26px;
+      padding: 2px 9px;
+      margin-bottom: 10px;
+      border-radius: 999px;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .b-green { background: var(--green); }
+    .b-blue { background: var(--blue); }
+    .b-cyan { background: var(--cyan); }
+    .b-orange { background: var(--orange); }
+    .b-red { background: var(--red); }
+    .b-violet { background: var(--violet); }
+
+    .compare {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 18px;
+      font-size: 15px;
+    }
+
+    .compare th,
+    .compare td {
+      padding: 14px 12px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .compare th {
+      background: var(--soft);
+      font-size: 14px;
+    }
+
+    .before {
+      color: var(--red);
+      font-weight: 700;
+    }
+
+    .after {
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .step {
+      min-height: 168px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+      background: var(--soft);
+    }
+
+    .step strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--blue);
+      font-size: 14px;
+    }
+
+    .step p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .timeline {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      overflow: hidden;
+      background: #111827;
+      color: #e5e7eb;
+      margin-top: 18px;
+    }
+
+    .timeline-head {
+      padding: 10px 12px;
+      border-bottom: 1px solid #2f3a4a;
+      color: #cbd5e1;
+      font-size: 13px;
+    }
+
+    .track {
+      display: grid;
+      grid-template-columns: 58px 1fr;
+      align-items: center;
+      min-height: 48px;
+      border-bottom: 1px solid #2f3a4a;
+      font-size: 13px;
+    }
+
+    .track-label {
+      padding: 0 10px;
+      color: #9ca3af;
+    }
+
+    .clips {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      min-width: 0;
+      padding-right: 10px;
+    }
+
+    .clip {
+      height: 24px;
+      border-radius: 4px;
+    }
+
+    .pink { background: #db2777; width: 10%; }
+    .orange { background: #ea580c; width: 13%; }
+    .yellow { background: #ca8a04; width: 9%; }
+    .violet { background: #7c3aed; width: 16%; }
+    .teal { background: #0d9488; width: 15%; }
+    .green { background: #16a34a; width: 13%; }
+    .blue { background: #2563eb; width: 16%; }
+    .cyan { background: #0891b2; width: 8%; }
+
+    .callout {
+      border-left: 5px solid var(--green);
+      border-radius: 8px;
+      background: #f1faf6;
+      padding: 18px;
+    }
+
+    .list {
+      margin: 12px 0 0;
+      padding-left: 20px;
+    }
+
+    .list li {
+      margin: 7px 0;
+    }
+
+    .cta {
+      background: #102a43;
+      color: #fff;
+    }
+
+    .cta p,
+    .cta .muted {
+      color: #d7e2ea;
+    }
+
+    .footer {
+      padding: 28px 0 42px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 920px) {
+      .hero,
+      .two-col,
+      .three-col,
+      .flow {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 36px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap hero">
+      <div>
+        <p class="eyebrow">SCRIPT-DRIVEN EDITING AUTOMATION</p>
+        <h1>台本があれば、荒編まで自動で進められる。</h1>
+        <p class="lead">
+          収録書き起こしや色分け台本から、使い所の抽出、尺計算、ブロック配置、DaVinciの荒編タイムライン作成までをつなぐ編集自動化システムです。
+          人間は「何を使うか」を決め、機械は「探す・並べる・色を付ける・尺を出す」を担当します。
+        </p>
+      </div>
+      <div class="hero-panel">
+        <h3>導入すると変わること</h3>
+        <div class="metric-grid">
+          <div class="metric">
+            <strong>台本→荒編</strong>
+            <span>機械的な配置作業を自動化</span>
+          </div>
+          <div class="metric">
+            <strong>尺確認</strong>
+            <span>編集前に想定尺を見える化</span>
+          </div>
+          <div class="metric">
+            <strong>色分け</strong>
+            <span>台本のブロックをタイムラインへ反映</span>
+          </div>
+          <div class="metric">
+            <strong>修正反映</strong>
+            <span>Docを直して次版を生成</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="wrap">
+        <h2>従来編集と導入後</h2>
+        <p class="muted">
+          番組編集の基本は、探す、切る、並べる、聴く、直す。台本があるなら、その前半の機械作業を自動化できます。
+        </p>
+        <table class="compare">
+          <thead>
+            <tr>
+              <th>工程</th>
+              <th>従来編集</th>
+              <th>導入後</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>素材を探す</td>
+              <td><span class="before">DaVinci上で探す</span></td>
+              <td><span class="after">台本から自動抽出</span></td>
+            </tr>
+            <tr>
+              <td>使う箇所を切る</td>
+              <td><span class="before">手で切り出す</span></td>
+              <td><span class="after">範囲指定から自動配置</span></td>
+            </tr>
+            <tr>
+              <td>台本順に並べる</td>
+              <td><span class="before">手で並べる</span></td>
+              <td><span class="after">荒編タイムラインを生成</span></td>
+            </tr>
+            <tr>
+              <td>尺を見る</td>
+              <td><span class="before">並べてから確認</span></td>
+              <td><span class="after">台本段階で計算</span></td>
+            </tr>
+            <tr>
+              <td>構成を見る</td>
+              <td><span class="before">目視と記憶で追う</span></td>
+              <td><span class="after">色分けと対応表で追う</span></td>
+            </tr>
+            <tr>
+              <td>修正する</td>
+              <td><span class="before">タイムラインを直接直す</span></td>
+              <td><span class="after">台本を直して再生成</span></td>
+            </tr>
+            <tr>
+              <td>時間の使い方</td>
+              <td><span class="before">探す・切る・並べるに時間を使う</span></td>
+              <td><span class="after">聴く・判断する・仕上げるに時間を使う</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>導入・作業手順</h2>
+        <p class="muted">
+          実際の運用では、台本を整え、尺を確認し、荒編を生成してからDaVinciで聴きます。
+        </p>
+        <div class="flow">
+          <div class="step">
+            <strong>1</strong>
+            <h3>台本を読む</h3>
+            <p>Google Doc / CSV</p>
+          </div>
+          <div class="step">
+            <strong>2</strong>
+            <h3>尺を出す</h3>
+            <p>会話 / 復活 / ナレ</p>
+          </div>
+          <div class="step">
+            <strong>3</strong>
+            <h3>荒編を作る</h3>
+            <p>DaVinciタイムライン</p>
+          </div>
+          <div class="step">
+            <strong>4</strong>
+            <h3>色を付ける</h3>
+            <p>ブロック色分け</p>
+          </div>
+          <div class="step">
+            <strong>5</strong>
+            <h3>聴いて判断する</h3>
+            <p>構成 / 温度感 / 間</p>
+          </div>
+          <div class="step">
+            <strong>6</strong>
+            <h3>仕上げる</h3>
+            <p>細かいカット / 音</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap two-col">
+        <div>
+          <h2>作業画面のイメージ</h2>
+          <p class="muted">
+            台本上の色分けを、DaVinciのクリップ色として反映します。まずブロック単位で流れを見て、最後に必要な箇所だけ細かく切ります。
+          </p>
+          <ul class="list">
+            <li>Pink: 導入、反応を見るブロック</li>
+            <li>Orange: 代理戦争、背景説明</li>
+            <li>Violet: 核になる論点</li>
+            <li>Teal: 雑談、息継ぎ、転換</li>
+            <li>Blue: 具体例、制度、山場</li>
+          </ul>
+        </div>
+        <div class="timeline" aria-label="Timeline color blocks">
+          <div class="timeline-head">Block-based rough timeline</div>
+          <div class="track">
+            <div class="track-label">A1</div>
+            <div class="clips">
+              <div class="clip pink"></div>
+              <div class="clip orange"></div>
+              <div class="clip yellow"></div>
+              <div class="clip violet"></div>
+              <div class="clip teal"></div>
+              <div class="clip green"></div>
+              <div class="clip blue"></div>
+            </div>
+          </div>
+          <div class="track">
+            <div class="track-label">A2</div>
+            <div class="clips">
+              <div class="clip pink"></div>
+              <div class="clip orange"></div>
+              <div class="clip yellow"></div>
+              <div class="clip violet"></div>
+              <div class="clip teal"></div>
+              <div class="clip green"></div>
+              <div class="clip blue"></div>
+            </div>
+          </div>
+          <div class="track">
+            <div class="track-label">A3</div>
+            <div class="clips">
+              <div class="clip cyan"></div>
+              <div class="clip cyan"></div>
+              <div class="clip cyan"></div>
+              <div class="clip cyan"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap two-col">
+        <div>
+          <h2>運用ルール</h2>
+          <ul class="list">
+            <li>DaVinciを直接直す前に、まずDoc/CSVを直す。</li>
+            <li>台本が固まるまでは、尺計算レポートを回す。</li>
+            <li>最初の荒編は、行単位ではなくブロック単位で見る。</li>
+            <li>細かいフィラー処理は、構成が見えてから行う。</li>
+            <li>元タイムラインは壊さず、必ず別タイムラインを作る。</li>
+          </ul>
+        </div>
+        <div class="callout">
+          <h2>成果物</h2>
+          <ul class="list">
+            <li>初稿想定尺レポート</li>
+            <li>ブロック色分け計画</li>
+            <li>DaVinci荒編タイムライン</li>
+            <li>元TCと完成TCの対応表</li>
+            <li>v2/v3へ更新できる再実行手順</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="wrap two-col">
+        <div>
+          <h2>まず1本で試す</h2>
+          <p>
+            まずは1本の番組で、既存のGoogle Doc/CSVとDaVinciプロジェクトを使って試します。
+            初回は「尺計算」と「ブロック色分け荒編」までを目標にし、次にナレーション込みの再計算タイムラインへ進みます。
+          </p>
+        </div>
+        <div>
+          <h2>初回セットアップ</h2>
+          <ul class="list">
+            <li>Google Doc / CSVの列を確認</li>
+            <li>元タイムラインと素材名を確認</li>
+            <li>目標尺を設定</li>
+            <li>色分け台本があればPDFを用意</li>
+            <li>別タイムライン名で試作</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p>Platto Doc to DaVinci Workflow / 更新日: 2026-06-21</p>
+    </div>
+  </footer>
+</body>
+</html>
