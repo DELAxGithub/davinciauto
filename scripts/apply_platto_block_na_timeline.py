@@ -114,17 +114,37 @@ def source_segments(timeline: Any, track_index: int, timeline_start: int) -> lis
     return segments
 
 
-def split_block_against_segments(block: dict[str, Any], segments: list[dict[str, Any]], record_base: int) -> list[dict[str, Any]]:
-    start = int(block["source_in_frame"])
-    end = int(block["source_out_frame"])
+def convert_frames(frames: int, from_fps: float, to_fps: float) -> int:
+    if round(from_fps, 3) == round(to_fps, 3):
+        return int(frames)
+    return int(round((int(frames) / from_fps) * to_fps))
+
+
+def split_block_against_segments(
+    block: dict[str, Any],
+    segments: list[dict[str, Any]],
+    record_base: int,
+    contract_fps: float,
+    timeline_fps: float,
+) -> list[dict[str, Any]]:
+    start = convert_frames(int(block["source_in_frame"]), contract_fps, timeline_fps)
+    end = convert_frames(int(block["source_out_frame"]), contract_fps, timeline_fps)
     batches = []
     for segment in segments:
         overlap_start = max(start, int(segment["global_start"]))
         overlap_end = min(end, int(segment["global_end"]))
         if overlap_end <= overlap_start:
             continue
-        local_start = int(segment["source_start"]) + (overlap_start - int(segment["global_start"]))
-        local_end = int(segment["source_start"]) + (overlap_end - int(segment["global_start"]))
+        local_start = int(segment["source_start"]) + convert_frames(
+            overlap_start - int(segment["global_start"]),
+            timeline_fps,
+            contract_fps,
+        )
+        local_end = int(segment["source_start"]) + convert_frames(
+            overlap_end - int(segment["global_start"]),
+            timeline_fps,
+            contract_fps,
+        )
         batches.append(
             {
                 "mediaPoolItem": segment["mediaPoolItem"],
@@ -135,7 +155,7 @@ def split_block_against_segments(block: dict[str, Any], segments: list[dict[str,
             }
         )
     covered = sum(int(item["endFrame"]) - int(item["startFrame"]) for item in batches)
-    expected = end - start
+    expected = int(block["source_out_frame"]) - int(block["source_in_frame"])
     if covered != expected:
         raise RuntimeError(f"block {block['event_id']} source coverage mismatch: {covered} != {expected}")
     return batches
@@ -190,10 +210,11 @@ def apply(resolve: Any) -> dict[str, Any]:
     if output_name in timeline_names(project):
         raise RuntimeError(f"output timeline already exists; refusing overwrite: {output_name}")
 
-    fps = float(source.GetSetting("timelineFrameRate") or 0)
+    timeline_fps = float(source.GetSetting("timelineFrameRate") or 0)
+    contract_fps = float(globals().get("CONTRACT_FPS", 0) or ir.get("fps", 0) or timeline_fps)
     timeline_start = int(source.GetStartFrame())
-    if round(fps, 3) != round(float(ir.get("fps", 0)), 3):
-        raise RuntimeError(f"IR fps {ir.get('fps')} != Resolve fps {fps}")
+    if not timeline_fps or not contract_fps:
+        raise RuntimeError(f"invalid fps values: timeline={timeline_fps}, contract={contract_fps}")
 
     a1_segments = source_segments(source, 1, timeline_start)
     a2_segments = source_segments(source, 2, timeline_start)
@@ -202,14 +223,19 @@ def apply(resolve: Any) -> dict[str, Any]:
     summary = {
         "source_timeline": source_name,
         "output_timeline": output_name,
-        "fps": fps,
+        "timeline_fps": timeline_fps,
+        "contract_fps": contract_fps,
         "timeline_start": timeline_start,
         "dry_run": dry_run,
         "keep_blocks": len(keep_events),
         "na_items": len(na_events),
         "a1_source_segments": [{k: v for k, v in item.items() if k != "mediaPoolItem"} for item in a1_segments],
         "a2_source_segments": [{k: v for k, v in item.items() if k != "mediaPoolItem"} for item in a2_segments],
-        "final_duration_frames": ir.get("summary", {}).get("final_duration_frames"),
+        "final_duration_frames": convert_frames(
+            int(ir.get("summary", {}).get("final_duration_frames") or 0),
+            contract_fps,
+            timeline_fps,
+        ),
         "final_duration_seconds": ir.get("summary", {}).get("final_duration_seconds"),
     }
     if dry_run:
@@ -235,10 +261,10 @@ def apply(resolve: Any) -> dict[str, Any]:
     na_batches = []
     na_meta = []
     for event in events:
-        record = timeline_start + int(event["record_start_frame"])
+        record = timeline_start + convert_frames(int(event["record_start_frame"]), contract_fps, timeline_fps)
         if event["type"] == "KEEP_BLOCK":
-            a1_parts = split_block_against_segments(event, a1_segments, record)
-            a2_parts = split_block_against_segments(event, a2_segments, record)
+            a1_parts = split_block_against_segments(event, a1_segments, record, contract_fps, timeline_fps)
+            a2_parts = split_block_against_segments(event, a2_segments, record, contract_fps, timeline_fps)
             for part in a1_parts:
                 batch1.append({"trackIndex": 1, **part})
                 block_meta1.append({"track": 1, "event": event})
@@ -250,7 +276,7 @@ def apply(resolve: Any) -> dict[str, Any]:
             wav_path = na_dir / f"{event['speaker']}.wav"
             if not clip:
                 raise RuntimeError(f"NA clip not found: {event['speaker']}")
-            duration = wav_duration_frames(wav_path, fps)
+            duration = wav_duration_frames(wav_path, timeline_fps)
             na_batches.append(
                 {
                     "mediaPoolItem": clip,
@@ -286,8 +312,8 @@ def apply(resolve: Any) -> dict[str, Any]:
 
     markers_added = 0
     for event in events:
-        frame = timeline_start + int(event["record_start_frame"])
-        duration = max(1, int(event.get("duration_frames") or 1))
+        frame = timeline_start + convert_frames(int(event["record_start_frame"]), contract_fps, timeline_fps)
+        duration = max(1, convert_frames(int(event.get("duration_frames") or 1), contract_fps, timeline_fps))
         if event["type"] == "KEEP_BLOCK":
             color = "Green"
             name = f"{event['event_id']} {event.get('color') or ''}".strip()
