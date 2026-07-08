@@ -245,13 +245,11 @@ def apply(resolve: Any) -> dict[str, Any]:
     if not target:
         raise RuntimeError("Resolve rejected timeline duplication")
     project.SetCurrentTimeline(target)
-    deleted = {
-        "A1": delete_track(target, "audio", 1),
-        "A2": delete_track(target, "audio", 2),
-    }
     if target.GetTrackCount("audio") < 3:
         target.AddTrack("audio")
-    deleted["A3"] = delete_track(target, "audio", 3)
+    deleted = {}
+    for track_index in range(1, int(target.GetTrackCount("audio") or 0) + 1):
+        deleted[f"A{track_index}"] = delete_track(target, "audio", track_index)
 
     na_clips = import_na_media(media_pool, na_dir)
     batch1 = []
